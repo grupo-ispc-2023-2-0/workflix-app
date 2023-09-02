@@ -1,7 +1,9 @@
 # Workflix App
-Trabajo gruopal del 2do Cuatrimestre de la Tecnicatura en Desarrollo de Software y Aplicaciones Móviles del ISPC
+Trabajo grupal del 2do Cuatrimestre de la Tecnicatura en Desarrollo Web y Aplicaciones Móviles del ISPC
 
-# Integrantes
+### </div><br /><br /></b>
+
+## Integrantes
 - ÁLVAREZ, Natalia
 - DELGADO, Marcelo Enrique
 - DÍAZ, Yandira
@@ -10,3 +12,16 @@ Trabajo gruopal del 2do Cuatrimestre de la Tecnicatura en Desarrollo de Software
 - LÓPEZ, Erick
 - LORENTI, Valentino
 - TRONCOSO, Brian
+
+### </div><br /><br /></b>
+## Documentación
+
+* [IEEE830](https://github.com/grupo-ispc-2023-2-0/workflix-app/wiki/Documento-IEEE830)
+* [Diagrama de casos de uso](https://github.com/grupo-ispc-2023-2-0/workflix-app/wiki/Diagrama-de-casos-de-uso)
+* [Diagrama de clases](https://github.com/grupo-ispc-2023-2-0/workflix-app/wiki/Diagrama-de-clases)
+* [Diagrama Entidad Relación](https://github.com/grupo-ispc-2023-2-0/workflix-app/wiki/Diagrama-Entidad%E2%80%90Relaci%C3%B3n)
+* [Diagrama Relacional](https://github.com/grupo-ispc-2023-2-0/workflix-app/wiki/Diagrama-Relacional)
+* [Mapa del sitio](https://github.com/grupo-ispc-2023-2-0/workflix-app/wiki/Mapa-del-sitio)
+* [Daily]()
+* [Planning, Review, Retrospective](https://github.com/grupo-ispc-2023-2-0/workflix-app/wiki/Planning-%E2%80%90-Retrospective-%E2%80%90-Review)
+* [Perspectiva del Producto](https://github.com/grupo-ispc-2023-2-0/workflix-app/wiki/Perspectiva-del-producto)
