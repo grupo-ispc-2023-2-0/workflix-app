@@ -4,7 +4,7 @@ Trabajo grupal del 2do Cuatrimestre de la Tecnicatura en Desarrollo Web y Aplica
 ### </div><br /><br /></b>
 
 ## Integrantes
-- ÁLVAREZ, Natalia
+- ALVAREZ, Natalia
 - DELGADO, Marcelo Enrique
 - DÍAZ, Yandira
 - GIMÉNEZ, Diego Fabian
@@ -22,6 +22,10 @@ Trabajo grupal del 2do Cuatrimestre de la Tecnicatura en Desarrollo Web y Aplica
 * [Diagrama Entidad Relación](https://github.com/grupo-ispc-2023-2-0/workflix-app/wiki/Diagrama-Entidad%E2%80%90Relaci%C3%B3n)
 * [Diagrama Relacional](https://github.com/grupo-ispc-2023-2-0/workflix-app/wiki/Diagrama-Relacional)
 * [Mapa del sitio](https://github.com/grupo-ispc-2023-2-0/workflix-app/wiki/Mapa-del-sitio)
-* [Daily]()
+* [Daily](https://github.com/orgs/grupo-ispc-2023-2-0/discussions)
 * [Planning, Review, Retrospective](https://github.com/grupo-ispc-2023-2-0/workflix-app/wiki/Planning-%E2%80%90-Retrospective-%E2%80%90-Review)
 * [Perspectiva del Producto](https://github.com/grupo-ispc-2023-2-0/workflix-app/wiki/Perspectiva-del-producto)
+
+### </div><br /><br /></b>
+## [Repositorio 1er. Cuatrimestre 2023](https://github.com/grupo-ispc-2023/workflix)
+## [Web proyecto workflix](https://workflix.com.ar)
