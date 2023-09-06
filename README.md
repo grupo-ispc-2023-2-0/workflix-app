@@ -11,7 +11,7 @@ Trabajo grupal del 2do Cuatrimestre de la Tecnicatura en Desarrollo Web y Aplica
 - GÓMEZ, Mariela
 - LÓPEZ, Erick
 - LORENTI, Valentino
-- TRONCOSO, Brian
+- TRONCOSO, Braian
 
 ### </div><br /><br /></b>
 ## Documentación
