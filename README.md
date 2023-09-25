@@ -1,5 +1,5 @@
 # Workflix App
-Trabajo grupal del 2do Cuatrimestre de la Tecnicatura en Desarrollo Web y Aplicaciones Móviles del ISPC
+Trabajo grupal del 2do Cuatrimestre de la Tecnicatura en Desarrollo Web y Aplicaciones Móviles del ISPC.
 
 ### </div><br /><br /></b>
 
