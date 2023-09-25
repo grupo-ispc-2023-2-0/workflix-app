@@ -6,19 +6,14 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 tools:context=".views.MainActivity">
 <!-- Agrega un botón -->
-<Button
-    android:id="@+id/btnMostrarUsuarios"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Workflix Aplicacion"
-    android:layout_centerHorizontal="true"
-    android:layout_marginTop="16dp" />
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:onClick="ir"
+        android:text="IR A LOGIN" />
 
 <!-- Agrega un ListView para mostrar los usuarios -->
-<ListView
-    android:id="@+id/listViewUsuarios"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_below="@id/btnMostrarUsuarios"
-    android:layout_marginTop="16dp" />
 </RelativeLayout>
