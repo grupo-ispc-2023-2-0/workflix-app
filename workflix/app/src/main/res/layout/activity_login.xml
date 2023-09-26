@@ -47,11 +47,13 @@
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="32dp"
         android:hint="@string/prompt_password"
         android:imeActionLabel="@string/action_sign_in_short"
         android:imeOptions="actionDone"
         android:inputType="textPassword"
         android:selectAllOnFocus="true"
+        app:layout_constraintBottom_toTopOf="@+id/login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,14 +63,14 @@
         android:id="@+id/username"
         android:layout_width="300dp"
         android:layout_height="48dp"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="32dp"
         android:hint="@string/prompt_email"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/custom_toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <Button
         android:id="@+id/login"
@@ -109,7 +111,9 @@
         android:layout_width="409dp"
         android:layout_height="2dp"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="32dp"
         android:background="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -152,81 +156,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/user_profile_circle" />
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/custom_toolbar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:elevation="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <!-- Icono de menú desplegable en la esquina izquierda -->
-
-            <!-- Imagen en el centro -->
-
-            <!-- Logo de perfil en la esquina derecha -->
-
-            <ImageView
-                android:id="@+id/menu_icon"
-                android:layout_width="43dp"
-                android:layout_height="45dp"
-                android:layout_alignParentTop="true"
-
-                android:layout_gravity="start"
-                android:layout_marginTop="2dp"
-                android:layout_marginEnd="13dp"
-                android:layout_toStartOf="@+id/center_image"
-                android:src="@drawable/menu_01"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="28dp"
-                tools:srcCompat="@drawable/menu_01" />
-
-            <ImageView
-                android:id="@+id/center_image"
-                android:layout_width="240dp"
-                android:layout_height="44dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="1dp"
-                android:layout_marginEnd="57dp"
-                android:src="@drawable/logo_workflix_1"
-                tools:layout_editor_absoluteX="100dp"
-                tools:layout_editor_absoluteY="28dp"
-                tools:srcCompat="@drawable/logo_workflix_1" />
-
-            <ImageView
-                android:id="@+id/profile_logo"
-                android:layout_width="42dp"
-                android:layout_height="52dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-
-                android:src="@drawable/user_profile_circle"
-                android:visibility="visible"
-                tools:layout_editor_absoluteX="50dp"
-                tools:layout_editor_absoluteY="50dp"
-                tools:srcCompat="@drawable/user_profile_circle"
-                tools:visibility="visible" />
-        </RelativeLayout>
-
-    </androidx.appcompat.widget.Toolbar>
-
     <androidx.constraintlayout.widget.Group
         android:id="@+id/group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="imageView3,textView3" />
+        app:constraint_referenced_ids="imageView3,textView3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="top"
-        app:constraint_referenced_ids="textView3" />
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="325dp"
+        android:layout_height="133dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/username"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_workflix_1" />
 </androidx.constraintlayout.widget.ConstraintLayout>
