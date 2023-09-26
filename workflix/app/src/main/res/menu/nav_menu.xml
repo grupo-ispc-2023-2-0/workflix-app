@@ -22,10 +22,12 @@
               android:title="Settings"-->
 
         <item
-            android:id="@+id/nav_share"
-            android:icon="@drawable/nav_share"
-            android:title="Share"/>
-
+            android:id="@+id/nav_contact_mail"
+            android:icon="@drawable/nav_contact_mail"
+            android:title="Contact Mail"/>
+      <!--  android:id="@+id/nav_share"
+        android:icon="@drawable/nav_share"
+        android:title="Share"-->
         <item
             android:id="@+id/nav_about"
             android:icon="@drawable/nav_about"
