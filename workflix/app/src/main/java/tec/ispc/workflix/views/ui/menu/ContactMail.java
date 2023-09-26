@@ -11,8 +11,7 @@ import android.view.ViewGroup;
 import tec.ispc.workflix.R;
 
 
-public class nav_contact_mail extends Fragment {
-
+public class ContactMail extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

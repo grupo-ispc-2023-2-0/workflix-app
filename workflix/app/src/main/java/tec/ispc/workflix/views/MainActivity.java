@@ -69,9 +69,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         /*else if (itemId == R.id.nav_settings) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SettingsFragment()).commit();
-        }*/ else if (itemId == R.id.nav_share) {
+        }*/ /*else if (itemId == R.id.nav_share) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ShareFragment()).commit();
-        } else if (itemId == R.id.nav_about) {
+        }*/
+        else if (itemId == R.id.nav_contact_mail) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ContactMail()).commit();
+        }
+        else if (itemId == R.id.nav_about) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AboutFragment()).commit();
         } else if (itemId == R.id.nav_logout) {
             // Realizar cualquier acción de cierre de sesión que necesites
