@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getSupportActionBar().setCustomView(R.layout.custom_toolbar);
     }
 
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
@@ -74,8 +73,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-
-
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -84,8 +81,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
         }
     }
-
-
 
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
