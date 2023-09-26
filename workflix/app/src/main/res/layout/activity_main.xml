@@ -41,7 +41,10 @@
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/nav_menu"
         app:itemIconTint="@color/black"
-        app:itemTextColor="@color/black"/>
+        app:itemTextColor="@color/black"
+        android:background="@color/white"
+
+        />
 <!--
     <Button
         android:id="@+id/btnLogin"
