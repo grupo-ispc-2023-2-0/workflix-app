@@ -9,4 +9,6 @@
     <string name="invalid_username">No es un correo válido</string>
     <string name="invalid_password">La clave debe tener >5 caracteres</string>
     <string name="login_failed">"Login failed"</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
