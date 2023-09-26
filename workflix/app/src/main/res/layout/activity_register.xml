@@ -45,7 +45,7 @@
         android:layout_marginBottom="16dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Nombre"
+        android:hint="Nombre"
         app:layout_constraintBottom_toTopOf="@+id/editTextText2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -61,7 +61,7 @@
         android:layout_marginBottom="16dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Apellido"
+        android:hint="Apellido"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -75,7 +75,7 @@
         android:layout_marginBottom="16dp"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:text="Correo"
+        android:hint="Correo"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -92,7 +92,6 @@
         android:imeOptions="actionDone"
         android:inputType="textPassword"
         android:selectAllOnFocus="true"
-        android:text="Clave"
         app:layout_constraintBottom_toTopOf="@+id/editTextPhone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -105,11 +104,11 @@
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
         android:ems="10"
+        android:hint="Teléfono"
         android:inputType="phone"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="Teléfono" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button"
