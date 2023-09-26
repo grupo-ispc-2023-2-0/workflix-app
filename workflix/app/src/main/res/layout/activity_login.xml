@@ -22,6 +22,7 @@
         android:layout_marginBottom="60dp"
         android:backgroundTint="@color/azul"
         android:enabled="true"
+        android:onClick="irRegistro"
         android:text="Registrarse"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
