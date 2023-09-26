@@ -2,17 +2,13 @@ package tec.ispc.workflix.views;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import tec.ispc.workflix.R;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.view.MenuItem;
-
 import com.google.android.material.navigation.NavigationView;
-
 import tec.ispc.workflix.views.ui.menu.HomeFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -24,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = findViewById(R.id.toolbar); //Ignore red line errors
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -40,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_home);
         }
+        // Desactiva el título predeterminado
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         // Habilita la vista personalizada
