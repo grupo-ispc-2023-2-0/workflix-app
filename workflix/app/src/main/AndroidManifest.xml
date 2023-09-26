@@ -18,7 +18,12 @@
         <activity
             android:name=".views.ui.login.LoginActivity"
             android:exported="false"
-            android:label="@string/title_activity_login" />
+            android:label="@string/title_activity_login"
+            android:parentActivityName=".views.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.MainActivity" />
+        </activity>
         <activity
             android:name=".views.MainActivity"
             android:exported="true">
