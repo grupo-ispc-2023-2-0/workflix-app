@@ -40,7 +40,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_home);
         }
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        // Habilita la vista personalizada
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+
+        // Establece el diseño personalizado
+        getSupportActionBar().setCustomView(R.layout.custom_toolbar);
     }
+
 
 /*    @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
