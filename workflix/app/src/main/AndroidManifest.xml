@@ -14,21 +14,50 @@
         tools:targetApi="31">
         <activity
             android:name=".views.ui.restablecer.RestablecerActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Restablecer"
+            android:parentActivityName=".views.ui.login.LoginActivity"
+            android:theme="@style/Theme.Workflix2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.ui.login.LoginActivity" />
+        </activity>
         <activity
             android:name=".views.ui.perfil.CrearPerfilActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Crear Perfil"
+            android:parentActivityName=".views.ui.perfil_terminos.PerfilTerminosActivity"
+            android:theme="@style/Theme.Workflix2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.ui.perfil_terminos.PerfilTerminosActivity" />
+        </activity>
         <activity
             android:name=".views.ui.eliminar_cuenta.EliminarCuentaActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Eliminar Cuenta"
+            android:parentActivityName=".views.ui.perfil.CrearPerfilActivity"
+            android:theme="@style/Theme.Workflix2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.ui.perfil.CrearPerfilActivity" />
+        </activity>
+
         <activity
             android:name=".views.ui.perfil_terminos.PerfilTerminosActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Perfil"
+            android:parentActivityName=".views.ui.login.LoginActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".views.ui.login.LoginActivity" />
+        </activity>
+
         <activity
             android:name=".views.ui.register.RegisterActivity"
             android:exported="false"
             android:label="Registro"
-            android:parentActivityName=".views.MainActivity"
+            android:parentActivityName=".views.ui.login.LoginActivity"
             android:theme="@style/Theme.Workflix2">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
