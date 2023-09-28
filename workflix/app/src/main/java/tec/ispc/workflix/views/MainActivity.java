@@ -18,6 +18,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import tec.ispc.workflix.views.ui.login.LoginActivity;
 import tec.ispc.workflix.views.ui.menu.*;
+import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -65,6 +66,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         else if (itemId == R.id.nav_login) {
             // Iniciar la actividad de login
             Intent loginIntent = new Intent(this, LoginActivity.class);
+            startActivity(loginIntent);
+        }
+        else if (itemId == R.id.nav_perfil_terminos) {
+            // Iniciar la actividad de login
+            Intent loginIntent = new Intent(this, PerfilTerminosActivity.class);
             startActivity(loginIntent);
         }
         /*else if (itemId == R.id.nav_settings) {
