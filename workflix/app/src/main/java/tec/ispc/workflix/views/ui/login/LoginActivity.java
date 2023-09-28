@@ -27,6 +27,7 @@ import tec.ispc.workflix.R;
 import tec.ispc.workflix.views.ui.login.LoginViewModel;
 import tec.ispc.workflix.views.ui.login.LoginViewModelFactory;
 import tec.ispc.workflix.databinding.ActivityLoginBinding;
+import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
 import tec.ispc.workflix.views.ui.register.RegisterActivity;
 
 public class LoginActivity extends AppCompatActivity {
@@ -135,10 +136,9 @@ public class LoginActivity extends AppCompatActivity {
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
-
     public void irRegistro(View view) {
         Intent registroIntent = new Intent(this, RegisterActivity.class);
         startActivity(registroIntent);
-
     }
+
 }

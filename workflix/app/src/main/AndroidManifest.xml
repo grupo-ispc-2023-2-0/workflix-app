@@ -13,20 +13,33 @@
         android:theme="@style/Theme.Workflix"
         tools:targetApi="31">
         <activity
+            android:name=".views.ui.restablecer.RestablecerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.ui.perfil.CrearPerfilActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.ui.eliminar_cuenta.EliminarCuentaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.ui.perfil_terminos.PerfilTerminosActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.ui.register.RegisterActivity"
             android:exported="false"
             android:label="Registro"
-            android:parentActivityName=".views.MainActivity">
+            android:parentActivityName=".views.MainActivity"
+            android:theme="@style/Theme.Workflix2">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".views.MainActivity" />
+                android:value=".views.ui.login.LoginActivity" />
         </activity>
-
         <activity
             android:name=".views.ui.login.LoginActivity"
             android:exported="false"
-            android:label="@string/title_activity_login"
-            android:parentActivityName=".views.MainActivity">
+            android:label="Login"
+            android:parentActivityName=".views.MainActivity"
+            android:theme="@style/Theme.Workflix2">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".views.MainActivity" />
