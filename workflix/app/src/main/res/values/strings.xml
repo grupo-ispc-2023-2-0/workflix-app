@@ -9,6 +9,10 @@
     <string name="ofrecer_servicios">Ofrecer Servicios</string>
     <string name="action_sign_in_short">Iniciar</string>
     <string name="contact">Formulario de contacto</string>
+    <string name="sobre_nosotros">¿Quienes somos y qué es WorkFlix?</string>
+    <string name="descripcion">Encuentra profesionales confiables para tus necesidades de mantenimiento en casa u oficina. Contacta, obtén presupuestos transparentes y mantén tu privacidad. Explora categorías; todos los profesionales son verificados y calificados por otros usuarios.</string>
+    <string name="desarrollado_por">
+¡Hola a todos! Somos un grupo apasionado de estudiantes del ISPC y estamos emocionados de presentarles WorkFlix, una aplicación que hemos diseñado pensando en su comodidad.</string>
     <string name="perfil">Editar perfil</string>
     <string name="perfil2">Publicar Servicio</string>
     <string name="cerrar">Cerrar Sesión</string>
