@@ -1,23 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@android:color/background_light"
+    android:background="@color/white"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".views.ui.menu.AboutFragment">
 
     <TextView
+        android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
         android:padding="16dp"
-        android:textAlignment="center"
-        android:layout_gravity="center"
-        android:layout_centerInParent="true"
         android:text="@string/sobre_nosotros"
-        android:textColor="@color/black"/>
+        android:textAlignment="center"
+        android:textColor="@color/verde1"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="390dp"
+        android:layout_height="140dp"
+        android:padding="10dp"
+        android:text="@string/desarrollado_por"
+        android:textAlignment="center"
+        android:textColor="@color/grey2"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.761"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView10"
+        app:layout_constraintVertical_bias="0.263"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="390dp"
+        android:layout_height="290dp"
+        android:padding="10dp"
+        android:text="@string/descripcion"
+        android:textAlignment="center"
+        android:textColor="@color/grey2"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.688"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/linkTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:linksClickable="true"
+        android:text="Toca para visitar nuestro sitio web"
+        android:textColor="@color/verde1"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintVertical_bias="0.433"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
