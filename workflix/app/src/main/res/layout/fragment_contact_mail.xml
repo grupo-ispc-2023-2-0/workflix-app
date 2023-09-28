@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:hint="Nombre"
             android:inputType="textPersonName"
-            android:textColorHint="@color/grey"
+            android:textColorHint="@color/grey2"
             android:textColor="@color/black"
             />
 
@@ -36,7 +36,7 @@
             android:hint="Apellido"
             android:inputType="textPersonName"
             android:textColor="@color/black"
-            android:textColorHint="@color/grey"/>
+            android:textColorHint="@color/grey2"/>
 
         <EditText
             android:id="@+id/editTextEmail"
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:hint="Correo Electrónico"
             android:inputType="textEmailAddress"
-            android:textColorHint="@color/grey"
+            android:textColorHint="@color/grey2"
             android:textColor="@color/black"
             />
 
@@ -56,7 +56,7 @@
             android:inputType="textMultiLine"
             android:minLines="3"
             android:maxLines="5"
-            android:textColorHint="@color/grey"
+            android:textColorHint="@color/grey2"
             android:textColor="@color/black"/>
 
         <Button
