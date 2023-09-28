@@ -23,4 +23,11 @@
 
     <string name="open_nav">Open Navigation Drawer</string>
     <string name="close_nav">Close Navigation Drawer</string>
+    <string name="Editar_perfil">Editar Perfil</string>
+    <string name="Subir_Foto">Subir Foto</string>
+    <string name="Editar_datos">Editar Datos</string>
+    <string name="Eliminar_Cuenta">Eliminar Cuenta</string>
+    <string name="Cerrar_sesion">Cerrar Sesion</string>
+    <string name="Nombre_Apellido">Nombre y Apellido</string>
+    <string name="Servicio">Tipo de servicios</string>
 </resources>
