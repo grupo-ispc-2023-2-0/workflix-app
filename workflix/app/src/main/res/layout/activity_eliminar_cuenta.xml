@@ -8,10 +8,12 @@
 
     <Button
         android:id="@+id/button8"
+        style="@style/Widget.MaterialComponents.Button"
         android:layout_width="300dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:layout_marginTop="8dp"
-        android:backgroundTint="?android:attr/windowSplashScreenIconBackgroundColor"
+        android:backgroundTint="@color/white"
+        android:onClick="cancelar"
         android:text="Cancelar"
         android:textColor="@android:color/secondary_text_light"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,27 +23,14 @@
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="226dp"
-        android:layout_height="63dp"
+        android:layout_width="158dp"
+        android:layout_height="48dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_workflix_1" />
-
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="116dp"
-        android:layout_height="74dp"
-        android:layout_marginTop="100dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/warning" />
 
     <TextView
         android:id="@+id/textView5"
@@ -70,14 +59,17 @@
 
     <Button
         android:id="@+id/button4"
+        style="@style/Widget.MaterialComponents.Button"
         android:layout_width="300dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="80dp"
         android:backgroundTint="@android:color/holo_red_light"
+        android:onClick="eliminarCuenta"
         android:text="Eliminar Cuenta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="482dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <ImageView
         android:id="@+id/imageView12"
