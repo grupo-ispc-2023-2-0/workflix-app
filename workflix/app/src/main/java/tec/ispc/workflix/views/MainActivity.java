@@ -78,8 +78,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         else if (itemId == R.id.nav_about) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AboutFragment()).commit();
         } else if (itemId == R.id.nav_logout) {
-            // Realizar cualquier acción de cierre de sesión que necesites
-            Toast.makeText(this, "Logout!", Toast.LENGTH_SHORT).show();
+            finishAffinity();
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
