@@ -24,21 +24,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nombre"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColorHint="@color/grey"
+            android:textColor="@color/black"
+            />
 
         <EditText
             android:id="@+id/editTextLastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Apellido"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey"/>
 
         <EditText
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Correo Electrónico"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:textColorHint="@color/grey"
+            android:textColor="@color/black"
+            />
 
         <EditText
             android:id="@+id/editTextDescription"
@@ -47,7 +55,9 @@
             android:hint="¿En que te podemos ayudar?"
             android:inputType="textMultiLine"
             android:minLines="3"
-            android:maxLines="5" />
+            android:maxLines="5"
+            android:textColorHint="@color/grey"
+            android:textColor="@color/black"/>
 
         <Button
             android:id="@+id/btn_enviar"
