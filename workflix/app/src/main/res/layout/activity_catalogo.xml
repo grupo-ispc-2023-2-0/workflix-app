@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.ui.catalogo.CatalogoActivity">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="158dp"
+        android:layout_height="47dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022"
+        app:srcCompat="@drawable/logo_workflix_1" />
+
+    <android.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="632dp"
+        android:background="@drawable/searchview_border"
+        android:iconifiedByDefault="false"
+        android:queryHint="Buscar profesional"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchView">
+
+        <LinearLayout
+            android:id="@+id/filterButtonsLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/arrowLeft"
+                android:layout_width="@dimen/arrow_size"
+                android:layout_height="@dimen/arrow_size"
+                android:src="@drawable/flecha_izquierda_filter" />
+
+            <Button
+                android:id="@+id/btnFilterElectricista"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/verde1"
+                android:text="Electricista"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/btnFilterAlbañil"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/verde1"
+                android:text="Albañil"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/btnFilterPlomero"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/verde1"
+                android:text="Plomero"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/btnFilterPintor"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/verde1"
+                android:text="Pintor"
+                android:textColor="@color/black" />
+
+            <ImageView
+                android:id="@+id/arrowRight"
+                android:layout_width="@dimen/arrow_size"
+                android:layout_height="@dimen/arrow_size"
+                android:src="@drawable/flecha_derecha_filter"
+                android:visibility="visible" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
