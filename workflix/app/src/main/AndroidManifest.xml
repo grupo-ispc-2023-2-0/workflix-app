@@ -47,7 +47,8 @@
             android:name=".views.ui.perfil_terminos.PerfilTerminosActivity"
             android:exported="false"
             android:label="Perfil"
-            android:parentActivityName=".views.ui.login.LoginActivity">
+            android:parentActivityName=".views.ui.login.LoginActivity"
+            android:theme="@style/Theme.Workflix2">
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value=".views.ui.login.LoginActivity" />
