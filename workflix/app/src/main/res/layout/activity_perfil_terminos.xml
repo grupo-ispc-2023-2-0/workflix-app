@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Perfil_terminos">
+    tools:context=".views.ui.perfil_terminos.PerfilTerminosActivity">
 
     <ImageView
         android:id="@+id/imageView5"
@@ -16,19 +16,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_workflix_1" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="39dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="356dp"
-        android:layout_marginBottom="544dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView3"
-        app:layout_constraintHorizontal_bias="0.694"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/user_profile_circle" />
+        app:srcCompat="@drawable/logo_workflix_1"
+        tools:ignore="UnknownIdInLayout" />
 
     <Button
         android:id="@+id/btn_Perfil_terminos"
@@ -96,14 +85,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="48dp"
-        android:layout_height="44dp"
-        android:src="@drawable/menu_01"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="17dp" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,10 +16,10 @@
             android:name=".views.ui.perfil.CrearPerfilActivity"
             android:exported="false" />
         <activity
-            android:name=".activity_pagina_perfil"
+            android:name=".views.ui.eliminar_cuenta.EliminarCuentaActivity"
             android:exported="false" />
         <activity
-            android:name=".Perfil_terminos"
+            android:name=".views.ui.perfil_terminos.PerfilTerminosActivity"
             android:exported="false" />
         <activity
             android:name=".views.ui.register.RegisterActivity"
