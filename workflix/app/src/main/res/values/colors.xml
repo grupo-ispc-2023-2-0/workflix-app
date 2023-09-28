@@ -10,4 +10,6 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="grey2">#616161</color>
+    <color name="grey">#191C1E</color>
+
 </resources>
