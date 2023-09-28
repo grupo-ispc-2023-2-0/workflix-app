@@ -132,7 +132,7 @@
         android:layout_marginTop="45dp"
         android:layout_marginEnd="32dp"
         android:backgroundTint="@color/verde1"
-        android:onClick="irLogin"
+        android:onClick="irPerfil"
         android:text="Registrarse"
         android:textColor="@color/azul"
         app:layout_constraintEnd_toEndOf="parent"
