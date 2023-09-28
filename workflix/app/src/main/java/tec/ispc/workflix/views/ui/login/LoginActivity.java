@@ -140,8 +140,5 @@ public class LoginActivity extends AppCompatActivity {
         Intent registroIntent = new Intent(this, RegisterActivity.class);
         startActivity(registroIntent);
     }
-    public void irPerfil(View view) {
-        Intent irPerfilIntent = new Intent(this, PerfilTerminosActivity.class);
-        startActivity(irPerfilIntent);
-    }
+
 }
