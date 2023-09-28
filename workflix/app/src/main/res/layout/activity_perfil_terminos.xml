@@ -29,6 +29,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
         android:backgroundTint="@color/verde1"
+        android:onClick="irPerfilEditar"
         android:text="@string/perfil"
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/btn_Perfil_terminos_con"
