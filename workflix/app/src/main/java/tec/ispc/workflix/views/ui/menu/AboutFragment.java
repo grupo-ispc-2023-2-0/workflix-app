@@ -25,7 +25,7 @@ public class AboutFragment extends Fragment {
         linkTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = "https://www.google.com.ar";
+                String url = "https://acceso.ispc.edu.ar/login/index.php";
 
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
 
