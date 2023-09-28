@@ -17,7 +17,7 @@
     <string name="perfil2">Publicar Servicio</string>
     <string name="cerrar">Cerrar Sesión</string>
     <string name="terminos">Terminos y condiciones</string>
-    <string name="welcome">"Bienvenido !"</string>
+    <string name="welcome">"Bienvenido "</string>
     <string name="invalid_username">No es un correo válido</string>
     <string name="invalid_password">La clave debe tener >5 caracteres</string>
     <string name="login_failed">"Login failed"</string>

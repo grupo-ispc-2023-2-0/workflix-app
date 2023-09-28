@@ -29,6 +29,7 @@ import tec.ispc.workflix.views.ui.login.LoginViewModelFactory;
 import tec.ispc.workflix.databinding.ActivityLoginBinding;
 import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
 import tec.ispc.workflix.views.ui.register.RegisterActivity;
+import tec.ispc.workflix.views.ui.restablecer.RestablecerActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -140,8 +141,9 @@ public class LoginActivity extends AppCompatActivity {
         Intent registroIntent = new Intent(this, RegisterActivity.class);
         startActivity(registroIntent);
     }
-    public void irPerfil(View view) {
-        Intent irPerfilIntent = new Intent(this, PerfilTerminosActivity.class);
-        startActivity(irPerfilIntent);
+    public void irRestablecer(View view) {
+        Intent restablecerIntent = new Intent(this, RestablecerActivity.class);
+        startActivity(restablecerIntent);
     }
+
 }

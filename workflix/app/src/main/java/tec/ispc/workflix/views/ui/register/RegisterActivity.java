@@ -8,6 +8,7 @@ import android.view.View;
 
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.views.ui.login.LoginActivity;
+import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -21,5 +22,9 @@ public class RegisterActivity extends AppCompatActivity {
         Intent loginIntent = new Intent(this, LoginActivity.class);
         startActivity(loginIntent);
 
+    }
+    public void irPerfil(View view) {
+        Intent irPerfilIntent = new Intent(this, PerfilTerminosActivity.class);
+        startActivity(irPerfilIntent);
     }
 }
