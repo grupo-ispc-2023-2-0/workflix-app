@@ -133,6 +133,7 @@
     </GridLayout>
 
 
+
     <Button
         android:id="@+id/btn_Perfil_terminos"
         style="@style/Widget.MaterialComponents.Button"
@@ -154,6 +155,7 @@
         app:layout_constraintVertical_bias="0.83"
         tools:ignore="UnknownId" />
 
+
     <Button
         android:id="@+id/btn_Perfil_terminos_con"
         style="@style/Widget.MaterialComponents.Button"
@@ -172,6 +174,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_Perfil_terminos"
         app:layout_constraintVertical_bias="0.176" />
+
 
     <Button
         android:id="@+id/btn_Cerrar_sesion"

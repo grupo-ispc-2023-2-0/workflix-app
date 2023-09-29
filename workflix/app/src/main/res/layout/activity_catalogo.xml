@@ -4,19 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".views.ui.catalogo.CatalogoActivity">
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="158dp"
-        android:layout_height="47dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.022"
-        app:srcCompat="@drawable/logo_workflix_1" />
 
     <android.widget.SearchView
         android:id="@+id/searchView"
@@ -24,14 +13,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="632dp"
         android:background="@drawable/searchview_border"
         android:iconifiedByDefault="false"
         android:queryHint="Buscar profesional"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.0" />
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
@@ -54,8 +44,8 @@
 
             <ImageView
                 android:id="@+id/arrowLeft"
-                android:layout_width="@dimen/arrow_size"
-                android:layout_height="@dimen/arrow_size"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
                 android:src="@drawable/flecha_izquierda_filter" />
 
             <Button
@@ -65,7 +55,9 @@
                 android:layout_marginEnd="8dp"
                 android:backgroundTint="@color/verde1"
                 android:text="Electricista"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                app:cornerRadius="32dp" />
 
             <Button
                 android:id="@+id/btnFilterAlbañil"
@@ -74,7 +66,9 @@
                 android:layout_marginEnd="8dp"
                 android:backgroundTint="@color/verde1"
                 android:text="Albañil"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                app:cornerRadius="32dp"/>
 
             <Button
                 android:id="@+id/btnFilterPlomero"
@@ -83,7 +77,9 @@
                 android:layout_marginEnd="8dp"
                 android:backgroundTint="@color/verde1"
                 android:text="Plomero"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                app:cornerRadius="32dp"/>
 
             <Button
                 android:id="@+id/btnFilterPintor"
@@ -92,17 +88,166 @@
                 android:layout_marginEnd="8dp"
                 android:backgroundTint="@color/verde1"
                 android:text="Pintor"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                app:cornerRadius="32dp"/>
 
             <ImageView
                 android:id="@+id/arrowRight"
                 android:layout_width="@dimen/arrow_size"
                 android:layout_height="@dimen/arrow_size"
                 android:src="@drawable/flecha_derecha_filter"
-                android:visibility="visible" />
+                android:visibility="visible"
+                android:textSize="10sp"
+                app:cornerRadius="32dp" />
 
         </LinearLayout>
     </HorizontalScrollView>
 
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:columnCount="2"
+        android:alignmentMode="alignMargins"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/horizontalScrollView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="#F0F0F0"
+            app:cardCornerRadius="26dp"
+            app:cardElevation="4dp">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Botón superior -->
+                <Button
+                    android:layout_width="264dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/azul"
+                    android:fontFamily="@font/inter"
+                    android:text="Plomero"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:cornerRadius="32dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="50dp"
+                        android:orientation="horizontal">
+
+                        <!-- Foto de perfil (ImageView) -->
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:layout_width="94dp"
+                            android:layout_height="94dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/profesional_1"
+                            app:shapeAppearance="@style/circular" />
+
+                        <!-- Contenedor para el nombre y apellido, línea separadora y RatingBar -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <!-- Nombre y apellido (TextView) -->
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Juan Pérez"
+                                android:textColor="#000"
+                                android:textSize="18sp" />
+
+                            <!-- Línea separadora en gris -->
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginBottom="8dp"
+                                android:background="#888" />
+
+                            <!-- Estrellas de valoración (RatingBar) -->
+                            <RatingBar
+                                style="@style/Widget.AppCompat.RatingBar.Small"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:isIndicator="true"
+                                android:numStars="5"
+                                android:progressTint="@color/black"
+                                android:rating="4.5"
+                                android:stepSize="0.5" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Descripción breve (TextView) -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@color/white"
+                        android:maxLines="3"
+                        android:text="Plomería general, industrial, arreglos menores y planificación de obras"
+                        android:textAlignment="center" />
+
+                    <!-- Botón con esquinas redondeadas -->
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:backgroundTint="@color/verde1"
+                        android:fontFamily="@font/inter"
+                        android:text="C o n t r a t a r"
+                        android:textAllCaps="false"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <!-- Agrega más CardViews según sea necesario -->
+
+    </GridLayout>
+
+
+
+
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="158dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_workflix_1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
