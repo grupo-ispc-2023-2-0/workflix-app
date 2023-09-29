@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
+import tec.ispc.workflix.views.ui.dashboard_admin.DashboardAdminActivity;
 import tec.ispc.workflix.views.ui.login.LoginActivity;
 import tec.ispc.workflix.views.ui.menu.*;
 import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
@@ -72,6 +73,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             // Iniciar la actividad de login
             Intent loginIntent = new Intent(this, PerfilTerminosActivity.class);
             startActivity(loginIntent);
+        }
+        else if (itemId == R.id.dashboard_admin) {
+            // Iniciar la actividad de login
+            Intent dashboardIntent = new Intent(this, DashboardAdminActivity.class);
+            startActivity(dashboardIntent);
         }
         /*else if (itemId == R.id.nav_settings) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SettingsFragment()).commit();

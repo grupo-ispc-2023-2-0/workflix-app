@@ -13,6 +13,16 @@
         android:theme="@style/Theme.Workflix"
         tools:targetApi="31">
         <activity
+            android:name=".views.ui.dashboard_admin.DashboardAdminActivity"
+            android:exported="false"
+            android:label="Dashboard"
+            android:parentActivityName=".views.MainActivity"
+            android:theme="@style/Theme.Workflix2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.MainActivity" />
+        </activity>
+        <activity
             android:name=".views.ui.catalogo.CatalogoActivity"
             android:exported="false"
             android:label="Catalogo de Profesionales"
@@ -21,9 +31,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".views.ui.catalogo.CatalogoActivity" />
         </activity>
-
         <activity
-
             android:name=".views.ui.restablecer.RestablecerActivity"
             android:exported="false"
             android:label="Restablecer"
@@ -33,7 +41,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".views.ui.login.LoginActivity" />
         </activity>
-
         <activity
             android:name=".views.ui.perfil.CrearPerfilActivity"
             android:exported="false"
@@ -54,18 +61,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".views.ui.perfil.CrearPerfilActivity" />
         </activity>
-
         <activity
             android:name=".views.ui.perfil_terminos.PerfilTerminosActivity"
             android:exported="false"
             android:label="Perfil"
             android:parentActivityName=".views.ui.login.LoginActivity"
             android:theme="@style/Theme.Workflix2">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".views.ui.login.LoginActivity" />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.ui.login.LoginActivity" />
         </activity>
-
         <activity
             android:name=".views.ui.register.RegisterActivity"
             android:exported="false"
@@ -95,7 +100,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

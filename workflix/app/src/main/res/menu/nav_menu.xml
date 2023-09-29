@@ -22,6 +22,12 @@
             android:icon="@drawable/nav_profile"
             android:title="Perfil"
             />
+
+        <item
+            android:id="@+id/dashboard_admin"
+            android:icon="@drawable/nav_dashboard"
+            android:title="Dashboard"
+            />
         <!--  android:id="@+id/nav_settings"
               android:icon="@drawable/nav_settings"
               android:title="Settings"-->
