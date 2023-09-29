@@ -3,4 +3,10 @@
     <style name="circular">
         <item name="cornerSize">50%</item>
     </style>
+
+    <style name="SearchViewStyle">
+        <!-- Cambia el color del texto -->
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/black</item>
+    </style>
 </resources>
