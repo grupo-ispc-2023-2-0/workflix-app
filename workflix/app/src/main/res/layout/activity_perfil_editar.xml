@@ -2,17 +2,31 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:background="@color/white">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="158dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_workflix_1" />
+
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="391dp"
+        android:layout_height="606dp"
         android:orientation="vertical"
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -26,10 +40,10 @@
         <EditText
             android:id="@+id/editTextName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginBottom="30dp"
             android:hint="Ingrese su nombre"
-            android:inputType="text"
-            android:layout_marginBottom="30dp" />
+            android:inputType="text" />
 
         <!-- Apellido -->
         <TextView
@@ -41,11 +55,10 @@
         <EditText
             android:id="@+id/editTextLastName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Ingrese su apellido"
-            android:inputType="text"
+            android:layout_height="48dp"
             android:layout_marginBottom="30dp"
-            />
+            android:hint="Ingrese su apellido"
+            android:inputType="text" />
 
         <!-- Domicilio -->
         <TextView
@@ -57,26 +70,25 @@
         <EditText
             android:id="@+id/editTextAddress"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginBottom="30dp"
             android:hint="Ingrese su domicilio"
-            android:inputType="text"
-            android:layout_marginBottom="30dp"/>
+            android:inputType="text" />
 
         <!-- Correo electrónico -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Correo electrónico:"
-            android:textSize="18sp"
-           />
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginBottom="100dp"
             android:hint="Ingrese su correo electrónico"
-            android:inputType="textEmailAddress"
-             android:layout_marginBottom="100dp" />
+            android:inputType="textEmailAddress" />
 
 
         <!-- Botones -->
@@ -84,19 +96,18 @@
 
         <!-- Botón -->
         <Button
+            style="@style/Widget.MaterialComponents.Button"
             android:layout_width="370dp"
             android:layout_height="wrap_content"
-            android:text="Guardar"
             android:backgroundTint="@color/verde1"
-            />
+            android:text="Guardar" />
 
         <Button
+            style="@style/Widget.MaterialComponents.Button"
             android:layout_width="370dp"
-            android:layout_height="wrap_content"
-            android:text="Atras"
+            android:layout_height="48dp"
             android:backgroundTint="@color/verde1"
-         />
-
+            android:text="Atras" />
 
 
     </LinearLayout>
