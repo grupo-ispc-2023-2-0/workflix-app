@@ -168,12 +168,11 @@
         android:onClick="terminos"
         android:text="@string/terminos"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_Cerrar_sesion"
+        app:layout_constraintBottom_toTopOf="@+id/btn_Cerrar_sesion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Perfil_terminos"
-        app:layout_constraintVertical_bias="0.176" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_Perfil_terminos" />
 
 
     <Button
