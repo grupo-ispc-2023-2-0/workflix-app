@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Workflix"
         tools:targetApi="31">
         <activity
+            android:name=".views.ui.perfil_terminos.terminosCondiciones"
+            android:exported="false" />
+        <activity
             android:name=".views.ui.dashboard_admin.DashboardAdminActivity"
             android:exported="false"
             android:label="Dashboard"

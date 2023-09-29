@@ -18,7 +18,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_workflix_1"
-        tools:ignore="UnknownIdInLayout" />
+        tools:ignore="UnknownIdInLayout"
+        android:contentDescription="TODO" />
 
     <Button
         android:id="@+id/btn_Perfil_terminos"
@@ -32,11 +33,12 @@
         android:onClick="irPerfilEditar"
         android:text="@string/perfil"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/btn_Perfil_terminos_con"
+        app:layout_constraintBottom_toTopOf="@+id/btn_Cerrar_sesion"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Perfil_editar" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.23" />
 
     <Button
         android:id="@+id/btn_Perfil_terminos_con"
@@ -48,13 +50,15 @@
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="184dp"
         android:backgroundTint="@color/white"
+        android:onClick="terminos"
         android:text="@string/terminos"
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/btn_Cerrar_sesion"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Perfil_terminos" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_Perfil_terminos"
+        app:layout_constraintVertical_bias="0.271" />
 
     <Button
         android:id="@+id/btn_Cerrar_sesion"
@@ -66,28 +70,11 @@
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="64dp"
         android:backgroundTint="@color/azul"
+        android:onClick="cerrarCesion"
         android:text="@string/cerrar"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btn_Perfil_editar"
-        style="@style/Widget.MaterialComponents.Button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="50dp"
-        android:backgroundTint="@color/verde1"
-        android:text="@string/perfil2"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/btn_Perfil_terminos"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
