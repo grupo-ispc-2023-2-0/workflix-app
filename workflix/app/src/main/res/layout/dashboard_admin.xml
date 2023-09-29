@@ -12,7 +12,7 @@
         android:background="#FFFFFF"
         android:orientation="vertical"
         android:weightSum="10"
-        app:layout_constrainBaseline_toBaselineOf="parent">
+tools:context=".views.ui.dashboard_admin.DashboardAdminActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -42,7 +42,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/d1"
         app:cardBackgroundColor="#FFFFFF"
-        android:loyout_width="0dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_columnWeight="1"
         android:layout_rowWeight="1"
@@ -80,7 +80,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/d2"
             app:cardBackgroundColor="#FFFFFF"
-            android:loyout_width="0dp"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
@@ -117,7 +117,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/d3"
             app:cardBackgroundColor="#FFFFFF"
-            android:loyout_width="0dp"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
@@ -155,7 +155,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/d4"
             app:cardBackgroundColor="#FFFFFF"
-            android:loyout_width="0dp"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
@@ -193,7 +193,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/d5"
             app:cardBackgroundColor="#FFFFFF"
-            android:loyout_width="0dp"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
@@ -232,7 +232,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/d6"
             app:cardBackgroundColor="#FFFFFF"
-            android:loyout_width="0dp"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
