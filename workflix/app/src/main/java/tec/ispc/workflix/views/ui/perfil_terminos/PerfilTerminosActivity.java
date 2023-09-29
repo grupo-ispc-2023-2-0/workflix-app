@@ -22,7 +22,7 @@ public class PerfilTerminosActivity extends AppCompatActivity {
         startActivity(irPerfilEditarIntent);
     }
 
-    public void cerrarCesion (View view) {
+    public void cerrarSesion (View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

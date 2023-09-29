@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:onClick="cerrarSesion"
     tools:context=".views.ui.perfil.CrearPerfilActivity">
 
     <ImageView
@@ -24,8 +25,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:textColor="@color/black"
         android:text="@string/Editar_perfil"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -81,6 +82,7 @@
         android:layout_height="48dp"
         android:layout_marginBottom="32dp"
         android:backgroundTint="@color/azul"
+        android:onClick="cerrarSesion"
         android:text="@string/Cerrar_sesion"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
