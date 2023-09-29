@@ -24,6 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import tec.ispc.workflix.R;
+import tec.ispc.workflix.views.ui.catalogo.CatalogoActivity;
 import tec.ispc.workflix.views.ui.login.LoginViewModel;
 import tec.ispc.workflix.views.ui.login.LoginViewModelFactory;
 import tec.ispc.workflix.databinding.ActivityLoginBinding;
@@ -144,6 +145,10 @@ public class LoginActivity extends AppCompatActivity {
     public void irRestablecer(View view) {
         Intent restablecerIntent = new Intent(this, RestablecerActivity.class);
         startActivity(restablecerIntent);
+    }
+    public void irCatalogo(View view) {
+        Intent catalogoIntent = new Intent(this, CatalogoActivity.class);
+        startActivity(catalogoIntent);
     }
 
 }
