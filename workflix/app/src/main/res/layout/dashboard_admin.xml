@@ -63,15 +63,15 @@
                 android:layout_width="69dp"
                 android:layout_height="90dp"
                 android:layout_gravity="center_horizontal"
+                android:onClick="irInicio"
                 android:src="@drawable/nav_home"></ImageView>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:text="Inicio"
-                android:textAlignment="center"
-                android:layout_gravity="center_horizontal">
-            </TextView>
+                android:textAlignment="center"></TextView>
 
             </LinearLayout>
 
