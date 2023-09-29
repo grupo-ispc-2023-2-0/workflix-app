@@ -23,7 +23,7 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="76dp"
         android:text="@string/Editar_perfil"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,13 +47,14 @@
         android:layout_height="60dp"
         android:layout_marginTop="144dp"
         android:backgroundTint="@color/verde1"
-        android:text="@string/Subir_Foto"
+        android:text="@string/Cambiar_Foto"
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/imageView11"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintHorizontal_bias="0.139"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         app:strokeColor="@color/teal_700" />
 
     <Button
@@ -134,19 +135,20 @@
         tools:ignore="MissingConstraints" />
 
     <Button
+
         android:id="@+id/button3"
         style="@style/Widget.MaterialComponents.Button"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:backgroundTint="@color/verde1"
-        android:text="@string/Editar_datos"
+        android:text="@string/actualizar_perfil"
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/button6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.679"
+        app:layout_constraintVertical_bias="0.975"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
