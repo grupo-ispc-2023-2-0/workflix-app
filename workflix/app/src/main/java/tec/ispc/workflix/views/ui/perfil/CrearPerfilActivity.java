@@ -8,6 +8,7 @@ import android.view.View;
 
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.views.ui.eliminar_cuenta.EliminarCuentaActivity;
+import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
 
 public class CrearPerfilActivity extends AppCompatActivity {
 
@@ -19,5 +20,9 @@ public class CrearPerfilActivity extends AppCompatActivity {
     public void cerrarCuenta (View view) {
         Intent intent = new Intent(this, EliminarCuentaActivity.class);
         startActivity(intent);
+    }
+    public void editarPerfil(View view) {
+        Intent editarP = new Intent(this, EditarPerfil.class);
+        startActivity(editarP);
     }
 }
