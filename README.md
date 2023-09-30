@@ -26,6 +26,7 @@ Trabajo grupal del 2do Cuatrimestre de la Tecnicatura en Desarrollo Web y Aplica
 * [Planning, Review, Retrospective](https://github.com/grupo-ispc-2023-2-0/workflix-app/wiki/Planning-%E2%80%90-Retrospective-%E2%80%90-Review)
 * [Perspectiva del Producto](https://github.com/grupo-ispc-2023-2-0/workflix-app/wiki/Perspectiva-del-producto)
 * [Testing](https://github.com/grupo-ispc-2023-2-0/workflix-app/wiki/Testing)
+* [IEEE-830-ANEXO](https://github.com/grupo-ispc-2023-2-0/workflix-app/wiki/IEEE-830-ANEXO)
 
 ### </div><br /><br /></b>
 ## [Repositorio 1er. Cuatrimestre 2023](https://github.com/grupo-ispc-2023/workflix)
