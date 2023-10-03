@@ -16,7 +16,6 @@ public class DashboardAdminActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard_admin);
-
     }
 
     public void irInicio(View view) {
