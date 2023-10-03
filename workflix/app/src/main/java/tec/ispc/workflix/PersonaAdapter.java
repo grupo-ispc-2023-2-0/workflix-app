@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,6 +29,9 @@ public class PersonaAdapter extends ArrayAdapter<Persona> {
         LayoutInflater layoutInflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowview = layoutInflater.inflate(R.layout.activity_catalogo,parent,false);
 
+        TextView txtIdPersona =(TextView)rowview.findViewById(R.id.ID);
+        TextView txtIdNombre =(TextView)rowview.findViewById(R.id.nombre);
+        TextView txtIdApellido =(TextView)rowview.findViewById(R.id.apellido);
 
     }
 }
