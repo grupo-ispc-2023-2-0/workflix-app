@@ -3,6 +3,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import tec.ispc.workflix.PersonaAdapter;
 import tec.ispc.workflix.R;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -12,10 +17,16 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import android.view.MenuItem;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import tec.ispc.workflix.models.Persona;
+import tec.ispc.workflix.utils.PersonaService;
 import tec.ispc.workflix.views.ui.dashboard_admin.DashboardAdminActivity;
 import tec.ispc.workflix.views.ui.login.LoginActivity;
 import tec.ispc.workflix.views.ui.menu.*;
@@ -24,6 +35,9 @@ import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawerLayout;
+    PersonaService personaService;
+    List<Persona>listaPersonas= new ArrayList<>();
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +70,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getSupportActionBar().setCustomView(R.layout.custom_toolbar);
     }
 
+    public void listarPersonas(){
+        Call<List<Persona>>call=personaService.getPersonas();
+        call.enqueue(new Callback<List<Persona>>() {
+            @Override
+            public void onResponse(Call<List<Persona>> call, Response<List<Persona>> response) {
+                listaPersonas=response.body();
+                listView.setAdapter(new PersonaAdapter(MainActivity.this,R.layout.activity_catalogo,listaPersonas));
+            }
+
+            @Override
+            public void onFailure(Call<List<Persona>> call, Throwable t) {
+
+            }
+        });
+    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

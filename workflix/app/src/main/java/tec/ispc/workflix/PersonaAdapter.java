@@ -17,8 +17,8 @@ import tec.ispc.workflix.models.Persona;
 public class PersonaAdapter extends ArrayAdapter<Persona> {
     private Context context;
     private List<Persona>personas;
-    public PersonaAdapter(@NonNull Context context, int resource, int textViewResourceId, @NonNull List<Persona> objects) {
-        super(context, resource, textViewResourceId, objects);
+    public PersonaAdapter(@NonNull Context context, int resource, @NonNull List<Persona> objects) {
+        super(context, resource, objects);
         this.context = context;
         this.personas = objects;
     }
