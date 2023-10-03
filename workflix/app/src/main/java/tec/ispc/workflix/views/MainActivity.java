@@ -36,17 +36,13 @@ import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawerLayout;
-    PersonaService personaService;
-    List<Persona>listaPersonas= new ArrayList<>();
-    ListView listView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        listView = (ListView)findViewById(R.id.listview);
-        listarPersonas();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -74,21 +70,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getSupportActionBar().setCustomView(R.layout.custom_toolbar);
     }
 
-    public void listarPersonas(){
-        Call<List<Persona>>call=personaService.getPersonas();
-        call.enqueue(new Callback<List<Persona>>() {
-            @Override
-            public void onResponse(Call<List<Persona>> call, Response<List<Persona>> response) {
-                listaPersonas=response.body();
-                listView.setAdapter(new PersonaAdapter(MainActivity.this,R.layout.activity_catalogo,listaPersonas));
-            }
 
-            @Override
-            public void onFailure(Call<List<Persona>> call, Throwable t) {
-                Log.e("Error",t.getMessage());
-            }
-        });
-    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
