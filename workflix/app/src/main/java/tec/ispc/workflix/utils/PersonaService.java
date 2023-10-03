@@ -7,5 +7,6 @@ import retrofit2.http.GET;
 import tec.ispc.workflix.models.Persona;
 
 public interface PersonaService {
+    @GET
     Call<List<Persona>> getPersonas();
 }
