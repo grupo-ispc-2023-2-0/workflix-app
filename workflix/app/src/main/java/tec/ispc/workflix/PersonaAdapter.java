@@ -29,9 +29,16 @@ public class PersonaAdapter extends ArrayAdapter<Persona> {
         LayoutInflater layoutInflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowview = layoutInflater.inflate(R.layout.activity_catalogo,parent,false);
 
-        TextView txtIdPersona =(TextView)rowview.findViewById(R.id.ID);
+        TextView txtidPersona =(TextView)rowview.findViewById(R.id.ID);
         TextView txtIdNombre =(TextView)rowview.findViewById(R.id.nombre);
         TextView txtIdApellido =(TextView)rowview.findViewById(R.id.apellido);
+
+        txtidPersona.setText(String.format("ID:%s",personas.get(position).getId()));
+        txtIdNombre.setText(String.format("NOMBRE:%s",personas.get(position).getNombres()));
+        txtIdApellido.setText(String.format("APELLIDO:%s",personas.get(position).getApellidos()));
+
+        return rowview;
+
 
     }
 }
