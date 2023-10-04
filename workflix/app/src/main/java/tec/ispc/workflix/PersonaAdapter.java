@@ -1,6 +1,7 @@
 package tec.ispc.workflix;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,36 +10,45 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
 import java.util.List;
-
 import tec.ispc.workflix.models.Persona;
 
 public class PersonaAdapter extends ArrayAdapter<Persona> {
+
     private Context context;
-    private List<Persona>personas;
+    private  List<Persona>personas;
+
     public PersonaAdapter(@NonNull Context context, int resource, @NonNull List<Persona> objects) {
         super(context, resource, objects);
-        this.context = context;
-        this.personas = objects;
+        this.context=context;
+        this.personas=objects;
     }
 
-    @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater layoutInflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rowview = layoutInflater.inflate(R.layout.activity_catalogo,parent,false);
+        View rowView=layoutInflater.inflate(R.layout.activity_falso_main,parent,false);
 
-        TextView txtidPersona =(TextView)rowview.findViewById(R.id.ID);
-        TextView txtIdNombre =(TextView)rowview.findViewById(R.id.nombre);
-        TextView txtIdApellido =(TextView)rowview.findViewById(R.id.apellido);
+        TextView txtidPersona=(TextView)rowView.findViewById(R.id.IdPersona);
+        TextView txtNombre=(TextView)rowView.findViewById(R.id.Nombre);;
+        TextView txtApellidos=(TextView)rowView.findViewById(R.id.Apellidos);;
 
-        txtidPersona.setText(String.format("ID:%s",personas.get(position).getId()));
-        txtIdNombre.setText(String.format("NOMBRE:%s",personas.get(position).getNombres()));
-        txtIdApellido.setText(String.format("APELLIDO:%s",personas.get(position).getApellidos()));
+        txtidPersona.setText(String.format("ID:%d",personas.get(position).getId()));
+        txtNombre.setText(String.format("NOMBRE:%s",personas.get(position).getNombres()));
+        txtApellidos.setText(String.format("APELLIDOS: %s",personas.get(position).getApellidos()));
 
-        return rowview;
-
+        rowView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context, PersonaActivity.class);
+                intent.putExtra("ID",String.valueOf(personas.get(position).getId()));
+                intent.putExtra("NOMBRE",personas.get(position).getNombres());
+                intent.putExtra("APELLIDOS",personas.get(position).getApellidos());
+                context.startActivity(intent);
+            }
+        });
+        return rowView;
 
     }
+
 }

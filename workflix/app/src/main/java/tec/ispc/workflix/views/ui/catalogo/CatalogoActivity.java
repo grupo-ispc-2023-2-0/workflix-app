@@ -9,20 +9,9 @@ import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import tec.ispc.workflix.PersonaAdapter;
 import tec.ispc.workflix.R;
-import tec.ispc.workflix.models.Persona;
-import tec.ispc.workflix.utils.Apis;
-import tec.ispc.workflix.utils.PersonaService;
 import tec.ispc.workflix.views.MainActivity;
 
 public class CatalogoActivity extends AppCompatActivity {
@@ -30,23 +19,12 @@ public class CatalogoActivity extends AppCompatActivity {
     private HorizontalScrollView horizontalScrollView;
     private ImageView arrowLeft;
     private ImageView arrowRight;
-    PersonaService personaService;
-    List<Persona> listaPersonas= new ArrayList<>();
-    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalogo);
 
-        listView = (ListView)findViewById(R.id.listview);
-        personaService = Apis.getPersonaService();
-        //listarPersonas();
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener((view -> {
-            listarPersonas();
-            Snackbar.make(view, "Remplace with your own action",Snackbar.LENGTH_LONG).setAction("Action",null).show();
-        }));
 
 
        /* horizontalScrollView = findViewById(R.id.horizontalScrollView);
@@ -74,19 +52,5 @@ public class CatalogoActivity extends AppCompatActivity {
             }
         });
     }
-    public void listarPersonas(){
-        Call<List<Persona>> call=personaService.getPersonas();
-        call.enqueue(new Callback<List<Persona>>() {
-            @Override
-            public void onResponse(Call<List<Persona>> call, Response<List<Persona>> response) {
-                listaPersonas=response.body();
-                listView.setAdapter(new PersonaAdapter(CatalogoActivity.this,R.layout.activity_catalogo,listaPersonas));
-            }
 
-            @Override
-            public void onFailure(Call<List<Persona>> call, Throwable t) {
-                Log.e("Error",t.getMessage());
-            }
-        });
-    }
 }
