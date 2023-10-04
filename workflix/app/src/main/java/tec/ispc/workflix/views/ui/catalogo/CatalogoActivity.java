@@ -9,6 +9,9 @@ import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +21,7 @@ import retrofit2.Response;
 import tec.ispc.workflix.PersonaAdapter;
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.models.Persona;
+import tec.ispc.workflix.utils.Apis;
 import tec.ispc.workflix.utils.PersonaService;
 import tec.ispc.workflix.views.MainActivity;
 
@@ -34,8 +38,15 @@ public class CatalogoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalogo);
+
         listView = (ListView)findViewById(R.id.listview);
-        listarPersonas();
+        personaService = Apis.getPersonaService();
+        //listarPersonas();
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener((view -> {
+            listarPersonas();
+            Snackbar.make(view, "Remplace with your own action",Snackbar.LENGTH_LONG).setAction("Action",null).show();
+        }));
 
 
        /* horizontalScrollView = findViewById(R.id.horizontalScrollView);

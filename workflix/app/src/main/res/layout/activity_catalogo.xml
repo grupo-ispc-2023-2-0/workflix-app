@@ -104,30 +104,7 @@
 
         </LinearLayout>
     </HorizontalScrollView>
-    <ListView
-        android:id="@+id/listview"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        >
-        <TextView
-            android:id="@+id/ID"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
 
-            />
-        <TextView
-            android:id="@+id/nombre"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            />
-        <TextView
-            android:id="@+id/apellido"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
-    </ListView>
-<!--
 <GridLayout
         android:id="@+id/gridLayout"
         android:layout_width="match_parent"
@@ -140,7 +117,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">-->
 
-      <!--  <androidx.cardview.widget.CardView
+      <androidx.cardview.widget.CardView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
@@ -148,15 +125,14 @@
             android:layout_marginBottom="8dp"
             android:backgroundTint="#F0F0F0"
             app:cardCornerRadius="26dp"
-            app:cardElevation="4dp">-->
+            app:cardElevation="4dp">
 
-<!--
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                &lt;!&ndash; Botón superior &ndash;&gt;
                 <Button
                     android:layout_width="264dp"
                     android:layout_height="wrap_content"
@@ -169,7 +145,7 @@
                     android:textSize="16sp"
                     app:cornerRadius="32dp" />-->
 
-              <!--  <LinearLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -181,7 +157,6 @@
                         android:layout_marginTop="50dp"
                         android:orientation="horizontal">
 
-                        &lt;!&ndash; Foto de perfil (ImageView) &ndash;&gt;
                         <com.google.android.material.imageview.ShapeableImageView
                             android:layout_width="94dp"
                             android:layout_height="94dp"
@@ -189,7 +164,6 @@
                             android:src="@drawable/profesional_1"
                             app:shapeAppearance="@style/circular" />
 
-                        &lt;!&ndash; Contenedor para el nombre y apellido, línea separadora y RatingBar &ndash;&gt;
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -198,7 +172,6 @@
                             android:layout_weight="1"
                             android:orientation="vertical">
 
-                            &lt;!&ndash; Nombre y apellido (TextView) &ndash;&gt;
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -206,7 +179,6 @@
                                 android:textColor="#000"
                                 android:textSize="18sp" />
 
-                            &lt;!&ndash; Línea separadora en gris &ndash;&gt;
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
@@ -214,7 +186,6 @@
                                 android:layout_marginBottom="8dp"
                                 android:background="#888" />
 
-                            &lt;!&ndash; Estrellas de valoración (RatingBar) &ndash;&gt;
                             <RatingBar
                                 style="@style/Widget.AppCompat.RatingBar.Small"
                                 android:layout_width="wrap_content"
@@ -227,7 +198,6 @@
                         </LinearLayout>
                     </LinearLayout>
 
-                    &lt;!&ndash; Descripción breve (TextView) &ndash;&gt;
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -240,8 +210,6 @@
                         android:text="Plomería general, industrial, arreglos menores y planificación de obras"
                         android:textColor="@color/black"
                         android:textAlignment="center" />
-
-                    &lt;!&ndash; Botón con esquinas redondeadas &ndash;&gt;
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
@@ -255,15 +223,7 @@
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
-
-        &lt;!&ndash; Agrega más CardViews según sea necesario &ndash;&gt;
-
     </GridLayout>
-
-
-
--->
-
 
     <ImageView
         android:id="@+id/imageView2"
