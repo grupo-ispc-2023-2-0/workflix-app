@@ -13,18 +13,20 @@
     <TextView
         android:id="@+id/IdPersona"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:textColor="@color/black"/>
 
     <TextView
         android:id="@+id/Nombre"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:textColor="@color/black"/>
 
     <TextView
         android:id="@+id/Apellidos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />
+        android:textColor="@color/black"/>
 </LinearLayout>
 
 
