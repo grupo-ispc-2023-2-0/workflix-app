@@ -4,10 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import tec.ispc.workflix.PersonaAdapter;
 import tec.ispc.workflix.R;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
