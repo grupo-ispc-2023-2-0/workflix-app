@@ -27,7 +27,7 @@ public class PersonaAdapter extends ArrayAdapter<Persona> {
     @Override
     public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater layoutInflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rowView=layoutInflater.inflate(R.layout.activity_falso_main,parent,false);
+        View rowView=layoutInflater.inflate(R.layout.content_main,parent,false);
 
         TextView txtidPersona=(TextView)rowView.findViewById(R.id.IdPersona);
         TextView txtNombre=(TextView)rowView.findViewById(R.id.Nombre);;
