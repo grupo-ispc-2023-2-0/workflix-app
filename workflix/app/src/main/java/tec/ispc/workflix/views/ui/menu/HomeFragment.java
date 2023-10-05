@@ -30,7 +30,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getActivity(), FalsoMain.class);
+                Intent intent = new Intent(getActivity(), CatalogoActivity.class);
                 startActivity(intent);
             }
         });
