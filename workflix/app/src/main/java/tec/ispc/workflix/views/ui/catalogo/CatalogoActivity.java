@@ -27,9 +27,9 @@ public class CatalogoActivity extends AppCompatActivity {
 
 
 
-       /* horizontalScrollView = findViewById(R.id.horizontalScrollView);
+        horizontalScrollView = findViewById(R.id.horizontalScrollView);
         arrowLeft = findViewById(R.id.arrowLeft);
-        arrowRight = findViewById(R.id.arrowRight);*/
+        arrowRight = findViewById(R.id.arrowRight);
 
         horizontalScrollView.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
             @Override
