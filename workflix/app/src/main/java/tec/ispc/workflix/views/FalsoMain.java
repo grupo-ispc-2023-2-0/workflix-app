@@ -35,11 +35,11 @@ public class FalsoMain extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_falso_main);
+
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         listView=(ListView)findViewById(R.id.listView);
 
         listPersons();
