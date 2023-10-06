@@ -80,6 +80,11 @@ public class UsuarioActivity extends AppCompatActivity {
                 Usuario usuario = new Usuario();
                 usuario.setNombre(txtNombre.getText().toString());
                 usuario.setApellido(txtApellido.getText().toString());
+                usuario.setClave(txtClave.getText().toString());
+                usuario.setTelefono(txtTelefono.getText().toString());
+                usuario.setCorreo(txtCorreo.getText().toString());
+
+
                 if(id.trim().length()==0||id.equals("")){
                     addUsuario(usuario);
                     Intent intent =new Intent(UsuarioActivity.this, ListarUsuariosActivity.class);
