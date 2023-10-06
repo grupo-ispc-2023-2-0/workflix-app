@@ -91,8 +91,8 @@ public class UsuarioActivity extends AppCompatActivity {
         btnEliminar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                deletePersona(Integer.valueOf(id));
-                Intent intent =new Intent(PersonaActivity.this, FalsoMain.class);
+                deleteUsuario(Integer.valueOf(id));
+                Intent intent =new Intent(UsuarioActivity.this, ListarUsuariosActivity.class);
                 startActivity(intent);
             }
         });
@@ -100,7 +100,7 @@ public class UsuarioActivity extends AppCompatActivity {
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =new Intent(PersonaActivity.this, FalsoMain.class);
+                Intent intent =new Intent(UsuarioActivity.this, ListarUsuariosActivity.class);
                 startActivity(intent);
             }
         });
