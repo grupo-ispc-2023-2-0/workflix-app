@@ -14,6 +14,8 @@ import java.util.List;
 
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.models.Usuario;
+import tec.ispc.workflix.views.ui.dashboard_admin.ListarUsuariosActivity;
+
 public class UsuarioAdapter extends ArrayAdapter<Usuario>{
     private Context context;
     private List<Usuario>usuarios;
@@ -22,5 +24,34 @@ public class UsuarioAdapter extends ArrayAdapter<Usuario>{
         super(context, resource, objects);
         this.context = context;
         this.usuarios = objects;
+    }
+
+    public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        LayoutInflater layoutInflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View rowView=layoutInflater.inflate(R.layout.content_listar,parent,false);
+
+        TextView txtidUsuario=(TextView)rowView.findViewById(R.id.IdUsuario);
+        TextView txtNombre=(TextView)rowView.findViewById(R.id.NombreUsuario);;
+        TextView txtApellido=(TextView)rowView.findViewById(R.id.ApellidoUsuario);;
+        TextView txtidTelefono=(TextView)rowView.findViewById(R.id.TelefonoUsuario);
+
+        txtidUsuario.setText(String.format("ID:%d",usuarios.get(position).getId()));
+        txtNombre.setText(String.format("NOMBRE:%s",usuarios.get(position).getNombre()));
+        txtApellido.setText(String.format("APELLIDO: %s",usuarios.get(position).getApellido()));
+        txtApellido.setText(String.format("TELEFONO: %s",usuarios.get(position).getTelefono()));
+
+        rowView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context, ListarUsuariosActivity.class);
+                intent.putExtra("ID",String.valueOf(usuarios.get(position).getId()));
+                intent.putExtra("NOMBRE",usuarios.get(position).getNombre());
+                intent.putExtra("APELLIDO",usuarios.get(position).getApellido());
+                intent.putExtra("Telefono",usuarios.get(position).getTelefono());
+                context.startActivity(intent);
+            }
+        });
+        return rowView;
+
     }
 }
