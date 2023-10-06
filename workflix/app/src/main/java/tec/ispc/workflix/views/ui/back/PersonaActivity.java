@@ -28,6 +28,7 @@ public class PersonaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.persona_layout);
 
+
         TextView idper=(TextView)findViewById(R.id.Id);
         EditText txtId=(EditText)findViewById(R.id.txtId);
         TextView nombres=(TextView)findViewById(R.id.nombres);

@@ -6,7 +6,7 @@ import tec.ispc.workflix.models.Usuario;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
-public interface IUsuarioService {
+public interface UsuarioService {
     @GET("listar")
     Call<List<Usuario>> getUsuarios();
 
