@@ -31,8 +31,14 @@ public class UsuarioActivity extends AppCompatActivity {
         TextView apellido=(TextView)findViewById(R.id.ApellidoUsuario);
         final EditText txtApellido=(EditText)findViewById(R.id.txtApellido);
 
+        TextView clave=(TextView)findViewById(R.id.ClaveUsuario);
+        final EditText txtClave=(EditText)findViewById(R.id.txtClave);
+
         TextView telefono=(TextView)findViewById(R.id.TelefonoUsuario);
         final EditText txtTelefono=(EditText)findViewById(R.id.txtTelefono);
+
+        TextView correo=(TextView)findViewById(R.id.CorreoUsuario);
+        final EditText txtCorreo=(EditText)findViewById(R.id.txtCorreo);
 
 
 

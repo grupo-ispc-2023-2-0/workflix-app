@@ -39,9 +39,18 @@
             android:layout_width="match_parent"
             android:layout_height="50px"
             android:text="APELLIDO"/>
-
         <EditText
             android:id="@+id/txtApellido"
+            android:layout_width="match_parent"
+            android:layout_height="60dp" />
+
+        <TextView
+            android:id="@+id/ClaveUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="50px"
+            android:text="CLAVE"/>
+        <EditText
+            android:id="@+id/txtClave"
             android:layout_width="match_parent"
             android:layout_height="60dp" />
 
@@ -56,6 +65,20 @@
             android:id="@+id/txtTelefono"
             android:layout_width="match_parent"
             android:layout_height="60dp" />
+
+        <TextView
+            android:id="@+id/CorreoUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="50px"
+            android:text="CORREO"/>
+
+        <EditText
+            android:id="@+id/txtCorreo"
+            android:layout_width="match_parent"
+            android:layout_height="60dp" />
+
+
+
 
         <Button
             android:id="@+id/btnSave"
