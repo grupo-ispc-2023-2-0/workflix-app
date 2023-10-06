@@ -7,5 +7,16 @@ import retrofit2.http.Body;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 public interface IUsuarioService {
+    @GET("listar")
+    Call<List<Usuario>> getUsuarios();
+
+    @POST("agregar")
+    Call<Usuario>addUsuario(@Body Usuario usuario);
+
+    @POST("actualizar/{id}")
+    Call<Usuario>updateUsuario(@Body Usuario usuario,@Path("id") int id);
+
+    @POST("eliminar/{id}")
+    Call<Usuario>deleteUsuario(@Path("id")int id);
 
 }
