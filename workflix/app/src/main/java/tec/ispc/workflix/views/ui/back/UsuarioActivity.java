@@ -132,40 +132,40 @@ public class UsuarioActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void updateUsuario(Usuario usuario,int id){
-        service= Apis.getPersonaService();
-        Call<Persona>call=service.updatePersona(p,id);
-        call.enqueue(new Callback<Persona>() {
+        usuarioService= Apis.getUsuarioService();
+        Call<Usuario>call=usuarioService.updateUsuario(usuario,id);
+        call.enqueue(new Callback<Usuario>() {
             @Override
-            public void onResponse(Call<Persona> call, Response<Persona> response) {
+            public void onResponse(Call<Usuario> call, Response<Usuario> response) {
                 if(response.isSuccessful()){
-                    Toast.makeText(PersonaActivity.this,"Se Actualizó con éxito",Toast.LENGTH_LONG).show();
+                    Toast.makeText(UsuarioActivity.this,"Se Actualizó con éxito el Usuario",Toast.LENGTH_LONG).show();
                 }
             }
             @Override
-            public void onFailure(Call<Persona> call, Throwable t) {
-                Log.e("Error:",t.getMessage());
+            public void onFailure(Call<Usuario> call, Throwable t) {
+                Log.e("Error al actualizar el Usuario:",t.getMessage());
             }
         });
-        Intent intent =new Intent(PersonaActivity.this, FalsoMain.class);
+        Intent intent =new Intent(UsuarioActivity.this, ListarUsuariosActivity.class);
         startActivity(intent);
     }
-    public void deletePersona(int id){
-        service=Apis.getPersonaService();
-        Call<Persona>call=service.deletePersona(id);
-        call.enqueue(new Callback<Persona>() {
+    public void deleteUsuario(int id){
+        usuarioService=Apis.getUsuarioService();
+        Call<Usuario>call=usuarioService.deleteUsuario(id);
+        call.enqueue(new Callback<Usuario>() {
             @Override
-            public void onResponse(Call<Persona> call, Response<Persona> response) {
+            public void onResponse(Call<Usuario> call, Response<Usuario> response) {
                 if(response.isSuccessful()){
-                    Toast.makeText(PersonaActivity.this,"Se Elimino el registro",Toast.LENGTH_LONG).show();
+                    Toast.makeText(UsuarioActivity.this,"Se Elimino el registro con éxito",Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
-            public void onFailure(Call<Persona> call, Throwable t) {
-                Log.e("Error:",t.getMessage());
+            public void onFailure(Call<Usuario> call, Throwable t) {
+                Log.e("Error al eliminar el Usuario:",t.getMessage());
             }
         });
-        Intent intent =new Intent(PersonaActivity.this,FalsoMain.class);
+        Intent intent =new Intent(UsuarioActivity.this, UsuarioActivity.class);
         startActivity(intent);
     }
 }
