@@ -11,8 +11,10 @@ import android.widget.TextView;
 
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.models.Persona;
+import tec.ispc.workflix.models.Usuario;
 import tec.ispc.workflix.utils.UsuarioService;
 import tec.ispc.workflix.views.FalsoMain;
+import tec.ispc.workflix.views.ui.dashboard_admin.ListarUsuariosActivity;
 
 public class UsuarioActivity extends AppCompatActivity {
     UsuarioService usuarioService;
@@ -71,22 +73,21 @@ public class UsuarioActivity extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Persona p=new Persona();
-                p.setNombres(txtNombres.getText().toString());
-                p.setApellidos(txtApellidos.getText().toString());
+                Usuario usuario = new Usuario();
+                usuario.setNombre(txtNombre.getText().toString());
+                usuario.setApellido(txtApellido.getText().toString());
                 if(id.trim().length()==0||id.equals("")){
-                    addPersona(p);
-                    Intent intent =new Intent(PersonaActivity.this, FalsoMain.class);
+                    addUsuario(usuario);
+                    Intent intent =new Intent(UsuarioActivity.this, ListarUsuariosActivity.class);
                     startActivity(intent);
                 }else{
-                    updatePersona(p,Integer.valueOf(id));
-                    Intent intent =new Intent(PersonaActivity.this, FalsoMain.class);
+                    updateUsuario(usuario,Integer.valueOf(id));
+                    Intent intent =new Intent(UsuarioActivity.this, ListarUsuariosActivity.class);
                     startActivity(intent);
                 }
 
             }
         });
-
         btnEliminar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
