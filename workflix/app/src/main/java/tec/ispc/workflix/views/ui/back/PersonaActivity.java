@@ -1,10 +1,9 @@
-package tec.ispc.workflix;
+package tec.ispc.workflix.views.ui.back;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -12,11 +11,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import tec.ispc.workflix.views.FalsoMain;
+import tec.ispc.workflix.R;
 import tec.ispc.workflix.models.Persona;
 import tec.ispc.workflix.utils.PersonaService;
 import tec.ispc.workflix.utils.Apis;

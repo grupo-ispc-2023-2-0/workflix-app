@@ -1,4 +1,4 @@
-package tec.ispc.workflix;
+package tec.ispc.workflix.views.ui.back;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import java.util.List;
+
+import tec.ispc.workflix.R;
 import tec.ispc.workflix.models.Persona;
 
 public class PersonaAdapter extends ArrayAdapter<Persona> {

@@ -17,10 +17,10 @@
         android:usesCleartextTraffic="true">
 
         <activity
-            android:name=".PersonaActivity"
+            android:name=".views.ui.back.PersonaActivity"
             android:exported="false" />
         <activity
-            android:name=".FalsoMain"
+            android:name=".views.FalsoMain"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,4 +1,4 @@
-package tec.ispc.workflix;
+package tec.ispc.workflix.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,10 +19,12 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import tec.ispc.workflix.R;
 import tec.ispc.workflix.models.Persona;
 import tec.ispc.workflix.utils.Apis;
 import tec.ispc.workflix.utils.PersonaService;
-import tec.ispc.workflix.views.ui.catalogo.CatalogoActivity;
+import tec.ispc.workflix.views.ui.back.PersonaActivity;
+import tec.ispc.workflix.views.ui.back.PersonaAdapter;
 
 public class FalsoMain extends AppCompatActivity {
 
@@ -47,7 +48,7 @@ public class FalsoMain extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(FalsoMain.this,PersonaActivity.class);
+                Intent intent=new Intent(FalsoMain.this, PersonaActivity.class);
                 intent.putExtra("ID","");
                 intent.putExtra("NOMBRE","");
                 intent.putExtra("APELLIDO","");
