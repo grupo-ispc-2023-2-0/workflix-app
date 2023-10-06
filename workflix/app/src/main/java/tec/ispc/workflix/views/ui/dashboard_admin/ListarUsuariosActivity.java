@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import tec.ispc.workflix.R;
+import tec.ispc.workflix.utils.UsuarioService;
 
 public class ListarUsuariosActivity extends AppCompatActivity {
+    UsuarioService usuarioService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
