@@ -16,6 +16,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".views.ui.back.UsuarioActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.ui.dashboard_admin.ListarUsuariosActivity"
             android:exported="false" />
         <activity
