@@ -49,9 +49,9 @@ public class UsuarioActivity extends AppCompatActivity {
         final EditText txtCorreo=(EditText)findViewById(R.id.txtCorreo);
 
 
-        Button btnSave=(Button)findViewById(R.id.btnSave);
-        Button btnVolver=(Button)findViewById(R.id.btnVolver);
-        Button btnEliminar=(Button)findViewById(R.id.btnEliminar);
+        Button btnSave=(Button)findViewById(R.id.btnSaveUsuario);
+        Button btnVolver=(Button)findViewById(R.id.btnVolverUsuario);
+        Button btnEliminar=(Button)findViewById(R.id.btnEliminarUsuario);
 
 
         Bundle bundle=getIntent().getExtras();
