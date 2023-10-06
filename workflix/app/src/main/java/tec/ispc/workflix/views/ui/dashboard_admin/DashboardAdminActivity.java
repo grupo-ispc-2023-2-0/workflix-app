@@ -23,7 +23,7 @@ public class DashboardAdminActivity extends AppCompatActivity {
         startActivity(inicioIntent);
     }
     public void verUsuarios(View view){
-        Intent verIntent = new Intent(this, FalsoMain.class);
+        Intent verIntent = new Intent(this, ListarUsuariosActivity.class);
         startActivity(verIntent);
     }
 }
