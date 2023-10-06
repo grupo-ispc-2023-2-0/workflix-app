@@ -47,7 +47,7 @@ public class UsuarioAdapter extends ArrayAdapter<Usuario>{
                 intent.putExtra("ID",String.valueOf(usuarios.get(position).getId()));
                 intent.putExtra("NOMBRE",usuarios.get(position).getNombre());
                 intent.putExtra("APELLIDO",usuarios.get(position).getApellido());
-                intent.putExtra("Telefono",usuarios.get(position).getTelefono());
+                intent.putExtra("TELEFONO",usuarios.get(position).getTelefono());
                 context.startActivity(intent);
             }
         });
