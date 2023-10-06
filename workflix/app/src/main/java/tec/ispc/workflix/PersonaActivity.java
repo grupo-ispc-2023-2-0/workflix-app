@@ -21,6 +21,7 @@ import tec.ispc.workflix.models.Persona;
 import tec.ispc.workflix.utils.PersonaService;
 import tec.ispc.workflix.utils.Apis;
 
+
 public class PersonaActivity extends AppCompatActivity {
     PersonaService service;
     @Override
@@ -115,7 +116,7 @@ public class PersonaActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Persona> call, Response<Persona> response) {
                 if(response.isSuccessful()){
-                    Toast.makeText(PersonaActivity.this,"Se Actualizó conéxito",Toast.LENGTH_LONG).show();
+                    Toast.makeText(PersonaActivity.this,"Se Actualizó con éxito",Toast.LENGTH_LONG).show();
                 }
             }
             @Override
