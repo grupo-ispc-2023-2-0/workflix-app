@@ -30,10 +30,10 @@ public class UsuarioAdapter extends ArrayAdapter<Usuario>{
         LayoutInflater layoutInflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView=layoutInflater.inflate(R.layout.content_listar,parent,false);
 
-        TextView txtidUsuario=(TextView)rowView.findViewById(R.id.IdUsuario);
-        TextView txtNombre=(TextView)rowView.findViewById(R.id.NombreUsuario);;
-        TextView txtApellido=(TextView)rowView.findViewById(R.id.ApellidoUsuario);;
-        TextView txtidTelefono=(TextView)rowView.findViewById(R.id.TelefonoUsuario);
+        TextView txtidUsuario=(TextView)rowView.findViewById(R.id.IdUsuarioList);
+        TextView txtNombre=(TextView)rowView.findViewById(R.id.NombreUsuarioList);;
+        TextView txtApellido=(TextView)rowView.findViewById(R.id.ApellidoUsuarioList);;
+        TextView txtidTelefono=(TextView)rowView.findViewById(R.id.TelefonoUsuarioList);
 
         txtidUsuario.setText(String.format("ID:%d",usuarios.get(position).getId()));
         txtNombre.setText(String.format("NOMBRE:%s",usuarios.get(position).getNombre()));

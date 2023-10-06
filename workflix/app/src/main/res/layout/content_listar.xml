@@ -11,25 +11,25 @@
     tools:showIn="@layout/activity_listar_usuarios">
 
     <TextView
-        android:id="@+id/IdUsuario"
+        android:id="@+id/IdUsuarioList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textColor="@color/black"/>
 
     <TextView
-        android:id="@+id/NombreUsuario"
+        android:id="@+id/NombreUsuarioList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textColor="@color/black"/>
 
     <TextView
-        android:id="@+id/ApellidoUsuario"
+        android:id="@+id/ApellidoUsuarioList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textColor="@color/black"/>
 
     <TextView
-        android:id="@+id/TelefonoUsuario"
+        android:id="@+id/TelefonoUsuarioList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textColor="@color/black"/>
