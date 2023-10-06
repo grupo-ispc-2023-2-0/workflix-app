@@ -15,11 +15,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import tec.ispc.workflix.R;
-import tec.ispc.workflix.models.Persona;
 import tec.ispc.workflix.models.Usuario;
 import tec.ispc.workflix.utils.Apis;
 import tec.ispc.workflix.utils.UsuarioService;
-import tec.ispc.workflix.views.FalsoMain;
 import tec.ispc.workflix.views.ui.dashboard_admin.ListarUsuariosActivity;
 
 public class UsuarioActivity extends AppCompatActivity {

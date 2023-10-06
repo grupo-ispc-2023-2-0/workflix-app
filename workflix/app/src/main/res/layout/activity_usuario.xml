@@ -77,9 +77,6 @@
             android:layout_width="match_parent"
             android:layout_height="60dp" />
 
-
-
-
         <Button
             android:id="@+id/btnSaveUsuario"
             android:layout_width="match_parent"
