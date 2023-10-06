@@ -41,8 +41,6 @@ public class UsuarioActivity extends AppCompatActivity {
         final EditText txtCorreo=(EditText)findViewById(R.id.txtCorreo);
 
 
-
-
         Button btnSave=(Button)findViewById(R.id.btnSave);
         Button btnVolver=(Button)findViewById(R.id.btnVolver);
         Button btnEliminar=(Button)findViewById(R.id.btnEliminar);
@@ -50,14 +48,23 @@ public class UsuarioActivity extends AppCompatActivity {
 
         Bundle bundle=getIntent().getExtras();
         final String id = bundle.getString("ID");
-        String nom=bundle.getString("NOMBRE");
+        String nom=bundle.getString("NOMBRES");
         String ape=bundle.getString("APELLIDOS");
+        String cla=bundle.getString("CLAVES");
+        String tel=bundle.getString("TELEFONO");
+        String corr=bundle.getString("CORREO");
+
+
 
         txtId.setText(id);
-        txtNombres.setText(nom);
-        txtApellidos.setText(ape);
+        txtNombre.setText(nom);
+        txtApellido.setText(ape);
+        txtClave.setText(cla);
+        txtTelefono.setText(tel);
+        txtCorreo.setText(corr);
+
         if(id.trim().length()==0||id.equals("")){
-            idper.setVisibility(View.INVISIBLE);
+            iduser.setVisibility(View.INVISIBLE);
             txtId.setVisibility(View.INVISIBLE);
         }
 
