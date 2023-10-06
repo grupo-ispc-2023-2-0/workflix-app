@@ -1,13 +1,17 @@
 package tec.ispc.workflix.views.ui.dashboard_admin;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +25,9 @@ import tec.ispc.workflix.models.Usuario;
 import tec.ispc.workflix.utils.Apis;
 import tec.ispc.workflix.utils.UsuarioService;
 import tec.ispc.workflix.views.FalsoMain;
+import tec.ispc.workflix.views.ui.back.PersonaActivity;
 import tec.ispc.workflix.views.ui.back.PersonaAdapter;
+import tec.ispc.workflix.views.ui.back.UsuarioActivity;
 import tec.ispc.workflix.views.ui.back.UsuarioAdapter;
 
 public class ListarUsuariosActivity extends AppCompatActivity {
@@ -39,7 +45,21 @@ public class ListarUsuariosActivity extends AppCompatActivity {
         listView=(ListView)findViewById(R.id.listViewUsuarios);
         listUsuario();
 
+        FloatingActionButton fab = findViewById(R.id.fabeUsuario);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(ListarUsuariosActivity.this, UsuarioActivity.class);
+                intent.putExtra("ID","");
+                intent.putExtra("NOMBRE","");
+                intent.putExtra("APELLIDO","");
+                intent.putExtra("CLAVE","");
+                intent.putExtra("TELEFONO","");
+                intent.putExtra("CORREO","");
 
+                startActivity(intent);
+            }
+        });
     }
     public void listUsuario(){
         usuarioService= Apis.getUsuarioService();
