@@ -91,6 +91,8 @@ public class PersonaActivity extends AppCompatActivity {
         });
 
     }
+
+
     public void addPersona(Persona p){
         service= Apis.getPersonaService();
         Call<Persona>call=service.addPersona(p);

@@ -4,6 +4,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".views.ui.back.UsuarioActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="100px">
+
+        <TextView
+            android:id="@+id/IdUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="50px"
+            android:text="ID"/>
+
+        <EditText
+            android:id="@+id/txtIdUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:enabled="false"/>
+        <TextView
+            android:id="@+id/NombreUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="50px"
+            android:text="NOMBRE"/>
+
+        <EditText
+            android:id="@+id/txtNombre"
+            android:layout_width="match_parent"
+            android:layout_height="60dp" />
+        <TextView
+            android:id="@+id/ApellidoUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="50px"
+            android:text="APELLIDO"/>
+
+        <EditText
+            android:id="@+id/txtApellido"
+            android:layout_width="match_parent"
+            android:layout_height="60dp" />
+
+
+        <TextView
+            android:id="@+id/TelefonoUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="50px"
+            android:text="TELEFONO"/>
+
+        <EditText
+            android:id="@+id/txtTelefono"
+            android:layout_width="match_parent"
+            android:layout_height="60dp" />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SAVE" />
+        <Button
+            android:id="@+id/btnEliminar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Eliminar" />
+
+        <Button
+            android:id="@+id/btnVolver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Volver" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
