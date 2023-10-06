@@ -27,7 +27,7 @@ import tec.ispc.workflix.R;
 import tec.ispc.workflix.views.ui.catalogo.CatalogoActivity;
 import tec.ispc.workflix.views.ui.login.LoginViewModel;
 import tec.ispc.workflix.views.ui.login.LoginViewModelFactory;
-/*import tec.ispc.workflix.databinding.ActivityLoginBinding;*/
+import tec.ispc.workflix.databinding.ActivityLoginBinding;
 import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
 import tec.ispc.workflix.views.ui.register.RegisterActivity;
 import tec.ispc.workflix.views.ui.restablecer.RestablecerActivity;
@@ -35,13 +35,13 @@ import tec.ispc.workflix.views.ui.restablecer.RestablecerActivity;
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
- /*   private ActivityLoginBinding binding;*/
+    private ActivityLoginBinding binding;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-      /*  binding = ActivityLoginBinding.inflate(getLayoutInflater());
+        binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
@@ -126,7 +126,7 @@ public class LoginActivity extends AppCompatActivity {
                 loginViewModel.login(usernameEditText.getText().toString(),
                         passwordEditText.getText().toString());
             }
-        });*/
+        });
     }
 
     private void updateUiWithUser(LoggedInUserView model) {
