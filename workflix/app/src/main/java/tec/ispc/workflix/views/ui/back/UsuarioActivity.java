@@ -54,9 +54,9 @@ public class UsuarioActivity extends AppCompatActivity {
 
         Bundle bundle=getIntent().getExtras();
         final String id = bundle.getString("ID");
-        String nom=bundle.getString("NOMBRES");
-        String ape=bundle.getString("APELLIDOS");
-        String cla=bundle.getString("CLAVES");
+        String nom=bundle.getString("NOMBRE");
+        String ape=bundle.getString("APELLIDO");
+        String cla=bundle.getString("CLAVE");
         String tel=bundle.getString("TELEFONO");
         String corr=bundle.getString("CORREO");
 
