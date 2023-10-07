@@ -36,8 +36,6 @@ public class DashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_usuarios);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         listView=(ListView)findViewById(R.id.listViewUsuarios);
         listUsuario();
 
