@@ -3,6 +3,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import tec.ispc.workflix.R;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -11,11 +12,19 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import tec.ispc.workflix.models.Persona;
+import tec.ispc.workflix.utils.PersonaService;
+import tec.ispc.workflix.views.ui.dashboard_admin.DashboardActivity;
 import tec.ispc.workflix.views.ui.dashboard_admin.DashboardAdminActivity;
 import tec.ispc.workflix.views.ui.login.LoginActivity;
 import tec.ispc.workflix.views.ui.menu.*;
@@ -25,10 +34,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private DrawerLayout drawerLayout;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -57,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
@@ -76,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         else if (itemId == R.id.dashboard_admin) {
             // Iniciar la actividad de login
-            Intent dashboardIntent = new Intent(this, DashboardAdminActivity.class);
+            Intent dashboardIntent = new Intent(this, DashboardActivity.class);
             startActivity(dashboardIntent);
         }
         /*else if (itemId == R.id.nav_settings) {
