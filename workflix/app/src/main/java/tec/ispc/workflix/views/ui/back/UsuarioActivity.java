@@ -78,6 +78,7 @@ public class UsuarioActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Usuario usuario = new Usuario();
+
                 usuario.setNombre(txtNombre.getText().toString());
                 usuario.setApellido(txtApellido.getText().toString());
                 usuario.setClave(txtClave.getText().toString());

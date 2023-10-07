@@ -49,6 +49,7 @@ public class PersonaActivity extends AppCompatActivity {
         txtId.setText(id);
         txtNombres.setText(nom);
         txtApellidos.setText(ape);
+
         if(id.trim().length()==0||id.equals("")){
             idper.setVisibility(View.INVISIBLE);
             txtId.setVisibility(View.INVISIBLE);
