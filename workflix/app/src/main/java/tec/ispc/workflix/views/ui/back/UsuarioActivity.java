@@ -18,7 +18,7 @@ import tec.ispc.workflix.R;
 import tec.ispc.workflix.models.Usuario;
 import tec.ispc.workflix.utils.Apis;
 import tec.ispc.workflix.utils.UsuarioService;
-import tec.ispc.workflix.views.ui.dashboard_admin.ListarUsuariosActivity;
+import tec.ispc.workflix.views.ui.dashboard_admin.DashboardActivity;
 
 public class UsuarioActivity extends AppCompatActivity {
     UsuarioService usuarioService;
@@ -87,11 +87,11 @@ public class UsuarioActivity extends AppCompatActivity {
 
                 if(id.trim().length()==0||id.equals("")){
                     addUsuario(usuario);
-                    Intent intent =new Intent(UsuarioActivity.this, ListarUsuariosActivity.class);
+                    Intent intent =new Intent(UsuarioActivity.this, DashboardActivity.class);
                     startActivity(intent);
                 }else{
                     updateUsuario(usuario,Integer.valueOf(id));
-                    Intent intent =new Intent(UsuarioActivity.this, ListarUsuariosActivity.class);
+                    Intent intent =new Intent(UsuarioActivity.this, DashboardActivity.class);
                     startActivity(intent);
                 }
 
@@ -101,7 +101,7 @@ public class UsuarioActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 deleteUsuario(Integer.valueOf(id));
-                Intent intent =new Intent(UsuarioActivity.this, ListarUsuariosActivity.class);
+                Intent intent =new Intent(UsuarioActivity.this, DashboardActivity.class);
                 startActivity(intent);
             }
         });
@@ -109,7 +109,7 @@ public class UsuarioActivity extends AppCompatActivity {
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =new Intent(UsuarioActivity.this, ListarUsuariosActivity.class);
+                Intent intent =new Intent(UsuarioActivity.this, DashboardActivity.class);
                 startActivity(intent);
             }
         });
@@ -131,7 +131,7 @@ public class UsuarioActivity extends AppCompatActivity {
                 Log.e("Error al agregar un Usuario:",t.getMessage());
             }
         });
-        Intent intent =new Intent(UsuarioActivity.this, ListarUsuariosActivity.class);
+        Intent intent =new Intent(UsuarioActivity.this, DashboardActivity.class);
         startActivity(intent);
     }
     public void updateUsuario(Usuario usuario,int id){
@@ -149,7 +149,7 @@ public class UsuarioActivity extends AppCompatActivity {
                 Log.e("Error al actualizar el Usuario:",t.getMessage());
             }
         });
-        Intent intent =new Intent(UsuarioActivity.this, ListarUsuariosActivity.class);
+        Intent intent =new Intent(UsuarioActivity.this, DashboardActivity.class);
         startActivity(intent);
     }
     public void deleteUsuario(int id){

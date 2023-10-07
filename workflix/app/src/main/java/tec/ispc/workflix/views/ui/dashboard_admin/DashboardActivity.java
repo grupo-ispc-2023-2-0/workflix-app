@@ -20,17 +20,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import tec.ispc.workflix.R;
-import tec.ispc.workflix.models.Persona;
 import tec.ispc.workflix.models.Usuario;
 import tec.ispc.workflix.utils.Apis;
 import tec.ispc.workflix.utils.UsuarioService;
-import tec.ispc.workflix.views.FalsoMain;
-import tec.ispc.workflix.views.ui.back.PersonaActivity;
-import tec.ispc.workflix.views.ui.back.PersonaAdapter;
 import tec.ispc.workflix.views.ui.back.UsuarioActivity;
 import tec.ispc.workflix.views.ui.back.UsuarioAdapter;
 
-public class ListarUsuariosActivity extends AppCompatActivity {
+public class DashboardActivity extends AppCompatActivity {
     UsuarioService usuarioService;
     List<Usuario> listarUsuario= new ArrayList<>();
     ListView listView;
@@ -49,7 +45,7 @@ public class ListarUsuariosActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(ListarUsuariosActivity.this, UsuarioActivity.class);
+                Intent intent=new Intent(DashboardActivity.this, UsuarioActivity.class);
                 intent.putExtra("ID","");
                 intent.putExtra("NOMBRE","");
                 intent.putExtra("APELLIDO","");
@@ -69,7 +65,7 @@ public class ListarUsuariosActivity extends AppCompatActivity {
             public void onResponse(Call<List<Usuario>> call, Response<List<Usuario>> response) {
                 if(response.isSuccessful()) {
                     listarUsuario = response.body();
-                    listView.setAdapter(new UsuarioAdapter(ListarUsuariosActivity.this,R.layout.content_listar,listarUsuario));
+                    listView.setAdapter(new UsuarioAdapter(DashboardActivity.this,R.layout.content_listar,listarUsuario));
                 }
             }
 

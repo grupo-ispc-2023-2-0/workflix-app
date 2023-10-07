@@ -14,7 +14,7 @@ import java.util.List;
 
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.models.Usuario;
-import tec.ispc.workflix.views.ui.dashboard_admin.ListarUsuariosActivity;
+import tec.ispc.workflix.views.ui.dashboard_admin.DashboardActivity;
 
 public class UsuarioAdapter extends ArrayAdapter<Usuario>{
     private Context context;
@@ -43,7 +43,7 @@ public class UsuarioAdapter extends ArrayAdapter<Usuario>{
         rowView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(context, ListarUsuariosActivity.class);
+                Intent intent=new Intent(context, DashboardActivity.class);
                 intent.putExtra("ID",String.valueOf(usuarios.get(position).getId()));
                 intent.putExtra("NOMBRE",usuarios.get(position).getNombre());
                 intent.putExtra("APELLIDO",usuarios.get(position).getApellido());

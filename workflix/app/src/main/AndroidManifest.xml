@@ -19,7 +19,7 @@
             android:name=".views.ui.back.UsuarioActivity"
             android:exported="false" />
         <activity
-            android:name=".views.ui.dashboard_admin.ListarUsuariosActivity"
+            android:name=".views.ui.dashboard_admin.DashboardActivity"
             android:exported="false" />
         <activity
             android:name=".views.ui.back.PersonaActivity"

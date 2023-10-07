@@ -24,6 +24,7 @@ import java.util.List;
 
 import tec.ispc.workflix.models.Persona;
 import tec.ispc.workflix.utils.PersonaService;
+import tec.ispc.workflix.views.ui.dashboard_admin.DashboardActivity;
 import tec.ispc.workflix.views.ui.dashboard_admin.DashboardAdminActivity;
 import tec.ispc.workflix.views.ui.login.LoginActivity;
 import tec.ispc.workflix.views.ui.menu.*;
@@ -87,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         else if (itemId == R.id.dashboard_admin) {
             // Iniciar la actividad de login
-            Intent dashboardIntent = new Intent(this, DashboardAdminActivity.class);
+            Intent dashboardIntent = new Intent(this, DashboardActivity.class);
             startActivity(dashboardIntent);
         }
         /*else if (itemId == R.id.nav_settings) {

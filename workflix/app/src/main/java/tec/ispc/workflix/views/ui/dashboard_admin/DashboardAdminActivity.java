@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import tec.ispc.workflix.views.FalsoMain;
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.views.MainActivity;
 
@@ -23,7 +22,7 @@ public class DashboardAdminActivity extends AppCompatActivity {
         startActivity(inicioIntent);
     }
     public void verUsuarios(View view){
-        Intent verIntent = new Intent(this, ListarUsuariosActivity.class);
+        Intent verIntent = new Intent(this, DashboardActivity.class);
         startActivity(verIntent);
     }
 }
