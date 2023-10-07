@@ -38,7 +38,7 @@ public class UsuarioAdapter extends ArrayAdapter<Usuario>{
         txtidUsuario.setText(String.format("ID:%d",usuarios.get(position).getId()));
         txtNombre.setText(String.format("NOMBRE:%s",usuarios.get(position).getNombre()));
         txtApellido.setText(String.format("APELLIDO: %s",usuarios.get(position).getApellido()));
-        txtApellido.setText(String.format("TELEFONO: %s",usuarios.get(position).getTelefono()));
+        txtidTelefono.setText(String.format("TELEFONO: %s",usuarios.get(position).getTelefono()));
 
         rowView.setOnClickListener(new View.OnClickListener() {
             @Override
