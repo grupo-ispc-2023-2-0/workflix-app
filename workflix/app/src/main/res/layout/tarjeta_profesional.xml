@@ -1,26 +1,51 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <Button
         android:id="@+id/professionalProfession"
-        android:layout_width="match_parent"
+        android:layout_width="264dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/azul"
         android:fontFamily="@font/inter"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        app:cornerRadius="32dp" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal">
+
+    <!-- Foto de perfil (ImageView) -->
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/professionalImage"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop" />
+        android:layout_width="94dp"
+        android:layout_height="94dp"
+        android:scaleType="centerCrop"
+        app:shapeAppearance="@style/circular" />
 
+    <!-- Contenedor para el nombre y apellido, línea separadora y RatingBar -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+    <!-- Nombre y apellido (TextView) -->
     <TextView
         android:id="@+id/professionalName"
         android:layout_width="wrap_content"
@@ -28,6 +53,7 @@
         android:textColor="#000"
         android:textSize="18sp" />
 
+    <!-- Línea separadora en gris -->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -35,6 +61,7 @@
         android:layout_marginBottom="8dp"
         android:background="#888" />
 
+    <!-- Estrellas de valoración (RatingBar) -->
     <RatingBar
         android:id="@+id/professionalRating"
         style="@style/Widget.AppCompat.RatingBar.Small"
@@ -43,17 +70,25 @@
         android:isIndicator="true"
         android:numStars="5"
         android:progressTint="@color/black"
+        android:rating="4.5"
         android:stepSize="0.5" />
+    </LinearLayout>
+</LinearLayout>
 
+    <!-- Descripción breve (TextView) -->
     <TextView
         android:id="@+id/professionalDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/white"
         android:maxLines="3"
-        android:textColor="@color/black"
         android:textAlignment="center" />
 
+    <!-- Botón con esquinas redondeadas -->
     <Button
         android:id="@+id/hireButton"
         android:layout_width="match_parent"
@@ -64,4 +99,5 @@
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="14sp" />
-</LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

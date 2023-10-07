@@ -5,13 +5,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.List;
+
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.models.Profesional;
-
 public class ProfesionalAdapter extends RecyclerView.Adapter<ProfesionalAdapter.ProfesionalViewHolder> {
     private List<Profesional> profesionales;
     private Context context;
@@ -31,7 +34,18 @@ public class ProfesionalAdapter extends RecyclerView.Adapter<ProfesionalAdapter.
     @Override
     public void onBindViewHolder(@NonNull ProfesionalViewHolder holder, int position) {
         Profesional profesional = profesionales.get(position);
-        holder.professionalProfession.setText(profesional.getProfesion());
+
+        // Configurar la profesión
+        holder.professionalProfession.setText(profesional.getProfession());
+
+        // Configurar el nombre y apellido
+        holder.professionalName.setText(profesional.getNombre() + " " + profesional.getApellido());
+
+        // Configurar la descripción
+        holder.professionalDescription.setText(profesional.getDescripcion());
+
+        // Configurar la imagen del profesional
+        holder.professionalImage.setImageResource(profesional.getImagenPerfil());
     }
 
     @Override
@@ -42,13 +56,17 @@ public class ProfesionalAdapter extends RecyclerView.Adapter<ProfesionalAdapter.
     public class ProfesionalViewHolder extends RecyclerView.ViewHolder {
 
         public Button professionalProfession;
+        public ImageView professionalImage;
+        public TextView professionalName;
+        public TextView professionalDescription;
 
         public ProfesionalViewHolder(@NonNull View itemView) {
             super(itemView);
 
             professionalProfession = itemView.findViewById(R.id.professionalProfession);
-
+            professionalImage = itemView.findViewById(R.id.professionalImage);
+            professionalName = itemView.findViewById(R.id.professionalName);
+            professionalDescription = itemView.findViewById(R.id.professionalDescription);
         }
     }
 }
-

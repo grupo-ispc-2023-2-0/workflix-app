@@ -17,8 +17,27 @@ public class Profesional {
         this.profesion = profesion;
     }
 
-    public String getProfesion() {
-        return profesion;
+    public String getNombre() {
+        return nombre;
     }
 
+    public String getApellido() {
+        return apellido;
+    }
+
+    public int getImagenPerfil() {
+        return imagenPerfil;
+    }
+
+    public float getValoracion() {
+        return valoracion;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public String getProfession() {
+        return profesion;
+    }
 }

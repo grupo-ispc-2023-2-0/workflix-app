@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace = "tec.ispc.workflix"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "tec.ispc.workflix"

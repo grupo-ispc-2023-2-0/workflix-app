@@ -32,9 +32,8 @@ public class CatalogoActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-
         ProfesionalAdapter adapter = new ProfesionalAdapter(getListaDeProfesionales(), this);
-
+        recyclerView.setAdapter(adapter); // Agrega esta línea
 
         horizontalScrollView.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
             @Override
@@ -53,6 +52,7 @@ public class CatalogoActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private List<Profesional> getListaDeProfesionales() {
         List<Profesional> profesionales = new ArrayList<>();
