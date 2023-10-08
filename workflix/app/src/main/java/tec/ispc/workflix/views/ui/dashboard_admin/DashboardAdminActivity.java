@@ -8,7 +8,6 @@ import android.view.View;
 
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.views.MainActivity;
-import tec.ispc.workflix.views.ui.register.RegisterActivity;
 
 public class DashboardAdminActivity extends AppCompatActivity {
 
@@ -16,11 +15,14 @@ public class DashboardAdminActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard_admin);
-
     }
 
     public void irInicio(View view) {
         Intent inicioIntent = new Intent(this, MainActivity.class);
         startActivity(inicioIntent);
+    }
+    public void verUsuarios(View view){
+        Intent verIntent = new Intent(this, DashboardActivity.class);
+        startActivity(verIntent);
     }
 }

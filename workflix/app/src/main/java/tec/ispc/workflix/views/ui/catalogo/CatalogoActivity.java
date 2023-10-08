@@ -1,6 +1,7 @@
 package tec.ispc.workflix.views.ui.catalogo;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.HorizontalScrollView;
@@ -11,6 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.models.Profesional;
+import android.widget.ListView;
+import java.util.ArrayList;
+import java.util.List;
+import tec.ispc.workflix.R;
+import tec.ispc.workflix.views.MainActivity;
 
 public class CatalogoActivity extends AppCompatActivity {
 
@@ -23,6 +29,8 @@ public class CatalogoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalogo);
+
+
 
         horizontalScrollView = findViewById(R.id.horizontalScrollView);
         arrowLeft = findViewById(R.id.arrowLeft);
@@ -65,4 +73,5 @@ public class CatalogoActivity extends AppCompatActivity {
 
         return profesionales;
     }
+
 }
