@@ -4,6 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="verde1">#60D5AB</color>
     <color name="azul">#0A769D</color>
+    <color name="gris">#F0F0F0</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>

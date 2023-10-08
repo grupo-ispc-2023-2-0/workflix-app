@@ -1,8 +1,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:layout_marginTop="16dp"
+    android:alignmentMode="alignMargins"
+    android:columnCount="2"
+    android:orientation="vertical"
+    android:padding="16dp">
+
 
     <Button
         android:id="@+id/professionalProfession"
@@ -14,90 +20,94 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:cornerRadius="32dp" />
+        app:cornerRadius="32dp"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="50dp"
-        android:orientation="horizontal">
-
-    <!-- Foto de perfil (ImageView) -->
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/professionalImage"
-        android:layout_width="94dp"
-        android:layout_height="94dp"
-        android:scaleType="centerCrop"
-        app:shapeAppearance="@style/circular" />
-
-    <!-- Contenedor para el nombre y apellido, línea separadora y RatingBar -->
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
-
-    <!-- Nombre y apellido (TextView) -->
-    <TextView
-        android:id="@+id/professionalName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#000"
-        android:textSize="18sp" />
-
-    <!-- Línea separadora en gris -->
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="#888" />
-
-    <!-- Estrellas de valoración (RatingBar) -->
-    <RatingBar
-        android:id="@+id/professionalRating"
-        style="@style/Widget.AppCompat.RatingBar.Small"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:isIndicator="true"
-        android:numStars="5"
-        android:progressTint="@color/black"
-        android:rating="4.5"
-        android:stepSize="0.5" />
-    </LinearLayout>
-</LinearLayout>
-
-    <!-- Descripción breve (TextView) -->
-    <TextView
-        android:id="@+id/professionalDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/gris"
+        android:layout_columnWeight="1"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/white"
-        android:maxLines="3"
-        android:textAlignment="center" />
+        android:orientation="vertical"
+        app:cardElevation="4dp"
+        android:background="@drawable/rounded_background">
 
-    <!-- Botón con esquinas redondeadas -->
-    <Button
-        android:id="@+id/hireButton"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:backgroundTint="@color/verde1"
-        android:fontFamily="@font/inter"
-        android:text="C o n t r a t a r"
-        android:textAllCaps="false"
-        android:textColor="@color/black"
-        android:textSize="14sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="50dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/professionalImage"
+                android:layout_width="94dp"
+                android:layout_height="94dp"
+                android:scaleType="centerCrop"
+                app:shapeAppearance="@style/circular" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/professionalName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:textSize="18sp" />
+
+
+                <View
+                    android:layout_width="220dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="#888" />
+
+                <RatingBar
+                    android:id="@+id/professionalRating"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:progressTint="@color/black"
+                    android:rating="4.5"
+                    android:stepSize="0.5" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/professionalDescription"
+            android:layout_width="match_parent"
+            android:layout_height="67dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:maxLines="3"
+            android:textAlignment="center"
+            android:gravity="center_vertical"
+            style="@style/RoundedCorners8dp"/>
+
+        <Button
+            android:id="@+id/hireButton"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:backgroundTint="@color/verde1"
+            android:fontFamily="@font/inter"
+            android:text="C o n t r a t a r"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            style="@style/RoundedBottomCorners" />
     </LinearLayout>
 </RelativeLayout>
