@@ -10,22 +10,12 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.MenuItem;
-import android.widget.ListView;
-import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import tec.ispc.workflix.models.Persona;
-import tec.ispc.workflix.utils.PersonaService;
 import tec.ispc.workflix.views.ui.dashboard_admin.DashboardActivity;
-import tec.ispc.workflix.views.ui.dashboard_admin.DashboardAdminActivity;
 import tec.ispc.workflix.views.ui.login.LoginActivity;
 import tec.ispc.workflix.views.ui.menu.*;
 import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
