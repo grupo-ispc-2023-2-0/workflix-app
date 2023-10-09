@@ -18,7 +18,7 @@ import org.springframework.web.*;
 
 @RestController
 @RequestMapping("/usuarios")
-public class UsuarioControllers {
+public class UsuarioController {
 
     @Autowired
     private UsuarioService service;

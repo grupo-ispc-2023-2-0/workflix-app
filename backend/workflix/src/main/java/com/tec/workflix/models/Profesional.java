@@ -1,17 +1,12 @@
 package com.tec.workflix.models;
 
-import com.tec.workflix.interfaces.IUsuarioInterface;
 
 import java.util.List;
 import java.util.Map;
-
-public class Profesionales extends Usuario  {
-
+public class Profesional extends Usuario{
     private String telefono, direccion, correo, ciudad, provincia, descripcion, foto, valoracion, profesion;
 
-
-
-    public Profesionales(String telefono, String direccion, String correo, String ciudad, String provincia, String descripcion, String foto, String valoracion, String profesion) {
+    public Profesional(String telefono, String direccion, String correo, String ciudad, String provincia, String descripcion, String foto, String valoracion, String profesion) {
         this.telefono = telefono;
         this.direccion = direccion;
         this.correo = correo;
@@ -23,7 +18,7 @@ public class Profesionales extends Usuario  {
         this.profesion = profesion;
     }
 
-    public Profesionales(int id, String nombre, String apellido, String correo, String telefono, String clave, String telefono1, String direccion, String correo1, String ciudad, String provincia, String descripcion, String foto, String valoracion, String profesion) {
+    public Profesional(int id, String nombre, String apellido, String correo, String telefono, String clave, String telefono1, String direccion, String correo1, String ciudad, String provincia, String descripcion, String foto, String valoracion, String profesion) {
         super(id, nombre, apellido, correo, telefono, clave);
         this.telefono = telefono1;
         this.direccion = direccion;

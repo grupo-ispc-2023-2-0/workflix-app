@@ -1,7 +1,7 @@
 package com.tec.workflix.models;
 
-import jakarta.persistence.*;
 
+import jakarta.persistence.*;
 
 @Table(name = "Usuario")
 @Entity
