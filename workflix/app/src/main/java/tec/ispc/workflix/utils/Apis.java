@@ -5,7 +5,6 @@ public class Apis {
     public static final String URL_002="http://192.168.0.125:8080/usuarios/";
 
 
-
     public static UsuarioService getUsuarioService(){
         return Cliente.getCliente(URL_002).create(UsuarioService.class);
     }
