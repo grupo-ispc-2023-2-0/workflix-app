@@ -69,7 +69,7 @@ public class DashboardActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Usuario>> call, Throwable t) {
-                Log.e("Error:",t.getMessage());
+                Log.e("Error no pude recuperar la lista de usuarios:",t.getMessage());
             }
         });
     }
