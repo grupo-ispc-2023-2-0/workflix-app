@@ -3,6 +3,7 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Ingrese su correo</string>
     <string name="prompt_password">Ingrese su clave</string>
+    <string name="prompt_password2">Ingrese su clave nuevamente</string>
     <string name="action_sign_in">Iniciar Sesión</string>
     <string name="ver_profesionales">Ver Profesionales</string>
     <string name="enviar">Enviar</string>
