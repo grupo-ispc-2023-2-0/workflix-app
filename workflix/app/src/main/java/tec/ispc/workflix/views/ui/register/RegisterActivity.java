@@ -43,14 +43,27 @@ public class RegisterActivity extends AppCompatActivity {
         registrarseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Usuario usuario = new Usuario();
+                String nombre = nombreEditText.getText().toString();
+                String apellido = apellidoEditText.getText().toString();
+                String correo = correoEditText.getText().toString();
+                String clave = claveEditText.getText().toString();
+                String telefono = telefonoEditText.getText().toString();
 
-                usuario.setNombre(nombreEditText.getText().toString());
-                usuario.setApellido(apellidoEditText.getText().toString());
-                usuario.setClave(claveEditText.getText().toString());
-                usuario.setTelefono(telefonoEditText.getText().toString());
-                usuario.setCorreo(correoEditText.getText().toString());
+                if (nombre.isEmpty() || apellido.isEmpty() || correo.isEmpty() || clave.isEmpty() || telefono.isEmpty()) {
+                    Toast.makeText(RegisterActivity.this, "Por favor, complete todos los campos", Toast.LENGTH_LONG).show();
+                } else if (!isValidEmail(correo)) {
+                    Toast.makeText(RegisterActivity.this, "Correo electrónico no válido", Toast.LENGTH_LONG).show();
+                } else if (clave.length() < 6) {
+                    Toast.makeText(RegisterActivity.this, "La contraseña debe tener al menos 6 caracteres", Toast.LENGTH_LONG).show();
+                } else {
 
+                    Usuario usuario = new Usuario();
+
+                    usuario.setNombre(nombreEditText.getText().toString());
+                    usuario.setApellido(apellidoEditText.getText().toString());
+                    usuario.setClave(claveEditText.getText().toString());
+                    usuario.setTelefono(telefonoEditText.getText().toString());
+                    usuario.setCorreo(correoEditText.getText().toString());
 
 
                     addUsuario(usuario);
@@ -58,8 +71,12 @@ public class RegisterActivity extends AppCompatActivity {
                     startActivity(loginIntent);
 
                 }
+            }
         });
-
+    }
+    private boolean isValidEmail(String email) {
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        return email.matches(emailPattern);
     }
     public void addUsuario(Usuario usuario){
         usuarioService = Apis.getUsuarioService();
@@ -85,8 +102,5 @@ public class RegisterActivity extends AppCompatActivity {
         startActivity(loginIntent);
 
     }
-    public void irPerfil(View view) {
-        Intent irPerfilIntent = new Intent(this, PerfilTerminosActivity.class);
-        startActivity(irPerfilIntent);
-    }
+
 }
