@@ -15,12 +15,10 @@ public class AutenticacionUsuarioDAO implements IAutenticacionUsuario {
     @Override
     public boolean autenticarUsuario(String correo, String clave) {
         String sql = "SELECT COUNT(*) FROM usuario WHERE correo = ? AND clave = ?";
-        int count = template.query(sql, new Object[]{correo, clave}, resultSet -> {
-            resultSet.next();
-            return resultSet.getInt(1);
-        });
+        int count = template.queryForObject(sql, new Object[]{correo, clave}, Integer.class);
         return count == 1;
     }
+
 
 
     @Override
