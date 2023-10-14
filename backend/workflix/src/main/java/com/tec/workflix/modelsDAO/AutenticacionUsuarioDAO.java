@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class RegistroUsuarioDAO implements IAutenticacionUsuario {
+public class AutenticacionUsuarioDAO implements IAutenticacionUsuario {
 
     JdbcTemplate template;
     @Override
