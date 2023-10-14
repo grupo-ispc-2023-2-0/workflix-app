@@ -6,19 +6,22 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class AutenticacionUsuarioDAO implements IAutenticacionUsuario {
 
     JdbcTemplate template;
     @Override
-    public Usuario obtenerUsuario(Usuario usuario) {
-        String sql = "SELECT * FROM usuario WHERE clave = ? AND correo = ?";
-        try {
-            return template.queryForObject(sql, new Object[]{usuario.getClave(), usuario.getCorreo()}, new UsuarioMapper());
-        } catch (EmptyResultDataAccessException e) {
-            return null;
-        }
+    public boolean autenticarUsuario(String correo, String clave) {
+        String sql = "SELECT COUNT(*) FROM usuario WHERE correo = ? AND clave = ?";
+        int count = template.query(sql, new Object[]{correo, clave}, resultSet -> {
+            resultSet.next();
+            return resultSet.getInt(1);
+        });
+        return count == 1;
     }
+
 
     @Override
     public Usuario registrarUsuario(Usuario usuario) {
