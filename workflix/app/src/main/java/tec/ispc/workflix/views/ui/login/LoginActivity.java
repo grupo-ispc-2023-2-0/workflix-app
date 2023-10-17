@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
 
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.databinding.ActivityLoginBinding;
@@ -144,6 +146,7 @@ public class LoginActivity extends AppCompatActivity {
         if (!validateEmail() || !validatePassword()){
             return;
         }
+        RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
         // Fin check por errores
     }
 
