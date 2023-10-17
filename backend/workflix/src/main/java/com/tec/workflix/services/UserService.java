@@ -18,4 +18,8 @@ public class UserService {
     public List<String> checkUserPasswordByEmail(String email){
         return userRepository.checkUserPasswordByEmail(email);
     }// Fin metodo para checkear password por email
+
+    public List<String> checkUserEmail(String email){
+        return userRepository.checkUserEmail(email);
+    }
 }
