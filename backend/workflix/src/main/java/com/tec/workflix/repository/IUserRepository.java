@@ -17,6 +17,11 @@ public interface IUserRepository extends CrudRepository<Users,Integer> {
     @Query(value = "SELECT email FROM users WHERE email = :email ", nativeQuery = true)
     List<String> checkUserEmail(@Param("email")String email);
 
+    @Query(value = "SELECT password FROM users WHERE email = :email ", nativeQuery = true)
+    List<String> checkUserPasswordByEmail(@Param("email")String email);
+
+    @Query(value = "SELECT * FROM users WHERE email = :email ", nativeQuery = true)
+    List<String> GetUserDetailsByEmail(@Param("email")String email);
 
     @Transactional
     @Modifying
