@@ -9,8 +9,14 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface IUserRepository extends CrudRepository<Users,Integer> {
+
+    @Query(value = "SELECT email FROM users WHERE email = :email ", nativeQuery = true)
+    List<String> checkUserEmail(@Param("email")String email);
+
 
     @Transactional
     @Modifying
