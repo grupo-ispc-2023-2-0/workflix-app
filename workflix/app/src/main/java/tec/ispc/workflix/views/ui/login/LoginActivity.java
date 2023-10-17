@@ -178,10 +178,12 @@ public class LoginActivity extends AppCompatActivity {
                             String last_name = (String) response.get("last_name");
                             String email = (String) response.get("email");
 
+                            // Paso valores al perfil de la actividad
+
                         }catch (JSONException e){
                             e.printStackTrace();
                             System.out.println(e.getMessage());
-                        }
+                        } // Fin de catch
                     }
                 }, new Response.ErrorListener() {
             @Override

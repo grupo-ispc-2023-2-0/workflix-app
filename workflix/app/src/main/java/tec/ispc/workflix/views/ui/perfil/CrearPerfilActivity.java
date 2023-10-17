@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.views.MainActivity;
@@ -13,6 +15,8 @@ import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
 
 public class CrearPerfilActivity extends AppCompatActivity {
 
+    TextView first_name, last_name, email;
+    Button sign_out_btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
