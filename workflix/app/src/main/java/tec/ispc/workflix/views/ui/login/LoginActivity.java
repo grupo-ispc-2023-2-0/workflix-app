@@ -1,34 +1,16 @@
 package tec.ispc.workflix.views.ui.login;
 
-import android.app.Activity;
-
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import tec.ispc.workflix.R;
-import tec.ispc.workflix.views.ui.catalogo.CatalogoActivity;
-import tec.ispc.workflix.views.ui.login.LoginViewModel;
-import tec.ispc.workflix.views.ui.login.LoginViewModelFactory;
 import tec.ispc.workflix.databinding.ActivityLoginBinding;
-import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
+import tec.ispc.workflix.views.ui.catalogo.CatalogoActivity;
 import tec.ispc.workflix.views.ui.register.RegisterActivity;
 import tec.ispc.workflix.views.ui.restablecer.RestablecerActivity;
 
@@ -54,6 +36,13 @@ public class LoginActivity extends AppCompatActivity {
         // Hook Button
 
         sign_in_btn = findViewById(R.id.sign_in_btn);
+
+        sign_in_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                authenticateUser();
+            }
+        });
     /*    loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
@@ -148,6 +137,22 @@ public class LoginActivity extends AppCompatActivity {
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }*/
+    }
+
+    private void authenticateUser() {
+        // Chequear por error
+        if (!validateEmail() || !validatePassword()){
+            return;
+        }
+        // Fin check por errores
+    }
+
+    private boolean validatePassword() {
+        return true;
+    }
+
+    private boolean validateEmail() {
+    return true;
     }
 
     public void irRegistro(View view) {
