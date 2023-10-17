@@ -24,7 +24,7 @@ public class UserService {
     }// Fin metodo para checkear password por email
     public Users getUserDetailByEmail(String email){
         return userRepository.getUserDetailsByEmail(email);
-    }
+    }// Fin metodo para obtener detalle del usuario por email
 
 
 }
