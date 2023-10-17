@@ -47,6 +47,13 @@ public class LoginActivity extends AppCompatActivity {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        // Hook Edit text fields
+        et_email = findViewById(R.id.et_email);
+        et_password = findViewById(R.id.et_password);
+
+        // Hook Button
+
+        sign_in_btn = findViewById(R.id.sign_in_btn);
     /*    loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
