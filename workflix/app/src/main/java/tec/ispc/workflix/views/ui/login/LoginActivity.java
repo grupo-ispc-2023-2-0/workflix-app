@@ -14,6 +14,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -171,7 +172,16 @@ public class LoginActivity extends AppCompatActivity {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
+                        try {
+                            // Obtengo valores de respuesta del objeto
+                            String first_name = (String) response.get("first_name");
+                            String last_name = (String) response.get("last_name");
+                            String email = (String) response.get("email");
 
+                        }catch (JSONException e){
+                            e.printStackTrace();
+                            System.out.println(e.getMessage());
+                        }
                     }
                 }, new Response.ErrorListener() {
             @Override
