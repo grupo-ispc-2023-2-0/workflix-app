@@ -21,6 +21,9 @@ public class CrearPerfilActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_perfil);
+
+        // Text views objetos
+        first_name = findViewById(R.id.first_name);
     }
     public void cerrarSesion (View view) {
         Intent intent = new Intent(this, MainActivity.class);

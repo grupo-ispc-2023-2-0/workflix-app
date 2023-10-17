@@ -108,7 +108,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/textView14"
+        android:id="@+id/first_name"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:hint="Nombre"
@@ -123,7 +123,7 @@
         app:layout_constraintVertical_bias="0.249" />
 
     <EditText
-        android:id="@+id/textView16"
+        android:id="@+id/email"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:hint="Correo electronico"
@@ -138,7 +138,7 @@
         app:layout_constraintVertical_bias="0.487" />
 
     <EditText
-        android:id="@+id/textView1"
+        android:id="@+id/last_name"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:hint="Apellido"
@@ -152,7 +152,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.329" />
 
-    <EditText
+  <!--  <EditText
         android:id="@+id/textView15"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
@@ -165,6 +165,6 @@
         app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toEndOf="@+id/button5"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.408" />
+        app:layout_constraintVertical_bias="0.408" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
