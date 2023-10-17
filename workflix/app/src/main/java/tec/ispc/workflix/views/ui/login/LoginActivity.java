@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
+import java.util.HashMap;
+
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.databinding.ActivityLoginBinding;
 import tec.ispc.workflix.views.ui.catalogo.CatalogoActivity;
@@ -146,8 +148,18 @@ public class LoginActivity extends AppCompatActivity {
         if (!validateEmail() || !validatePassword()){
             return;
         }
-        RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
         // Fin check por errores
+        RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
+        // The Url Posting to
+
+        String url = "http://192.168.0.125:8080/api/v1/user/login";
+
+        // Set paramaters
+        HashMap<String, String> params = new HashMap<String, String>();
+        params.put("email", et_email.getText().toString());
+        params.put("password", et_password.getText().toString());
+
+
     }
 
     private boolean validatePassword() {
