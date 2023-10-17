@@ -34,25 +34,25 @@ import tec.ispc.workflix.views.ui.restablecer.RestablecerActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private LoginViewModel loginViewModel;
+  /*  private LoginViewModel loginViewModel;
     private ActivityLoginBinding binding;
-
+*/
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityLoginBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+       /* binding = ActivityLoginBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());*/
 
-        loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
+    /*    loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
         final EditText usernameEditText = binding.username;
         final EditText passwordEditText = binding.password;
         final Button loginButton = binding.login;
-        final ProgressBar loadingProgressBar = binding.loading;
+        final ProgressBar loadingProgressBar = binding.loading;*/
 
-        loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
+      /*  loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
             public void onChanged(@Nullable LoginFormState loginFormState) {
                 if (loginFormState == null) {
@@ -137,7 +137,9 @@ public class LoginActivity extends AppCompatActivity {
 
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
+    }*/
     }
+
     public void irRegistro(View view) {
         Intent registroIntent = new Intent(this, RegisterActivity.class);
         startActivity(registroIntent);
