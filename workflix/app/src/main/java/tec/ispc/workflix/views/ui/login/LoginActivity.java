@@ -34,15 +34,15 @@ import tec.ispc.workflix.views.ui.restablecer.RestablecerActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
-  /*  private LoginViewModel loginViewModel;
+    private LoginViewModel loginViewModel;
     private ActivityLoginBinding binding;
-*/
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-       /* binding = ActivityLoginBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());*/
+        binding = ActivityLoginBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
     /*    loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
