@@ -27,6 +27,8 @@ public class RegisterApiController {
                                           @RequestParam("email") String email,
                                           @RequestParam("password") String password){
         if(first_name.isEmpty() || last_name.isEmpty() || email.isEmpty() || password.isEmpty()){
+            logger.info("Este es un mensaje de información ok Response.");
+            logger.error("Este es un mensaje de error Response.");
             return new ResponseEntity<>("Porfavor completa todas las celdas", HttpStatus.BAD_REQUEST);
         }
         // ENCRIPTACION / HASH PASSWORD
@@ -36,9 +38,12 @@ public class RegisterApiController {
         int result = userService.registerNewUserServiceMethod(first_name, last_name, email, hashed_password);
 
         if (result !=1){
+            logger.info("Este es un mensaje de información ok Primer IF.");
+            logger.error("Este es un mensaje de error Primer IF.");
             return new ResponseEntity<>("FALLO AL INTENTAR REGISTRARSE",HttpStatus.BAD_REQUEST);
         }
-
+        logger.info("Este es un mensaje de información ok La clase entera.");
+        logger.error("Este es un mensaje de error La clase entera.");
         return new ResponseEntity<>("USUARIO REGISTRADO CORRECTAMENTE",HttpStatus.OK);
     }
 }

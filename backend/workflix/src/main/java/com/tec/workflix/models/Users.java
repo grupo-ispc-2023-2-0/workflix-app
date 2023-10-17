@@ -8,7 +8,7 @@ import jakarta.persistence.Transient;
 import java.util.Date;
 
 @Entity
-@Table(name ="users")
+@Table(name ="Users")
 public class Users {
     @Id
     private int user_id;
