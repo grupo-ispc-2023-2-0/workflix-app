@@ -152,11 +152,11 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.329" />
 
-  <!--  <EditText
-        android:id="@+id/textView15"
+    <EditText
+        android:id="@+id/tel"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:hint="Domicilio"
+        android:hint="Telefono"
         android:inputType="textPersonName"
         android:textColor="@color/black"
         android:textColorHint="@color/grey2"
@@ -165,6 +165,6 @@
         app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toEndOf="@+id/button5"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.408" />-->
+        app:layout_constraintVertical_bias="0.408" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

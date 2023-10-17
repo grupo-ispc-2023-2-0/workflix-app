@@ -1,6 +1,6 @@
 package com.tec.workflix.controllers;
 
-import com.tec.workflix.services.UserService;
+import com.tec.workflix.services.UsuarioService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,23 +19,24 @@ public class RegisterApiController {
     private static final Logger logger = LoggerFactory.getLogger(RegisterApiController.class);
 
     @Autowired
-    UserService userService;
+    UsuarioService userService;
 
     @PostMapping("/user/register")
-    public ResponseEntity registerNewUser(@RequestParam("first_name") String first_name,
-                                          @RequestParam("last_name") String last_name,
-                                          @RequestParam("email") String email,
-                                          @RequestParam("password") String password){
-        if(first_name.isEmpty() || last_name.isEmpty() || email.isEmpty() || password.isEmpty()){
+    public ResponseEntity registerNewUser(@RequestParam("nombre") String nombre,
+                                          @RequestParam("apellido") String apellido,
+                                          @RequestParam("correo") String correo,
+                                          @RequestParam("clave") String clave,
+                                          @RequestParam("telefono") String telefono){
+        if(nombre.isEmpty() || apellido.isEmpty() || correo.isEmpty() || clave.isEmpty() || telefono.isEmpty()){
             logger.info("Este es un mensaje de información ok Response.");
             logger.error("Este es un mensaje de error Response.");
             return new ResponseEntity<>("Porfavor completa todas las celdas", HttpStatus.BAD_REQUEST);
         }
         // ENCRIPTACION / HASH PASSWORD
-        String hashed_password = BCrypt.hashpw(password, BCrypt.gensalt());
+        String hashed_password = BCrypt.hashpw(clave, BCrypt.gensalt());
 
         // REGISTER NEW USER
-        int result = userService.registerNewUserServiceMethod(first_name, last_name, email, hashed_password);
+        int result = userService.registerNewUserServiceMethod(nombre, apellido, correo, hashed_password, telefono);
 
         if (result !=1){
             logger.info("Este es un mensaje de información ok Primer IF.");

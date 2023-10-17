@@ -1,8 +1,8 @@
 package com.tec.workflix.controllers;
 
 import com.tec.workflix.models.Login;
-import com.tec.workflix.models.Users;
-import com.tec.workflix.services.UserService;
+import com.tec.workflix.models.Usuario;
+import com.tec.workflix.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,13 +18,13 @@ import java.util.List;
 @RequestMapping("/api/v1")
 public class LoginApiController {
     @Autowired
-    UserService userService;
+    UsuarioService userService;
 
     @PostMapping("/user/login")
     public ResponseEntity authenticateUser(@RequestBody Login login){
 
         // Get user email:
-        List<String> userEmail = userService.checkUserEmail(login.getEmail());
+        List<String> userEmail = userService.checkUserEmail(login.getCorreo());
 
         // Check IF email is Empty
         if(userEmail.isEmpty() || userEmail == null){
@@ -34,15 +34,15 @@ public class LoginApiController {
 
 
         // Get Hashed Users Password
-        String hashed_password = userService.checkUserPasswordByEmail(login.getEmail());
+        String hashed_password = userService.checkUserPasswordByEmail(login.getCorreo());
 
         // Validate User Password
-        if (!BCrypt.checkpw(login.getPassword(),hashed_password)){
+        if (!BCrypt.checkpw(login.getClave(),hashed_password)){
             return new ResponseEntity("Incorrecto Username o password",HttpStatus.BAD_REQUEST);
         }
 
         // Set User Object
-        Users user = userService.getUserDetailByEmail(login.getEmail());
+        Usuario user = userService.getUserDetailByEmail(login.getCorreo());
         return new ResponseEntity(user, HttpStatus.OK);
     }
 }

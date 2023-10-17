@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
     private ActivityLoginBinding binding;
 
     Button sign_in_btn;
-    EditText et_email, et_password;
+    EditText et_email, et_password, tel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -166,8 +166,8 @@ public class LoginActivity extends AppCompatActivity {
 
         // Set paramaters
         HashMap<String, String> params = new HashMap<String, String>();
-        params.put("email", et_email.getText().toString());
-        params.put("password", et_password.getText().toString());
+        params.put("correo", et_email.getText().toString());
+        params.put("clave", et_password.getText().toString());
 
         // Set request object
 
@@ -177,15 +177,17 @@ public class LoginActivity extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         try {
                             // Obtengo valores de respuesta del objeto
-                            String first_name = (String) response.get("first_name");
-                            String last_name = (String) response.get("last_name");
-                            String email = (String) response.get("email");
+                            String first_name = (String) response.get("nombre");
+                            String last_name = (String) response.get("apellido");
+                            String tel = (String) response.get("telefono");
+                            String email = (String) response.get("correo");
 
                             // Intent para ir al perfil
                             Intent irAlPerfil = new Intent(LoginActivity.this, CrearPerfilActivity.class);
                             // Paso valores al perfil de la actividad
                             irAlPerfil.putExtra("first_name", first_name);
                             irAlPerfil.putExtra("last_name", last_name);
+                            irAlPerfil.putExtra("tel", tel);
                             irAlPerfil.putExtra("email", email);
                             // Start activity
                             startActivity(irAlPerfil);
