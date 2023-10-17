@@ -1,34 +1,30 @@
 package tec.ispc.workflix.views.ui.login;
 
-import android.app.Activity;
-
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+
 import tec.ispc.workflix.R;
-import tec.ispc.workflix.views.ui.catalogo.CatalogoActivity;
-import tec.ispc.workflix.views.ui.login.LoginViewModel;
-import tec.ispc.workflix.views.ui.login.LoginViewModelFactory;
 import tec.ispc.workflix.databinding.ActivityLoginBinding;
-import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
+import tec.ispc.workflix.views.ui.catalogo.CatalogoActivity;
+import tec.ispc.workflix.views.ui.perfil.CrearPerfilActivity;
 import tec.ispc.workflix.views.ui.register.RegisterActivity;
 import tec.ispc.workflix.views.ui.restablecer.RestablecerActivity;
 
@@ -37,6 +33,9 @@ public class LoginActivity extends AppCompatActivity {
     private LoginViewModel loginViewModel;
     private ActivityLoginBinding binding;
 
+    Button sign_in_btn;
+    EditText et_email, et_password, tel;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,15 +43,29 @@ public class LoginActivity extends AppCompatActivity {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
+        // Hook Edit text fields
+        et_email = findViewById(R.id.et_email);
+        et_password = findViewById(R.id.et_password);
+
+        // Hook Button
+
+        sign_in_btn = findViewById(R.id.sign_in_btn);
+
+        sign_in_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                authenticateUser();
+            }
+        });
+    /*    loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
         final EditText usernameEditText = binding.username;
         final EditText passwordEditText = binding.password;
         final Button loginButton = binding.login;
-        final ProgressBar loadingProgressBar = binding.loading;
+        final ProgressBar loadingProgressBar = binding.loading;*/
 
-        loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
+      /*  loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
             public void onChanged(@Nullable LoginFormState loginFormState) {
                 if (loginFormState == null) {
@@ -137,7 +150,77 @@ public class LoginActivity extends AppCompatActivity {
 
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
+    }*/
     }
+
+    private void authenticateUser() {
+        // Chequear por error
+        if (!validateEmail() || !validatePassword()){
+            return;
+        }
+        // Fin check por errores
+        RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
+        // The Url Posting to
+
+        String url = "http://192.168.0.125:8080/api/v1/user/login";
+
+        // Set paramaters
+        HashMap<String, String> params = new HashMap<String, String>();
+        params.put("correo", et_email.getText().toString());
+        params.put("clave", et_password.getText().toString());
+
+        // Set request object
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, new JSONObject(params),
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            // Obtengo valores de respuesta del objeto
+                            String first_name = (String) response.get("nombre");
+                            String last_name = (String) response.get("apellido");
+                            String tel = (String) response.get("telefono");
+                            String email = (String) response.get("correo");
+
+                            // Intent para ir al perfil
+                            Intent irAlPerfil = new Intent(LoginActivity.this, CrearPerfilActivity.class);
+                            // Paso valores al perfil de la actividad
+                            irAlPerfil.putExtra("first_name", first_name);
+                            irAlPerfil.putExtra("last_name", last_name);
+                            irAlPerfil.putExtra("tel", tel);
+                            irAlPerfil.putExtra("email", email);
+                            // Start activity
+                            startActivity(irAlPerfil);
+                            finish();
+
+
+                        }catch (JSONException e){
+                            e.printStackTrace();
+                            System.out.println(e.getMessage());
+                        } // Fin de catch
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                error.printStackTrace();
+                System.out.println(error.getMessage());
+                Toast.makeText(LoginActivity.this,"El login falló",Toast.LENGTH_LONG).show();
+            }
+        }
+        );// Fin request del objeto
+
+        queue.add(jsonObjectRequest);
+    };
+
+    private boolean validatePassword() {
+        return true;
+    }
+
+    private boolean validateEmail() {
+    return true;
+    }
+
     public void irRegistro(View view) {
         Intent registroIntent = new Intent(this, RegisterActivity.class);
         startActivity(registroIntent);
