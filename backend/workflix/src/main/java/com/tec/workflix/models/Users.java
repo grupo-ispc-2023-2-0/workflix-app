@@ -1,9 +1,6 @@
 package com.tec.workflix.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -11,6 +8,7 @@ import java.util.Date;
 @Table(name ="Users")
 public class Users {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int user_id;
     private String first_name;
     private String last_name;
