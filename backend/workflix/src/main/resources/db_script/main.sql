@@ -11,3 +11,4 @@ CREATE TABLE users(
     updated_at TIMESTAMP,
     PRIMARY KEY(user_id)
 );
+

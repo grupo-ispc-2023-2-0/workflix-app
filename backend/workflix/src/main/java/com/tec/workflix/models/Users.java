@@ -1,22 +1,34 @@
 package com.tec.workflix.models;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 @Entity
-@Table(name ="Users")
+@Table(name = "Users")
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private int user_id;
+
+    @Column
     private String first_name;
+
+    @Column
     private String last_name;
+
+    @Column
     private String email;
+
+    @Column
     private String password;
-    private Date created_at;
-    @Transient
-    private Date update_at;
+
+    @CreationTimestamp
+    @Column
+    private Timestamp created_at;
+
 
     public int getUser_id() {
         return user_id;
@@ -58,19 +70,7 @@ public class Users {
         this.password = password;
     }
 
-    public Date getUpdate_at() {
-        return update_at;
-    }
-
-    public void setUpdate_at(Date update_at) {
-        this.update_at = update_at;
-    }
-
-    public Date getCreated_at() {
+    public Timestamp getCreated_at() {
         return created_at;
-    }
-
-    public void setCreated_at(Date created_at) {
-        this.created_at = created_at;
     }
 }
