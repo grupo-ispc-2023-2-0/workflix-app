@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
@@ -22,6 +24,7 @@ import java.util.HashMap;
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.databinding.ActivityLoginBinding;
 import tec.ispc.workflix.views.ui.catalogo.CatalogoActivity;
+import tec.ispc.workflix.views.ui.perfil.CrearPerfilActivity;
 import tec.ispc.workflix.views.ui.register.RegisterActivity;
 import tec.ispc.workflix.views.ui.restablecer.RestablecerActivity;
 
@@ -178,7 +181,16 @@ public class LoginActivity extends AppCompatActivity {
                             String last_name = (String) response.get("last_name");
                             String email = (String) response.get("email");
 
+                            // Intent para ir al perfil
+                            Intent irAlPerfil = new Intent(LoginActivity.this, CrearPerfilActivity.class);
                             // Paso valores al perfil de la actividad
+                            irAlPerfil.putExtra("first_name", first_name);
+                            irAlPerfil.putExtra("last_name", last_name);
+                            irAlPerfil.putExtra("email", email);
+                            // Start activity
+                            startActivity(irAlPerfil);
+                            finish();
+
 
                         }catch (JSONException e){
                             e.printStackTrace();
@@ -189,11 +201,15 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
 
+                error.printStackTrace();
+                System.out.println(error.getMessage());
+                Toast.makeText(LoginActivity.this,"El login falló",Toast.LENGTH_LONG).show();
             }
         }
-        );
+        );// Fin request del objeto
 
-    }
+        queue.add(jsonObjectRequest);
+    };
 
     private boolean validatePassword() {
         return true;
