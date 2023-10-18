@@ -1,6 +1,7 @@
 package tec.ispc.workflix.views.ui.catalogo;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,6 +47,16 @@ public class ProfesionalAdapter extends RecyclerView.Adapter<ProfesionalAdapter.
 
         // Configurar la imagen del profesional
         holder.professionalImage.setImageResource(profesional.getImagenPerfil());
+
+        holder.hireButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(context, TarjetaAmpliadaActivity.class);
+                intent.putExtra("profesional_id", profesional.getId());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -59,6 +70,7 @@ public class ProfesionalAdapter extends RecyclerView.Adapter<ProfesionalAdapter.
         public ImageView professionalImage;
         public TextView professionalName;
         public TextView professionalDescription;
+        public Button hireButton;
 
         public ProfesionalViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -67,6 +79,7 @@ public class ProfesionalAdapter extends RecyclerView.Adapter<ProfesionalAdapter.
             professionalImage = itemView.findViewById(R.id.professionalImage);
             professionalName = itemView.findViewById(R.id.professionalName);
             professionalDescription = itemView.findViewById(R.id.professionalDescription);
+            hireButton = itemView.findViewById(R.id.hireButton);
         }
     }
 }

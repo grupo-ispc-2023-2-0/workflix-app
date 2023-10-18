@@ -104,10 +104,11 @@
             android:layout_height="55dp"
             android:backgroundTint="@color/verde1"
             android:fontFamily="@font/inter"
-            android:text="C o n t r a t a r"
+            android:text="Consultar"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="14sp"
-            style="@style/RoundedBottomCorners" />
+            style="@style/RoundedBottomCorners"
+            tools:ignore="HardcodedText" />
     </LinearLayout>
 </RelativeLayout>

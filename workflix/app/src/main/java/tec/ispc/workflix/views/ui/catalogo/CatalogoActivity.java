@@ -41,7 +41,9 @@ public class CatalogoActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         ProfesionalAdapter adapter = new ProfesionalAdapter(getListaDeProfesionales(), this);
-        recyclerView.setAdapter(adapter); // Agrega esta línea
+        recyclerView.setAdapter(adapter);
+
+
 
         horizontalScrollView.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
             @Override
