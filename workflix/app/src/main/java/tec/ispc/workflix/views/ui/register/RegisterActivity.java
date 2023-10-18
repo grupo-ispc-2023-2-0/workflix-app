@@ -10,6 +10,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -20,6 +31,7 @@ import tec.ispc.workflix.utils.UsuarioService;
 import tec.ispc.workflix.views.ui.back.UsuarioActivity;
 import tec.ispc.workflix.views.ui.dashboard_admin.DashboardActivity;
 import tec.ispc.workflix.views.ui.login.LoginActivity;
+import tec.ispc.workflix.views.ui.perfil.CrearPerfilActivity;
 import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -42,7 +54,31 @@ public class RegisterActivity extends AppCompatActivity {
 
         registrarseButton = findViewById(R.id.button);
         registrarseButton.setOnClickListener(new View.OnClickListener() {
-            @Override
+                                                 @Override
+                                                 public void onClick(View view) {
+                                                     String nombre = nombreEditText.getText().toString();
+                                                     String apellido = apellidoEditText.getText().toString();
+                                                     String correo = correoEditText.getText().toString();
+                                                     String clave = claveEditText.getText().toString();
+                                                     String clave2= clave2EditText.getText().toString();
+                                                     String telefono = telefonoEditText.getText().toString();
+
+                                                     if (nombre.isEmpty() || apellido.isEmpty() || correo.isEmpty() || clave.isEmpty() || clave2.isEmpty() || telefono.isEmpty()) {
+                                                         Toast.makeText(RegisterActivity.this, "Por favor, complete todos los campos", Toast.LENGTH_LONG).show();
+                                                     } else if (!isValidEmail(correo)) {
+                                                         Toast.makeText(RegisterActivity.this, "Correo electrónico no válido", Toast.LENGTH_LONG).show();
+                                                     } else if (clave.length() < 6) {
+                                                         Toast.makeText(RegisterActivity.this, "La contraseña debe tener al menos 6 caracteres", Toast.LENGTH_LONG).show();
+                                                     } else if (!clave.equals(clave2)) {
+                                                         Toast.makeText(RegisterActivity.this, "Las contraseñas no coinciden", Toast.LENGTH_LONG).show();
+                                                     } else {
+
+                                                         registerUser();
+                                                     }
+                                                 }
+        });
+    }
+  /*          @Override
             public void onClick(View v) {
                 String nombre = nombreEditText.getText().toString();
                 String apellido = apellidoEditText.getText().toString();
@@ -107,4 +143,77 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
-}
+}*/
+
+    private void registerUser() {
+        if (!validateEmail() || !validatePassword()){
+            return;
+        }
+        // Fin check por errores
+        RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
+        // The Url Posting to
+
+        String url = "http://192.168.0.125:8080/api/v1/user/register";
+
+        // Set paramaters
+        HashMap<String, String> params = new HashMap<String, String>();
+        params.put("nombre", nombreEditText.getText().toString());
+        params.put("apellido", apellidoEditText.getText().toString());
+        params.put("correo", correoEditText.getText().toString());
+        params.put("clave", claveEditText.getText().toString());
+        params.put("telefono", telefonoEditText.getText().toString());
+
+        // Set request object
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, new JSONObject(params),
+                new com.android.volley.Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            // Obtengo valores de respuesta del objeto
+                            String first_name = (String) response.get("nombre");
+                            String last_name = (String) response.get("apellido");
+                            String tel = (String) response.get("telefono");
+                            String email = (String) response.get("correo");
+                            String password = (String) response.get("clave");
+
+                            // Intent para ir al perfil
+                            Intent intent =new Intent(RegisterActivity.this, LoginActivity.class);
+                            startActivity(intent);
+                            // Paso valores al perfil de la actividad
+
+                            finish();
+
+
+                        }catch (JSONException e){
+                            e.printStackTrace();
+                            System.out.println(e.getMessage());
+                        } // Fin de catch
+                    }
+                }, new com.android.volley.Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                error.printStackTrace();
+                System.out.println(error.getMessage());
+                Toast.makeText(RegisterActivity.this,"El registro falló",Toast.LENGTH_LONG).show();
+            }
+        }
+        );// Fin request del objeto
+
+        queue.add(jsonObjectRequest);
+    };
+
+    private boolean isValidEmail(String email) {
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        return email.matches(emailPattern);
+    }
+
+    private boolean validatePassword() {
+        return true;
+    }
+
+    private boolean validateEmail() {
+        return true;
+    }
+    }
