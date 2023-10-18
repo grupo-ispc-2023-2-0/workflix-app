@@ -1,6 +1,5 @@
 package com.tec.workflix.repository;
 
-import com.tec.workflix.models.Users;
 import com.tec.workflix.models.Usuario;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.Modifying;
