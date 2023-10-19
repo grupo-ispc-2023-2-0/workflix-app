@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import lombok.Data;
 
+
 @Data
 public class Usuario {
 
@@ -31,6 +32,5 @@ public class Usuario {
     @SerializedName("correo")
     @Expose
     private String correo;
-
 
 }
