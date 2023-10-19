@@ -16,32 +16,24 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
+
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import retrofit2.Call;
-import retrofit2.Callback;
+
 import tec.ispc.workflix.R;
-import tec.ispc.workflix.models.Usuario;
-import tec.ispc.workflix.utils.Apis;
-import tec.ispc.workflix.utils.UsuarioService;
-import tec.ispc.workflix.views.ui.back.UsuarioActivity;
-import tec.ispc.workflix.views.ui.dashboard_admin.DashboardActivity;
+
 import tec.ispc.workflix.views.ui.login.LoginActivity;
-import tec.ispc.workflix.views.ui.perfil.CrearPerfilActivity;
-import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
+
 
 public class RegisterActivity extends AppCompatActivity {
     EditText nombreEditText, apellidoEditText, correoEditText, claveEditText, clave2EditText, telefonoEditText;
     Button registrarseButton;
-//    UsuarioService usuarioService;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,12 +51,12 @@ public class RegisterActivity extends AppCompatActivity {
 
         registrarseButton = findViewById(R.id.button);
         registrarseButton.setOnClickListener(new View.OnClickListener() {
-                                                 @Override
-                                                 public void onClick(View view) {
-                                                     registerUser();
-                                                     Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
-                                                     startActivity(loginIntent);
-                                                 }
+            @Override
+            public void onClick(View view) {
+                registerUser();
+                Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(loginIntent);
+            }
 
         });
     }
@@ -78,7 +70,7 @@ public class RegisterActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
 
 
-        String url = "http://192.168.0.237:8080/api/v1/user/register";
+        String url = "http://192.168.0.125:8080/api/v1/user/register";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
 
