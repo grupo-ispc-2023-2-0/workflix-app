@@ -1,5 +1,6 @@
 package tec.ispc.workflix.views.ui.register;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,20 +11,23 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Response;
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.models.Usuario;
 import tec.ispc.workflix.utils.Apis;
@@ -154,12 +158,48 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
-        // The Url Posting to
 
-        String url = "http://192.168.0.125:8080/api/v1/user/register";
 
-        // Set paramaters
-        HashMap<String, String> params = new HashMap<String, String>();
+        String url = "http://192.168.0.237:8080/api/v1/user/register";
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                if (response.equalsIgnoreCase("success")) {
+                    nombreEditText.setText(null);
+                    apellidoEditText.setText(null);
+                    correoEditText.setText(null);
+                    claveEditText.setText(null);
+                    clave2EditText.setText(null);
+                    telefonoEditText.setText(null);
+                    Toast.makeText(RegisterActivity.this, "Se ha  registrado correctamnte", Toast.LENGTH_LONG).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+                System.out.println(error.getMessage());
+                Toast.makeText(RegisterActivity.this, "No se ha podido guardar el registro", Toast.LENGTH_LONG).show();
+            }
+
+    }){
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError{
+                Map<String, String> params = new HashMap<>();
+                params.put("nombre", nombreEditText.getText().toString());
+                params.put("apellido", apellidoEditText.getText().toString());
+                params.put("correo", correoEditText.getText().toString());
+                params.put("clave", claveEditText.getText().toString());
+                params.put("telefono", telefonoEditText.getText().toString());
+                return params;
+            }
+        };
+
+
+/*        HashMap<String, String> params = new HashMap<String, String>();
         params.put("nombre", nombreEditText.getText().toString());
         params.put("apellido", apellidoEditText.getText().toString());
         params.put("correo", correoEditText.getText().toString());
@@ -180,10 +220,10 @@ public class RegisterActivity extends AppCompatActivity {
                             String email = (String) response.get("correo");
                             String password = (String) response.get("clave");
 
-                            // Intent para ir al perfil
+                            // Intent
                             Intent intent =new Intent(RegisterActivity.this, LoginActivity.class);
                             startActivity(intent);
-                            // Paso valores al perfil de la actividad
+
 
                             finish();
 
@@ -202,10 +242,10 @@ public class RegisterActivity extends AppCompatActivity {
                 Toast.makeText(RegisterActivity.this,"El registro falló",Toast.LENGTH_LONG).show();
             }
         }
-        );// Fin request del objeto
-
-        queue.add(jsonObjectRequest);
-    };
+        );
+*/
+        queue.add(stringRequest);
+    }
 
     public boolean validateNombre(){
         String nombre = nombreEditText.getText().toString();
@@ -254,7 +294,7 @@ public class RegisterActivity extends AppCompatActivity {
         String clave = claveEditText.getText().toString();
         String clave2 = clave2EditText.getText().toString();
 
-        // Check If Password and Confirm Field Is Empty:
+
         if(clave.isEmpty()){
             claveEditText.setError("Debe ingresar una clave");
             return false;
