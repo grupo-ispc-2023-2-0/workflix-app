@@ -86,9 +86,6 @@ public class RegisterActivity extends AppCompatActivity {
             public void onResponse(String response) {
 
                 if (response.equalsIgnoreCase("success")) {
-
-
-
                     nombreEditText.setText(null);
                     apellidoEditText.setText(null);
                     correoEditText.setText(null);
@@ -122,52 +119,6 @@ public class RegisterActivity extends AppCompatActivity {
             }
         };
 
-
-/*        HashMap<String, String> params = new HashMap<String, String>();
-        params.put("nombre", nombreEditText.getText().toString());
-        params.put("apellido", apellidoEditText.getText().toString());
-        params.put("correo", correoEditText.getText().toString());
-        params.put("clave", claveEditText.getText().toString());
-        params.put("telefono", telefonoEditText.getText().toString());
-
-        // Set request object
-
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, new JSONObject(params),
-                new com.android.volley.Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            // Obtengo valores de respuesta del objeto
-                            String first_name = (String) response.get("nombre");
-                            String last_name = (String) response.get("apellido");
-                            String tel = (String) response.get("telefono");
-                            String email = (String) response.get("correo");
-                            String password = (String) response.get("clave");
-
-                            // Intent
-                            Intent intent =new Intent(RegisterActivity.this, LoginActivity.class);
-                            startActivity(intent);
-
-
-                            finish();
-
-
-                        }catch (JSONException e){
-                            e.printStackTrace();
-                            System.out.println(e.getMessage());
-                        } // Fin de catch
-                    }
-                }, new com.android.volley.Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-                error.printStackTrace();
-                System.out.println(error.getMessage());
-                Toast.makeText(RegisterActivity.this,"El registro falló",Toast.LENGTH_LONG).show();
-            }
-        }
-        );
-*/
         queue.add(stringRequest);
 
     }
