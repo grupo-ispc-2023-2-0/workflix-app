@@ -211,7 +211,7 @@ public class RegisterActivity extends AppCompatActivity {
         String nombre = nombreEditText.getText().toString();
 
         if(nombre.isEmpty()){
-            nombreEditText.setError("Debe colocar un nombre");
+            nombreEditText.setError("Debe ingresar un nombre");
             return false;
         }else{
             nombreEditText.setError(null);
@@ -222,7 +222,7 @@ public class RegisterActivity extends AppCompatActivity {
         String apellido = apellidoEditText.getText().toString();
 
         if(apellido.isEmpty()){
-            apellidoEditText.setError("Debe colocar un apellido");
+            apellidoEditText.setError("Debe ingresar un apellido");
             return false;
         }else{
             apellidoEditText.setError(null);
@@ -234,7 +234,7 @@ public class RegisterActivity extends AppCompatActivity {
         String correo = correoEditText.getText().toString();
         // Check If Email Is Empty:
         if(correo.isEmpty()){
-            correoEditText.setError("Debe colocar un correo");
+            correoEditText.setError("Debe ingresar un correo");
             return false;
         }else if(!isValidEmail(correo)){
             correoEditText.setError("Por favor ingrese un correo valido");
@@ -242,24 +242,40 @@ public class RegisterActivity extends AppCompatActivity {
         }else{
             correoEditText.setError(null);
             return true;
-        }// Check If Email Is Empty.
-    }
-   private boolean isValidEmail(String email) {
+        }
+    }// fin validacion correo
+    private boolean isValidEmail(String email) {
         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         return email.matches(emailPattern);
+    } //pattern para correo
+
+
+    private boolean validateClave() {
+        String clave = claveEditText.getText().toString();
+        String clave2 = clave2EditText.getText().toString();
+
+        // Check If Password and Confirm Field Is Empty:
+        if(clave.isEmpty()){
+            claveEditText.setError("Debe ingresar una clave");
+            return false;
+        }else if (!clave.equals(clave2)){
+            claveEditText.setError("Las claves no coinciden!");
+            return false;
+        }else if(clave2.isEmpty()){
+            clave2EditText.setError("La confirmación de la clave no puede estar vacía");
+            return false;
+        }else{
+            claveEditText.setError(null);
+            clave2EditText.setError(null);
+            return true;
+        }
     }
 
-    private boolean validatePassword() {
-        return true;
-    }
 
-    private boolean validateEmail() {
-        return true;
-    }
     public void irLogin(View view) {
         Intent loginIntent = new Intent(this, LoginActivity.class);
         startActivity(loginIntent);
         finish();
+    }
 
-    }
-    }
+}
