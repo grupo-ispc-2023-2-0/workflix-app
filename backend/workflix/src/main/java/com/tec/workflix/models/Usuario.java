@@ -2,6 +2,8 @@ package com.tec.workflix.models;
 
 
 import jakarta.persistence.*;
+import lombok.Data;
+
 @Data
 @Table(name = "Usuario")
 @Entity
