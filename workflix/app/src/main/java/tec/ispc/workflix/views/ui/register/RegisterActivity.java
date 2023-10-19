@@ -68,72 +68,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         });
     }
-  /*          @Override
-            public void onClick(View v) {
-                String nombre = nombreEditText.getText().toString();
-                String apellido = apellidoEditText.getText().toString();
-                String correo = correoEditText.getText().toString();
-                String clave = claveEditText.getText().toString();
-                String clave2= clave2EditText.getText().toString();
-                String telefono = telefonoEditText.getText().toString();
 
-                if (nombre.isEmpty() || apellido.isEmpty() || correo.isEmpty() || clave.isEmpty() || clave2.isEmpty() || telefono.isEmpty()) {
-                    Toast.makeText(RegisterActivity.this, "Por favor, complete todos los campos", Toast.LENGTH_LONG).show();
-                } else if (!isValidEmail(correo)) {
-                    Toast.makeText(RegisterActivity.this, "Correo electrónico no válido", Toast.LENGTH_LONG).show();
-                } else if (clave.length() < 6) {
-                    Toast.makeText(RegisterActivity.this, "La contraseña debe tener al menos 6 caracteres", Toast.LENGTH_LONG).show();
-                } else if (!clave.equals(clave2)) {
-                    Toast.makeText(RegisterActivity.this, "Las contraseñas no coinciden", Toast.LENGTH_LONG).show();
-                } else {
-
-                    Usuario usuario = new Usuario();
-
-                    usuario.setNombre(nombreEditText.getText().toString());
-                    usuario.setApellido(apellidoEditText.getText().toString());
-                    usuario.setClave(claveEditText.getText().toString());
-                    usuario.setTelefono(telefonoEditText.getText().toString());
-                    usuario.setCorreo(correoEditText.getText().toString());
-
-
-                    addUsuario(usuario);
-                    Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
-                    startActivity(loginIntent);
-
-                }
-            }
-        });
-    }
-    private boolean isValidEmail(String email) {
-        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-        return email.matches(emailPattern);
-    }
-    public void addUsuario(Usuario usuario){
-        usuarioService = Apis.getUsuarioService();
-        Call<Usuario> call=usuarioService.addUsuario(usuario);
-        call.enqueue(new Callback<Usuario>() {
-            @Override
-            public void onResponse(Call<Usuario> call, Response<Usuario> response) {
-                if(response.isSuccessful()){
-                    Toast.makeText(RegisterActivity.this,"Usuario agregado con éxito",Toast.LENGTH_LONG).show();
-                }
-            }
-            @Override
-            public void onFailure(Call<Usuario> call, Throwable t) {
-                Log.e("Error al agregar Usuario:",t.getMessage());
-            }
-        });
-        Intent intent =new Intent(RegisterActivity.this, LoginActivity.class);
-        startActivity(intent);
-    }
-
-    public void irLogin(View view) {
-        Intent loginIntent = new Intent(this, LoginActivity.class);
-        startActivity(loginIntent);
-
-    }
-
-}*/
 
     private void registerUser() {
         if (!validateNombre() || !validateApellido() || !validateCorreo() || !validateClaveS() || !validateTelefono()){
