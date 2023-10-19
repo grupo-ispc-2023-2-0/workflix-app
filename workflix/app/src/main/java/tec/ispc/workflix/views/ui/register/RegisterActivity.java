@@ -149,10 +149,10 @@ public class RegisterActivity extends AppCompatActivity {
 }*/
 
     private void registerUser() {
-        if (!validateEmail() || !validatePassword()){
+        if (!validateNombre() || !validateApellido() || !validateCorreo() || !validateClaveS() || !validateTelefono()){
             return;
         }
-        // Fin check por errores
+
         RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
         // The Url Posting to
 
@@ -250,13 +250,16 @@ public class RegisterActivity extends AppCompatActivity {
     } //pattern para correo
 
 
-    private boolean validateClave() {
+    private boolean validateClaveS() {
         String clave = claveEditText.getText().toString();
         String clave2 = clave2EditText.getText().toString();
 
         // Check If Password and Confirm Field Is Empty:
         if(clave.isEmpty()){
             claveEditText.setError("Debe ingresar una clave");
+            return false;
+        }else if (clave.length() < 6) {
+            claveEditText.setError("La contraseña debe tener al menos 6 caracteres");
             return false;
         }else if (!clave.equals(clave2)){
             claveEditText.setError("Las claves no coinciden!");
@@ -267,6 +270,17 @@ public class RegisterActivity extends AppCompatActivity {
         }else{
             claveEditText.setError(null);
             clave2EditText.setError(null);
+            return true;
+        }
+    }
+    public boolean validateTelefono(){
+        String telefono = telefonoEditText.getText().toString();
+
+        if(telefono.isEmpty()){
+            telefonoEditText.setError("Debe ingresar un teléfono");
+            return false;
+        }else{
+            telefonoEditText.setError(null);
             return true;
         }
     }
