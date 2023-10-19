@@ -48,6 +48,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+
         nombreEditText = findViewById(R.id.editTextText);
         apellidoEditText = findViewById(R.id.editTextText2);
         correoEditText = findViewById(R.id.editTextTextEmailAddress);
@@ -61,28 +62,10 @@ public class RegisterActivity extends AppCompatActivity {
                                                  @Override
                                                  public void onClick(View view) {
                                                      registerUser();
+                                                     Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                                     startActivity(loginIntent);
                                                  }
 
-/*                                                     String nombre = nombreEditText.getText().toString();
-                                                     String apellido = apellidoEditText.getText().toString();
-                                                     String correo = correoEditText.getText().toString();
-                                                     String clave = claveEditText.getText().toString();
-                                                     String clave2= clave2EditText.getText().toString();
-                                                     String telefono = telefonoEditText.getText().toString();
-
-                                                     if (nombre.isEmpty() || apellido.isEmpty() || correo.isEmpty() || clave.isEmpty() || clave2.isEmpty() || telefono.isEmpty()) {
-                                                         Toast.makeText(RegisterActivity.this, "Por favor, complete todos los campos", Toast.LENGTH_LONG).show();
-                                                     } else if (!isValidEmail(correo)) {
-                                                         Toast.makeText(RegisterActivity.this, "Correo electrónico no válido", Toast.LENGTH_LONG).show();
-                                                     } else if (clave.length() < 6) {
-                                                         Toast.makeText(RegisterActivity.this, "La contraseña debe tener al menos 6 caracteres", Toast.LENGTH_LONG).show();
-                                                     } else if (!clave.equals(clave2)) {
-                                                         Toast.makeText(RegisterActivity.this, "Las contraseñas no coinciden", Toast.LENGTH_LONG).show();
-                                                     } else {
-
-                                                         registerUser();
-                                                     }
-                                                 }*/
         });
     }
   /*          @Override
@@ -163,10 +146,14 @@ public class RegisterActivity extends AppCompatActivity {
         String url = "http://192.168.0.237:8080/api/v1/user/register";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+
             @Override
             public void onResponse(String response) {
 
                 if (response.equalsIgnoreCase("success")) {
+
+
+
                     nombreEditText.setText(null);
                     apellidoEditText.setText(null);
                     correoEditText.setText(null);
@@ -177,6 +164,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         }, new Response.ErrorListener() {
+
             @Override
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
@@ -188,6 +176,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Nullable
             @Override
             protected Map<String, String> getParams() throws AuthFailureError{
+
                 Map<String, String> params = new HashMap<>();
                 params.put("nombre", nombreEditText.getText().toString());
                 params.put("apellido", apellidoEditText.getText().toString());
@@ -245,6 +234,7 @@ public class RegisterActivity extends AppCompatActivity {
         );
 */
         queue.add(stringRequest);
+
     }
 
     public boolean validateNombre(){
@@ -277,7 +267,7 @@ public class RegisterActivity extends AppCompatActivity {
             correoEditText.setError("Debe ingresar un correo");
             return false;
         }else if(!isValidEmail(correo)){
-            correoEditText.setError("Por favor ingrese un correo valido");
+            correoEditText.setError("Por favor ingrese un correo válido");
             return false;
         }else{
             correoEditText.setError(null);
