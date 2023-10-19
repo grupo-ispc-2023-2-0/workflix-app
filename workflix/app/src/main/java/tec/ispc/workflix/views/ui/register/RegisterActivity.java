@@ -35,9 +35,9 @@ import tec.ispc.workflix.views.ui.perfil.CrearPerfilActivity;
 import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
 
 public class RegisterActivity extends AppCompatActivity {
-    private EditText nombreEditText, apellidoEditText, correoEditText, claveEditText, clave2EditText, telefonoEditText;
-    private Button registrarseButton;
-    UsuarioService usuarioService;
+    EditText nombreEditText, apellidoEditText, correoEditText, claveEditText, clave2EditText, telefonoEditText;
+    Button registrarseButton;
+//    UsuarioService usuarioService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,10 @@ public class RegisterActivity extends AppCompatActivity {
         registrarseButton.setOnClickListener(new View.OnClickListener() {
                                                  @Override
                                                  public void onClick(View view) {
-                                                     String nombre = nombreEditText.getText().toString();
+                                                     registerUser();
+                                                 }
+
+/*                                                     String nombre = nombreEditText.getText().toString();
                                                      String apellido = apellidoEditText.getText().toString();
                                                      String correo = correoEditText.getText().toString();
                                                      String clave = claveEditText.getText().toString();
@@ -75,7 +78,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                                                          registerUser();
                                                      }
-                                                 }
+                                                 }*/
         });
     }
   /*          @Override
@@ -204,7 +207,44 @@ public class RegisterActivity extends AppCompatActivity {
         queue.add(jsonObjectRequest);
     };
 
-    private boolean isValidEmail(String email) {
+    public boolean validateNombre(){
+        String nombre = nombreEditText.getText().toString();
+
+        if(nombre.isEmpty()){
+            nombreEditText.setError("Debe colocar un nombre");
+            return false;
+        }else{
+            nombreEditText.setError(null);
+            return true;
+        }
+    }// Revisa si nombre está vacio.
+    public boolean validateApellido(){
+        String apellido = apellidoEditText.getText().toString();
+
+        if(apellido.isEmpty()){
+            apellidoEditText.setError("Debe colocar un apellido");
+            return false;
+        }else{
+            apellidoEditText.setError(null);
+            return true;
+        }
+    }// Revisa si apellido está vacio.
+
+    public boolean validateCorreo(){
+        String correo = correoEditText.getText().toString();
+        // Check If Email Is Empty:
+        if(correo.isEmpty()){
+            correoEditText.setError("Debe colocar un correo");
+            return false;
+        }else if(!isValidEmail(correo)){
+            correoEditText.setError("Por favor ingrese un correo valido");
+            return false;
+        }else{
+            correoEditText.setError(null);
+            return true;
+        }// Check If Email Is Empty.
+    }
+   private boolean isValidEmail(String email) {
         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         return email.matches(emailPattern);
     }
@@ -215,5 +255,11 @@ public class RegisterActivity extends AppCompatActivity {
 
     private boolean validateEmail() {
         return true;
+    }
+    public void irLogin(View view) {
+        Intent loginIntent = new Intent(this, LoginActivity.class);
+        startActivity(loginIntent);
+        finish();
+
     }
     }
