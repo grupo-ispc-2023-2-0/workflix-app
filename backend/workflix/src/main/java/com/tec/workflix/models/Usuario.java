@@ -23,6 +23,6 @@ public class Usuario {
     @Column
     private String clave;
     @Column
-    private boolean isAdmin;
+    private boolean isAdmin = false;
 
 }
