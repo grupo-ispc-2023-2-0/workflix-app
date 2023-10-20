@@ -16,12 +16,14 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".views.ui.dashboard_admin.DashboardUsuarios"
+            android:exported="false" />
+        <activity
             android:name=".views.ui.back.UsuarioActivity"
             android:exported="false" />
         <activity
             android:name=".views.ui.dashboard_admin.DashboardActivity"
             android:exported="false" />
-
         <activity
             android:name=".views.ui.perfil_terminos.terminosCondiciones"
             android:exported="false"
@@ -93,10 +95,10 @@
         </activity>
         <activity
             android:name=".views.ui.register.RegisterActivity"
-            android:screenOrientation="sensor"
             android:exported="false"
             android:label="Registro"
             android:parentActivityName=".views.ui.login.LoginActivity"
+            android:screenOrientation="sensor"
             android:theme="@style/Theme.Workflix2">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
