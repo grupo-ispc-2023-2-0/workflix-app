@@ -7,7 +7,6 @@ import lombok.Data;
 @Data
 @Table(name = "Usuario")
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) // Estrategia de "Tabla por Clase Concreta"
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
