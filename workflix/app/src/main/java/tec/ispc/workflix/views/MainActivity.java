@@ -1,7 +1,9 @@
 package tec.ispc.workflix.views;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import tec.ispc.workflix.R;
@@ -108,10 +110,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-
-
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
         super.onPointerCaptureChanged(hasCapture);
+    }
+    public void guardarEstadoBton(){
+        SharedPreferences preferences = getSharedPreferences("sesion", Context.MODE_PRIVATE);
+        boolean estado = true;
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("estado_usu", estado);
+        editor.commit();
     }
 }
