@@ -1,28 +1,31 @@
 package tec.ispc.workflix.views.ui.catalogo;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.List;
-
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.models.Profesional;
+
 public class ProfesionalAdapter extends RecyclerView.Adapter<ProfesionalAdapter.ProfesionalViewHolder> {
     private List<Profesional> profesionales;
     private Context context;
+    private OnProfesionalClickListener listener;
 
-    public ProfesionalAdapter(List<Profesional> profesionales, Context context) {
+    public interface OnProfesionalClickListener {
+        void onProfesionalClick(int posicion);
+    }
+
+    public ProfesionalAdapter(List<Profesional> profesionales, Context context, OnProfesionalClickListener listener) {
         this.profesionales = profesionales;
         this.context = context;
+        this.listener = listener;
     }
 
     @NonNull
@@ -34,7 +37,8 @@ public class ProfesionalAdapter extends RecyclerView.Adapter<ProfesionalAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ProfesionalViewHolder holder, int position) {
-        Profesional profesional = profesionales.get(position);
+        final int posicion = position; // Guarda la posición para usarla en el onClickListener
+        final Profesional profesional = profesionales.get(position);
 
         // Configurar la profesión
         holder.professionalProfession.setText(profesional.getProfession());
@@ -51,10 +55,8 @@ public class ProfesionalAdapter extends RecyclerView.Adapter<ProfesionalAdapter.
         holder.hireButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Intent intent = new Intent(context, TarjetaAmpliadaActivity.class);
-                intent.putExtra("profesional_id", profesional.getId());
-                context.startActivity(intent);
+                // Utiliza la interfaz de callback para manejar el clic en el botón
+                listener.onProfesionalClick(posicion);
             }
         });
     }
@@ -65,7 +67,6 @@ public class ProfesionalAdapter extends RecyclerView.Adapter<ProfesionalAdapter.
     }
 
     public class ProfesionalViewHolder extends RecyclerView.ViewHolder {
-
         public Button professionalProfession;
         public ImageView professionalImage;
         public TextView professionalName;
@@ -74,7 +75,6 @@ public class ProfesionalAdapter extends RecyclerView.Adapter<ProfesionalAdapter.
 
         public ProfesionalViewHolder(@NonNull View itemView) {
             super(itemView);
-
             professionalProfession = itemView.findViewById(R.id.professionalProfession);
             professionalImage = itemView.findViewById(R.id.professionalImage);
             professionalName = itemView.findViewById(R.id.professionalName);
