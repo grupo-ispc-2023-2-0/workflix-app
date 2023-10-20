@@ -22,5 +22,7 @@ public class Usuario {
     private String telefono;
     @Column
     private String clave;
+    @Column
+    private boolean isAdmin;
 
 }
