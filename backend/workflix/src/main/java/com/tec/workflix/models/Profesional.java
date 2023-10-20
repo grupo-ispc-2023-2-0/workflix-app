@@ -3,6 +3,7 @@ package com.tec.workflix.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.Data;
 
 import java.util.List;
