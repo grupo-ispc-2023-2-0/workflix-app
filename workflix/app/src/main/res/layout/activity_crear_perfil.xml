@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:onClick="cerrarSesion"
-    tools:context=".views.ui.perfil.CrearPerfilActivity">
+    tools:context=".views.ui.perfil.Perfil">
 
     <ImageView
         android:id="@+id/imageView7"

@@ -24,10 +24,8 @@ import org.json.JSONObject;
 import java.util.HashMap;
 
 import tec.ispc.workflix.R;
-import tec.ispc.workflix.databinding.ActivityLoginBinding;
 import tec.ispc.workflix.views.MainActivity;
 import tec.ispc.workflix.views.ui.catalogo.CatalogoActivity;
-import tec.ispc.workflix.views.ui.perfil.CrearPerfilActivity;
 import tec.ispc.workflix.views.ui.register.RegisterActivity;
 import tec.ispc.workflix.views.ui.restablecer.RestablecerActivity;
 

@@ -12,10 +12,8 @@ import android.widget.TextView;
 
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.views.MainActivity;
-import tec.ispc.workflix.views.ui.eliminar_cuenta.EliminarCuentaActivity;
-import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
 
-public class CrearPerfilActivity extends AppCompatActivity {
+public class Perfil extends AppCompatActivity {
 
     TextView tv_first_name, tv_last_name, tv_email, tv_tel;
     Button sign_out_btn;
@@ -35,17 +33,11 @@ public class CrearPerfilActivity extends AppCompatActivity {
         String last_name = preferences.getString("last_name", "");
         String email = preferences.getString("email", "");
         String tel = preferences.getString("tel", "");
-  /*      // Obtengo los valores extras del intent
-        String first_name = getIntent().getStringExtra("first_name");
-        String last_name = getIntent().getStringExtra("last_name");
-        String email = getIntent().getStringExtra("email");
-        String tel = getIntent().getStringExtra("tel");*/
-
 
         // Seteo los valores al perfil
 
         tv_first_name.setText(first_name);
-       tv_last_name.setText(last_name);
+        tv_last_name.setText(last_name);
         tv_email.setText(email);
         tv_tel.setText(tel);
 
@@ -67,8 +59,7 @@ public class CrearPerfilActivity extends AppCompatActivity {
         tv_tel.setText(null);
         tv_email.setText(null);
         // Vuelvo al home
-       Intent irAlHome = new Intent(CrearPerfilActivity.this, MainActivity.class);
-       //irAlHome.putExtra("Desconectado", "Desconectado con éxito");
+       Intent irAlHome = new Intent(Perfil.this, MainActivity.class);
        startActivity(irAlHome);
        finish();
     }
