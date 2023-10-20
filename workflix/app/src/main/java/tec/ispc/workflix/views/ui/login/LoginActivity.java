@@ -237,7 +237,10 @@ public class LoginActivity extends AppCompatActivity {
     }
     public void guardarEstadoBton(){
         SharedPreferences preferences = getSharedPreferences("sesion", Context.MODE_PRIVATE);
-
+        boolean estado = true;
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("estado_usu", estado);
+        editor.commit();
     }
 
 }
