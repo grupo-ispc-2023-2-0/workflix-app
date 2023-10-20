@@ -43,8 +43,8 @@ public class RegisterApiController {
             logger.error("Este es un mensaje de error Primer IF.");
             return new ResponseEntity<>("FALLO AL INTENTAR REGISTRARSE",HttpStatus.BAD_REQUEST);
         }
-        logger.info("Este es un mensaje de información ok La clase entera.");
-        logger.error("Este es un mensaje de error La clase entera.");
+       /* logger.info("Este es un mensaje de información ok La clase entera.");
+        logger.error("Este es un mensaje de error La clase entera.");*/
         return new ResponseEntity<>("USUARIO REGISTRADO CORRECTAMENTE",HttpStatus.OK);
     }
 }

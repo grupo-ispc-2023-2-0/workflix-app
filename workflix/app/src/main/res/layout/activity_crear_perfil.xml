@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:onClick="cerrarSesion"
-    tools:context=".views.ui.perfil.CrearPerfilActivity">
+    tools:context=".views.ui.perfil.Perfil">
 
     <ImageView
         android:id="@+id/imageView7"
@@ -108,7 +108,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/first_name"
+        android:id="@+id/perfilNombre"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:hint="Nombre"
@@ -123,7 +123,7 @@
         app:layout_constraintVertical_bias="0.249" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/perfilCorreo"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:hint="Correo electronico"
@@ -138,7 +138,7 @@
         app:layout_constraintVertical_bias="0.487" />
 
     <EditText
-        android:id="@+id/last_name"
+        android:id="@+id/perfilApellido"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:hint="Apellido"
@@ -153,7 +153,7 @@
         app:layout_constraintVertical_bias="0.329" />
 
     <EditText
-        android:id="@+id/tel"
+        android:id="@+id/perfilTelefono"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:hint="Telefono"

@@ -1,6 +1,8 @@
 package tec.ispc.workflix.views.ui.login;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,8 +25,8 @@ import java.util.HashMap;
 
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.databinding.ActivityLoginBinding;
+import tec.ispc.workflix.views.MainActivity;
 import tec.ispc.workflix.views.ui.catalogo.CatalogoActivity;
-import tec.ispc.workflix.views.ui.perfil.CrearPerfilActivity;
 import tec.ispc.workflix.views.ui.register.RegisterActivity;
 import tec.ispc.workflix.views.ui.restablecer.RestablecerActivity;
 
@@ -32,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
     private ActivityLoginBinding binding;
+
 
     Button sign_in_btn;
     EditText et_email, et_password, tel;
@@ -42,7 +45,6 @@ public class LoginActivity extends AppCompatActivity {
 
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         // Hook Edit text fields
         et_email = findViewById(R.id.et_email);
         et_password = findViewById(R.id.et_password);
@@ -57,100 +59,7 @@ public class LoginActivity extends AppCompatActivity {
                 authenticateUser();
             }
         });
-    /*    loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
-                .get(LoginViewModel.class);
 
-        final EditText usernameEditText = binding.username;
-        final EditText passwordEditText = binding.password;
-        final Button loginButton = binding.login;
-        final ProgressBar loadingProgressBar = binding.loading;*/
-
-      /*  loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
-            @Override
-            public void onChanged(@Nullable LoginFormState loginFormState) {
-                if (loginFormState == null) {
-                    return;
-                }
-                loginButton.setEnabled(loginFormState.isDataValid());
-                if (loginFormState.getUsernameError() != null) {
-                    usernameEditText.setError(getString(loginFormState.getUsernameError()));
-                }
-                if (loginFormState.getPasswordError() != null) {
-                    passwordEditText.setError(getString(loginFormState.getPasswordError()));
-                }
-            }
-        });
-
-        loginViewModel.getLoginResult().observe(this, new Observer<LoginResult>() {
-            @Override
-            public void onChanged(@Nullable LoginResult loginResult) {
-                if (loginResult == null) {
-                    return;
-                }
-                loadingProgressBar.setVisibility(View.GONE);
-                if (loginResult.getError() != null) {
-                    showLoginFailed(loginResult.getError());
-                }
-                if (loginResult.getSuccess() != null) {
-                    updateUiWithUser(loginResult.getSuccess());
-                }
-                setResult(Activity.RESULT_OK);
-
-                //Complete and destroy login activity once successful
-                finish();
-            }
-        });
-
-        TextWatcher afterTextChangedListener = new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // ignore
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // ignore
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                loginViewModel.loginDataChanged(usernameEditText.getText().toString(),
-                        passwordEditText.getText().toString());
-            }
-        };
-        usernameEditText.addTextChangedListener(afterTextChangedListener);
-        passwordEditText.addTextChangedListener(afterTextChangedListener);
-        passwordEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    loginViewModel.login(usernameEditText.getText().toString(),
-                            passwordEditText.getText().toString());
-                }
-                return false;
-            }
-        });
-
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loadingProgressBar.setVisibility(View.VISIBLE);
-                loginViewModel.login(usernameEditText.getText().toString(),
-                        passwordEditText.getText().toString());
-            }
-        });
-    }
-
-    private void updateUiWithUser(LoggedInUserView model) {
-        String welcome = getString(R.string.welcome) + model.getDisplayName();
-        // TODO : initiate successful logged in experience
-        Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
-    }
-
-    private void showLoginFailed(@StringRes Integer errorString) {
-        Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
-    }*/
     }
 
     private void authenticateUser() {
@@ -158,6 +67,16 @@ public class LoginActivity extends AppCompatActivity {
         if (!validateEmail() || !validatePassword()){
             return;
         }
+        // Obtener una referencia a SharedPreferences
+        SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
+
+        // Comprobar si los datos del usuario están presentes
+        if (preferences.contains("nombre")) {
+            // Redirigir al usuario a MainActivity
+            Intent irAMain = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(irAMain);
+            finish();
+        } else {
         // Fin check por errores
         RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
         // The Url Posting to
@@ -177,23 +96,23 @@ public class LoginActivity extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         try {
                             // Obtengo valores de respuesta del objeto
-                            String first_name = (String) response.get("nombre");
-                            String last_name = (String) response.get("apellido");
-                            String tel = (String) response.get("telefono");
-                            String email = (String) response.get("correo");
+                            String nombre = (String) response.get("nombre");
+                            String apellido = (String) response.get("apellido");
+                            String telefono = (String) response.get("telefono");
+                            String correo = (String) response.get("correo");
 
-                            // Intent para ir al perfil
-                            Intent irAlPerfil = new Intent(LoginActivity.this, CrearPerfilActivity.class);
-                            // Paso valores al perfil de la actividad
-                            irAlPerfil.putExtra("first_name", first_name);
-                            irAlPerfil.putExtra("last_name", last_name);
-                            irAlPerfil.putExtra("tel", tel);
-                            irAlPerfil.putExtra("email", email);
-                            // Start activity
-                            startActivity(irAlPerfil);
+                            // Guardar los datos del usuario en SharedPreferences
+                            SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = preferences.edit();
+                            editor.putString("nombre", nombre);
+                            editor.putString("apellido", apellido);
+                            editor.putString("telefono", telefono);
+                            editor.putString("correo", correo);
+                            editor.apply();
+                            // Redirigir al usuario a MainActivity
+                            Intent irAMain = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(irAMain);
                             finish();
-
-
                         }catch (JSONException e){
                             e.printStackTrace();
                             System.out.println(e.getMessage());
@@ -211,7 +130,7 @@ public class LoginActivity extends AppCompatActivity {
         );// Fin request del objeto
 
         queue.add(jsonObjectRequest);
-    };
+        }};
 
     private boolean validatePassword() {
         return true;
@@ -233,5 +152,6 @@ public class LoginActivity extends AppCompatActivity {
         Intent catalogoIntent = new Intent(this, CatalogoActivity.class);
         startActivity(catalogoIntent);
     }
+
 
 }

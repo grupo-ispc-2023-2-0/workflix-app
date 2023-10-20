@@ -22,5 +22,23 @@ public class Usuario {
     private String telefono;
     @Column
     private String clave;
+    @Column
+    private String direccion;
+    @Column
+    private String ciudad;
+    @Column
+    private String provincia;
+    @Column
+    private String descripcion;
+    @Column
+    private String foto;
+    @Column
+    private String profesion;
+    @Column(columnDefinition = "boolean default false")
+    private boolean isAdmin;
+
+    public Usuario() {
+        isAdmin = false; // Establecer el valor predeterminado a false en el constructor
+    }
 
 }

@@ -8,7 +8,7 @@ import android.view.View;
 
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.views.MainActivity;
-import tec.ispc.workflix.views.ui.perfil.CrearPerfilActivity;
+import tec.ispc.workflix.views.ui.perfil.Perfil;
 
 public class PerfilTerminosActivity extends AppCompatActivity {
 
@@ -18,7 +18,7 @@ public class PerfilTerminosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_perfil_terminos);
     }
     public void irPerfilEditar(View view) {
-        Intent irPerfilEditarIntent = new Intent(this, CrearPerfilActivity.class);
+        Intent irPerfilEditarIntent = new Intent(this, Perfil.class);
         startActivity(irPerfilEditarIntent);
     }
 
