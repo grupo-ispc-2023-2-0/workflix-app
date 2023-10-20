@@ -58,6 +58,14 @@ public class Perfil extends AppCompatActivity {
         tv_apellido.setText(null);
         tv_telefono.setText(null);
         tv_correo.setText(null);
+        // Obtener una referencia a SharedPreferences
+        SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("nombre", null);
+        editor.putString("apellido", null);
+        editor.putString("correo", null);
+        editor.putString("telefono", null);
+        editor.apply();
         // Vuelvo al home
        Intent irAlHome = new Intent(Perfil.this, MainActivity.class);
        startActivity(irAlHome);
