@@ -1,7 +1,8 @@
 package tec.ispc.workflix.views.ui.catalogo;
+
 import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.HorizontalScrollView;
@@ -12,13 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.models.Profesional;
-import android.widget.ListView;
-import java.util.ArrayList;
-import java.util.List;
-import tec.ispc.workflix.R;
-import tec.ispc.workflix.views.MainActivity;
 
-public class CatalogoActivity extends AppCompatActivity {
+public class CatalogoActivity extends AppCompatActivity implements ProfesionalAdapter.OnProfesionalClickListener {
 
     private HorizontalScrollView horizontalScrollView;
     private ImageView arrowLeft;
@@ -30,8 +26,6 @@ public class CatalogoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalogo);
 
-
-
         horizontalScrollView = findViewById(R.id.horizontalScrollView);
         arrowLeft = findViewById(R.id.arrowLeft);
         arrowRight = findViewById(R.id.arrowRight);
@@ -40,10 +34,8 @@ public class CatalogoActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        ProfesionalAdapter adapter = new ProfesionalAdapter(getListaDeProfesionales(), this);
+        ProfesionalAdapter adapter = new ProfesionalAdapter(getListaDeProfesionales(), this, this);
         recyclerView.setAdapter(adapter);
-
-
 
         horizontalScrollView.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
             @Override
@@ -63,7 +55,6 @@ public class CatalogoActivity extends AppCompatActivity {
         });
     }
 
-
     private List<Profesional> getListaDeProfesionales() {
         List<Profesional> profesionales = new ArrayList<>();
 
@@ -76,4 +67,12 @@ public class CatalogoActivity extends AppCompatActivity {
         return profesionales;
     }
 
+    @Override
+    public void onProfesionalClick(int profesionalId) {
+        // Implementa la lógica para manejar el clic en el botón "hireButton" aquí
+        // Abre la actividad TarjetaAmpliadaActivity y pasa la posición del profesional
+        Intent intent = new Intent(this, TarjetaAmpliadaActivity.class);
+        intent.putExtra("profesional_posicion", profesionalId);
+        startActivity(intent);
+    }
 }
