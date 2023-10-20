@@ -32,7 +32,9 @@ public class CrearPerfilActivity extends AppCompatActivity {
 
         SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
         String first_name = preferences.getString("first_name", ""); // El segundo parámetro es un valor por defecto si la clave no se encuentra
-
+        String last_name = preferences.getString("last_name", "");
+        String email = preferences.getString("email", "");
+        String tel = preferences.getString("tel", "");
   /*      // Obtengo los valores extras del intent
         String first_name = getIntent().getStringExtra("first_name");
         String last_name = getIntent().getStringExtra("last_name");
@@ -43,9 +45,9 @@ public class CrearPerfilActivity extends AppCompatActivity {
         // Seteo los valores al perfil
 
         tv_first_name.setText(first_name);
-   /*     tv_last_name.setText(last_name);
+       tv_last_name.setText(last_name);
         tv_email.setText(email);
-        tv_tel.setText(tel);*/
+        tv_tel.setText(tel);
 
         // Boton salir
         sign_out_btn = findViewById(R.id.sign_out_btn);
