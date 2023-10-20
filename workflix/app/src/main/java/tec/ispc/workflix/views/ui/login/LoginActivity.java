@@ -1,6 +1,8 @@
 package tec.ispc.workflix.views.ui.login;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +25,7 @@ import java.util.HashMap;
 
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.databinding.ActivityLoginBinding;
+import tec.ispc.workflix.views.MainActivity;
 import tec.ispc.workflix.views.ui.catalogo.CatalogoActivity;
 import tec.ispc.workflix.views.ui.perfil.CrearPerfilActivity;
 import tec.ispc.workflix.views.ui.register.RegisterActivity;
@@ -42,7 +45,6 @@ public class LoginActivity extends AppCompatActivity {
 
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         // Hook Edit text fields
         et_email = findViewById(R.id.et_email);
         et_password = findViewById(R.id.et_password);
@@ -57,6 +59,7 @@ public class LoginActivity extends AppCompatActivity {
                 authenticateUser();
             }
         });
+
     /*    loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
@@ -158,6 +161,16 @@ public class LoginActivity extends AppCompatActivity {
         if (!validateEmail() || !validatePassword()){
             return;
         }
+        // Obtener una referencia a SharedPreferences
+        SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
+
+        // Comprobar si los datos del usuario están presentes
+        if (preferences.contains("first_name")) {
+            // Redirigir al usuario a MainActivity
+            Intent irAMain = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(irAMain);
+            finish();
+        } else {
         // Fin check por errores
         RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
         // The Url Posting to
@@ -182,18 +195,24 @@ public class LoginActivity extends AppCompatActivity {
                             String tel = (String) response.get("telefono");
                             String email = (String) response.get("correo");
 
-                            // Intent para ir al perfil
-                            Intent irAlPerfil = new Intent(LoginActivity.this, CrearPerfilActivity.class);
+                            // Guardar los datos del usuario en SharedPreferences
+                            SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = preferences.edit();
+                            editor.putString("first_name", first_name);
+                            editor.putString("last_name", last_name);
+                            editor.putString("tel", tel);
+                            editor.putString("email", email);
+                            editor.apply();
+                            // Redirigir al usuario a MainActivity
+                            Intent irAMain = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(irAMain);
+                            finish();
                             // Paso valores al perfil de la actividad
-                            irAlPerfil.putExtra("first_name", first_name);
+                       /*     irAlPerfil.putExtra("first_name", first_name);
                             irAlPerfil.putExtra("last_name", last_name);
                             irAlPerfil.putExtra("tel", tel);
-                            irAlPerfil.putExtra("email", email);
+                            irAlPerfil.putExtra("email", email);*/
                             // Start activity
-                            startActivity(irAlPerfil);
-                            finish();
-
-
                         }catch (JSONException e){
                             e.printStackTrace();
                             System.out.println(e.getMessage());
@@ -211,7 +230,7 @@ public class LoginActivity extends AppCompatActivity {
         );// Fin request del objeto
 
         queue.add(jsonObjectRequest);
-    };
+        }};
 
     private boolean validatePassword() {
         return true;

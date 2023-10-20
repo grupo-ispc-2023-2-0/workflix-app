@@ -2,7 +2,9 @@ package tec.ispc.workflix.views.ui.perfil;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,19 +30,22 @@ public class CrearPerfilActivity extends AppCompatActivity {
         tv_email = findViewById(R.id.email);
         tv_tel = findViewById(R.id.tel);
 
-        // Obtengo los valores extras del intent
+        SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
+        String first_name = preferences.getString("first_name", ""); // El segundo parámetro es un valor por defecto si la clave no se encuentra
+
+  /*      // Obtengo los valores extras del intent
         String first_name = getIntent().getStringExtra("first_name");
         String last_name = getIntent().getStringExtra("last_name");
         String email = getIntent().getStringExtra("email");
-        String tel = getIntent().getStringExtra("tel");
+        String tel = getIntent().getStringExtra("tel");*/
 
 
         // Seteo los valores al perfil
 
         tv_first_name.setText(first_name);
-        tv_last_name.setText(last_name);
+   /*     tv_last_name.setText(last_name);
         tv_email.setText(email);
-        tv_tel.setText(tel);
+        tv_tel.setText(tel);*/
 
         // Boton salir
         sign_out_btn = findViewById(R.id.sign_out_btn);

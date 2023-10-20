@@ -13,6 +13,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.os.Handler;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
@@ -32,6 +33,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
+     /*   // Validacion para mantener la sesion activa
+        SharedPreferences preferences = getSharedPreferences("sesion",Context.MODE_PRIVATE);
+        if (preferences.getBoolean("estado_usu",false)==false){
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent ventanaLogin = new Intent(getApplicationContext(),LoginActivity.class);
+                startActivity(ventanaLogin);
+                finish();
+            }
+        },4000);
+        }else {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent ventanaMenu = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(ventanaMenu);
+                    finish();
+                }
+            },4000);
+        }*/
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -114,11 +138,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void onPointerCaptureChanged(boolean hasCapture) {
         super.onPointerCaptureChanged(hasCapture);
     }
-    public void guardarEstadoBton(){
+/*    public void guardarEstadoBton(){
         SharedPreferences preferences = getSharedPreferences("sesion", Context.MODE_PRIVATE);
         boolean estado = true;
         SharedPreferences.Editor editor = preferences.edit();
         editor.putBoolean("estado_usu", estado);
         editor.commit();
-    }
+    }*/
 }
