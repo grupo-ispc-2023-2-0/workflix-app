@@ -12,11 +12,7 @@ import java.util.Map;
 @Entity
 public class Profesional extends Usuario{
     @Column
-    private String telefono;
-    @Column
     private String direccion;
-    @Column
-    private String correo;
     @Column
     private String ciudad;
     @Column

@@ -1,5 +1,6 @@
 package com.tec.workflix.repository;
 
+import com.tec.workflix.models.Profesional;
 import com.tec.workflix.models.Usuario;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.Modifying;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface IUsuarioRepository extends CrudRepository<Usuario,Integer> {
+public interface IUsuarioRepository extends CrudRepository<Profesional,Integer> {
 
     @Query(value = "SELECT correo FROM usuario WHERE correo = :correo ", nativeQuery = true)
     List<String> checkUserEmail(@Param("correo")String correo);
