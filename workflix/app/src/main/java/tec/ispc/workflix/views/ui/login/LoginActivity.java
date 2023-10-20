@@ -112,12 +112,6 @@ public class LoginActivity extends AppCompatActivity {
                             Intent irAMain = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(irAMain);
                             finish();
-                            // Paso valores al perfil de la actividad
-                       /*     irAlPerfil.putExtra("first_name", first_name);
-                            irAlPerfil.putExtra("last_name", last_name);
-                            irAlPerfil.putExtra("tel", tel);
-                            irAlPerfil.putExtra("email", email);*/
-                            // Start activity
                         }catch (JSONException e){
                             e.printStackTrace();
                             System.out.println(e.getMessage());
