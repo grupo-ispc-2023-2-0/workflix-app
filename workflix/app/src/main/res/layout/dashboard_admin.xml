@@ -103,7 +103,7 @@
                         android:layout_width="80dp"
                         android:layout_height="90dp"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/dashboard_users"></ImageView>
+                        android:src="@drawable/dashboard_usuarios"></ImageView>
 
                     <TextView
                         android:layout_width="wrap_content"
