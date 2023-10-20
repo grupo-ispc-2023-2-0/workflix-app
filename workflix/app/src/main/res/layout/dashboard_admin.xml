@@ -103,7 +103,7 @@
                         android:layout_width="80dp"
                         android:layout_height="90dp"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/dashboard_usuarios"></ImageView>
+                        android:src="@drawable/dashboard_users"></ImageView>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -140,7 +140,7 @@
                         android:layout_width="87dp"
                         android:layout_height="90dp"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/dashboard_servicios"></ImageView>
+                        android:src="@drawable/dashboard_services"></ImageView>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -191,7 +191,5 @@
             </androidx.cardview.widget.CardView>
 
         </GridLayout>
-
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
