@@ -2,12 +2,13 @@ package com.tec.workflix.models;
 
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import lombok.Data;
 
 import java.util.List;
 import java.util.Map;
 @Data
-
+@Entity
 public class Profesional extends Usuario{
     @Column
     private String telefono;
