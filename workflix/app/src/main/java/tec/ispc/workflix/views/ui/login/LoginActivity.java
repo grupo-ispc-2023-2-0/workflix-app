@@ -70,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
 
         // Comprobar si los datos del usuario están presentes
-        if (preferences.contains("first_name")) {
+        if (preferences.contains("nombre")) {
             // Redirigir al usuario a MainActivity
             Intent irAMain = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(irAMain);
@@ -95,18 +95,18 @@ public class LoginActivity extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         try {
                             // Obtengo valores de respuesta del objeto
-                            String first_name = (String) response.get("nombre");
-                            String last_name = (String) response.get("apellido");
-                            String tel = (String) response.get("telefono");
-                            String email = (String) response.get("correo");
+                            String nombre = (String) response.get("nombre");
+                            String apellido = (String) response.get("apellido");
+                            String telefono = (String) response.get("telefono");
+                            String correo = (String) response.get("correo");
 
                             // Guardar los datos del usuario en SharedPreferences
                             SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
                             SharedPreferences.Editor editor = preferences.edit();
-                            editor.putString("first_name", first_name);
-                            editor.putString("last_name", last_name);
-                            editor.putString("tel", tel);
-                            editor.putString("email", email);
+                            editor.putString("nombre", nombre);
+                            editor.putString("apellido", apellido);
+                            editor.putString("telefono", telefono);
+                            editor.putString("correo", correo);
                             editor.apply();
                             // Redirigir al usuario a MainActivity
                             Intent irAMain = new Intent(LoginActivity.this, MainActivity.class);

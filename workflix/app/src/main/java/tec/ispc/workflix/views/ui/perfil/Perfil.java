@@ -15,31 +15,31 @@ import tec.ispc.workflix.views.MainActivity;
 
 public class Perfil extends AppCompatActivity {
 
-    TextView tv_first_name, tv_last_name, tv_email, tv_tel;
-    Button sign_out_btn;
+    private TextView tv_nombre, tv_apellido, tv_correo, tv_telefono;
+    private Button sign_out_btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_perfil);
 
         // Text views objetos
-        tv_first_name = findViewById(R.id.first_name);
-        tv_last_name = findViewById(R.id.last_name);
-        tv_email = findViewById(R.id.email);
-        tv_tel = findViewById(R.id.tel);
+        tv_nombre = findViewById(R.id.perfilNombre);
+        tv_apellido = findViewById(R.id.perfilApellido);
+        tv_correo = findViewById(R.id.perfilCorreo);
+        tv_telefono = findViewById(R.id.perfilTelefono);
 
         SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
-        String first_name = preferences.getString("first_name", ""); // El segundo parámetro es un valor por defecto si la clave no se encuentra
-        String last_name = preferences.getString("last_name", "");
-        String email = preferences.getString("email", "");
-        String tel = preferences.getString("tel", "");
+        String nombre = preferences.getString("nombre", ""); // El segundo parámetro es un valor por defecto si la clave no se encuentra
+        String apellido = preferences.getString("apellido", "");
+        String correo = preferences.getString("correo", "");
+        String telefono = preferences.getString("telefono", "");
 
         // Seteo los valores al perfil
 
-        tv_first_name.setText(first_name);
-        tv_last_name.setText(last_name);
-        tv_email.setText(email);
-        tv_tel.setText(tel);
+        tv_nombre.setText(nombre);
+        tv_apellido.setText(apellido);
+        tv_telefono.setText(correo);
+        tv_correo.setText(telefono);
 
         // Boton salir
         sign_out_btn = findViewById(R.id.sign_out_btn);
@@ -54,10 +54,10 @@ public class Perfil extends AppCompatActivity {
     }
     public void cerrarSesion () {
         // Vuelvo los valores a null
-        tv_first_name.setText(null);
-        tv_last_name.setText(null);
-        tv_tel.setText(null);
-        tv_email.setText(null);
+        tv_nombre.setText(null);
+        tv_apellido.setText(null);
+        tv_telefono.setText(null);
+        tv_correo.setText(null);
         // Vuelvo al home
        Intent irAlHome = new Intent(Perfil.this, MainActivity.class);
        startActivity(irAlHome);
