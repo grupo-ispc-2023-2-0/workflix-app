@@ -87,12 +87,14 @@
                         android:id="@+id/nombreProf"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
+                        android:text="Cristian"
                         android:textColor="#000"
                         android:textSize="18sp" />
                     <TextView
                         android:id="@+id/apellidoProf"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
+                        android:text="Cristian"
                         android:textColor="#000"
                         android:textSize="18sp" />
 
