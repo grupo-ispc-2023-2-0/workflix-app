@@ -4,10 +4,11 @@ import com.tec.workflix.interfaces.IServicioInterface;
 import com.tec.workflix.models.Servicio;
 import com.tec.workflix.modelsDAO.ServicioDAO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
-
+@Service
 public class ServicioService implements IServicioInterface {
 
     @Autowired
