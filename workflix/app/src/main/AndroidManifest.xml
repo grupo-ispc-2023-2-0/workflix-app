@@ -15,7 +15,12 @@
         android:theme="@style/Theme.Workflix"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-
+        <activity
+            android:name=".views.ui.dashboard_admin.DashboardServiciosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.ui.back.ServicioActivity"
+            android:exported="false" />
         <activity
             android:name=".views.ui.dashboard_admin.DashboardUsuariosActivity"
             android:exported="false" />
@@ -129,7 +134,6 @@
             android:name=".views.ui.catalogo.TarjetaAmpliadaActivity"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

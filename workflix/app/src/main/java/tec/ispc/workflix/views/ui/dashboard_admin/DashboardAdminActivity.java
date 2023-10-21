@@ -8,6 +8,7 @@ import android.view.View;
 
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.views.MainActivity;
+import tec.ispc.workflix.views.ui.back.ServicioActivity;
 
 public class DashboardAdminActivity extends AppCompatActivity {
 
@@ -20,5 +21,10 @@ public class DashboardAdminActivity extends AppCompatActivity {
     public void Usuarios(View view){
         Intent verIntent = new Intent(this, DashboardUsuariosActivity.class);
         startActivity(verIntent);
+    }
+
+    public void servicios(View view){
+        Intent verServicios = new Intent(this, DashboardServiciosActivity.class);
+        startActivity(verServicios);
     }
 }
