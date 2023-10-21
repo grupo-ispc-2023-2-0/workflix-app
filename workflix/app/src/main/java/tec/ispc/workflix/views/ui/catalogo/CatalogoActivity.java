@@ -69,8 +69,7 @@ public class CatalogoActivity extends AppCompatActivity implements ProfesionalAd
 
     @Override
     public void onProfesionalClick(int profesionalId) {
-        // Implementa la lógica para manejar el clic en el botón "hireButton" aquí
-        // Abre la actividad TarjetaAmpliadaActivity y pasa la posición del profesional
+
         Intent intent = new Intent(this, TarjetaAmpliadaActivity.class);
         intent.putExtra("profesional_posicion", profesionalId);
         startActivity(intent);
