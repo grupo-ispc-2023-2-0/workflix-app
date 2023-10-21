@@ -54,8 +54,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 registerUser();
-                Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
-                startActivity(loginIntent);
+
             }
 
         });
@@ -77,7 +76,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
 
-                if (response.equalsIgnoreCase("success")) {
+                if (response.equalsIgnoreCase("USUARIO REGISTRADO CORRECTAMENTE")) {
                     nombreEditText.setText(null);
                     apellidoEditText.setText(null);
                     correoEditText.setText(null);
@@ -85,6 +84,7 @@ public class RegisterActivity extends AppCompatActivity {
                     clave2EditText.setText(null);
                     telefonoEditText.setText(null);
                     Toast.makeText(RegisterActivity.this, "Se ha  registrado correctamnte", Toast.LENGTH_LONG).show();
+
                 }
             }
         }, new Response.ErrorListener() {
@@ -107,6 +107,8 @@ public class RegisterActivity extends AppCompatActivity {
                 params.put("correo", correoEditText.getText().toString());
                 params.put("clave", claveEditText.getText().toString());
                 params.put("telefono", telefonoEditText.getText().toString());
+                Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(loginIntent);
                 return params;
             }
         };

@@ -78,19 +78,29 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
                     <!-- Nombre y apellido (TextView) -->
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:id="@+id/nombreProf"
+                        android:layout_width="200dp"
                         android:layout_height="wrap_content"
-                        android:text="Cristian Castro"
+                        android:text="Cristian"
+                        android:textColor="#000"
+                        android:textSize="18sp" />
+                    <TextView
+                        android:id="@+id/apellidoProf"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:text="Cristian"
                         android:textColor="#000"
                         android:textSize="18sp" />
 
                     <!-- Línea separadora en gris -->
+
+
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -113,6 +123,7 @@
 
             <!-- Descripción breve (TextView) -->
             <TextView
+                android:id="@+id/descripcion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"

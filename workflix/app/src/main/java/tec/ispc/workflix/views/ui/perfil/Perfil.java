@@ -41,36 +41,9 @@ public class Perfil extends AppCompatActivity {
         tv_telefono.setText(correo);
         tv_correo.setText(telefono);
 
-        // Boton salir
-        sign_out_btn = findViewById(R.id.sign_out_btn);
 
-        // Set On click listener
-        sign_out_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cerrarSesion();
-            }
-        });
     }
-    public void cerrarSesion () {
-        // Vuelvo los valores a null
-        tv_nombre.setText(null);
-        tv_apellido.setText(null);
-        tv_telefono.setText(null);
-        tv_correo.setText(null);
-        // Obtener una referencia a SharedPreferences
-        SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("nombre", null);
-        editor.putString("apellido", null);
-        editor.putString("correo", null);
-        editor.putString("telefono", null);
-        editor.apply();
-        // Vuelvo al home
-       Intent irAlHome = new Intent(Perfil.this, MainActivity.class);
-       startActivity(irAlHome);
-       finish();
-    }
+
  /*   public void cerrarCuenta (View view) {
         Intent intent = new Intent(this, EliminarCuentaActivity.class);
         startActivity(intent);

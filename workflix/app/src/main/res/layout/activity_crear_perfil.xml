@@ -65,31 +65,15 @@
         style="@style/Widget.MaterialComponents.Button"
         android:layout_width="300dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="92dp"
+        android:layout_marginBottom="56dp"
         android:backgroundTint="@android:color/holo_red_light"
         android:onClick="cerrarCuenta"
         android:text="@string/Eliminar_Cuenta"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/sign_out_btn"
-        style="@style/Widget.MaterialComponents.Button"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="32dp"
-        android:backgroundTint="@color/azul"
-        android:onClick="cerrarSesion"
-        android:text="@string/Cerrar_sesion"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent" />
-
 
     <Button
         android:id="@+id/button3"
