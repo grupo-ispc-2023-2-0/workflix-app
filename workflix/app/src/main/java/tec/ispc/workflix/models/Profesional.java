@@ -40,4 +40,8 @@ public class Profesional {
     public String getProfession() {
         return profesion;
     }
+
+    public boolean getId() {
+        return false;
+    }
 }

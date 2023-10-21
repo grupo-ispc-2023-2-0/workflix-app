@@ -94,6 +94,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:maxLines="3"
+            android:textColor="@color/black"
             android:textAlignment="center"
             android:gravity="center_vertical"
             style="@style/RoundedCorners8dp"/>
@@ -104,10 +105,11 @@
             android:layout_height="55dp"
             android:backgroundTint="@color/verde1"
             android:fontFamily="@font/inter"
-            android:text="C o n t r a t a r"
+            android:text="Consultar"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="14sp"
-            style="@style/RoundedBottomCorners" />
+            style="@style/RoundedBottomCorners"
+            tools:ignore="HardcodedText" />
     </LinearLayout>
 </RelativeLayout>
