@@ -33,7 +33,7 @@ public class ServicioActivity extends AppCompatActivity {
         EditText txtId=(EditText)findViewById(R.id.txtIdServicio);
 
         TextView nombre=(TextView)findViewById(R.id.NombreServicio);
-        final EditText txtNombre=(EditText)findViewById(R.id.txtNombre);
+        final EditText txtNombre=(EditText)findViewById(R.id.txtNombreServicio);
 
         Button btnSave=(Button)findViewById(R.id.btnSaveServicio);
         Button btnVolver=(Button)findViewById(R.id.btnVolverServicio);
