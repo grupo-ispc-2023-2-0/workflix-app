@@ -47,7 +47,7 @@
             android:layout_gravity="center"
             android:textAlignment="center"
             android:padding="10dp"
-            android:text="Usuarios activos"
+            android:text="Servicios Activos"
             android:textColor="@color/black"
             android:textSize="30sp" />
     </LinearLayout>
