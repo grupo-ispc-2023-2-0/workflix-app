@@ -2,14 +2,20 @@ package com.tec.workflix.services;
 
 import com.tec.workflix.interfaces.IServicioInterface;
 import com.tec.workflix.models.Servicio;
+import com.tec.workflix.modelsDAO.ServicioDAO;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.Map;
 
 public class ServicioService implements IServicioInterface {
+
+    @Autowired
+    ServicioDAO dao;
+
     @Override
     public List<Map<String, Object>> listar() {
-        return null;
+        return dao.listar();
     }
 
     @Override
@@ -19,16 +25,17 @@ public class ServicioService implements IServicioInterface {
 
     @Override
     public int add(Servicio servicio) {
-        return 0;
+        return dao.add(servicio);
     }
 
     @Override
     public int edit(Servicio servicio) {
-        return 0;
+        return dao.edit(servicio);
     }
 
     @Override
     public int delete(int id) {
-        return 0;
+        return dao.delete(id);
     }
+
 }
