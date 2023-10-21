@@ -20,12 +20,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.models.Servicio;
-import tec.ispc.workflix.models.Usuario;
 import tec.ispc.workflix.utils.Apis;
 import tec.ispc.workflix.utils.ServicioService;
-import tec.ispc.workflix.utils.UsuarioService;
+import tec.ispc.workflix.views.ui.back.ServicioActivity;
+import tec.ispc.workflix.views.ui.back.ServicioAdapter;
 import tec.ispc.workflix.views.ui.back.UsuarioActivity;
-import tec.ispc.workflix.views.ui.back.UsuarioAdapter;
 
 public class DashboardServiciosActivity extends AppCompatActivity {
     ServicioService servicioService;
@@ -43,7 +42,7 @@ public class DashboardServiciosActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(DashboardServiciosActivity.this, UsuarioActivity.class);
+                Intent intent=new Intent(DashboardServiciosActivity.this, ServicioActivity.class);
                 intent.putExtra("ID","");
                 intent.putExtra("NOMBRE","");
                 startActivity(intent);
@@ -52,7 +51,7 @@ public class DashboardServiciosActivity extends AppCompatActivity {
     }
 
 
-    private void listServicio() {
+    public void listServicio() {
         servicioService= Apis.getServicioService();
         Call<List<Servicio>> call=servicioService.getServicios();
         call.enqueue(new Callback<List<Servicio>>() {
@@ -60,13 +59,13 @@ public class DashboardServiciosActivity extends AppCompatActivity {
             public void onResponse(Call<List<Servicio>> call, Response<List<Servicio>> response) {
                 if(response.isSuccessful()) {
                     listarServicio = response.body();
-                    listView.setAdapter(new UsuarioAdapter(DashboardServiciosActivity.this,R.layout.content_listar_servicios,listarServicio));
+                    listView.setAdapter(new ServicioAdapter(DashboardServiciosActivity.this,R.layout.content_listar_servicios,listarServicio));
                 }
             }
 
             @Override
             public void onFailure(Call<List<Servicio>> call, Throwable t) {
-                Log.e("Error no pude recuperar la lista de usuarios:",t.getMessage());
+                Log.e("Error no pude recuperar la lista de servicios:",t.getMessage());
             }
         });
     }
