@@ -76,7 +76,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
 
-                if (response.equalsIgnoreCase("success")) {
+                if (response.equalsIgnoreCase("USUARIO REGISTRADO CORRECTAMENTE")) {
                     nombreEditText.setText(null);
                     apellidoEditText.setText(null);
                     correoEditText.setText(null);
