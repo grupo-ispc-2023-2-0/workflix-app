@@ -38,7 +38,8 @@
             android:rowCount="3"
             android:alignmentMode="alignMargins"
             android:columnOrderPreserved="false"
-            android:padding="15dp">
+            android:padding="15dp"
+            android:onClick="servicios">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_administradores"
@@ -51,7 +52,8 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 app:cardElevation="8dp"
-                app:cardCornerRadius="8dp">
+                app:cardCornerRadius="8dp"
+                >
 
                 <LinearLayout
                     android:layout_width="107dp"
