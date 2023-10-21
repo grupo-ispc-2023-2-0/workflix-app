@@ -133,12 +133,37 @@ public class LoginActivity extends AppCompatActivity {
         }};
 
     private boolean validatePassword() {
-        return true;
+        String clave = et_password.getText().toString();
+        if(clave.isEmpty()){
+            et_password.setError("Debe ingresar una clave");
+            return false;
+        }else if (clave.length() < 6) {
+            et_password.setError("La contraseña debe tener al menos 6 caracteres");
+            return false;
+        }else{
+            et_password.setError(null);
+            return true;
+        }
     }
 
     private boolean validateEmail() {
-    return true;
+        String correo = et_email.getText().toString();
+        // Check If Email Is Empty:
+        if(correo.isEmpty()){
+            et_email.setError("Debe ingresar un correo");
+            return false;
+        }else if(!isValidEmail(correo)){
+            et_email.setError("Por favor ingrese un correo válido");
+            return false;
+        }else{
+            et_email.setError(null);
+            return true;
+        }
     }
+    private boolean isValidEmail(String email) {
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        return email.matches(emailPattern);
+    } //pattern para correo
 
     public void irRegistro(View view) {
         Intent registroIntent = new Intent(this, RegisterActivity.class);
