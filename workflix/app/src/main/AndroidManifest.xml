@@ -15,9 +15,17 @@
         android:theme="@style/Theme.Workflix"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
         <activity
-            android:name=".views.ui.dashboard_admin.DashboardUsuarios"
-            android:exported="false" />
+            android:name=".views.ui.dashboard_admin.DashboardUsuariosActivity"
+            android:exported="false"
+            android:label="Usuarios"
+            android:parentActivityName=".views.ui.dashboard_admin.DashboardAdminActivity"
+            android:theme="@style/Theme.Workflix2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.ui.dashboard_admin.DashboardAdminActivity" />
+        </activity>
         <activity
             android:name=".views.ui.back.UsuarioActivity"
             android:exported="false" />
