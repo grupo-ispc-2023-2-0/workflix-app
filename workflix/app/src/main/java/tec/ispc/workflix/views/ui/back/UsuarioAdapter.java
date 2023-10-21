@@ -32,13 +32,11 @@ public class UsuarioAdapter extends ArrayAdapter<Usuario>{
 
         TextView txtidUsuario=(TextView)rowView.findViewById(R.id.IdUsuarioList);
         TextView txtNombre=(TextView)rowView.findViewById(R.id.NombreUsuarioList);;
-        TextView txtApellido=(TextView)rowView.findViewById(R.id.ApellidoUsuarioList);;
-        TextView txtidTelefono=(TextView)rowView.findViewById(R.id.TelefonoUsuarioList);
+        TextView txtApellido=(TextView)rowView.findViewById(R.id.ApellidoUsuarioList);
 
         txtidUsuario.setText(String.format("ID:%d",usuarios.get(position).getId()));
-        txtNombre.setText(String.format("NOMBRE:%s",usuarios.get(position).getNombre()));
-        txtApellido.setText(String.format("APELLIDO: %s",usuarios.get(position).getApellido()));
-        txtidTelefono.setText(String.format("TELEFONO: %s",usuarios.get(position).getTelefono()));
+        String nombreCompleto = usuarios.get(position).getNombre() + " " + usuarios.get(position).getApellido();
+        txtNombre.setText(String.format("Usuario: %s", nombreCompleto));
 
         rowView.setOnClickListener(new View.OnClickListener() {
             @Override

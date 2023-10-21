@@ -17,12 +17,8 @@ public class DashboardAdminActivity extends AppCompatActivity {
         setContentView(R.layout.dashboard_admin);
     }
 
-    public void irInicio(View view) {
-        Intent inicioIntent = new Intent(this, MainActivity.class);
-        startActivity(inicioIntent);
-    }
-    public void verUsuarios(View view){
-        Intent verIntent = new Intent(this, DashboardActivity.class);
+    public void Usuarios(View view){
+        Intent verIntent = new Intent(this, DashboardUsuariosActivity.class);
         startActivity(verIntent);
     }
 }
