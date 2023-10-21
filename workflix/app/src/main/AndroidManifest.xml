@@ -18,14 +18,7 @@
 
         <activity
             android:name=".views.ui.dashboard_admin.DashboardUsuariosActivity"
-            android:exported="false"
-            android:label="Usuarios"
-            android:parentActivityName=".views.ui.dashboard_admin.DashboardAdminActivity"
-            android:theme="@style/Theme.Workflix2">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".views.ui.dashboard_admin.DashboardAdminActivity" />
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".views.ui.back.UsuarioActivity"
             android:exported="false" />
