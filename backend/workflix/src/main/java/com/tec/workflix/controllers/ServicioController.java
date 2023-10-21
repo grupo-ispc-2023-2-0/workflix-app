@@ -1,6 +1,8 @@
 package com.tec.workflix.controllers;
 
+import com.tec.workflix.models.Servicio;
 import com.tec.workflix.models.Usuario;
+import com.tec.workflix.services.ServicioService;
 import com.tec.workflix.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -13,7 +15,7 @@ import java.util.Map;
 @RequestMapping("/servicios")
 public class ServicioController {
     @Autowired
-    private UsuarioService service;
+    private ServicioService service;
 
     @GetMapping("/listar")
     public List<Map<String, Object>> listar(Model model) {
@@ -21,8 +23,8 @@ public class ServicioController {
     }
 
     @PostMapping("/agregar")
-    public String save(@RequestBody Usuario usuario, Model model) {
-        int id=service.add(usuario);
+    public String save(@RequestBody Servicio servicio, Model model) {
+        int id=service.add(servicio);
         if(id==0) {
             return "No se pudo Registrar!";
         }
@@ -30,9 +32,9 @@ public class ServicioController {
     }
 
     @PostMapping("/actualizar/{id}")
-    public String save(@RequestBody Usuario usuario, @PathVariable int id, Model model) {
-        usuario.setId(id);
-        int r=service.edit(usuario);
+    public String save(@RequestBody Servicio servicio, @PathVariable int id, Model model) {
+        servicio.setId(id);
+        int r=service.edit(servicio);
         if(r==0) {
             return "No se pudo Actualizar!";
         }
@@ -42,8 +44,8 @@ public class ServicioController {
     public String delete(@PathVariable int id,Model model) {
         int r=service.delete(id);
         if(r==0) {
-            return "Registro No Eliminado!";
+            return "Registro Servicio No Eliminado!";
         }
-        return "Registro Eliminado!";
+        return "Registro Servicio Eliminado!";
     }
 }
