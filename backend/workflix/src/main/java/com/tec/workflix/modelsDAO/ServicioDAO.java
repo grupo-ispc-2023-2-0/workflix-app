@@ -2,6 +2,8 @@ package com.tec.workflix.modelsDAO;
 
 import com.tec.workflix.interfaces.IServicioInterface;
 import com.tec.workflix.models.Servicio;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -9,6 +11,9 @@ import java.util.Map;
 
 @Repository
 public class ServicioDAO implements IServicioInterface {
+
+    @Autowired
+    JdbcTemplate template;
 
 
     @Override
