@@ -8,29 +8,19 @@
     tools:context=".views.ui.dashboard_admin.DashboardActivity"
     android:orientation="vertical"
     android:paddingTop="50px"
-    tools:showIn="@layout/activity_listar_usuarios">
+    tools:showIn="@layout/activity_listar_servicios">
 
     <TextView
-        android:id="@+id/IdUsuarioList"
+        android:id="@+id/IdServicioList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textColor="@color/black"/>
 
     <TextView
-        android:id="@+id/NombreUsuarioList"
+        android:id="@+id/NombreServicioList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textColor="@color/black"/>
 
-    <TextView
-        android:id="@+id/ApellidoUsuarioList"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="@color/black"/>
 
-    <TextView
-        android:id="@+id/TelefonoUsuarioList"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="@color/black"/>
 </LinearLayout>
