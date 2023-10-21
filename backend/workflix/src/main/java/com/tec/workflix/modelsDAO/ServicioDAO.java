@@ -18,14 +18,15 @@ public class ServicioDAO implements IServicioInterface {
 
     @Override
     public List<Map<String, Object>> listar() {
-        return null;
+        List<Map<String, Object>> list = template.queryForList("select * from servicio");
+        return list;
     }
 
     @Override
     public List<Map<String, Object>> listarId(int id) {
-        List<Map<String, Object>> list = template.queryForList("select * from servicio");
-        return list;
+            return null;
     }
+
 
     @Override
     public int add(Servicio servicio) {
