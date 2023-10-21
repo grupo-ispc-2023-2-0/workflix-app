@@ -13,14 +13,12 @@ public class TarjetaAmpliadaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tarjeta_ampliada);
 
-        // Obtén la posición del profesional seleccionado desde los extras del Intent
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             int profesionalPosicion = extras.getInt("profesional_posicion", -1);
 
             if (profesionalPosicion != -1) {
-                // La posición del profesional está disponible, puedes usarla para mostrar los detalles del profesional
-                // Aquí puedes acceder a los elementos de la vista y mostrar la información del profesional, por ejemplo:
+
                 TextView textView = findViewById(R.id.textView);
                 textView.setText("Mostrando detalles del profesional en la posición: " + profesionalPosicion);
             }
