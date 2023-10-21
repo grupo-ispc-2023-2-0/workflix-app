@@ -29,7 +29,7 @@ public class ServicioAdapter extends ArrayAdapter<Servicio> {
     }
     public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater layoutInflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rowView=layoutInflater.inflate(R.layout.content_listar,parent,false);
+        View rowView=layoutInflater.inflate(R.layout.content_listar_servicios,parent,false);
 
         TextView txtidServicio=(TextView)rowView.findViewById(R.id.IdServicioList);
         TextView txtNombre=(TextView)rowView.findViewById(R.id.NombreServicioList);;
