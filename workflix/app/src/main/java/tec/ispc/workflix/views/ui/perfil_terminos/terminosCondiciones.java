@@ -20,5 +20,6 @@ public class terminosCondiciones extends AppCompatActivity {
     public void aceptar (View view) {
         Intent intent = new Intent(this, PerfilTerminosActivity.class);
         startActivity(intent);
+        finish();
     }
 }
