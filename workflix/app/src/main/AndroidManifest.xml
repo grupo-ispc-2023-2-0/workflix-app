@@ -16,6 +16,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".views.ui.dashboard_admin.DashboardServiciosActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.ui.back.ServicioActivity"
             android:exported="false" />
         <activity
