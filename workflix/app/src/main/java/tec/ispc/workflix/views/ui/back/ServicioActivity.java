@@ -19,6 +19,7 @@ import tec.ispc.workflix.models.Servicio;
 import tec.ispc.workflix.models.Usuario;
 import tec.ispc.workflix.utils.Apis;
 import tec.ispc.workflix.utils.ServicioService;
+import tec.ispc.workflix.views.ui.dashboard_admin.DashboardServiciosActivity;
 import tec.ispc.workflix.views.ui.dashboard_admin.DashboardUsuariosActivity;
 
 public class ServicioActivity extends AppCompatActivity {
@@ -62,11 +63,11 @@ public class ServicioActivity extends AppCompatActivity {
 
                 if(id.trim().length()==0||id.equals("")){
                     addServicio(servicio);
-                    Intent intent =new Intent(ServicioActivity.this, DashboardUsuariosActivity.class);
+                    Intent intent =new Intent(ServicioActivity.this, DashboardServiciosActivity.class);
                     startActivity(intent);
                 }else{
                     updateServicio(servicio,Integer.valueOf(id));
-                    Intent intent =new Intent(ServicioActivity.this, DashboardUsuariosActivity.class);
+                    Intent intent =new Intent(ServicioActivity.this, DashboardServiciosActivity.class);
                     startActivity(intent);
                 }
 
@@ -76,7 +77,7 @@ public class ServicioActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 deleteServicio(Integer.valueOf(id));
-                Intent intent =new Intent(ServicioActivity.this, DashboardUsuariosActivity.class);
+                Intent intent =new Intent(ServicioActivity.this, DashboardServiciosActivity.class);
                 startActivity(intent);
             }
         });
@@ -84,7 +85,7 @@ public class ServicioActivity extends AppCompatActivity {
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =new Intent(ServicioActivity.this, DashboardUsuariosActivity.class);
+                Intent intent =new Intent(ServicioActivity.this, DashboardServiciosActivity.class);
                 startActivity(intent);
             }
         });
@@ -106,7 +107,7 @@ public class ServicioActivity extends AppCompatActivity {
                 Log.e("Error al agregar un Servicio:",t.getMessage());
             }
         });
-        Intent intent =new Intent(ServicioActivity.this, DashboardUsuariosActivity.class);
+        Intent intent =new Intent(ServicioActivity.this, DashboardServiciosActivity.class);
         startActivity(intent);
     }
     public void updateServicio(Servicio servicio,int id){
@@ -124,7 +125,7 @@ public class ServicioActivity extends AppCompatActivity {
                 Log.e("Error al actualizar el Servicio:",t.getMessage());
             }
         });
-        Intent intent =new Intent(ServicioActivity.this, DashboardUsuariosActivity.class);
+        Intent intent =new Intent(ServicioActivity.this, DashboardServiciosActivity.class);
         startActivity(intent);
     }
     public void deleteServicio(int id){
