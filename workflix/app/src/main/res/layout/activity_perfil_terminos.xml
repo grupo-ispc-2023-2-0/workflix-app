@@ -84,6 +84,7 @@
 
                     <!-- Nombre y apellido (TextView) -->
                     <TextView
+                        android:id="@+id/nombreProf"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Cristian Castro"
@@ -113,6 +114,7 @@
 
             <!-- Descripción breve (TextView) -->
             <TextView
+                android:id="@+id/descripcion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
