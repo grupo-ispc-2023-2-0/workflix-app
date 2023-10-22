@@ -33,7 +33,7 @@
 
                         <LinearLayout
                             android:layout_width="353dp"
-                            android:layout_height="361dp"
+                            android:layout_height="406dp"
                             android:layout_gravity="center|clip_vertical"
                             android:orientation="vertical">
 
@@ -47,7 +47,7 @@
                                     android:layout_marginEnd="32dp"
                                     android:layout_marginBottom="10dp"
                                     android:ems="10"
-                                    android:hint="Nombre"
+                                    android:hint="@string/nombreRegistro"
                                     android:inputType="text"
                                     android:textColor="@color/grey"
                                     android:textColorHint="@color/grey2" />
@@ -61,7 +61,7 @@
                                     android:layout_marginEnd="32dp"
                                     android:layout_marginBottom="10dp"
                                     android:ems="10"
-                                    android:hint="Apellido"
+                                    android:hint="@string/apellidoRegistro"
                                     android:inputType="text"
                                     android:textColor="@color/grey"
                                     android:textColorHint="@color/grey2" />
@@ -75,7 +75,7 @@
                                     android:layout_marginEnd="32dp"
                                     android:layout_marginBottom="10dp"
                                     android:ems="10"
-                                    android:hint="Correo"
+                                    android:hint="@string/correoRegistro"
                                     android:inputType="textEmailAddress"
                                     android:textColor="@color/grey"
                                     android:textColorHint="@color/grey2" />
@@ -103,7 +103,7 @@
                                     android:layout_gravity="center_horizontal"
                                     android:layout_marginStart="32dp"
                                     android:layout_marginEnd="32dp"
-                                    android:layout_marginBottom="10dp"
+                                    android:layout_marginBottom="5dp"
                                     android:ems="10"
                                     android:hint="@string/prompt_password2"
                                     android:inputType="textPassword"
@@ -118,17 +118,31 @@
                                     android:layout_gravity="center_horizontal"
                                     android:layout_marginStart="32dp"
                                     android:layout_marginEnd="32dp"
-                                    android:layout_marginBottom="10dp"
+                                    android:layout_marginBottom="0dp"
                                     android:ems="10"
-                                    android:hint="Teléfono"
+                                    android:hint="@string/celularRegistro"
                                     android:inputType="phone"
                                     android:textColor="@color/grey"
                                     android:textColorHint="@color/grey2" />
+
+                                <TextView
+                                    android:id="@+id/aclaracionTel"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="25dp"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginStart="20dp"
+                                    android:layout_marginEnd="20dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:contentDescription="@string/ingresarCelu"
+                                    android:ems="10"
+                                    android:text="@string/textoCel"
+                                    android:textColor="@color/design_default_color_error"
+                                    android:textStyle="bold|italic" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="336dp"
-                            android:layout_height="255dp"
+                            android:layout_height="212dp"
                             android:layout_gravity="center_horizontal"
                             android:orientation="vertical">
 
@@ -151,7 +165,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
                                     android:layout_marginTop="50dp"
-                                    android:layout_marginBottom="24dp"
+                                    android:layout_marginBottom="10dp"
                                     android:isScrollContainer="false"
                                     android:text="¿Ya tiene cuenta?"
                                     android:textAlignment="center"
