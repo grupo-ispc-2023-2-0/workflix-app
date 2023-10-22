@@ -45,12 +45,13 @@
                                     android:layout_marginStart="32dp"
                                     android:layout_marginTop="6dp"
                                     android:layout_marginEnd="32dp"
-                                    android:layout_marginBottom="10dp"
+                                    android:layout_marginBottom="15dp"
                                     android:ems="10"
                                     android:hint="@string/nombreRegistro"
                                     android:inputType="text"
+                                    android:background="@drawable/borde_edit_text"
                                     android:textColor="@color/grey"
-                                    android:textColorHint="@color/grey2" />
+                                    android:textColorHint="@color/grey3" />
 
                                 <EditText
                                     android:id="@+id/editTextText2"
@@ -59,12 +60,13 @@
                                     android:layout_gravity="center_horizontal"
                                     android:layout_marginStart="32dp"
                                     android:layout_marginEnd="32dp"
-                                    android:layout_marginBottom="10dp"
+                                    android:layout_marginBottom="15dp"
                                     android:ems="10"
                                     android:hint="@string/apellidoRegistro"
                                     android:inputType="text"
+                                    android:background="@drawable/borde_edit_text"
                                     android:textColor="@color/grey"
-                                    android:textColorHint="@color/grey2" />
+                                    android:textColorHint="@color/grey3" />
 
                                 <EditText
                                     android:id="@+id/editTextTextEmailAddress"
@@ -73,12 +75,13 @@
                                     android:layout_gravity="center_horizontal"
                                     android:layout_marginStart="32dp"
                                     android:layout_marginEnd="32dp"
-                                    android:layout_marginBottom="10dp"
+                                    android:layout_marginBottom="15dp"
                                     android:ems="10"
                                     android:hint="@string/correoRegistro"
                                     android:inputType="textEmailAddress"
+                                    android:background="@drawable/borde_edit_text"
                                     android:textColor="@color/grey"
-                                    android:textColorHint="@color/grey2" />
+                                    android:textColorHint="@color/grey3" />
 
                                 <EditText
                                     android:id="@+id/editTextTextPassword"
@@ -87,14 +90,14 @@
                                     android:layout_gravity="center_horizontal"
                                     android:layout_marginStart="32dp"
                                     android:layout_marginEnd="32dp"
-                                    android:layout_marginBottom="10dp"
+                                    android:layout_marginBottom="15dp"
                                     android:ems="10"
                                     android:hint="@string/prompt_password"
-                                    android:imeOptions="actionDone"
                                     android:inputType="textPassword"
                                     android:selectAllOnFocus="true"
+                                    android:background="@drawable/borde_edit_text"
                                     android:textColor="@color/grey"
-                                    android:textColorHint="@color/grey2" />
+                                    android:textColorHint="@color/grey3" />
 
                                 <EditText
                                     android:id="@+id/editTextTextPassword2"
@@ -103,13 +106,14 @@
                                     android:layout_gravity="center_horizontal"
                                     android:layout_marginStart="32dp"
                                     android:layout_marginEnd="32dp"
-                                    android:layout_marginBottom="5dp"
+                                    android:layout_marginBottom="15dp"
                                     android:ems="10"
                                     android:hint="@string/prompt_password2"
                                     android:inputType="textPassword"
                                     android:selectAllOnFocus="true"
+                                    android:background="@drawable/borde_edit_text"
                                     android:textColor="@color/grey"
-                                    android:textColorHint="@color/grey2" />
+                                    android:textColorHint="@color/grey3" />
 
                                 <EditText
                                     android:id="@+id/editTextPhone"
@@ -122,8 +126,9 @@
                                     android:ems="10"
                                     android:hint="@string/celularRegistro"
                                     android:inputType="phone"
+                                    android:background="@drawable/borde_edit_text"
                                     android:textColor="@color/grey"
-                                    android:textColorHint="@color/grey2" />
+                                    android:textColorHint="@color/grey3" />
 
                                 <TextView
                                     android:id="@+id/aclaracionTel"
@@ -142,8 +147,9 @@
 
                         <LinearLayout
                             android:layout_width="336dp"
-                            android:layout_height="212dp"
+                            android:layout_height="193dp"
                             android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="15dp"
                             android:orientation="vertical">
 
                                 <Button
@@ -153,7 +159,7 @@
                                     android:layout_height="48dp"
                                     android:layout_gravity="center_horizontal"
                                     android:layout_marginStart="32dp"
-                                    android:layout_marginTop="15dp"
+                                    android:layout_marginTop="10dp"
                                     android:layout_marginEnd="32dp"
                                     android:backgroundTint="@color/verde1"
                                     android:text="Registrarse"
