@@ -27,6 +27,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="24dp"
         android:backgroundTint="@color/verde1"
+        android:onClick="btEnviar2"
         android:text="@string/Volver"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
