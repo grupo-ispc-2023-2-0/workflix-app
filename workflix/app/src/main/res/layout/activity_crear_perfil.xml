@@ -9,7 +9,7 @@
     tools:context=".views.ui.perfil.Perfil">
 
     <EditText
-        android:id="@+id/perfilDescripcion"
+        android:id="@+id/perfilDescripcion2"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:hint="Descripción"
@@ -21,6 +21,22 @@
         app:layout_constraintStart_toEndOf="@+id/button5"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.686" />
+
+    <EditText
+        android:id="@+id/perfilServicio"
+        android:layout_width="150dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="44dp"
+        android:hint="Servicio"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.122"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView11"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/perfilCiudad"
@@ -72,6 +88,7 @@
         android:text="@string/Editar_perfil"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -109,7 +126,7 @@
         style="@style/Widget.MaterialComponents.Button"
         android:layout_width="300dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@android:color/holo_red_light"
         android:onClick="cerrarCuenta"
         android:text="@string/Eliminar_Cuenta"
