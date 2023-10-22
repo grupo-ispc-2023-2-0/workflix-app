@@ -41,7 +41,7 @@ public class ServicioAdapter extends ArrayAdapter<Servicio> {
         rowView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(context, UsuarioActivity.class);
+                Intent intent=new Intent(context, ServicioActivity.class);
                 intent.putExtra("ID",String.valueOf(servicios.get(position).getId()));
                 intent.putExtra("NOMBRE",servicios.get(position).getNombre());
                 context.startActivity(intent);
