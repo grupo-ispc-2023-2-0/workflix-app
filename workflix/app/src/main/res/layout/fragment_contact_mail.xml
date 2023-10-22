@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
+
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,71 +10,115 @@
     android:padding="16dp"
     android:background="@android:color/background_light"
     tools:context=".views.ui.menu.ContactMail">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/contact"
-            android:textSize="30sp"
-            android:padding="16dp"
-            android:layout_gravity="center"
-            android:layout_centerInParent="true"
-            android:textColor="@color/black"/>
 
-        <EditText
-            android:id="@+id/editTextFirstName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nombre"
-            android:inputType="textPersonName"
-            android:textColorHint="@color/grey2"
-            android:textColor="@color/black"
-            />
 
-        <EditText
-            android:id="@+id/editTextLastName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Apellido"
-            android:inputType="textPersonName"
-            android:textColor="@color/black"
-            android:textColorHint="@color/grey2"/>
+    <TextView
+        android:id="@+id/etFormulario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Formulario de Contacto"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/editTextEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Correo Electrónico"
-            android:inputType="textEmailAddress"
-            android:textColorHint="@color/grey2"
-            android:textColor="@color/black"
-            />
+    <TextView
+        android:id="@+id/etNombreyApellido"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:text="Nombres y Apellidos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.135"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etFormulario" />
 
-        <EditText
-            android:id="@+id/editTextDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="¿En que te podemos ayudar?"
-            android:inputType="textMultiLine"
-            android:minLines="3"
-            android:maxLines="5"
-            android:textColorHint="@color/grey2"
-            android:textColor="@color/black"/>
+    <EditText
+        android:id="@+id/etNombreApellido"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="Ingrese datos"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.423"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etNombreyApellido" />
 
-        <Button
-            android:id="@+id/btn_enviar"
-            style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="183dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginBottom="192dp"
-            android:backgroundTint="@color/verde1"
-            android:text="@string/enviar"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/etCorreoElectronico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Correo electronico"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.138"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etNombreApellido" />
+
+    <EditText
+        android:id="@+id/etCorreo"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Ingrese datos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.417"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etCorreoElectronico" />
+
+    <Spinner
+        android:id="@+id/spTipoUsuario"
+        android:layout_width="320dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="32dp"
+        android:entries="@array/datos_spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.193"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etCorreo" />
+
+    <EditText
+        android:id="@+id/etConsulta"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:lines="5"
+        android:hint="Ingrese consulta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spTipoUsuario" />
+
+    <Button
+        android:id="@+id/btEnviar"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/verde1"
+        android:text="@string/enviar"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etConsulta" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
 
