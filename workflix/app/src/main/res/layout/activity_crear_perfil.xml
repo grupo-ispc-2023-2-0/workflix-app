@@ -22,12 +22,17 @@
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="20dp"
         android:text="@string/Editar_perfil"
+        android:textAlignment="center"
         android:textColor="@color/black"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,61 +40,29 @@
         android:id="@+id/imageView11"
         android:layout_width="131dp"
         android:layout_height="120dp"
-        android:layout_marginTop="195dp"
-        app:layout_constraintEnd_toEndOf="@+id/button5"
-        app:layout_constraintHorizontal_bias="0.153"
-        app:layout_constraintStart_toStartOf="@+id/button5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35"
         app:srcCompat="@drawable/icono_perfil" />
-
 
     <Button
         android:id="@+id/button5"
         style="@style/Widget.MaterialComponents.Button"
         android:layout_width="131dp"
         android:layout_height="60dp"
-        android:layout_marginTop="144dp"
         android:backgroundTint="@color/verde1"
         android:text="@string/Cambiar_Foto"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/imageView11"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.153"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/teal_700" />
-
-
-    <Button
-        android:id="@+id/button6"
-        style="@style/Widget.MaterialComponents.Button"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="56dp"
-        android:backgroundTint="@android:color/holo_red_light"
-        android:onClick="cerrarCuenta"
-        android:text="@string/Eliminar_Cuenta"
-        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/button3"
-        style="@style/Widget.MaterialComponents.Button"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:backgroundTint="@color/verde1"
-        android:text="@string/actualizar_perfil"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/button6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.963"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintVertical_bias="0.198"
+        app:strokeColor="@color/teal_700" />
 
     <EditText
         android:id="@+id/perfilNombre"
@@ -98,28 +71,13 @@
         android:hint="Nombre"
         android:inputType="textPersonName"
         android:textColor="@color/black"
-        android:textColorHint="@color/grey2"
+        android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toEndOf="@+id/button5"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.249" />
-
-    <EditText
-        android:id="@+id/perfilCorreo"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:hint="Correo electronico"
-        android:inputType="textPersonName"
-        android:textColor="@color/black"
-        android:textColorHint="@color/grey2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
-        app:layout_constraintStart_toEndOf="@+id/button5"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.487" />
+        app:layout_constraintVertical_bias="0.194" />
 
     <EditText
         android:id="@+id/perfilApellido"
@@ -128,13 +86,57 @@
         android:hint="Apellido"
         android:inputType="textPersonName"
         android:textColor="@color/black"
-        android:textColorHint="@color/grey2"
+        android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toEndOf="@+id/button5"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.329" />
+        app:layout_constraintVertical_bias="0.27" />
+
+    <EditText
+        android:id="@+id/perfilCorreo"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="Correo electronico"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintStart_toEndOf="@+id/button5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.421" />
+
+    <EditText
+        android:id="@+id/perfilCiudad2"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="Ciudad"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintStart_toEndOf="@+id/button5"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/perfilCiudad"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="Provincia"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintStart_toEndOf="@+id/button5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.564" />
 
     <EditText
         android:id="@+id/perfilTelefono"
@@ -143,12 +145,71 @@
         android:hint="Telefono"
         android:inputType="textPersonName"
         android:textColor="@color/black"
-        android:textColorHint="@color/grey2"
+        android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toEndOf="@+id/button5"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.408" />
+        app:layout_constraintVertical_bias="0.345" />
+
+    <EditText
+        android:id="@+id/perfilServicio"
+        android:layout_width="355dp"
+        android:layout_height="55dp"
+        android:hint="Servicio"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.649" />
+
+    <EditText
+        android:id="@+id/perfilDescripcion2"
+        android:layout_width="355dp"
+        android:layout_height="70dp"
+        android:hint="Descripción"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.764" />
+
+    <Button
+        android:id="@+id/button3"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="355dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="596dp"
+        android:backgroundTint="@color/verde1"
+        android:text="@string/actualizar_perfil"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button6"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="355dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="@android:color/holo_red_light"
+        android:onClick="cerrarCuenta"
+        android:text="@string/Eliminar_Cuenta"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
