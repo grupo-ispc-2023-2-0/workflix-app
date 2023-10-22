@@ -105,6 +105,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="24dp"
         android:backgroundTint="@color/verde1"
+        android:onClick="Enviar"
         android:text="@string/enviar"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"

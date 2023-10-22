@@ -17,6 +17,7 @@
     <string name="perfil">Editar perfil</string>
     <string name="perfil2">Publicar Servicio</string>
     <string name="cerrar">Cerrar Sesión</string>
+    <string name="Volver">Volver</string>
     <string name="terminos">Terminos y condiciones</string>
     <string name="welcome">"Bienvenido "</string>
     <string name="invalid_username">No es un correo válido</string>
@@ -39,7 +40,50 @@
     <string name="Servicio">Tipo de servicios</string>
     <string name="actualizar_perfil">Actualizar Perfil</string>
     <string name="aceptar">Aceptar</string>
-    <string name="Enviar"></string>
+    <string name="Enviar">enviar</string>
     <string name="t_rminos_y_condiciones_xa_xa_bienvenido_a_nombre_de_la_empresa_una_plataforma_digital_que_conecta_a_usuarios_con_proveedores_de_servicios_al_acceder_y_utilizar_nuestra_aplicaci_n_y_plataforma_en_adelante_quot_la_plataforma_quot_aceptas_los_siguientes_t_rminos_y_condiciones_xa_xa_aceptaci_n_de_t_rminos_xa_al_acceder_o_utilizar_nuestra_plataforma_aceptas_estos_t_rminos_y_condiciones_en_su_totalidad_si_no_est_s_de_acuerdo_con_alguno_de_estos_t_rminos_por_favor_no_uses_nuestra_plataforma_xa_xa_descripci_n_del_servicio_xa_nuestra_plataforma_permite_a_los_usuarios_explorar_solicitar_y_adquirir_una_variedad_de_servicios_ofrecidos_por_terceros_proveedores_estos_servicios_pueden_incluir_entre_otros_asesoramiento_transporte_entrega_de_productos_limpieza_y_m_s_xa_xa_registro_y_cuenta_de_usuario_xa_para_acceder_a_ciertas_funcionalidades_de_la_plataforma_es_necesario_crear_una_cuenta_de_usuario_al_registrarte_garantizas_que_la_informaci_n_proporcionada_es_precisa_y_completa_eres_responsable_de_mantener_la_confidencialidad_de_tus_credenciales_de_inicio_de_sesi_n_xa_xa_conducta_del_usuario_xa_te_comprometes_a_utilizar_la_plataforma_de_manera_tica_y_legal_no_debes_utilizarla_para_actividades_il_citas_fraudulentas_difamatorias_o_que_infrinjan_derechos_de_terceros">Términos y Condiciones:\n\nBienvenido a [Nombre de la Empresa], una plataforma digital que conecta a usuarios con proveedores de servicios. Al acceder y utilizar nuestra aplicación y plataforma (en adelante, \"la Plataforma\"), aceptas los siguientes términos y condiciones:\n\nAceptación de Términos:\nAl acceder o utilizar nuestra Plataforma, aceptas estos términos y condiciones en su totalidad. Si no estás de acuerdo con alguno de estos términos, por favor, no uses nuestra Plataforma.\n\nDescripción del Servicio:\nNuestra Plataforma permite a los usuarios explorar, solicitar y adquirir una variedad de servicios ofrecidos por terceros proveedores. Estos servicios pueden incluir, entre otros, asesoramiento, transporte, entrega de productos, limpieza, y más.\n\n</string>
+    <string name="title_activity_guardar_datos">guardar_datos</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
+        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
+        dui nec risus. Maecenas non sodales nisi, vel dictum dolor. Class aptent taciti sociosqu ad
+        litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse blandit eleifend
+        diam, vel rutrum tellus vulputate quis. Aliquam eget libero aliquet, imperdiet nisl a,
+        ornare ex. Sed rhoncus est ut libero porta lobortis. Fusce in dictum tellus.\n\n
+        Suspendisse interdum ornare ante. Aliquam nec cursus lorem. Morbi id magna felis. Vivamus
+        egestas, est a condimentum egestas, turpis nisl iaculis ipsum, in dictum tellus dolor sed
+        neque. Morbi tellus erat, dapibus ut sem a, iaculis tincidunt dui. Interdum et malesuada
+        fames ac ante ipsum primis in faucibus. Curabitur et eros porttitor, ultricies urna vitae,
+        molestie nibh. Phasellus at commodo eros, non aliquet metus. Sed maximus nisl nec dolor
+        bibendum, vel congue leo egestas.\n\n
+        Sed interdum tortor nibh, in sagittis risus mollis quis. Curabitur mi odio, condimentum sit
+        amet auctor at, mollis non turpis. Nullam pretium libero vestibulum, finibus orci vel,
+        molestie quam. Fusce blandit tincidunt nulla, quis sollicitudin libero facilisis et. Integer
+        interdum nunc ligula, et fermentum metus hendrerit id. Vestibulum lectus felis, dictum at
+        lacinia sit amet, tristique id quam. Cras eu consequat dui. Suspendisse sodales nunc ligula,
+        in lobortis sem porta sed. Integer id ultrices magna, in luctus elit. Sed a pellentesque
+        est.\n\n
+        Aenean nunc velit, lacinia sed dolor sed, ultrices viverra nulla. Etiam a venenatis nibh.
+        Morbi laoreet, tortor sed facilisis varius, nibh orci rhoncus nulla, id elementum leo dui
+        non lorem. Nam mollis ipsum quis auctor varius. Quisque elementum eu libero sed commodo. In
+        eros nisl, imperdiet vel imperdiet et, scelerisque a mauris. Pellentesque varius ex nunc,
+        quis imperdiet eros placerat ac. Duis finibus orci et est auctor tincidunt. Sed non viverra
+        ipsum. Nunc quis augue egestas, cursus lorem at, molestie sem. Morbi a consectetur ipsum, a
+        placerat diam. Etiam vulputate dignissim convallis. Integer faucibus mauris sit amet finibus
+        convallis.\n\n
+        Phasellus in aliquet mi. Pellentesque habitant morbi tristique senectus et netus et
+        malesuada fames ac turpis egestas. In volutpat arcu ut felis sagittis, in finibus massa
+        gravida. Pellentesque id tellus orci. Integer dictum, lorem sed efficitur ullamcorper,
+        libero justo consectetur ipsum, in mollis nisl ex sed nisl. Donec maximus ullamcorper
+        sodales. Praesent bibendum rhoncus tellus nec feugiat. In a ornare nulla. Donec rhoncus
+        libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
+        vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
+    </string>
 
 </resources>
