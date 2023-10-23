@@ -23,7 +23,7 @@ public class DashboardAdminActivity extends AppCompatActivity {
         startActivity(verIntent);
     }
 
-    public void Servicios(View view){
+    public void servicios(View view){
         Intent verServicios = new Intent(this, DashboardServiciosActivity.class);
         startActivity(verServicios);
     }
