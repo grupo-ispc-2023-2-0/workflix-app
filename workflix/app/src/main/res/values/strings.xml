@@ -51,5 +51,6 @@
     <string name="apellidoRegistro">Ingrese su apellido</string>
     <string name="correoRegistro">Ingrese su de correo</string>
     <string name="celularRegistro">Ingrese su celular</string>
+    <string name="logo_app">Logo Workflix</string>
 
 </resources>
