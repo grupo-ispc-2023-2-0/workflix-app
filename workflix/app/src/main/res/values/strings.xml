@@ -52,4 +52,6 @@
     <string name="correoRegistro">Ingrese su de correo</string>
     <string name="celularRegistro">Ingrese su celular</string>
 
+    <string name="logo_app">Imagen de Logo de Workflix</string>
+
 </resources>

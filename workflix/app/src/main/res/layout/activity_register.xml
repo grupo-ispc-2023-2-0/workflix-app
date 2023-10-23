@@ -28,6 +28,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:layout_marginTop="16dp"
+                                    android:contentDescription="@string/logo_app"
                                     app:srcCompat="@drawable/logo_workflix_1" />
                         </LinearLayout>
 
