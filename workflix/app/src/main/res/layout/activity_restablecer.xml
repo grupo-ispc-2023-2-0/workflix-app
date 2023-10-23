@@ -49,10 +49,11 @@
                     android:layout_marginTop="40dp"
                     android:layout_marginBottom="10dp"
                     android:ems="10"
-                    android:hint="Ingrese su Correo"
+                    android:hint="@string/prompt_email"
                     android:inputType="textEmailAddress"
+                    android:background="@drawable/borde_edit_text"
                     android:textColor="@color/grey"
-                    android:textColorHint="@color/grey2" />
+                    android:textColorHint="@color/grey3" />
 
                 <TextView
                     android:id="@+id/textView7"
@@ -87,7 +88,7 @@
                     android:layout_marginEnd="32dp"
                     android:backgroundTint="@color/verde1"
                     android:onClick="irIngreso"
-                    android:text="Cambiar Clave"
+                    android:text="Solicitar Clave"
                     android:textColor="@color/azul" />
 
                 <Button
