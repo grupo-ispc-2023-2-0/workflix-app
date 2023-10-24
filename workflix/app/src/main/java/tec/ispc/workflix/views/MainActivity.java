@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private DrawerLayout drawerLayout;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,9 +59,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         // Establece el diseño personalizado
         getSupportActionBar().setCustomView(R.layout.custom_toolbar);
-
-
-    }
+    };
 
   public void mostrarElementos(){
       SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
@@ -80,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
       }
       } else {
           navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(false);
-          navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(false);}}
+          navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(false);}};
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -116,13 +113,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AboutFragment()).commit();
         } else if (itemId == R.id.nav_logout) {
             finishAffinity();
-        }
-
+        };
         drawerLayout.closeDrawer(GravityCompat.START);
-
         return true;
-    }
-
+    };
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -130,17 +124,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             super.onBackPressed();
         }
-    }
-
+    };
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
         super.onPointerCaptureChanged(hasCapture);
     }
-/*    public void guardarEstadoBton(){
-        SharedPreferences preferences = getSharedPreferences("sesion", Context.MODE_PRIVATE);
-        boolean estado = true;
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putBoolean("estado_usu", estado);
-        editor.commit();
-    }*/
-}
+};
