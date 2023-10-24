@@ -7,6 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
 
     android:background="@android:color/background_light"
     tools:context=".views.ui.menu.ContactMail">
@@ -115,14 +116,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:orientation="vertical">
+
 
                 <Button
                     android:id="@+id/btEnviar"
                     style="@style/Widget.MaterialComponents.Button"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_gravity="start"
+                    android:layout_width="279dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
                     android:layout_marginStart="0dp"
                     android:layout_marginTop="50dp"
                     android:layout_marginEnd="50dp"
