@@ -22,12 +22,14 @@ import tec.ispc.workflix.models.Usuario;
 import tec.ispc.workflix.utils.Apis;
 import tec.ispc.workflix.utils.UsuarioService;
 import tec.ispc.workflix.views.MainActivity;
+import tec.ispc.workflix.views.ui.back.UsuarioActivity;
 import tec.ispc.workflix.views.ui.dashboard_admin.DashboardUsuariosActivity;
 
 public class Perfil extends AppCompatActivity {
  private UsuarioService usuarioService;
     private TextView tv_nombre, tv_apellido, tv_correo, tv_telefono;
     private Button sign_out_btn;
+    private Button btnEliminarPerfil;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +40,7 @@ public class Perfil extends AppCompatActivity {
         tv_apellido = findViewById(R.id.perfilApellido);
         tv_correo = findViewById(R.id.perfilCorreo);
         tv_telefono = findViewById(R.id.perfilTelefono);
+        btnEliminarPerfil = findViewById(R.id.btnEliminarPerfil);
 
         SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
         String nombre = preferences.getString("nombre", ""); // El segundo parámetro es un valor por defecto si la clave no se encuentra
@@ -51,12 +54,15 @@ public class Perfil extends AppCompatActivity {
         tv_apellido.setText(apellido);
         tv_telefono.setText(correo);
         tv_correo.setText(telefono);
+        btnEliminarPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteUsuario(Integer.valueOf(id));
+                Intent intent =new Intent(Perfil.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
-        public void eliminarCuentaPerfil(View V){
-            deleteUsuario(Integer.valueOf(id));
-            Intent intent =new Intent(Perfil.this, DashboardUsuariosActivity.class);
-            startActivity(intent);
-        }
 
     }
     public void deleteUsuario(int id){
