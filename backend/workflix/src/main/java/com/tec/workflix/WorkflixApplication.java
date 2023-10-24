@@ -9,5 +9,4 @@ public class WorkflixApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(WorkflixApplication.class, args);
 	}
-
 }
