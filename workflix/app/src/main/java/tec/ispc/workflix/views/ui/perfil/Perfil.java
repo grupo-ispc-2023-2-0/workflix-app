@@ -48,6 +48,7 @@ public class Perfil extends AppCompatActivity {
         String correo = preferences.getString("correo", "");
         String telefono = preferences.getString("telefono", "");
 
+
         // Seteo los valores al perfil
 
         tv_nombre.setText(nombre);

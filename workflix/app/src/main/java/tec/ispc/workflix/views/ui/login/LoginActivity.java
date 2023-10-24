@@ -96,6 +96,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         try {
                             // Obtengo valores de respuesta del objeto
+                            int id = response.getInt("id");
                             String nombre = (String) response.get("nombre");
                             String apellido = (String) response.get("apellido");
                             String telefono = (String) response.get("telefono");
@@ -105,6 +106,7 @@ public class LoginActivity extends AppCompatActivity {
                             // Guardar los datos del usuario en SharedPreferences
                             SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
                             SharedPreferences.Editor editor = preferences.edit();
+                            editor.putInt("id",id);
                             editor.putString("nombre", nombre);
                             editor.putString("apellido", apellido);
                             editor.putString("telefono", telefono);
