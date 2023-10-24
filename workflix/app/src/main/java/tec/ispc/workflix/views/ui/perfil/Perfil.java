@@ -47,6 +47,7 @@ public class Perfil extends AppCompatActivity {
         String apellido = preferences.getString("apellido", "");
         String correo = preferences.getString("correo", "");
         String telefono = preferences.getString("telefono", "");
+        int id = preferences.getInt("id",0);
 
 
         // Seteo los valores al perfil
@@ -58,9 +59,24 @@ public class Perfil extends AppCompatActivity {
         btnEliminarPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                tv_nombre.setText(null);
+                tv_apellido.setText(null);
+                tv_telefono.setText(null);
+                tv_correo.setText(null);
                 deleteUsuario(Integer.valueOf(id));
+                // Obtener una referencia a SharedPreferences
+                SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.remove("id");
+                editor.putString("nombre", null);
+                editor.putString("apellido", null);
+                editor.putString("correo", null);
+                editor.putString("telefono", null);
+                editor.remove("is_admin");
+                editor.apply();
                 Intent intent =new Intent(Perfil.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
