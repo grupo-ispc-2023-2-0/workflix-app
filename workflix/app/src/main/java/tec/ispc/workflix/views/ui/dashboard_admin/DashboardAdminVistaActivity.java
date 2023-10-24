@@ -2,6 +2,8 @@ package tec.ispc.workflix.views.ui.dashboard_admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
@@ -37,10 +39,17 @@ public class DashboardAdminVistaActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<Usuario>>() {
             @Override
             public void onResponse(Call<List<Usuario>> call, Response<List<Usuario>> response) {
-                if(response.isSuccessful()) {
-                    listarUsuario = response.body();
-                    listView.setAdapter(new UsuarioAdapter(DashboardAdminVistaActivity.this,R.layout.content_listar,listarUsuario));
-                }
+
+             /*   SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
+                boolean isAdmin = preferences.getBoolean("is_admin",  true);*/
+
+                    if (response.isSuccessful()) {
+                        listarUsuario = response.body();
+
+//                        if (preferences.contains("nombre") && isAdmin == true) {
+                            listView.setAdapter(new UsuarioAdapter(DashboardAdminVistaActivity.this, R.layout.content_listar, listarUsuario));
+//                        }
+                    }
             }
 
             @Override
@@ -50,7 +59,3 @@ public class DashboardAdminVistaActivity extends AppCompatActivity {
         });
     }
 }
-//is_admin
-//SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
-//    boolean isAdmin = preferences.getBoolean("is_admin", /*Valor por defecto nulo:*/ true);
-//if preferences.contains("nombre") && isAdmin
