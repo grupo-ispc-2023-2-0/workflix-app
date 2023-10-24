@@ -43,12 +43,5 @@ public class Perfil extends AppCompatActivity {
 
 
     }
-
- /*   public void cerrarCuenta (View view) {
-        Intent intent = new Intent(this, EliminarCuentaActivity.class);
-        startActivity(intent);
-    }*/
-
-
 }
 
