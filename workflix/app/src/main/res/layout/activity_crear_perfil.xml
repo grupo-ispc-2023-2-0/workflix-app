@@ -207,7 +207,7 @@
                     tools:ignore="MissingConstraints" />
 
                 <Button
-                    android:id="@+id/button6"
+                    android:id="@+id/btnEliminarPerfil"
                     style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="355dp"
                     android:layout_height="60dp"
@@ -215,7 +215,6 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="5dp"
                     android:backgroundTint="@android:color/holo_red_light"
-                    android:onClick="cerrarCuenta"
                     android:text="@string/Eliminar_Cuenta"
                     android:textColor="@color/white" />
             </LinearLayout>
