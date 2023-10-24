@@ -11,10 +11,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import tec.ispc.workflix.R;
+import tec.ispc.workflix.utils.UsuarioService;
 import tec.ispc.workflix.views.MainActivity;
 
 public class Perfil extends AppCompatActivity {
-
+ private UsuarioService usuarioService;
     private TextView tv_nombre, tv_apellido, tv_correo, tv_telefono;
     private Button sign_out_btn;
     @Override
