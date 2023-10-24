@@ -14,6 +14,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Handler;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
@@ -28,35 +29,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private DrawerLayout drawerLayout;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
-     /*   // Validacion para mantener la sesion activa
-        SharedPreferences preferences = getSharedPreferences("sesion",Context.MODE_PRIVATE);
-        if (preferences.getBoolean("estado_usu",false)==false){
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent ventanaLogin = new Intent(getApplicationContext(),LoginActivity.class);
-                startActivity(ventanaLogin);
-                finish();
-            }
-        },4000);
-        }else {
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    Intent ventanaMenu = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(ventanaMenu);
-                    finish();
-                }
-            },4000);
-        }*/
+        mostrarElementos();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -82,9 +59,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         // Establece el diseño personalizado
         getSupportActionBar().setCustomView(R.layout.custom_toolbar);
-    }
+    };
 
+  public void mostrarElementos(){
+      SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
+      boolean isAdmin = preferences.getBoolean("is_admin", /*Valor por defecto nulo:*/ false);
 
+      NavigationView navigationView = findViewById(R.id.nav_view);
+      if (preferences.contains("nombre")) {
+          navigationView.getMenu().findItem(R.id.nav_login).setVisible(false);
+      if (isAdmin) {
+          navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(true);
+          navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(false);
+      }else if(!isAdmin) {
+          navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(true);
+          navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(false);
+      }
+      } else {
+          navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(false);
+          navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(false);}};
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -120,12 +113,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AboutFragment()).commit();
         } else if (itemId == R.id.nav_logout) {
             finishAffinity();
-        }
-
+        };
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
-    }
-
+    };
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -133,17 +124,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             super.onBackPressed();
         }
-    }
-
+    };
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
         super.onPointerCaptureChanged(hasCapture);
     }
-/*    public void guardarEstadoBton(){
-        SharedPreferences preferences = getSharedPreferences("sesion", Context.MODE_PRIVATE);
-        boolean estado = true;
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putBoolean("estado_usu", estado);
-        editor.commit();
-    }*/
-}
+};

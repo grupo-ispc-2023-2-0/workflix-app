@@ -69,7 +69,7 @@ public class RegisterActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
 
 
-        String url = "http://192.168.0.125:8080/api/v1/user/register";
+        String url = "http://192.168.0.237:8080/api/v1/user/register";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
 

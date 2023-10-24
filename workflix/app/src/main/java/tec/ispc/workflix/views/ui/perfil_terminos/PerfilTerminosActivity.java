@@ -46,7 +46,7 @@ public class PerfilTerminosActivity extends AppCompatActivity {
                 cerrarSesion();
             }
         });
-    }
+    };
 
     public void cerrarSesion () {
         // Vuelvo los valores a null
@@ -61,28 +61,23 @@ public class PerfilTerminosActivity extends AppCompatActivity {
         editor.putString("apellido", null);
         editor.putString("correo", null);
         editor.putString("telefono", null);
+        editor.remove("is_admin");
         editor.apply();
         // Vuelvo al home
         Intent irAlHome = new Intent(PerfilTerminosActivity.this, MainActivity.class);
         startActivity(irAlHome);
         finish();
-    }
+    };
     public void irPerfilEditar(View view) {
         Intent irPerfilEditarIntent = new Intent(this, Perfil.class);
         startActivity(irPerfilEditarIntent);
         finish();
-    }
-
-    public void cerrarSesion (View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
-    }
+    };
 
     public void terminos (View view) {
         Intent intent = new Intent(this, terminosCondiciones.class);
         startActivity(intent);
         finish();
-    }
+    };
 
-}
+};

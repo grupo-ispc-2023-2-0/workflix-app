@@ -81,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
         // The Url Posting to
 
-        String url = "http://192.168.0.125:8080/api/v1/user/login";
+        String url = "http://192.168.0.237:8080/api/v1/user/login";
 
         // Set paramaters
         HashMap<String, String> params = new HashMap<String, String>();
@@ -100,6 +100,7 @@ public class LoginActivity extends AppCompatActivity {
                             String apellido = (String) response.get("apellido");
                             String telefono = (String) response.get("telefono");
                             String correo = (String) response.get("correo");
+                            boolean is_admin = response.getBoolean("is_admin");
 
                             // Guardar los datos del usuario en SharedPreferences
                             SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
@@ -108,6 +109,7 @@ public class LoginActivity extends AppCompatActivity {
                             editor.putString("apellido", apellido);
                             editor.putString("telefono", telefono);
                             editor.putString("correo", correo);
+                            editor.putBoolean("is_admin",is_admin);
                             editor.apply();
                             // Redirigir al usuario a MainActivity
                             Intent irAMain = new Intent(LoginActivity.this, MainActivity.class);

@@ -165,7 +165,8 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 app:cardElevation="8dp"
-                app:cardCornerRadius="8dp">
+                app:cardCornerRadius="8dp"
+                android:onClick="cerrarSesionAdmin">
 
                 <LinearLayout
                     android:layout_width="107dp"
