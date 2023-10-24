@@ -1,16 +1,25 @@
 package tec.ispc.workflix.views.ui.perfil;
 
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import tec.ispc.workflix.R;
+import tec.ispc.workflix.models.Usuario;
+import tec.ispc.workflix.utils.Apis;
 import tec.ispc.workflix.utils.UsuarioService;
 import tec.ispc.workflix.views.MainActivity;
 import tec.ispc.workflix.views.ui.dashboard_admin.DashboardUsuariosActivity;
@@ -43,12 +52,31 @@ public class Perfil extends AppCompatActivity {
         tv_telefono.setText(correo);
         tv_correo.setText(telefono);
 
-        public void eliminarCuentaPerfil(View view){
+        public void eliminarCuentaPerfil(View V){
             deleteUsuario(Integer.valueOf(id));
             Intent intent =new Intent(Perfil.this, DashboardUsuariosActivity.class);
             startActivity(intent);
         }
 
+    }
+    public void deleteUsuario(int id){
+        usuarioService= Apis.getUsuarioService();
+        Call<Usuario> call=usuarioService.deleteUsuario(id);
+        call.enqueue(new Callback<Usuario>() {
+            @Override
+            public void onResponse(Call<Usuario> call, Response<Usuario> response) {
+                if(response.isSuccessful()){
+                    Toast.makeText(Perfil.this,"Se Elimino el registro con éxito",Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Usuario> call, Throwable t) {
+                Log.e("Error al eliminar el Usuario:",t.getMessage());
+            }
+        });
+        Intent intent =new Intent(Perfil.this, MainActivity.class);
+        startActivity(intent);
     }
 }
 
