@@ -2,13 +2,16 @@ package tec.ispc.workflix.views.ui.dashboard_admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.views.MainActivity;
 import tec.ispc.workflix.views.ui.back.ServicioActivity;
+import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
 
 public class DashboardAdminActivity extends AppCompatActivity {
 
@@ -27,4 +30,5 @@ public class DashboardAdminActivity extends AppCompatActivity {
         Intent verServicios = new Intent(this, DashboardServiciosActivity.class);
         startActivity(verServicios);
     }
+
 }

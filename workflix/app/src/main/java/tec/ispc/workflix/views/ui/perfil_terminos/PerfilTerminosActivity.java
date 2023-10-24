@@ -61,6 +61,7 @@ public class PerfilTerminosActivity extends AppCompatActivity {
         editor.putString("apellido", null);
         editor.putString("correo", null);
         editor.putString("telefono", null);
+        editor.remove("is_admin");
         editor.apply();
         // Vuelvo al home
         Intent irAlHome = new Intent(PerfilTerminosActivity.this, MainActivity.class);
@@ -73,11 +74,6 @@ public class PerfilTerminosActivity extends AppCompatActivity {
         finish();
     }
 
-    public void cerrarSesion (View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
-    }
 
     public void terminos (View view) {
         Intent intent = new Intent(this, terminosCondiciones.class);

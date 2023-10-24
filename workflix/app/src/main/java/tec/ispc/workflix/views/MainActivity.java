@@ -14,6 +14,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Handler;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        mostrarElementos();
 
 
      /*   // Validacion para mantener la sesion activa
@@ -82,9 +83,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         // Establece el diseño personalizado
         getSupportActionBar().setCustomView(R.layout.custom_toolbar);
+
+
     }
 
+  public void mostrarElementos(){
+      SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
+      boolean isAdmin = preferences.getBoolean("is_admin", /*Valor por defecto nulo:*/ false);
 
+      NavigationView navigationView = findViewById(R.id.nav_view);
+      if (preferences.contains("nombre")) {
+      if (isAdmin) {
+          navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(true);
+          navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(false);
+      }else if(!isAdmin) {
+          navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(true);
+          navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(false);
+      }
+      } else {
+          navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(false);
+          navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(false);}}
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -123,6 +141,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
+
         return true;
     }
 
