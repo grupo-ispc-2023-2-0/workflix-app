@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
       NavigationView navigationView = findViewById(R.id.nav_view);
       if (preferences.contains("nombre")) {
+          navigationView.getMenu().findItem(R.id.nav_login).setVisible(false);
       if (isAdmin) {
           navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(true);
           navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(false);
