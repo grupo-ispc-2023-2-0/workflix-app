@@ -13,6 +13,7 @@ import android.widget.TextView;
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.utils.UsuarioService;
 import tec.ispc.workflix.views.MainActivity;
+import tec.ispc.workflix.views.ui.dashboard_admin.DashboardUsuariosActivity;
 
 public class Perfil extends AppCompatActivity {
  private UsuarioService usuarioService;
@@ -42,6 +43,11 @@ public class Perfil extends AppCompatActivity {
         tv_telefono.setText(correo);
         tv_correo.setText(telefono);
 
+        public void eliminarCuentaPerfil(View view){
+            deleteUsuario(Integer.valueOf(id));
+            Intent intent =new Intent(Perfil.this, DashboardUsuariosActivity.class);
+            startActivity(intent);
+        }
 
     }
 }
