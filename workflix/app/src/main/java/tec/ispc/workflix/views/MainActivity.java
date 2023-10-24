@@ -87,9 +87,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
- /* public void mostrarElementos(){
+  public void mostrarElementos(){
       SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
-      boolean isAdmin = preferences.getBoolean("is_admin", *//*Valor por defecto nulo:*//* false);
+      boolean isAdmin = preferences.getBoolean("is_admin", /*Valor por defecto nulo:*/ false);
 
       NavigationView navigationView = findViewById(R.id.nav_view);
       if (preferences.contains("nombre")) {
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
       }
       } else {
           navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(false);
-          navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(false);}}*/
+          navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(false);}}
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
