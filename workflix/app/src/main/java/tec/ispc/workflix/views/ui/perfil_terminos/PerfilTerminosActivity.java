@@ -74,11 +74,6 @@ public class PerfilTerminosActivity extends AppCompatActivity {
         finish();
     }
 
-    public void cerrarSesion (View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
-    }
 
     public void terminos (View view) {
         Intent intent = new Intent(this, terminosCondiciones.class);
