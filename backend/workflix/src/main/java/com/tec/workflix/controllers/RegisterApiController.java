@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1")
 public class RegisterApiController {
@@ -31,7 +33,15 @@ public class RegisterApiController {
             logger.info("Este es un mensaje de información ok Response.");
             logger.error("Este es un mensaje de error Response.");
             return new ResponseEntity<>("Porfavor completa todas las celdas", HttpStatus.BAD_REQUEST);
+
         }
+        // Verificar si el correo electrónico ya existe en la base de datos
+        List<String> userEmail = userService.checkUserEmail(correo);
+       /* if (!userEmail.isEmpty()) {
+            logger.info("El usuario que se intenta registrar ya existe");
+            return new ResponseEntity<>("El correo electrónico ya está en uso. Por favor, utiliza otro correo.", HttpStatus.BAD_REQUEST);
+        }*/
+
         // ENCRIPTACION / HASH PASSWORD
         String hashed_password = BCrypt.hashpw(clave, BCrypt.gensalt());
 
