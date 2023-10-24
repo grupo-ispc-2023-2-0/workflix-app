@@ -37,10 +37,10 @@ public class RegisterApiController {
         }
         // Verificar si el correo electrónico ya existe en la base de datos
         List<String> userEmail = userService.checkUserEmail(correo);
-       /* if (!userEmail.isEmpty()) {
+        if (!userEmail.isEmpty()) {
             logger.info("El usuario que se intenta registrar ya existe");
             return new ResponseEntity<>("El correo electrónico ya está en uso. Por favor, utiliza otro correo.", HttpStatus.BAD_REQUEST);
-        }*/
+        }
 
         // ENCRIPTACION / HASH PASSWORD
         String hashed_password = BCrypt.hashpw(clave, BCrypt.gensalt());
