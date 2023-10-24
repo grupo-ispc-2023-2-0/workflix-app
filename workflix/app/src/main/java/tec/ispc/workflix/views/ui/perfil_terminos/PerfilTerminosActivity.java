@@ -46,7 +46,7 @@ public class PerfilTerminosActivity extends AppCompatActivity {
                 cerrarSesion();
             }
         });
-    }
+    };
 
     public void cerrarSesion () {
         // Vuelvo los valores a null
@@ -67,18 +67,17 @@ public class PerfilTerminosActivity extends AppCompatActivity {
         Intent irAlHome = new Intent(PerfilTerminosActivity.this, MainActivity.class);
         startActivity(irAlHome);
         finish();
-    }
+    };
     public void irPerfilEditar(View view) {
         Intent irPerfilEditarIntent = new Intent(this, Perfil.class);
         startActivity(irPerfilEditarIntent);
         finish();
-    }
-
+    };
 
     public void terminos (View view) {
         Intent intent = new Intent(this, terminosCondiciones.class);
         startActivity(intent);
         finish();
-    }
+    };
 
-}
+};
