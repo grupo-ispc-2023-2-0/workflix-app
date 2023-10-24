@@ -36,29 +36,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         mostrarElementos();
 
-
-     /*   // Validacion para mantener la sesion activa
-        SharedPreferences preferences = getSharedPreferences("sesion",Context.MODE_PRIVATE);
-        if (preferences.getBoolean("estado_usu",false)==false){
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent ventanaLogin = new Intent(getApplicationContext(),LoginActivity.class);
-                startActivity(ventanaLogin);
-                finish();
-            }
-        },4000);
-        }else {
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    Intent ventanaMenu = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(ventanaMenu);
-                    finish();
-                }
-            },4000);
-        }*/
-
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
