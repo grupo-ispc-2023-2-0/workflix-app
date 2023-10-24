@@ -33,10 +33,10 @@ public class Usuario {
     @Column
     private String profesion;
     @Column(columnDefinition = "boolean default false")
-    private boolean isAdmin;
+    private boolean is_admin;
 
     public Usuario() {
-        isAdmin = false; // Establecer el valor predeterminado a false en el constructor
+        is_admin = false; // Establecer el valor predeterminado a false en el constructor
     }
 
     public int getId() {
@@ -135,11 +135,11 @@ public class Usuario {
         this.profesion = profesion;
     }
 
-    public boolean isAdmin() {
-        return isAdmin;
+    public boolean isIs_admin() {
+        return is_admin;
     }
 
-    public void setAdmin(boolean admin) {
-        isAdmin = admin;
+    public void setIs_admin(boolean admin) {
+        is_admin = admin;
     }
 }
