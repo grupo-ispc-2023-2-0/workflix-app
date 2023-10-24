@@ -27,4 +27,9 @@ public class DashboardAdminActivity extends AppCompatActivity {
         Intent verServicios = new Intent(this, DashboardServiciosActivity.class);
         startActivity(verServicios);
     }
+
+    public void administradores(View view){
+        Intent verAdmin = new Intent(this, DashboardAdminVistaActivity.class);
+        startActivity(verAdmin);
+    }
 }
