@@ -30,5 +30,19 @@ public class DashboardAdminActivity extends AppCompatActivity {
         Intent verServicios = new Intent(this, DashboardServiciosActivity.class);
         startActivity(verServicios);
     }
-
+    public void cerrarSesionAdmin(View view){
+        // Obtener una referencia a SharedPreferences
+        SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("nombre", null);
+        editor.putString("apellido", null);
+        editor.putString("correo", null);
+        editor.putString("telefono", null);
+        editor.remove("is_admin");
+        editor.apply();
+        // Vuelvo al home
+        Intent irAlHome = new Intent(DashboardAdminActivity.this, MainActivity.class);
+        startActivity(irAlHome);
+        finish();
+    }
 }
