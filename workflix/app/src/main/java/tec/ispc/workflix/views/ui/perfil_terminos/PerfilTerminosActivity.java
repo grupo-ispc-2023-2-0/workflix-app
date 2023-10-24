@@ -61,7 +61,8 @@ public class PerfilTerminosActivity extends AppCompatActivity {
         editor.putString("apellido", null);
         editor.putString("correo", null);
         editor.putString("telefono", null);
-        editor.apply();
+/*        editor.remove("is_admin");
+        editor.apply();*/
         // Vuelvo al home
         Intent irAlHome = new Intent(PerfilTerminosActivity.this, MainActivity.class);
         startActivity(irAlHome);

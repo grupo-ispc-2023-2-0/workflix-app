@@ -28,15 +28,19 @@ public class Usuario {
     @SerializedName("correo")
     @Expose
     private String correo;
+    @SerializedName("is_admin")
+    @Expose
+    private boolean is_admin;
     public Usuario(){};
 
-    public Usuario(int id, String nombre, String apellido, String clave, String telefono, String correo) {
+    public Usuario(int id, String nombre, String apellido, String clave, String telefono, String correo, boolean is_admin) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.clave = clave;
         this.telefono = telefono;
         this.correo = correo;
+        this.is_admin = is_admin;
     }
 
     public int getId() {
@@ -85,5 +89,13 @@ public class Usuario {
 
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    public boolean isIs_admin() {
+        return is_admin;
+    }
+
+    public void setIs_admin(boolean is_admin) {
+        this.is_admin = is_admin;
     }
 }
