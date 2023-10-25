@@ -17,7 +17,15 @@
         tools:targetApi="31">
         <activity
             android:name=".views.ui.dashboard_admin.DashboardAdminVistaActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Administradores"
+            android:parentActivityName=".views.ui.dashboard_admin.DashboardAdminActivity"
+            android:screenOrientation="sensor"
+            android:theme="@style/Theme.Workflix2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.ui.dashboard_admin.DashboardAdminActivity" />
+        </activity>
         <activity
             android:name=".views.ui.dashboard_admin.DashboardServiciosActivity"
             android:exported="false"
@@ -31,7 +39,15 @@
         </activity>
         <activity
             android:name=".views.ui.back.ServicioActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Editar Servicios"
+            android:parentActivityName=".views.ui.dashboard_admin.DashboardServiciosActivity"
+            android:screenOrientation="sensor"
+            android:theme="@style/Theme.Workflix2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.ui.dashboard_admin.DashboardServiciosActivity" />
+        </activity>
         <activity
             android:name=".views.ui.dashboard_admin.DashboardUsuariosActivity"
             android:exported="false"
@@ -45,10 +61,19 @@
         </activity>
         <activity
             android:name=".views.ui.back.UsuarioActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Editar Usuarios"
+            android:parentActivityName=".views.ui.dashboard_admin.DashboardUsuariosActivity"
+            android:screenOrientation="sensor"
+            android:theme="@style/Theme.Workflix2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.ui.dashboard_admin.DashboardUsuariosActivity" />
+        </activity>
         <activity
             android:name=".views.ui.dashboard_admin.DashboardActivity"
             android:exported="false" />
+
         <activity
             android:name=".views.ui.perfil_terminos.terminosCondiciones"
             android:exported="false"
@@ -73,6 +98,7 @@
             android:name=".views.ui.catalogo.CatalogoActivity"
             android:exported="false"
             android:label="Catalogo de Profesionales"
+            android:parentActivityName=".views.ui.catalogo.CatalogoActivity"
             android:theme="@style/Theme.Workflix2">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -91,7 +117,7 @@
         <activity
             android:name=".views.ui.perfil.Perfil"
             android:exported="false"
-            android:label="Crear Perfil"
+            android:label="Editar Perfil"
             android:parentActivityName=".views.ui.perfil_terminos.PerfilTerminosActivity"
             android:theme="@style/Theme.Workflix2">
             <meta-data
