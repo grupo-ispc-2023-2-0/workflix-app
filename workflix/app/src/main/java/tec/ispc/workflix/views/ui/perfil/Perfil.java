@@ -62,14 +62,15 @@ public class Perfil extends AppCompatActivity {
 
         // Seteo los valores al perfil
 
-        tv_nombre.setText(nombre);
-        tv_apellido.setText(apellido);
-        tv_telefono.setText(correo);
-        tv_ciudad.setText(ciudad);
-        tv_descripcion.setText(descripcion);
-        tv_provincia.setText(provincia);
-        tv_correo.setText(telefono);
-        tv_profesion.setText(profesion);
+            tv_nombre.setText(nombre);
+            tv_apellido.setText(apellido);
+            tv_telefono.setText(correo);
+            tv_correo.setText(telefono);
+            tv_ciudad.setText(ciudad);
+            tv_descripcion.setText(descripcion);
+            tv_provincia.setText(provincia);
+            tv_profesion.setText(profesion);
+
 
         btnEliminarPerfil.setOnClickListener(new View.OnClickListener() {
             @Override

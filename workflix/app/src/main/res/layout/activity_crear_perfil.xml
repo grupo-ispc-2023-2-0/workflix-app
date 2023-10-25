@@ -195,7 +195,7 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/button3"
+                    android:id="@+id/btnActualizarPerfil"
                     style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="355dp"
                     android:layout_height="60dp"
