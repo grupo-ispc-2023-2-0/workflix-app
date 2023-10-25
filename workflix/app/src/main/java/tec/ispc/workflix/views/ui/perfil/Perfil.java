@@ -27,7 +27,7 @@ import tec.ispc.workflix.views.ui.dashboard_admin.DashboardUsuariosActivity;
 
 public class Perfil extends AppCompatActivity {
  private UsuarioService usuarioService;
-    private TextView tv_nombre, tv_apellido, tv_correo, tv_telefono;
+    private TextView tv_nombre, tv_apellido, tv_correo, tv_telefono, tv_ciudad, tv_profesion, tv_provincia, tv_descripcion, tv_foto;
     private Button sign_out_btn;
     private Button btnEliminarPerfil;
     @Override
@@ -40,6 +40,12 @@ public class Perfil extends AppCompatActivity {
         tv_apellido = findViewById(R.id.perfilApellido);
         tv_correo = findViewById(R.id.perfilCorreo);
         tv_telefono = findViewById(R.id.perfilTelefono);
+        tv_ciudad = findViewById(R.id.perfilCiudad);
+        tv_provincia = findViewById(R.id.perfilProvincia);
+        tv_descripcion = findViewById(R.id.perfilDescripcion);
+        tv_profesion = findViewById(R.id.perfilServicio);
+
+
         btnEliminarPerfil = findViewById(R.id.btnEliminarPerfil);
 
         SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
@@ -47,6 +53,10 @@ public class Perfil extends AppCompatActivity {
         String apellido = preferences.getString("apellido", "");
         String correo = preferences.getString("correo", "");
         String telefono = preferences.getString("telefono", "");
+        String ciudad = preferences.getString("ciudad","");
+        String descripcion = preferences.getString("descripcion","");
+        String provincia = preferences.getString("provincia","");
+        String profesion = preferences.getString("profesion","");
         int id = preferences.getInt("id",0);
 
 
@@ -55,7 +65,12 @@ public class Perfil extends AppCompatActivity {
         tv_nombre.setText(nombre);
         tv_apellido.setText(apellido);
         tv_telefono.setText(correo);
+        tv_ciudad.setText(ciudad);
+        tv_descripcion.setText(descripcion);
+        tv_provincia.setText(provincia);
         tv_correo.setText(telefono);
+        tv_profesion.setText(profesion);
+
         btnEliminarPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,6 +78,10 @@ public class Perfil extends AppCompatActivity {
                 tv_apellido.setText(null);
                 tv_telefono.setText(null);
                 tv_correo.setText(null);
+                tv_ciudad.setText(null);
+                tv_descripcion.setText(null);
+                tv_provincia.setText(null);
+                tv_profesion.setText(null);
                 deleteUsuario(Integer.valueOf(id));
                 // Obtener una referencia a SharedPreferences
                 SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
@@ -72,6 +91,10 @@ public class Perfil extends AppCompatActivity {
                 editor.putString("apellido", null);
                 editor.putString("correo", null);
                 editor.putString("telefono", null);
+                editor.putString("ciudad", null);
+                editor.putString("descripcion", null);
+                editor.putString("provincia", null);
+                editor.putString("profesion", null);
                 editor.remove("is_admin");
                 editor.apply();
                 Intent intent =new Intent(Perfil.this, MainActivity.class);

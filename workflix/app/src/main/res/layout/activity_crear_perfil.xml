@@ -136,7 +136,7 @@
                                 android:textColorHint="@color/black" />
 
                             <EditText
-                                android:id="@+id/perfilCiudad2"
+                                android:id="@+id/perfilCiudad"
                                 android:layout_width="200dp"
                                 android:layout_height="wrap_content"
                                 android:hint="Ciudad"
@@ -145,7 +145,7 @@
                                 android:textColorHint="@color/grey3" />
 
                             <EditText
-                                android:id="@+id/perfilCiudad"
+                                android:id="@+id/perfilProvincia"
                                 android:layout_width="200dp"
                                 android:layout_height="wrap_content"
                                 android:hint="Provincia"
@@ -179,7 +179,7 @@
                     android:textColorHint="@color/grey3" />
 
                 <EditText
-                    android:id="@+id/perfilDescripcion2"
+                    android:id="@+id/perfilDescripcion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
