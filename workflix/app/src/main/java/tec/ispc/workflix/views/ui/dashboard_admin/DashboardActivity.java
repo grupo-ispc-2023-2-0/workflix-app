@@ -74,13 +74,13 @@ public class DashboardActivity extends AppCompatActivity {
         });
     }
     private List<Usuario> filtrarUsuariosAdmin(List<Usuario> usuarios) {
-        List<Usuario> usuariosNoAdmin = new ArrayList<>();
+        List<Usuario> usuariosAdmin = new ArrayList<>();
         for (Usuario usuario : usuarios) {
-            if (usuario.isIs_admin()) {
-                usuariosNoAdmin.add(usuario);
+            if (usuario.isIs_admin() == true) {
+                usuariosAdmin.add(usuario);
             }
         }
-        return usuariosNoAdmin;
+        return usuariosAdmin;
     }
 
     @Override
