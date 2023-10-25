@@ -101,10 +101,11 @@ public class LoginActivity extends AppCompatActivity {
                             String apellido = (String) response.get("apellido");
                             String telefono = (String) response.get("telefono");
                             String correo = (String) response.get("correo");
-                            String ciudad = response.optString("ciudad", "");
-                            String descripcion = response.optString("descripcion", "");
-                            String provincia = response.optString("provincia", "");
-                            String profesion = response.optString("profesion", "");
+                            String ciudad = response.isNull("ciudad") ? "" : response.getString("ciudad");
+                            String descripcion = response.isNull("descripcion") ? "" : response.getString("descripcion");
+                            String provincia = response.isNull("provincia") ? "" : response.getString("provincia");
+                            String profesion = response.isNull("profesion") ? "" : response.getString("profesion");
+
                             /*String foto = (String) response.get("foto");
                             */
                             boolean is_admin = response.getBoolean("is_admin");
@@ -122,7 +123,6 @@ public class LoginActivity extends AppCompatActivity {
                             editor.putString("provincia",provincia);
                             editor.putString("profesion",profesion);
                            /* editor.putString("foto",foto); */
-
                             editor.putBoolean("is_admin",is_admin);
                             editor.apply();
                             // Redirigir al usuario a MainActivity
