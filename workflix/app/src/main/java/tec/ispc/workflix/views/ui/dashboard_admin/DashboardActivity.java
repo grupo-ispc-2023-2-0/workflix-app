@@ -63,7 +63,7 @@ public class DashboardActivity extends AppCompatActivity {
             public void onResponse(Call<List<Usuario>> call, Response<List<Usuario>> response) {
                 if(response.isSuccessful()) {
                     List<Usuario> usuarios = response.body();
-                    listarUsuario = response.body();
+                    listarUsuario = filtrarUsuariosAdmin(usuarios);
                     listView.setAdapter(new UsuarioAdapter(DashboardActivity.this,R.layout.content_listar,listarUsuario));
                 }
             }
