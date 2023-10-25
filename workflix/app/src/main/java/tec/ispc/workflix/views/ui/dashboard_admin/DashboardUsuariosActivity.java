@@ -76,7 +76,7 @@ public class DashboardUsuariosActivity extends AppCompatActivity {
         });
     }
 
-/*    private List<Usuario> filtrarUsuariosNoAdmin(List<Usuario> usuarios) {
+    private List<Usuario> filtrarUsuariosNoAdmin(List<Usuario> usuarios) {
         List<Usuario> usuariosNoAdmin = new ArrayList<>();
         for (Usuario usuario : usuarios) {
             if (!usuario.isIs_admin()) {
@@ -84,6 +84,6 @@ public class DashboardUsuariosActivity extends AppCompatActivity {
             }
         }
         return usuariosNoAdmin;
-    }*/
+    }
 
 }
