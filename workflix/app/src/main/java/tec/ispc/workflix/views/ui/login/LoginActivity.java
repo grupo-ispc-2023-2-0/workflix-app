@@ -81,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
         // The Url Posting to
 
-        String url = "http://192.168.0.237:8080/api/v1/user/login";
+        String url = "http://192.168.0.125:8080/api/v1/user/login";
 
         // Set paramaters
         HashMap<String, String> params = new HashMap<String, String>();
