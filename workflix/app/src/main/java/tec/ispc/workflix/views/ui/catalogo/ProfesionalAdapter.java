@@ -9,21 +9,28 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import org.json.JSONException;
+import org.json.JSONObject;
 import java.util.List;
 import tec.ispc.workflix.R;
-import tec.ispc.workflix.models.Profesional;
+import tec.ispc.workflix.models.Usuario;
 
 public class ProfesionalAdapter extends RecyclerView.Adapter<ProfesionalAdapter.ProfesionalViewHolder> {
-    private List<Profesional> profesionales;
+    private List<Usuario> usuarios;
     private Context context;
-    private OnProfesionalClickListener listener;
+    private OnUsuarioClickListener listener;
 
-    public interface OnProfesionalClickListener {
-        void onProfesionalClick(int posicion);
+    public interface OnUsuarioClickListener {
+        void onUsuarioClick(int posicion);
     }
 
-    public ProfesionalAdapter(List<Profesional> profesionales, Context context, OnProfesionalClickListener listener) {
-        this.profesionales = profesionales;
+    public ProfesionalAdapter(List<Usuario> usuarios, Context context, OnUsuarioClickListener listener) {
+        this.usuarios = usuarios;
         this.context = context;
         this.listener = listener;
     }
@@ -37,40 +44,54 @@ public class ProfesionalAdapter extends RecyclerView.Adapter<ProfesionalAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ProfesionalViewHolder holder, int position) {
-        final int posicion = position; // Guarda la posición para usarla en el onClickListener
-        final Profesional profesional = profesionales.get(position);
+        final int posicion = position;
+        final Usuario usuario = usuarios.get(position);
 
-        // Configurar la profesión
-        holder.professionalProfession.setText(profesional.getProfession());
+        holder.professionalName.setText(usuario.getNombre() + " " + usuario.getApellido());
 
-        // Configurar el nombre y apellido
-        holder.professionalName.setText(profesional.getNombre() + " " + profesional.getApellido());
+        String servicioUrl = "http://192.168.10.7:8080/servicios/"; // + usuario.getIdServicio();
 
-        // Configurar la descripción
-        holder.professionalDescription.setText(profesional.getDescripcion());
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, servicioUrl, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                // Maneja la respuesta aquí. En este ejemplo, se asume que la respuesta es un JSON.
+                try {
+                    JSONObject jsonResponse = new JSONObject(response);
+                    String nombreServicio = jsonResponse.getString("nombre");
 
-        // Configurar la imagen del profesional
-        holder.professionalImage.setImageResource(profesional.getImagenPerfil());
+                    holder.professionalProfession.setText(nombreServicio);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // Maneja errores si la solicitud falla.
+                error.printStackTrace();
+            }
+        });
+
+        // Agregamos la solicitud a la cola de solicitudes de Volley
+        Volley.newRequestQueue(context).add(stringRequest);
 
         holder.hireButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Utiliza la interfaz de callback para manejar el clic en el botón
-                listener.onProfesionalClick(posicion);
+                listener.onUsuarioClick(posicion);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return profesionales.size();
+        return usuarios.size();
     }
 
     public class ProfesionalViewHolder extends RecyclerView.ViewHolder {
-        public Button professionalProfession;
+        public TextView professionalProfession;
         public ImageView professionalImage;
         public TextView professionalName;
-        public TextView professionalDescription;
         public Button hireButton;
 
         public ProfesionalViewHolder(@NonNull View itemView) {
@@ -78,7 +99,6 @@ public class ProfesionalAdapter extends RecyclerView.Adapter<ProfesionalAdapter.
             professionalProfession = itemView.findViewById(R.id.professionalProfession);
             professionalImage = itemView.findViewById(R.id.professionalImage);
             professionalName = itemView.findViewById(R.id.professionalName);
-            professionalDescription = itemView.findViewById(R.id.professionalDescription);
             hireButton = itemView.findViewById(R.id.hireButton);
         }
     }
