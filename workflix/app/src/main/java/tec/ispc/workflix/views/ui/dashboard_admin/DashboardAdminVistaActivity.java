@@ -39,16 +39,11 @@ public class DashboardAdminVistaActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<Usuario>>() {
             @Override
             public void onResponse(Call<List<Usuario>> call, Response<List<Usuario>> response) {
-
-             /*   SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
-                boolean isAdmin = preferences.getBoolean("is_admin",  true);*/
-
                     if (response.isSuccessful()) {
-                        listarUsuario = response.body();
+                        List<Usuario> usuarios = response.body();
+                        listarUsuario = filtrarUsuariosAdmin(usuarios);
+                        listView.setAdapter(new UsuarioAdapter(DashboardAdminVistaActivity.this, R.layout.content_listar, listarUsuario));
 
-//                        if (preferences.contains("nombre") && isAdmin == true) {
-                            listView.setAdapter(new UsuarioAdapter(DashboardAdminVistaActivity.this, R.layout.content_listar, listarUsuario));
-//                        }
                     }
             }
 
@@ -57,5 +52,14 @@ public class DashboardAdminVistaActivity extends AppCompatActivity {
                 Log.e("Error no pude recuperar la lista de usuarios:",t.getMessage());
             }
         });
+    }
+    private List<Usuario> filtrarUsuariosAdmin(List<Usuario> usuarios) {
+        List<Usuario> usuariosAdmin = new ArrayList<>();
+        for (Usuario usuario : usuarios) {
+            if (usuario.isIs_admin()) {
+                usuariosAdmin.add(usuario);
+            }
+        }
+        return usuariosAdmin;
     }
 }
