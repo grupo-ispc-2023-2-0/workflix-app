@@ -103,9 +103,9 @@ public class LoginActivity extends AppCompatActivity {
                             String correo = (String) response.get("correo");
                             String ciudad = (String) response.get("ciudad");
                             String descripcion = (String) response.get("descripcion");
-                            String provincia = (String) response.get("provincia");
+                           /*  String provincia = (String) response.get("provincia");
                             String foto = (String) response.get("foto");
-                            String profesion = (String) response.get("profesion");
+                            String profesion = (String) response.get("profesion");*/
                             boolean is_admin = response.getBoolean("is_admin");
 
                             // Guardar los datos del usuario en SharedPreferences
@@ -118,9 +118,9 @@ public class LoginActivity extends AppCompatActivity {
                             editor.putString("correo", correo);
                             editor.putString("ciudad",ciudad);
                             editor.putString("descripcion",descripcion);
-                            editor.putString("provincia",provincia);
+                          /*  editor.putString("provincia",provincia);
                             editor.putString("foto",foto);
-                            editor.putString("profesion",profesion);
+                            editor.putString("profesion",profesion);*/
                             editor.putBoolean("is_admin",is_admin);
                             editor.apply();
                             // Redirigir al usuario a MainActivity
