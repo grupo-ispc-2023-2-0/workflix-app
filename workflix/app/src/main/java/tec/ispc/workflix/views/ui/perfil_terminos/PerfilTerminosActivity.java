@@ -71,7 +71,6 @@ public class PerfilTerminosActivity extends AppCompatActivity {
     public void irPerfilEditar(View view) {
         Intent irPerfilEditarIntent = new Intent(this, Perfil.class);
         startActivity(irPerfilEditarIntent);
-        finish();
     };
 
     public void terminos (View view) {

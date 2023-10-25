@@ -31,9 +31,29 @@ public class Usuario {
     @SerializedName("is_admin")
     @Expose
     private boolean is_admin;
+
+    @SerializedName("ciudad")
+    @Expose
+    private String ciudad;
+
+    @SerializedName("provincia")
+    @Expose
+    private String provincia;
+
+    @SerializedName("descripcion")
+    @Expose
+    private String descripcion;
+
+    @SerializedName("foto")
+    @Expose
+    private String foto;
+    @SerializedName("profesion")
+    @Expose
+    private String profesion;
+    
     public Usuario(){};
 
-    public Usuario(int id, String nombre, String apellido, String clave, String telefono, String correo, boolean is_admin) {
+    public Usuario(int id, String nombre, String apellido, String clave, String telefono, String correo, boolean is_admin){
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -41,6 +61,20 @@ public class Usuario {
         this.telefono = telefono;
         this.correo = correo;
         this.is_admin = is_admin;
+    }
+    public Usuario(int id, String nombre, String apellido, String clave, String telefono, String correo, boolean is_admin, String ciudad, String provincia, String descripcion, String foto, String profesion) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.clave = clave;
+        this.telefono = telefono;
+        this.correo = correo;
+        this.is_admin = is_admin;
+        this.ciudad = ciudad;
+        this.provincia = provincia;
+        this.descripcion = descripcion;
+        this.foto = foto;
+        this.profesion = profesion;
     }
 
     public int getId() {
@@ -97,5 +131,45 @@ public class Usuario {
 
     public void setIs_admin(boolean is_admin) {
         this.is_admin = is_admin;
+    }
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public String getProvincia() {
+        return provincia;
+    }
+
+    public void setProvincia(String provincia) {
+        this.provincia = provincia;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public String getProfesion() {
+        return profesion;
+    }
+
+    public void setProfesion(String profesion) {
+        this.profesion = profesion;
     }
 }
