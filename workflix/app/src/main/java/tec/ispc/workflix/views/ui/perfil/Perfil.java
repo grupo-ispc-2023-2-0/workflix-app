@@ -55,8 +55,8 @@ public class Perfil extends AppCompatActivity {
         String telefono = preferences.getString("telefono", "");
         String ciudad = preferences.getString("ciudad","");
         String descripcion = preferences.getString("descripcion","");
-        /*String provincia = preferences.getString("provincia","");
-        String profesion = preferences.getString("profesion","");*/
+        String provincia = preferences.getString("provincia","");
+        String profesion = preferences.getString("profesion","");
         int id = preferences.getInt("id",0);
 
 
@@ -67,10 +67,10 @@ public class Perfil extends AppCompatActivity {
         tv_telefono.setText(correo);
         tv_ciudad.setText(ciudad);
         tv_descripcion.setText(descripcion);
-
-/*        tv_correo.setText(telefono);
+        tv_provincia.setText(provincia);
+        tv_correo.setText(telefono);
         tv_profesion.setText(profesion);
-        tv_provincia.setText(provincia);*/
+
         btnEliminarPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,9 +80,8 @@ public class Perfil extends AppCompatActivity {
                 tv_correo.setText(null);
                 tv_ciudad.setText(null);
                 tv_descripcion.setText(null);
-
-                /*  tv_profesion.setText(null);
-                tv_provincia.setText(null);*/
+                tv_provincia.setText(null);
+                tv_profesion.setText(null);
                 deleteUsuario(Integer.valueOf(id));
                 // Obtener una referencia a SharedPreferences
                 SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
@@ -94,8 +93,8 @@ public class Perfil extends AppCompatActivity {
                 editor.putString("telefono", null);
                 editor.putString("ciudad", null);
                 editor.putString("descripcion", null);
-              /*   editor.putString("provincia", null);
-                editor.putString("profesion", null);*/
+                editor.putString("provincia", null);
+                editor.putString("profesion", null);
                 editor.remove("is_admin");
                 editor.apply();
                 Intent intent =new Intent(Perfil.this, MainActivity.class);

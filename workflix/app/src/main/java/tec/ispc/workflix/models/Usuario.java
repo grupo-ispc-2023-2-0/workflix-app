@@ -37,7 +37,7 @@ public class Usuario {
     @SerializedName("provincia")
     @Expose
     private String provincia;
-    @SerializedName("descripcion")
+    @SerializedName("ciudad")
     @Expose
     private String descripcion;
     @SerializedName("foto")
