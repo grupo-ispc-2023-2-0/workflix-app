@@ -54,12 +54,12 @@ public class DashboardAdminVistaActivity extends AppCompatActivity {
         });
     }
     private List<Usuario> filtrarUsuariosAdmin(List<Usuario> usuarios) {
-        List<Usuario> usuariosNoAdmin = new ArrayList<>();
+        List<Usuario> usuariosAdmin = new ArrayList<>();
         for (Usuario usuario : usuarios) {
             if (usuario.isIs_admin()) {
-                usuariosNoAdmin.add(usuario);
+                usuariosAdmin.add(usuario);
             }
         }
-        return usuariosNoAdmin;
+        return usuariosAdmin;
     }
 }
