@@ -64,7 +64,7 @@ public class DashboardUsuariosActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     List<Usuario> usuarios = response.body();
                     // Filtrar la lista para mostrar solo usuarios que no son administradores
-                    /*listarUsuario = filtrarUsuariosNoAdmin(usuarios);*/
+                    listarUsuario = filtrarUsuariosNoAdmin(usuarios);
                     listView.setAdapter(new UsuarioAdapter(DashboardUsuariosActivity.this, R.layout.content_listar, listarUsuario));
                 }
             }
