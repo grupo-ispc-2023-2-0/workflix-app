@@ -55,22 +55,35 @@ public class DashboardUsuariosActivity extends AppCompatActivity {
             }
         });
     }
-    public void listUsuario(){
-        usuarioService= Apis.getUsuarioService();
-        Call<List<Usuario>> call=usuarioService.getUsuarios();
+    public void listUsuario() {
+        usuarioService = Apis.getUsuarioService();
+        Call<List<Usuario>> call = usuarioService.getUsuarios();
         call.enqueue(new Callback<List<Usuario>>() {
             @Override
             public void onResponse(Call<List<Usuario>> call, Response<List<Usuario>> response) {
-                if(response.isSuccessful()) {
-                    listarUsuario = response.body();
-                    listView.setAdapter(new UsuarioAdapter(DashboardUsuariosActivity.this,R.layout.content_listar,listarUsuario));
+                if (response.isSuccessful()) {
+                    List<Usuario> usuarios = response.body();
+                    // Filtrar la lista para mostrar solo usuarios que no son administradores
+                    listarUsuario = filtrarUsuariosNoAdmin(usuarios);
+                    listView.setAdapter(new UsuarioAdapter(DashboardUsuariosActivity.this, R.layout.content_listar, listarUsuario));
                 }
             }
 
             @Override
             public void onFailure(Call<List<Usuario>> call, Throwable t) {
-                Log.e("Error no pude recuperar la lista de usuarios:",t.getMessage());
+                Log.e("Error no pude recuperar la lista de usuarios:", t.getMessage());
             }
         });
     }
+
+    private List<Usuario> filtrarUsuariosNoAdmin(List<Usuario> usuarios) {
+        List<Usuario> usuariosNoAdmin = new ArrayList<>();
+        for (Usuario usuario : usuarios) {
+            if (!usuario.isIs_admin()) {
+                usuariosNoAdmin.add(usuario);
+            }
+        }
+        return usuariosNoAdmin;
+    }
+
 }

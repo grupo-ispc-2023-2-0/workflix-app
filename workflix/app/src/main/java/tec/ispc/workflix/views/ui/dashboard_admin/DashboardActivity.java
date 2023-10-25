@@ -62,16 +62,25 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Usuario>> call, Response<List<Usuario>> response) {
                 if(response.isSuccessful()) {
-                    listarUsuario = response.body();
+                    List<Usuario> usuarios = response.body();
+                    listarUsuario = filtrarUsuariosAdmin(usuarios);
                     listView.setAdapter(new UsuarioAdapter(DashboardActivity.this,R.layout.content_listar,listarUsuario));
                 }
             }
-
             @Override
             public void onFailure(Call<List<Usuario>> call, Throwable t) {
                 Log.e("Error no pude recuperar la lista de usuarios:",t.getMessage());
             }
         });
+    }
+    private List<Usuario> filtrarUsuariosAdmin(List<Usuario> usuarios) {
+        List<Usuario> usuariosAdmin = new ArrayList<>();
+        for (Usuario usuario : usuarios) {
+            if (usuario.isIs_admin()) {
+                usuariosAdmin.add(usuario);
+            }
+        }
+        return usuariosAdmin;
     }
 
     @Override

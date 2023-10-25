@@ -33,7 +33,6 @@ public class UsuarioAdapter extends ArrayAdapter<Usuario>{
         TextView txtidUsuario=(TextView)rowView.findViewById(R.id.IdUsuarioList);
         TextView txtNombre=(TextView)rowView.findViewById(R.id.NombreUsuarioList);;
         TextView txtApellido=(TextView)rowView.findViewById(R.id.ApellidoUsuarioList);
-
         txtidUsuario.setText(String.format("ID:%d",usuarios.get(position).getId()));
         String nombreCompleto = usuarios.get(position).getNombre() + " " + usuarios.get(position).getApellido();
         txtNombre.setText(String.format("Usuario: %s", nombreCompleto));

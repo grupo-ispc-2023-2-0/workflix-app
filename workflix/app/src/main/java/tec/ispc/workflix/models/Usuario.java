@@ -31,21 +31,26 @@ public class Usuario {
     @SerializedName("is_admin")
     @Expose
     private boolean is_admin;
+
     @SerializedName("ciudad")
     @Expose
     private String ciudad;
+
     @SerializedName("provincia")
     @Expose
     private String provincia;
-    @SerializedName("ciudad")
+
+    @SerializedName("descripcion")
     @Expose
     private String descripcion;
+
     @SerializedName("foto")
     @Expose
     private String foto;
     @SerializedName("profesion")
     @Expose
     private String profesion;
+    
     public Usuario(){};
 
     public Usuario(int id, String nombre, String apellido, String clave, String telefono, String correo, boolean is_admin){
