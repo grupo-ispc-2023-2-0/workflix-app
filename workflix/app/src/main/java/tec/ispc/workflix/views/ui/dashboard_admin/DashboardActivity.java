@@ -62,11 +62,11 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Usuario>> call, Response<List<Usuario>> response) {
                 if(response.isSuccessful()) {
+                    List<Usuario> usuarios = response.body();
                     listarUsuario = response.body();
                     listView.setAdapter(new UsuarioAdapter(DashboardActivity.this,R.layout.content_listar,listarUsuario));
                 }
             }
-
             @Override
             public void onFailure(Call<List<Usuario>> call, Throwable t) {
                 Log.e("Error no pude recuperar la lista de usuarios:",t.getMessage());
