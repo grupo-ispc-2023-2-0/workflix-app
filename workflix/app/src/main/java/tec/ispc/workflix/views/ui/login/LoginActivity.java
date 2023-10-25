@@ -116,6 +116,11 @@ public class LoginActivity extends AppCompatActivity {
                             editor.putString("apellido", apellido);
                             editor.putString("telefono", telefono);
                             editor.putString("correo", correo);
+                            editor.putString("ciudad",ciudad);
+                            editor.putString("descripcion",descripcion);
+                            editor.putString("provincia",provincia);
+                            editor.putString("foto",foto);
+                            editor.putString("profesion",profesion);
                             editor.putBoolean("is_admin",is_admin);
                             editor.apply();
                             // Redirigir al usuario a MainActivity
