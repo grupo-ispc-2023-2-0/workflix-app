@@ -16,6 +16,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".views.ui.dashboard_admin.DashboardAdminVistaActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.ui.dashboard_admin.DashboardServiciosActivity"
             android:exported="false"
             android:label="Servicios"
@@ -145,7 +148,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".views.ui.catalogo.TarjetaAmpliadaActivity"
             android:exported="true">
@@ -153,7 +155,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

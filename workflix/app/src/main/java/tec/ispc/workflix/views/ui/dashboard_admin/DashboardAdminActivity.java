@@ -30,6 +30,12 @@ public class DashboardAdminActivity extends AppCompatActivity {
         Intent verServicios = new Intent(this, DashboardServiciosActivity.class);
         startActivity(verServicios);
     }
+
+
+    public void administradores(View view) {
+        Intent verAdmin = new Intent(this, DashboardAdminVistaActivity.class);
+        startActivity(verAdmin);
+    }
     public void cerrarSesionAdmin(View view){
         // Obtener una referencia a SharedPreferences
         SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
@@ -44,5 +50,6 @@ public class DashboardAdminActivity extends AppCompatActivity {
         Intent irAlHome = new Intent(DashboardAdminActivity.this, MainActivity.class);
         startActivity(irAlHome);
         finish();
+
     }
 }

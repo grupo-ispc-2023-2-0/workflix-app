@@ -52,7 +52,7 @@
                 android:layout_marginRight="15dp"
                 app:cardElevation="8dp"
                 app:cardCornerRadius="8dp"
-                >
+                android:onClick="administradores">
 
                 <LinearLayout
                     android:layout_width="107dp"
