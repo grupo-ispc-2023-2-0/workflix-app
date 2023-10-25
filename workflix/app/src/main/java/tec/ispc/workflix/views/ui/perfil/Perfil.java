@@ -40,6 +40,12 @@ public class Perfil extends AppCompatActivity {
         tv_apellido = findViewById(R.id.perfilApellido);
         tv_correo = findViewById(R.id.perfilCorreo);
         tv_telefono = findViewById(R.id.perfilTelefono);
+        tv_ciudad = findViewById(R.id.perfilCiudad);
+        tv_provincia = findViewById(R.id.perfilProvincia);
+        tv_descripcion = findViewById(R.id.perfilDescripcion);
+        tv_profesion = findViewById(R.id.perfilServicio);
+
+
         btnEliminarPerfil = findViewById(R.id.btnEliminarPerfil);
 
         SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
