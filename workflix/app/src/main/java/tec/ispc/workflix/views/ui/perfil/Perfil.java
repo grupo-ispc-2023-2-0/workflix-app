@@ -27,7 +27,7 @@ import tec.ispc.workflix.views.ui.dashboard_admin.DashboardUsuariosActivity;
 
 public class Perfil extends AppCompatActivity {
  private UsuarioService usuarioService;
-    private TextView tv_nombre, tv_apellido, tv_correo, tv_telefono;
+    private TextView tv_nombre, tv_apellido, tv_correo, tv_telefono, tv_ciudad, tv_profesion, tv_provincia, tv_descripcion, tv_foto;
     private Button sign_out_btn;
     private Button btnEliminarPerfil;
     @Override
