@@ -101,10 +101,10 @@ public class LoginActivity extends AppCompatActivity {
                             String apellido = (String) response.get("apellido");
                             String telefono = (String) response.get("telefono");
                             String correo = (String) response.get("correo");
-                            String ciudad = (String) response.get("ciudad");
-                            String descripcion = (String) response.get("descripcion");
-                            String provincia = (String) response.get("provincia");
-                            String profesion = (String) response.get("profesion");
+                            String ciudad = response.optString("ciudad", "");
+                            String descripcion = response.optString("descripcion", "");
+                            String provincia = response.optString("provincia", "");
+                            String profesion = response.optString("profesion", "");
                             /*String foto = (String) response.get("foto");
                             */
                             boolean is_admin = response.getBoolean("is_admin");
