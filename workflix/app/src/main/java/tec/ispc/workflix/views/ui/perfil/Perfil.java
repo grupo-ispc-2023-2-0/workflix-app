@@ -112,6 +112,24 @@ public class Perfil extends AppCompatActivity {
         }
     });
     }
+    public void updateUsuario(Usuario usuario,int id){
+        usuarioService= Apis.getUsuarioService();
+        Call<Usuario>call=usuarioService.updateUsuario(usuario,id);
+        call.enqueue(new Callback<Usuario>() {
+            @Override
+            public void onResponse(Call<Usuario> call, Response<Usuario> response) {
+                if(response.isSuccessful()){
+                    Toast.makeText(Perfil.this,"Se Actualizó con éxito su Perfil",Toast.LENGTH_LONG).show();
+                }
+            }
+            @Override
+            public void onFailure(Call<Usuario> call, Throwable t) {
+                Log.e("Error al actualizar su Perfil:",t.getMessage());
+            }
+        });
+        Intent intent =new Intent(Perfil.this, DashboardUsuariosActivity.class);
+        startActivity(intent);
+    }
     public void deleteUsuario(int id){
         usuarioService= Apis.getUsuarioService();
         Call<Usuario> call=usuarioService.deleteUsuario(id);
