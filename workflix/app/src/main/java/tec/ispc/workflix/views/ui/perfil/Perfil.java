@@ -109,8 +109,9 @@ public class Perfil extends AppCompatActivity {
     btnActualizarPerfil.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Usuario usuario = new Usuario();
-            usuario.setId(id);
+            Usuario usuario = new Usuario(id,tv_nombre.getText().toString(),tv_apellido.getText().toString(),
+                    tv_telefono.getText().toString(),tv_correo.getText().toString(), tv_ciudad.getText().toString(), tv_provincia.getText().toString(),tv_profesion.getText().toString(),tv_descripcion.getText().toString());
+/*            usuario.setId(id);
             usuario.setNombre(tv_nombre.getText().toString());
             usuario.setApellido(tv_apellido.getText().toString());
             usuario.setTelefono(tv_telefono.getText().toString());
@@ -118,7 +119,15 @@ public class Perfil extends AppCompatActivity {
             usuario.setCiudad(tv_ciudad.getText().toString());
             usuario.setDescripcion(tv_descripcion.getText().toString());
             usuario.setProvincia(tv_provincia.getText().toString());
-            usuario.setProfesion(tv_profesion.getText().toString());
+            usuario.setProfesion(tv_profesion.getText().toString());*/
+            tv_nombre.setText(nombre);
+            tv_apellido.setText(apellido);
+            tv_telefono.setText(correo);
+            tv_correo.setText(telefono);
+            tv_ciudad.setText(ciudad);
+            tv_descripcion.setText(descripcion);
+            tv_provincia.setText(provincia);
+            tv_profesion.setText(profesion);
             updateUsuario(usuario,Integer.valueOf(id));
             Intent intent =new Intent(Perfil.this, PerfilTerminosActivity.class);
             startActivity(intent);
@@ -140,7 +149,7 @@ public class Perfil extends AppCompatActivity {
                 Log.e("Error al actualizar su Perfil:",t.getMessage());
             }
         });
-        Intent intent =new Intent(Perfil.this, DashboardUsuariosActivity.class);
+        Intent intent =new Intent(Perfil.this, PerfilTerminosActivity.class);
         startActivity(intent);
     }
     public void deleteUsuario(int id){

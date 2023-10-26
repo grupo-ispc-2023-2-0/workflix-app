@@ -53,6 +53,18 @@ public class Usuario {
     
     public Usuario(){};
 
+    public Usuario(int id, String nombre, String apellido, String telefono, String correo, String ciudad,
+                   String provincia, String profesion, String descripcion){
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+        this.correo = correo;
+        this.ciudad = ciudad;
+        this.provincia = provincia;
+        this.descripcion = descripcion;
+        this.profesion = profesion;
+    }
     public Usuario(int id, String nombre, String apellido, String clave, String telefono, String correo, boolean is_admin){
         this.id = id;
         this.nombre = nombre;
