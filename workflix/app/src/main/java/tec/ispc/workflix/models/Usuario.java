@@ -43,7 +43,9 @@ public class Usuario {
     @SerializedName("descripcion")
     @Expose
     private String descripcion;
-
+    @SerializedName("direccion")
+    @Expose
+    private String direccion;
     @SerializedName("foto")
     @Expose
     private String foto;
@@ -53,19 +55,20 @@ public class Usuario {
     
     public Usuario(){};
 
-    public Usuario(int id, String nombre, String apellido, String telefono, String correo, String ciudad,
-                   String provincia, String profesion, String descripcion){
+    public Usuario(int id, String nombre, String apellido, String telefono, String correo, String ciudad
+                   ,String direccion, String provincia, String profesion, String descripcion){
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
         this.correo = correo;
         this.ciudad = ciudad;
+        this.direccion = direccion;
         this.provincia = provincia;
         this.descripcion = descripcion;
         this.profesion = profesion;
     }
-    public Usuario(int id, String nombre, String apellido, String clave, String telefono, String correo, boolean is_admin){
+   /* public Usuario(int id, String nombre, String apellido, String clave, String telefono, String correo, boolean is_admin){
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -73,8 +76,8 @@ public class Usuario {
         this.telefono = telefono;
         this.correo = correo;
         this.is_admin = is_admin;
-    }
-    public Usuario(int id, String nombre, String apellido, String clave, String telefono, String correo, boolean is_admin, String ciudad, String provincia, String descripcion, String foto, String profesion) {
+    }*/
+   /* public Usuario(int id, String nombre, String apellido, String clave, String telefono, String correo, boolean is_admin, String ciudad, String provincia, String descripcion, String foto, String profesion) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -87,7 +90,7 @@ public class Usuario {
         this.descripcion = descripcion;
         this.foto = foto;
         this.profesion = profesion;
-    }
+    }*/
 
     public int getId() {
         return id;

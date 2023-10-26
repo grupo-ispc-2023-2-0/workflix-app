@@ -66,8 +66,8 @@ public class Perfil extends AppCompatActivity {
 
             tv_nombre.setText(nombre);
             tv_apellido.setText(apellido);
-            tv_telefono.setText(correo);
-            tv_correo.setText(telefono);
+            tv_telefono.setText(telefono);
+            tv_correo.setText(correo);
             tv_ciudad.setText(ciudad);
             tv_descripcion.setText(descripcion);
             tv_provincia.setText(provincia);
@@ -116,20 +116,13 @@ public class Perfil extends AppCompatActivity {
             usuario.setTelefono(tv_telefono.getText().toString());
             usuario.setCorreo(tv_correo.getText().toString());
             usuario.setCiudad(tv_ciudad.getText().toString());
-            usuario.setDescripcion(tv_descripcion.getText().toString());
             usuario.setProvincia(tv_provincia.getText().toString());
             usuario.setProfesion(tv_profesion.getText().toString());
-     /*       tv_nombre.setText(nombre);
-            tv_apellido.setText(apellido);
-            tv_telefono.setText(correo);
-            tv_correo.setText(telefono);
-            tv_ciudad.setText(ciudad);
-            tv_descripcion.setText(descripcion);
-            tv_provincia.setText(provincia);
-            tv_profesion.setText(profesion);*/
+            usuario.setDescripcion(tv_descripcion.getText().toString());
             updateUsuario(usuario,Integer.valueOf(id));
             Intent intent =new Intent(Perfil.this, PerfilTerminosActivity.class);
             startActivity(intent);
+
         }
     });
     }
