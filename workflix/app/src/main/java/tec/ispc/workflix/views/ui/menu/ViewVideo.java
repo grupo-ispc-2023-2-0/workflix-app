@@ -24,7 +24,7 @@ public class ViewVideo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_about);
 
-        mVideoView = findViewById(R.id.vv_video);
+        mVideoView = findViewById(R.id.video_view);
         MediaController controller = new MediaController(this);
         mVideoView.setMediaController(controller);
         controller.setMediaPlayer(mVideoView);

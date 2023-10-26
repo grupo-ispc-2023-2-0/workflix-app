@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -16,6 +15,9 @@
         android:theme="@style/Theme.Workflix"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".views.ui.video.videoRaw"
+            android:exported="false" />
         <activity
             android:name=".views.ui.dashboard_admin.DashboardServiciosActivity"
             android:exported="false"
@@ -146,7 +148,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".views.ui.catalogo.TarjetaAmpliadaActivity"
             android:exported="true">
@@ -154,18 +155,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".views.ui.menu.ViewVideo"
-            android:label="Video Activity"
-            android:exported="true" >
+            android:exported="true"
+            android:label="Video Activity">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
-
     </application>
 
 </manifest>
