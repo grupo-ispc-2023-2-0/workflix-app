@@ -24,6 +24,7 @@ import tec.ispc.workflix.utils.UsuarioService;
 import tec.ispc.workflix.views.MainActivity;
 import tec.ispc.workflix.views.ui.back.UsuarioActivity;
 import tec.ispc.workflix.views.ui.dashboard_admin.DashboardUsuariosActivity;
+import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
 
 public class Perfil extends AppCompatActivity {
  private UsuarioService usuarioService;
@@ -108,7 +109,19 @@ public class Perfil extends AppCompatActivity {
     btnActualizarPerfil.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-
+            Usuario usuario = new Usuario();
+            usuario.setId(id);
+            usuario.setNombre(tv_nombre.getText().toString());
+            usuario.setApellido(tv_apellido.getText().toString());
+            usuario.setTelefono(tv_telefono.getText().toString());
+            usuario.setCorreo(tv_correo.getText().toString());
+            usuario.setCiudad(tv_ciudad.getText().toString());
+            usuario.setDescripcion(tv_descripcion.getText().toString());
+            usuario.setProvincia(tv_provincia.getText().toString());
+            usuario.setProfesion(tv_profesion.getText().toString());
+            updateUsuario(usuario,Integer.valueOf(id));
+            Intent intent =new Intent(Perfil.this, PerfilTerminosActivity.class);
+            startActivity(intent);
         }
     });
     }
