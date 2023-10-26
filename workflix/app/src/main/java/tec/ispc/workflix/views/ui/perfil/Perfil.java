@@ -30,6 +30,7 @@ public class Perfil extends AppCompatActivity {
     private TextView tv_nombre, tv_apellido, tv_correo, tv_telefono, tv_ciudad, tv_profesion, tv_provincia, tv_descripcion, tv_foto;
     private Button sign_out_btn;
     private Button btnEliminarPerfil;
+    private Button btnActualizarPerfil;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +46,7 @@ public class Perfil extends AppCompatActivity {
         tv_descripcion = findViewById(R.id.perfilDescripcion);
         tv_profesion = findViewById(R.id.perfilServicio);
 
-
+        btnActualizarPerfil = findViewById(R.id.btnActualizarPerfil);
         btnEliminarPerfil = findViewById(R.id.btnEliminarPerfil);
 
         SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
@@ -104,7 +105,12 @@ public class Perfil extends AppCompatActivity {
             }
         });
 
+    btnActualizarPerfil.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
 
+        }
+    });
     }
     public void deleteUsuario(int id){
         usuarioService= Apis.getUsuarioService();
