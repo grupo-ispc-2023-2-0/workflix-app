@@ -83,7 +83,9 @@ public class RegisterActivity extends AppCompatActivity {
                     claveEditText.setText(null);
                     clave2EditText.setText(null);
                     telefonoEditText.setText(null);
-                    Toast.makeText(RegisterActivity.this, "Se ha  registrado correctamnte", Toast.LENGTH_LONG).show();
+                    Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
+                    startActivity(loginIntent);
+                    Toast.makeText(RegisterActivity.this, "Se ha  registrado correctamente", Toast.LENGTH_LONG).show();
 
                 }
             }
@@ -94,6 +96,7 @@ public class RegisterActivity extends AppCompatActivity {
                 error.printStackTrace();
                 System.out.println(error.getMessage());
                 Toast.makeText(RegisterActivity.this, "No se ha podido guardar el registro", Toast.LENGTH_LONG).show();
+
             }
 
     }){
@@ -107,12 +110,10 @@ public class RegisterActivity extends AppCompatActivity {
                 params.put("correo", correoEditText.getText().toString());
                 params.put("clave", claveEditText.getText().toString());
                 params.put("telefono", telefonoEditText.getText().toString());
-                Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
-                startActivity(loginIntent);
+
                 return params;
             }
         };
-
         queue.add(stringRequest);
 
     }
