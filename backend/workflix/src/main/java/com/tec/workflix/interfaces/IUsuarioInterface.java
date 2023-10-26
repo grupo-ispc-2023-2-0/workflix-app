@@ -10,7 +10,7 @@ public interface IUsuarioInterface {
     public List<Map<String, Object>>listarId(int id);
     public int add(Usuario usuario);
     public int edit(Usuario usuario);
+    public int actualizarPerfil(Usuario usuario);
     public int delete(int id);
 
-    public int actPerfil(Usuario usuario);
 }

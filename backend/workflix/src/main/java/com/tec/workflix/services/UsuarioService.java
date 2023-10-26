@@ -44,8 +44,8 @@ public class UsuarioService implements IUsuarioInterface {
     }
 
     @Override
-    public int actPerfil(Usuario usuario) {
-        return  dao.actPerfil(usuario);
+    public int actualizarPerfil(Usuario usuario) {
+        return  dao.actualizarPerfil(usuario);
     }
 
     // Login

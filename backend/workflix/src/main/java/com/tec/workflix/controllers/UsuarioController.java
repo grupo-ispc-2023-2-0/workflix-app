@@ -44,7 +44,7 @@ public class UsuarioController {
     @PostMapping("/perfil/{id}")
     public String updatePerfil(@RequestBody Usuario usuario, @PathVariable int id, Model model){
         usuario.setId(id);
-        int r= service.actPerfil(usuario);
+        int r= service.actualizarPerfil(usuario);
         if (r==0){
             return "No se pudo actualizar el Perfil";
         }
