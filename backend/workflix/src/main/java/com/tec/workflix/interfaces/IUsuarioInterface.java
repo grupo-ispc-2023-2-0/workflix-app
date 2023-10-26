@@ -11,4 +11,6 @@ public interface IUsuarioInterface {
     public int add(Usuario usuario);
     public int edit(Usuario usuario);
     public int delete(int id);
+
+    public int actPerfil(Usuario usuario);
 }
