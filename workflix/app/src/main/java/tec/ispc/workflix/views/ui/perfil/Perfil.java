@@ -193,15 +193,15 @@ public class Perfil extends AppCompatActivity {
 
     private void cargarImagen() {
 
-        final CharSequence[] opciones = {"Tomar Foto","Cargar Imagen", "Cancelar"};
+        final CharSequence[] opciones = {"Cargar Imagen", "Cancelar"};
         final AlertDialog.Builder alertOpciones = new AlertDialog.Builder(Perfil.this);
         alertOpciones.setTitle("Seleccione una Opcion");
         alertOpciones.setItems(opciones, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                if(opciones[i].equals("Tomar Foto")){
-                    tomarFotografia();
-                }else{
+                /*if(opciones[i].equals("Tomar Foto")){
+                    tomarFotografia();}*/
+                /*if{*/
                     if ( opciones[i].equals("Cargar Imagen")){
                         Intent intent = new Intent(Intent.ACTION_GET_CONTENT, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                         intent.setType("image/");
@@ -209,7 +209,7 @@ public class Perfil extends AppCompatActivity {
                     }else {
                         dialogInterface.dismiss();
                     }
-                }
+                /*}*/
             }
         });
         alertOpciones.show();
