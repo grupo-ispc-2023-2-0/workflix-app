@@ -10,8 +10,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -19,6 +21,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.File;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,6 +43,11 @@ public class Perfil extends AppCompatActivity {
     private Button sign_out_btn;
     private Button btnEliminarPerfil;
     private Button btnActualizarPerfil;
+    private String CARPETA_RAIZ="misImagenesPrueba/";
+    private String RUTA_IMAGEN=CARPETA_RAIZ+"misFotos";
+    private String path;
+    final int COD_SELECCIONA = 10;
+    final int COD_FOTO = 20;
 
 
     @Override
@@ -194,7 +203,7 @@ public class Perfil extends AppCompatActivity {
                     if ( opciones[i].equals("Cargar Imagen")){
                         Intent intent = new Intent(Intent.ACTION_GET_CONTENT, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                         intent.setType("image/");
-                        startActivityForResult(intent.createChooser(intent,"Seleccionar aplicación: "),10);
+                        startActivityForResult(intent.createChooser(intent,"Seleccionar aplicación: "),COD_SELECCIONA);
                     }else {
                         dialogInterface.dismiss();
                     }
@@ -205,14 +214,44 @@ public class Perfil extends AppCompatActivity {
     }
 
     private void tomarFotografia() {
-    }
+        File fileImagen = new File(Environment.getExternalStorageDirectory(),RUTA_IMAGEN);
+        boolean isCreada = fileImagen.exists();
+        String nombreImagen = "";
+        if (isCreada==false){
+            isCreada=fileImagen.mkdirs();
+        }
+        if (isCreada==true){
+            nombreImagen = (System.currentTimeMillis()/100)+"jpg";
+        }
+        path = Environment.getExternalStorageDirectory()+File.separator+RUTA_IMAGEN+File.separator+nombreImagen;
+
+        File imagen = new File(path);
+
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(imagen));
+        startActivityForResult(intent,COD_FOTO);
+    };
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode==RESULT_OK){
-            Uri path = data.getData();
-            imagen.setImageURI(path);
+            switch (requestCode){
+                case COD_SELECCIONA:
+                    Uri miPath = data.getData();
+                    imagen.setImageURI(miPath);
+                    break;
+                case COD_FOTO:
+                    MediaScannerConnection.scanFile(this, new String[]{path}, null, new MediaScannerConnection.OnScanCompletedListener() {
+                        @Override
+                        public void onScanCompleted(String s, Uri uri) {
+                            Log.i("Ruta de almacenamiento","Path: "+path);
+                        }
+                    });
+
+
+            }
+
         }
     }
 }
