@@ -17,6 +17,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +25,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 
@@ -154,7 +156,11 @@ public class Perfil extends AppCompatActivity {
     }
 
     private String convertirImgString(Bitmap bitmap) {
-        return "";
+        ByteArrayOutputStream array = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG,100,array);
+        byte [] imagenByte = array.toByteArray();
+        String imagenString = Base64.encodeToString(imagenByte,Base64.DEFAULT);
+        return imagenString;
     }
 
     public void updateUsuario(Usuario usuario,int id){
