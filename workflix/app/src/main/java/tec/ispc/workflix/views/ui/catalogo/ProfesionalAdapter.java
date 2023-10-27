@@ -1,11 +1,13 @@
 package tec.ispc.workflix.views.ui.catalogo;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,30 +18,28 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.List;
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.models.Usuario;
+import tec.ispc.workflix.utils.UsuarioService;
 
 public class ProfesionalAdapter extends RecyclerView.Adapter<ProfesionalAdapter.ProfesionalViewHolder> {
-    private List<Usuario> usuarios;
-    private Context context;
-    private OnUsuarioClickListener listener;
-
+    UsuarioService usuarioService;
+    List<Usuario> listarUsuario= new ArrayList<>();
+    ListView listView;
     public interface OnUsuarioClickListener {
-        void onUsuarioClick(int posicion);
     }
 
-    public ProfesionalAdapter(List<Usuario> usuarios, Context context, OnUsuarioClickListener listener) {
-        this.usuarios = usuarios;
-        this.context = context;
-        this.listener = listener;
-    }
-
-    @NonNull
     @Override
-    public ProfesionalViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.tarjeta_profesional, parent, false);
-        return new ProfesionalViewHolder(view);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_catalogo);
+
+    }
+
+    private void setContentView(int activityCatalogo) {
     }
 
     @Override
