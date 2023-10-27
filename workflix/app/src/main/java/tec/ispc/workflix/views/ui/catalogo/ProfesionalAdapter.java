@@ -1,105 +1,90 @@
 package tec.ispc.workflix.views.ui.catalogo;
 
 import android.content.Context;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
+import android.util.Log;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.models.Usuario;
+import tec.ispc.workflix.utils.Apis;
 import tec.ispc.workflix.utils.UsuarioService;
+import tec.ispc.workflix.views.ui.back.UsuarioAdapter;
 
-public class ProfesionalAdapter extends RecyclerView.Adapter<ProfesionalAdapter.ProfesionalViewHolder> {
+public class ProfesionalAdapter extends RecyclerView.Adapter {
     UsuarioService usuarioService;
-    List<Usuario> listarUsuario= new ArrayList<>();
+    List<Usuario> listarUsuario = new ArrayList<>();
     ListView listView;
-    public interface OnUsuarioClickListener {
+    Context context;
+
+    public ProfesionalAdapter(Context context, ListView listView) {
+        this.context = context;
+        this.listView = listView;
+        listUsuariosNoAdmin();
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_catalogo);
+    public ProfesionalAdapter(List<Usuario> profesionales, CatalogoActivity catalogoActivity, OnUsuarioClickListener onUsuarioClickListener) {
 
     }
 
-    private void setContentView(int activityCatalogo) {
-    }
+    public void listUsuariosNoAdmin() {
+        usuarioService = Apis.getUsuarioService();
+        Call<List<Usuario>> call = usuarioService.getUsuarios();
 
-    @Override
-    public void onBindViewHolder(@NonNull ProfesionalViewHolder holder, int position) {
-        final int posicion = position;
-        final Usuario usuario = usuarios.get(position);
-
-        holder.professionalName.setText(usuario.getNombre() + " " + usuario.getApellido());
-
-        String servicioUrl = "http://192.168.10.7:8080/servicios/"; // + usuario.getIdServicio();
-
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, servicioUrl, new Response.Listener<String>() {
+        call.enqueue(new Callback<List<Usuario>>() {
             @Override
-            public void onResponse(String response) {
-                // Maneja la respuesta aquí. En este ejemplo, se asume que la respuesta es un JSON.
-                try {
-                    JSONObject jsonResponse = new JSONObject(response);
-                    String nombreServicio = jsonResponse.getString("nombre");
-
-                    holder.professionalProfession.setText(nombreServicio);
-                } catch (JSONException e) {
-                    e.printStackTrace();
+            public void onResponse(Call<List<Usuario>> call, Response<List<Usuario>> response) {
+                if (response.isSuccessful()) {
+                    List<Usuario> usuarios = response.body();
+                    listarUsuario = filtrarUsuariosNoAdmin(usuarios);
+                    listView.setAdapter(new UsuarioAdapter(context, R.layout.content_listar, listarUsuario));
                 }
             }
-        }, new Response.ErrorListener() {
+
             @Override
-            public void onErrorResponse(VolleyError error) {
-                // Maneja errores si la solicitud falla.
-                error.printStackTrace();
+            public void onFailure(Call<List<Usuario>> call, Throwable t) {
+                Log.e("Error no se puede recuperar Lista de Usuarios", t.getMessage());
             }
         });
+    }
 
-        // Agregamos la solicitud a la cola de solicitudes de Volley
-        Volley.newRequestQueue(context).add(stringRequest);
-
-        holder.hireButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                listener.onUsuarioClick(posicion);
+    private List<Usuario> filtrarUsuariosNoAdmin(List<Usuario> usuarios) {
+        List<Usuario> usuariosNoAdmin = new ArrayList<>();
+        for (Usuario usuario : usuarios) {
+            if (!usuario.isIs_admin()) {
+                usuariosNoAdmin.add(usuario);
             }
-        });
+        }
+        return usuariosNoAdmin;
+    }
+
+    @NonNull
+    @Override
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return null;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+
     }
 
     @Override
     public int getItemCount() {
-        return usuarios.size();
+        return 0;
     }
 
-    public class ProfesionalViewHolder extends RecyclerView.ViewHolder {
-        public TextView professionalProfession;
-        public ImageView professionalImage;
-        public TextView professionalName;
-        public Button hireButton;
-
-        public ProfesionalViewHolder(@NonNull View itemView) {
-            super(itemView);
-            professionalProfession = itemView.findViewById(R.id.professionalProfession);
-            professionalImage = itemView.findViewById(R.id.professionalImage);
-            professionalName = itemView.findViewById(R.id.professionalName);
-            hireButton = itemView.findViewById(R.id.hireButton);
-        }
+    public interface OnUsuarioClickListener {
+        void onUsuarioClick(int position);
     }
+
 }
