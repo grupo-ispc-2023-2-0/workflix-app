@@ -2,17 +2,29 @@ package tec.ispc.workflix.views.ui.perfil;
 
 import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.MediaScannerConnection;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.File;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,12 +36,22 @@ import tec.ispc.workflix.utils.UsuarioService;
 import tec.ispc.workflix.views.MainActivity;
 import tec.ispc.workflix.views.ui.back.UsuarioActivity;
 import tec.ispc.workflix.views.ui.dashboard_admin.DashboardUsuariosActivity;
+import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
 
 public class Perfil extends AppCompatActivity {
- private UsuarioService usuarioService;
+    ImageView imagen;
+    private UsuarioService usuarioService;
     private TextView tv_nombre, tv_apellido, tv_correo, tv_telefono, tv_ciudad, tv_profesion, tv_provincia, tv_descripcion, tv_foto;
     private Button sign_out_btn;
     private Button btnEliminarPerfil;
+    private Button btnActualizarPerfil;
+    private String CARPETA_RAIZ="misImagenesPrueba/";
+    private String RUTA_IMAGEN=CARPETA_RAIZ+"misFotos";
+    private String path;
+    final int COD_SELECCIONA = 10;
+    final int COD_FOTO = 20;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,8 +67,10 @@ public class Perfil extends AppCompatActivity {
         tv_descripcion = findViewById(R.id.perfilDescripcion);
         tv_profesion = findViewById(R.id.perfilServicio);
 
-
+        btnActualizarPerfil = findViewById(R.id.btnActualizarPerfil);
         btnEliminarPerfil = findViewById(R.id.btnEliminarPerfil);
+
+        imagen = (ImageView) findViewById(R.id.imagenFoto);
 
         SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
         String nombre = preferences.getString("nombre", ""); // El segundo parámetro es un valor por defecto si la clave no se encuentra
@@ -62,14 +86,15 @@ public class Perfil extends AppCompatActivity {
 
         // Seteo los valores al perfil
 
-            tv_nombre.setText(nombre);
-            tv_apellido.setText(apellido);
-            tv_telefono.setText(correo);
-            tv_correo.setText(telefono);
-            tv_ciudad.setText(ciudad);
-            tv_descripcion.setText(descripcion);
-            tv_provincia.setText(provincia);
-            tv_profesion.setText(profesion);
+        tv_nombre.setText(nombre);
+        tv_apellido.setText(apellido);
+        tv_telefono.setText(telefono);
+        tv_correo.setText(correo);
+        tv_ciudad.setText(ciudad);
+        tv_descripcion.setText(descripcion);
+        tv_provincia.setText(provincia);
+        tv_profesion.setText(profesion);
+
 
 
         btnEliminarPerfil.setOnClickListener(new View.OnClickListener() {
@@ -104,7 +129,43 @@ public class Perfil extends AppCompatActivity {
             }
         });
 
+    btnActualizarPerfil.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Usuario usuario = new Usuario();
+            usuario.setId(id);
+            usuario.setNombre(tv_nombre.getText().toString());
+            usuario.setApellido(tv_apellido.getText().toString());
+            usuario.setTelefono(tv_telefono.getText().toString());
+            usuario.setCorreo(tv_correo.getText().toString());
+            usuario.setCiudad(tv_ciudad.getText().toString());
+            usuario.setProvincia(tv_provincia.getText().toString());
+            usuario.setProfesion(tv_profesion.getText().toString());
+            usuario.setDescripcion(tv_descripcion.getText().toString());
+            updateUsuario(usuario,Integer.valueOf(id));
+            Intent intent =new Intent(Perfil.this, PerfilTerminosActivity.class);
+            startActivity(intent);
 
+        }
+    });
+    }
+    public void updateUsuario(Usuario usuario,int id){
+        usuarioService= Apis.getUsuarioService();
+        Call<Usuario>call=usuarioService.actPerfil(usuario,id);
+        call.enqueue(new Callback<Usuario>() {
+            @Override
+            public void onResponse(Call<Usuario> call, Response<Usuario> response) {
+                if(response.isSuccessful()){
+                    Toast.makeText(Perfil.this,"Se Actualizó con éxito su Perfil",Toast.LENGTH_LONG).show();
+                }
+            }
+            @Override
+            public void onFailure(Call<Usuario> call, Throwable t) {
+                Log.e("Error al actualizar su Perfil:",t.getMessage());
+            }
+        });
+        Intent intent =new Intent(Perfil.this, PerfilTerminosActivity.class);
+        startActivity(intent);
     }
     public void deleteUsuario(int id){
         usuarioService= Apis.getUsuarioService();
@@ -124,6 +185,76 @@ public class Perfil extends AppCompatActivity {
         });
         Intent intent =new Intent(Perfil.this, MainActivity.class);
         startActivity(intent);
+    }
+
+    public void subirFoto(View view) {
+        cargarImagen();
+    }
+
+    private void cargarImagen() {
+
+        final CharSequence[] opciones = {"Cargar Imagen", "Cancelar"};
+        final AlertDialog.Builder alertOpciones = new AlertDialog.Builder(Perfil.this);
+        alertOpciones.setTitle("Seleccione una Opcion");
+        alertOpciones.setItems(opciones, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                /*if(opciones[i].equals("Tomar Foto")){
+                    tomarFotografia();}*/
+                /*if{*/
+                    if ( opciones[i].equals("Cargar Imagen")){
+                        Intent intent = new Intent(Intent.ACTION_GET_CONTENT, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                        intent.setType("image/");
+                        startActivityForResult(intent.createChooser(intent,"Seleccionar aplicación: "),COD_SELECCIONA);
+                    }else {
+                        dialogInterface.dismiss();
+                    }
+                /*}*/
+            }
+        });
+        alertOpciones.show();
+    }
+
+    private void tomarFotografia() {
+        File fileImagen = new File(Environment.getExternalStorageDirectory(),RUTA_IMAGEN);
+        boolean isCreada = fileImagen.exists();
+        String nombreImagen = "";
+        if (isCreada==false){
+            isCreada=fileImagen.mkdirs();
+        }
+        if (isCreada==true){
+            nombreImagen = (System.currentTimeMillis()/1000)+".jpg";
+        }
+        path = Environment.getExternalStorageDirectory()+File.separator+RUTA_IMAGEN+File.separator+nombreImagen;
+
+        File imagen = new File(path);
+
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(imagen));
+        startActivityForResult(intent,COD_FOTO);
+    };
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode==RESULT_OK){
+            switch (requestCode){
+                case COD_SELECCIONA:
+                    Uri miPath = data.getData();
+                    imagen.setImageURI(miPath);
+                    break;
+                case COD_FOTO:
+                    MediaScannerConnection.scanFile(this, new String[]{path}, null, new MediaScannerConnection.OnScanCompletedListener() {
+                        @Override
+                        public void onScanCompleted(String s, Uri uri) {
+                            Log.i("Ruta de almacenamiento","Path: "+path);
+                        }
+                    });
+                    Bitmap bitmap = BitmapFactory.decodeFile(path);
+                    imagen.setImageBitmap(bitmap);
+            }
+
+        }
     }
 }
 
