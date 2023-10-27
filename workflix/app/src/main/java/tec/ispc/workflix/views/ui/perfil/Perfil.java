@@ -10,6 +10,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
@@ -221,7 +223,7 @@ public class Perfil extends AppCompatActivity {
             isCreada=fileImagen.mkdirs();
         }
         if (isCreada==true){
-            nombreImagen = (System.currentTimeMillis()/100)+"jpg";
+            nombreImagen = (System.currentTimeMillis()/1000)+".jpg";
         }
         path = Environment.getExternalStorageDirectory()+File.separator+RUTA_IMAGEN+File.separator+nombreImagen;
 
@@ -248,8 +250,8 @@ public class Perfil extends AppCompatActivity {
                             Log.i("Ruta de almacenamiento","Path: "+path);
                         }
                     });
-
-
+                    Bitmap bitmap = BitmapFactory.decodeFile(path);
+                    imagen.setImageBitmap(bitmap);
             }
 
         }
