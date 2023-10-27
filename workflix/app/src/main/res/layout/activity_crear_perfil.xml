@@ -77,14 +77,16 @@
                             android:orientation="vertical">
 
                             <Button
-                                android:id="@+id/button5"
+                                android:id="@+id/btnCargarImagen"
                                 style="@style/Widget.MaterialComponents.Button"
                                 android:layout_width="131dp"
                                 android:layout_height="60dp"
                                 android:backgroundTint="@color/verde1"
                                 android:text="@string/Cambiar_Foto"
                                 android:textColor="@color/black"
-                                app:strokeColor="@color/teal_700" />
+                                app:strokeColor="@color/teal_700"
+                                android:onClick="subirFoto"
+                                />
 
                             <ImageView
                                 android:id="@+id/imagenFoto"

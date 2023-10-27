@@ -171,5 +171,7 @@ public class Perfil extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void subirFoto(View view) {
+    }
 }
 
