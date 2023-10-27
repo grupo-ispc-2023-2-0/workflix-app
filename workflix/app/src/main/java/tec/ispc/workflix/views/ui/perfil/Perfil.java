@@ -2,17 +2,29 @@ package tec.ispc.workflix.views.ui.perfil;
 
 import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.MediaScannerConnection;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.File;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,11 +39,17 @@ import tec.ispc.workflix.views.ui.dashboard_admin.DashboardUsuariosActivity;
 import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
 
 public class Perfil extends AppCompatActivity {
- private UsuarioService usuarioService;
+    ImageView imagen;
+    private UsuarioService usuarioService;
     private TextView tv_nombre, tv_apellido, tv_correo, tv_telefono, tv_ciudad, tv_profesion, tv_provincia, tv_descripcion, tv_foto;
     private Button sign_out_btn;
     private Button btnEliminarPerfil;
     private Button btnActualizarPerfil;
+    private String CARPETA_RAIZ="misImagenesPrueba/";
+    private String RUTA_IMAGEN=CARPETA_RAIZ+"misFotos";
+    private String path;
+    final int COD_SELECCIONA = 10;
+    final int COD_FOTO = 20;
 
 
     @Override
@@ -51,6 +69,8 @@ public class Perfil extends AppCompatActivity {
 
         btnActualizarPerfil = findViewById(R.id.btnActualizarPerfil);
         btnEliminarPerfil = findViewById(R.id.btnEliminarPerfil);
+
+        imagen = (ImageView) findViewById(R.id.imagenFoto);
 
         SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
         String nombre = preferences.getString("nombre", ""); // El segundo parámetro es un valor por defecto si la clave no se encuentra
@@ -167,5 +187,74 @@ public class Perfil extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void subirFoto(View view) {
+        cargarImagen();
+    }
+
+    private void cargarImagen() {
+
+        final CharSequence[] opciones = {"Cargar Imagen", "Cancelar"};
+        final AlertDialog.Builder alertOpciones = new AlertDialog.Builder(Perfil.this);
+        alertOpciones.setTitle("Seleccione una Opcion");
+        alertOpciones.setItems(opciones, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                /*if(opciones[i].equals("Tomar Foto")){
+                    tomarFotografia();}*/
+                /*if{*/
+                    if ( opciones[i].equals("Cargar Imagen")){
+                        Intent intent = new Intent(Intent.ACTION_GET_CONTENT, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                        intent.setType("image/");
+                        startActivityForResult(intent.createChooser(intent,"Seleccionar aplicación: "),COD_SELECCIONA);
+                    }else {
+                        dialogInterface.dismiss();
+                    }
+                /*}*/
+            }
+        });
+        alertOpciones.show();
+    }
+
+    private void tomarFotografia() {
+        File fileImagen = new File(Environment.getExternalStorageDirectory(),RUTA_IMAGEN);
+        boolean isCreada = fileImagen.exists();
+        String nombreImagen = "";
+        if (isCreada==false){
+            isCreada=fileImagen.mkdirs();
+        }
+        if (isCreada==true){
+            nombreImagen = (System.currentTimeMillis()/1000)+".jpg";
+        }
+        path = Environment.getExternalStorageDirectory()+File.separator+RUTA_IMAGEN+File.separator+nombreImagen;
+
+        File imagen = new File(path);
+
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(imagen));
+        startActivityForResult(intent,COD_FOTO);
+    };
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode==RESULT_OK){
+            switch (requestCode){
+                case COD_SELECCIONA:
+                    Uri miPath = data.getData();
+                    imagen.setImageURI(miPath);
+                    break;
+                case COD_FOTO:
+                    MediaScannerConnection.scanFile(this, new String[]{path}, null, new MediaScannerConnection.OnScanCompletedListener() {
+                        @Override
+                        public void onScanCompleted(String s, Uri uri) {
+                            Log.i("Ruta de almacenamiento","Path: "+path);
+                        }
+                    });
+                    Bitmap bitmap = BitmapFactory.decodeFile(path);
+                    imagen.setImageBitmap(bitmap);
+            }
+
+        }
+    }
 }
 
