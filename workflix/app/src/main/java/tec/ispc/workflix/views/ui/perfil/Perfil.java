@@ -2,12 +2,15 @@ package tec.ispc.workflix.views.ui.perfil;
 
 import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -172,6 +175,22 @@ public class Perfil extends AppCompatActivity {
     }
 
     public void subirFoto(View view) {
+        cargarImagen();
+    }
+
+    private void cargarImagen() {
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        intent.setType("image/");
+        startActivityForResult(intent.createChooser(intent,"Seleccionar aplicación: "),10);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode==RESULT_OK){
+            Uri path = data.getData();
+            imagen.setImageURI(path);
+        }
     }
 }
 
