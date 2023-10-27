@@ -32,6 +32,8 @@ public class Perfil extends AppCompatActivity {
     private Button sign_out_btn;
     private Button btnEliminarPerfil;
     private Button btnActualizarPerfil;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,14 +66,15 @@ public class Perfil extends AppCompatActivity {
 
         // Seteo los valores al perfil
 
-            tv_nombre.setText(nombre);
-            tv_apellido.setText(apellido);
-            tv_telefono.setText(telefono);
-            tv_correo.setText(correo);
-            tv_ciudad.setText(ciudad);
-            tv_descripcion.setText(descripcion);
-            tv_provincia.setText(provincia);
-            tv_profesion.setText(profesion);
+        tv_nombre.setText(nombre);
+        tv_apellido.setText(apellido);
+        tv_telefono.setText(telefono);
+        tv_correo.setText(correo);
+        tv_ciudad.setText(ciudad);
+        tv_descripcion.setText(descripcion);
+        tv_provincia.setText(provincia);
+        tv_profesion.setText(profesion);
+
 
 
         btnEliminarPerfil.setOnClickListener(new View.OnClickListener() {
@@ -163,5 +166,6 @@ public class Perfil extends AppCompatActivity {
         Intent intent =new Intent(Perfil.this, MainActivity.class);
         startActivity(intent);
     }
+
 }
 
