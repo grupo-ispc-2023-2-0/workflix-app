@@ -144,6 +144,7 @@ public class Perfil extends AppCompatActivity {
             usuario.setProvincia(tv_provincia.getText().toString());
             usuario.setProfesion(tv_profesion.getText().toString());
             usuario.setDescripcion(tv_descripcion.getText().toString());
+            usuario.setFoto(convertirImgString(bitmap));
             updateUsuario(usuario,Integer.valueOf(id));
             Intent intent =new Intent(Perfil.this, PerfilTerminosActivity.class);
             startActivity(intent);
@@ -151,6 +152,11 @@ public class Perfil extends AppCompatActivity {
         }
     });
     }
+
+    private String convertirImgString(Bitmap bitmap) {
+        return "";
+    }
+
     public void updateUsuario(Usuario usuario,int id){
         usuarioService= Apis.getUsuarioService();
         Call<Usuario>call=usuarioService.actPerfil(usuario,id);
@@ -246,6 +252,7 @@ public class Perfil extends AppCompatActivity {
                     imagen.setImageURI(miPath);
                     try {
                         bitmap=MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(),miPath);
+                        imagen.setImageBitmap(bitmap);
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
