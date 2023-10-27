@@ -189,7 +189,7 @@ public class Perfil extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 if(opciones[i].equals("Tomar Foto")){
-                    Toast.makeText(getApplication(),"TOMAR FOTO",Toast.LENGTH_LONG).show();
+                    tomarFotografia();
                 }else{
                     if ( opciones[i].equals("Cargar Imagen")){
                         Intent intent = new Intent(Intent.ACTION_GET_CONTENT, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -202,6 +202,9 @@ public class Perfil extends AppCompatActivity {
             }
         });
         alertOpciones.show();
+    }
+
+    private void tomarFotografia() {
     }
 
     @Override
