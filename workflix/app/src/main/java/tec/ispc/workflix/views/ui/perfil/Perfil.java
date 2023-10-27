@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +28,8 @@ import tec.ispc.workflix.views.ui.dashboard_admin.DashboardUsuariosActivity;
 import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
 
 public class Perfil extends AppCompatActivity {
- private UsuarioService usuarioService;
+    ImageView imagen;
+    private UsuarioService usuarioService;
     private TextView tv_nombre, tv_apellido, tv_correo, tv_telefono, tv_ciudad, tv_profesion, tv_provincia, tv_descripcion, tv_foto;
     private Button sign_out_btn;
     private Button btnEliminarPerfil;
@@ -51,6 +53,8 @@ public class Perfil extends AppCompatActivity {
 
         btnActualizarPerfil = findViewById(R.id.btnActualizarPerfil);
         btnEliminarPerfil = findViewById(R.id.btnEliminarPerfil);
+
+        imagen = (ImageView) findViewById(R.id.imagenFoto);
 
         SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
         String nombre = preferences.getString("nombre", ""); // El segundo parámetro es un valor por defecto si la clave no se encuentra
