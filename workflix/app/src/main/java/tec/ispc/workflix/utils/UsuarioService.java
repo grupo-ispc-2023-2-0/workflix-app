@@ -19,4 +19,7 @@ public interface UsuarioService {
     @POST("eliminar/{id}")
     Call<Usuario>deleteUsuario(@Path("id")int id);
 
+    @POST("perfil/{id}")
+    Call<Usuario>actPerfil(@Body Usuario usuario,@Path("id")int id);
+
 }

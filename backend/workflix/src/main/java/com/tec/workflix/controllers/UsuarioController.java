@@ -41,6 +41,16 @@ public class UsuarioController {
         }
         return "Se actualizó con éxito!";
     }
+    @PostMapping("/perfil/{id}")
+    public String updatePerfil(@RequestBody Usuario usuario, @PathVariable int id, Model model){
+        usuario.setId(id);
+        int r= service.actualizarPerfil(usuario);
+        if (r==0){
+            return "No se pudo actualizar el Perfil";
+        }
+        return "Se actualizó con éxito!";
+    }
+
     @PostMapping("/eliminar/{id}")
     public String delete(@PathVariable int id,Model model) {
         int r=service.delete(id);

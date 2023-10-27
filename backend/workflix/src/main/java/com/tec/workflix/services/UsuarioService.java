@@ -43,6 +43,11 @@ public class UsuarioService implements IUsuarioInterface {
         return dao.delete(id);
     }
 
+    @Override
+    public int actualizarPerfil(Usuario usuario) {
+        return  dao.actualizarPerfil(usuario);
+    }
+
     // Login
     @Autowired
     IUsuarioRepository usuarioRepository;
