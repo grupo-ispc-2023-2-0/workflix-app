@@ -88,12 +88,14 @@
                                 android:onClick="subirFoto"
                                 />
 
-                            <ImageView
+                            <com.google.android.material.imageview.ShapeableImageView
                                 android:id="@+id/imagenFoto"
                                 android:layout_width="131dp"
                                 android:layout_height="120dp"
                                 android:layout_marginTop="16dp"
-                                app:srcCompat="@drawable/icono_perfil" />
+                                android:scaleType="centerCrop"
+                                app:shapeAppearance="@style/circular"
+                                app:srcCompat="@drawable/perfil_imagen" />
                         </LinearLayout>
 
                         <LinearLayout
