@@ -25,6 +25,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.IOException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -48,6 +49,7 @@ public class Perfil extends AppCompatActivity {
     private String CARPETA_RAIZ="misImagenesPrueba/";
     private String RUTA_IMAGEN=CARPETA_RAIZ+"misFotos";
     private String path;
+    private Bitmap bitmap;
     final int COD_SELECCIONA = 10;
     final int COD_FOTO = 20;
 
@@ -242,6 +244,12 @@ public class Perfil extends AppCompatActivity {
                 case COD_SELECCIONA:
                     Uri miPath = data.getData();
                     imagen.setImageURI(miPath);
+                    try {
+                        bitmap=MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(),miPath);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+
                     break;
                 case COD_FOTO:
                     MediaScannerConnection.scanFile(this, new String[]{path}, null, new MediaScannerConnection.OnScanCompletedListener() {
@@ -250,7 +258,7 @@ public class Perfil extends AppCompatActivity {
                             Log.i("Ruta de almacenamiento","Path: "+path);
                         }
                     });
-                    Bitmap bitmap = BitmapFactory.decodeFile(path);
+                    bitmap = BitmapFactory.decodeFile(path);
                     imagen.setImageBitmap(bitmap);
             }
 
