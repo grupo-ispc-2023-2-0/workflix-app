@@ -3,9 +3,11 @@ package tec.ispc.workflix.views.ui.perfil;
 import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -179,9 +181,27 @@ public class Perfil extends AppCompatActivity {
     }
 
     private void cargarImagen() {
-        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        intent.setType("image/");
-        startActivityForResult(intent.createChooser(intent,"Seleccionar aplicación: "),10);
+
+        final CharSequence[] opciones = {"Tomar Foto","Cargar Imagen", "Cancelar"};
+        final AlertDialog.Builder alertOpciones = new AlertDialog.Builder(Perfil.this);
+        alertOpciones.setTitle("Seleccione una Opcion");
+        alertOpciones.setItems(opciones, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if(opciones[i].equals("Tomar Foto")){
+                    Toast.makeText(getApplication(),"TOMAR FOTO",Toast.LENGTH_LONG).show();
+                }else{
+                    if ( opciones[i].equals("Cargar Imagen")){
+                        Intent intent = new Intent(Intent.ACTION_GET_CONTENT, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                        intent.setType("image/");
+                        startActivityForResult(intent.createChooser(intent,"Seleccionar aplicación: "),10);
+                    }else {
+                        dialogInterface.dismiss();
+                    }
+                }
+            }
+        });
+        alertOpciones.show();
     }
 
     @Override
