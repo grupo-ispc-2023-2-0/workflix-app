@@ -15,7 +15,7 @@ import tec.ispc.workflix.views.MainActivity;
 import tec.ispc.workflix.views.ui.perfil.Perfil;
 
 public class PerfilTerminosActivity extends AppCompatActivity {
-    private TextView tv_nombre, tv_apellido, tv_telefono;
+    private TextView tv_nombre, tv_apellido, tv_decripcion;
     private Button sign_out_btn;
 
     @Override
@@ -25,17 +25,17 @@ public class PerfilTerminosActivity extends AppCompatActivity {
 
         tv_nombre = findViewById(R.id.nombreProf);
         tv_apellido = findViewById(R.id.apellidoProf);
-        tv_telefono = findViewById(R.id.descripcion);
+        tv_decripcion = findViewById(R.id.descripcion);
 
         SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
         String nombre = preferences.getString("nombre", ""); // El segundo parámetro es un valor por defecto si la clave no se encuentra
         String apellido = preferences.getString("apellido", "");
-        String telefono = preferences.getString("telefono", "");
+        String telefono = preferences.getString("descripcion", "");
 
 
         tv_nombre.setText(nombre);
         tv_apellido.setText(apellido);
-        tv_telefono.setText(telefono);
+        tv_decripcion.setText(telefono);
 
         sign_out_btn = findViewById(R.id.btn_Cerrar_sesion);
 
@@ -52,7 +52,7 @@ public class PerfilTerminosActivity extends AppCompatActivity {
         // Vuelvo los valores a null
         tv_nombre.setText(null);
         tv_apellido.setText(null);
-        tv_telefono.setText(null);
+        tv_decripcion.setText(null);
 
         // Obtener una referencia a SharedPreferences
         SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
@@ -60,7 +60,7 @@ public class PerfilTerminosActivity extends AppCompatActivity {
         editor.putString("nombre", null);
         editor.putString("apellido", null);
         editor.putString("correo", null);
-        editor.putString("telefono", null);
+        editor.putString("descripcion", null);
         editor.remove("is_admin");
         editor.apply();
         // Vuelvo al home
