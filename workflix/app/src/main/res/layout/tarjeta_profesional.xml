@@ -61,9 +61,9 @@
                     android:id="@+id/perfilNombre"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#000"
-                    android:textSize="18sp" />
-
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:text="@{nombreCompleto}" />
 
                 <View
                     android:layout_width="220dp"
