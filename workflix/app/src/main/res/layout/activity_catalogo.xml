@@ -7,34 +7,42 @@
     android:background="@color/white"
     tools:context=".views.ui.catalogo.CatalogoActivity">
 
+    <!-- Logo -->
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="158dp"
+        android:layout_height="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.003"
+        app:srcCompat="@drawable/logo_workflix_1" />
+
     <android.widget.SearchView
         android:id="@+id/searchView"
-        android:layout_width="0dp"
+        android:layout_width="379dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
         android:background="@drawable/searchview_border"
         android:iconifiedByDefault="false"
         android:queryHint="Buscar profesional"
         android:theme="@style/SearchViewStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.118" />
 
+    <!-- ListView -->
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchView">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.225"
+        tools:layout_editor_absoluteX="0dp">
 
         <LinearLayout
             android:id="@+id/filterButtonsLayout"
@@ -55,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:backgroundTint="@color/verde1"
-                android:text="Electricista"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="10sp"
                 app:cornerRadius="32dp" />
@@ -66,10 +74,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:backgroundTint="@color/verde1"
-                android:text="Albañil"
+                android:text="@string/Servicio"
                 android:textColor="@color/black"
                 android:textSize="10sp"
-                app:cornerRadius="32dp"/>
+                app:cornerRadius="32dp" />
 
             <Button
                 android:id="@+id/btnFilterPlomero"
@@ -77,10 +85,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:backgroundTint="@color/verde1"
-                android:text="Plomero"
+                android:text="@string/Servicio"
                 android:textColor="@color/black"
                 android:textSize="10sp"
-                app:cornerRadius="32dp"/>
+                app:cornerRadius="32dp" />
 
             <Button
                 android:id="@+id/btnFilterPintor"
@@ -88,40 +96,30 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:backgroundTint="@color/verde1"
-                android:text="Pintor"
+                android:text="@string/Servicio"
                 android:textColor="@color/black"
                 android:textSize="10sp"
-                app:cornerRadius="32dp"/>
+                app:cornerRadius="32dp" />
 
             <ImageView
                 android:id="@+id/arrowRight"
                 android:layout_width="@dimen/arrow_size"
                 android:layout_height="@dimen/arrow_size"
                 android:src="@drawable/flecha_derecha_filter"
-                android:visibility="visible"
                 android:textSize="10sp"
+                android:visibility="visible"
                 app:cornerRadius="32dp" />
-
         </LinearLayout>
     </HorizontalScrollView>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/horizontalScrollView"
+    <ListView
+        android:id="@+id/listViewUsuarios"
+        android:layout_width="375dp"
+        android:layout_height="390dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="158dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_workflix_1" />
+        app:layout_constraintVertical_bias="0.854" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
