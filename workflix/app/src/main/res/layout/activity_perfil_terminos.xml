@@ -77,6 +77,7 @@
 
                         <!-- Foto de perfil (ImageView) -->
                         <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/imagenProf"
                             android:layout_width="94dp"
                             android:layout_height="94dp"
                             android:scaleType="centerCrop"
