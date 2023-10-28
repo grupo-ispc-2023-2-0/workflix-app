@@ -58,22 +58,23 @@
                 android:src="@drawable/flecha_izquierda_filter" />
 
             <Button
-                android:id="@+id/perfilServicio"
+                android:id="@+id/botonPlomero"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:backgroundTint="@color/verde1"
+                android:text="Plomero"
                 android:textColor="@color/black"
                 android:textSize="10sp"
                 app:cornerRadius="32dp" />
 
             <Button
-                android:id="@+id/botonPiletero"
+                android:id="@+id/botonElectricista"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:backgroundTint="@color/verde1"
-                android:text="Piletero"
+                android:text="Electricista"
                 android:textColor="@color/black"
                 android:textSize="10sp"
                 app:cornerRadius="32dp" />
