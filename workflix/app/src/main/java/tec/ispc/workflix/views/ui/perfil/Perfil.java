@@ -24,6 +24,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.squareup.picasso.Picasso;
+
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -86,11 +88,16 @@ public class Perfil extends AppCompatActivity {
         String descripcion = preferences.getString("descripcion","");
         String provincia = preferences.getString("provincia","");
         String profesion = preferences.getString("profesion","");
+        String foto = preferences.getString("foto","");
         int id = preferences.getInt("id",0);
 
 
+        if (!foto.isEmpty()) {
+            Uri uriImagen = Uri.parse(foto);
+            // Usa una biblioteca como Picasso o Glide para cargar y mostrar la imagen
+            Picasso.get().load(uriImagen).into(imagen); // imagenView es tu ImageView
+        }
         // Seteo los valores al perfil
-
         tv_nombre.setText(nombre);
         tv_apellido.setText(apellido);
         tv_telefono.setText(telefono);
@@ -99,6 +106,8 @@ public class Perfil extends AppCompatActivity {
         tv_descripcion.setText(descripcion);
         tv_provincia.setText(provincia);
         tv_profesion.setText(profesion);
+
+
 
 
 
