@@ -72,7 +72,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:layout_marginTop="50dp"
+                        android:layout_marginTop="30dp"
                         android:orientation="horizontal">
 
                         <!-- Foto de perfil (ImageView) -->
@@ -89,7 +89,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
-                            android:layout_marginTop="10dp"
+                            android:layout_marginTop="15dp"
                             android:layout_weight="1"
                             android:orientation="vertical">
 
@@ -121,15 +121,6 @@
                                 android:background="#888" />
 
                             <!-- Estrellas de valoración (RatingBar) -->
-                            <RatingBar
-                                style="@style/Widget.AppCompat.RatingBar.Small"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:isIndicator="true"
-                                android:numStars="5"
-                                android:progressTint="@color/black"
-                                android:rating="4.5"
-                                android:stepSize="0.5" />
                         </LinearLayout>
                     </LinearLayout>
 
