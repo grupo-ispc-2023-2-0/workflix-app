@@ -54,6 +54,7 @@ public class Perfil extends AppCompatActivity {
     private Bitmap bitmap;
     final int COD_SELECCIONA = 10;
     final int COD_FOTO = 20;
+    private String rutaImagen;
 
 
     @Override
@@ -146,7 +147,9 @@ public class Perfil extends AppCompatActivity {
             usuario.setProvincia(tv_provincia.getText().toString());
             usuario.setProfesion(tv_profesion.getText().toString());
             usuario.setDescripcion(tv_descripcion.getText().toString());
-            usuario.setFoto(convertirImgString(bitmap));
+            usuario.setFoto(rutaImagen);
+
+
             updateUsuario(usuario,Integer.valueOf(id));
             Intent intent =new Intent(Perfil.this, PerfilTerminosActivity.class);
             startActivity(intent);
@@ -217,7 +220,7 @@ public class Perfil extends AppCompatActivity {
                     tomarFotografia();}*/
                 /*if{*/
                     if ( opciones[i].equals("Cargar Imagen")){
-                        Intent intent = new Intent(Intent.ACTION_GET_CONTENT, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                         intent.setType("image/");
                         startActivityForResult(intent.createChooser(intent,"Seleccionar aplicación: "),COD_SELECCIONA);
                     }else {
@@ -255,14 +258,16 @@ public class Perfil extends AppCompatActivity {
             switch (requestCode){
                 case COD_SELECCIONA:
                     Uri miPath = data.getData();
-                    imagen.setImageURI(miPath);
+                    // Guarda la URI de la imagen para su posterior uso
+                    rutaImagen = miPath.toString();
+                    // Guarda "rutaImagen" en la base de datos o en SharedPreferences
+                    //imagen.setImageURI(miPath);
                     try {
                         bitmap=MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(),miPath);
                         imagen.setImageBitmap(bitmap);
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
-
                     break;
                 case COD_FOTO:
                     MediaScannerConnection.scanFile(this, new String[]{path}, null, new MediaScannerConnection.OnScanCompletedListener() {
