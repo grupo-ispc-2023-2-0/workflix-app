@@ -95,7 +95,7 @@ public class Perfil extends AppCompatActivity {
         if (!foto.isEmpty()) {
             Uri uriImagen = Uri.parse(foto);
             // Usa una biblioteca como Picasso o Glide para cargar y mostrar la imagen
-            Picasso.get().load(uriImagen).into(imagen); // imagenView es tu ImageView
+            Picasso.get().load(uriImagen).into(imagen);
         }
         // Seteo los valores al perfil
         tv_nombre.setText(nombre);
