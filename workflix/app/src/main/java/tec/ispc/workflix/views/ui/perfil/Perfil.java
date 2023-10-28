@@ -17,14 +17,19 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.squareup.picasso.Picasso;
 
+
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -48,8 +53,10 @@ public class Perfil extends AppCompatActivity {
     private String CARPETA_RAIZ="misImagenesPrueba/";
     private String RUTA_IMAGEN=CARPETA_RAIZ+"misFotos";
     private String path;
+    private Bitmap bitmap;
     final int COD_SELECCIONA = 10;
     final int COD_FOTO = 20;
+    private String rutaImagen;
 
 
     @Override
@@ -81,11 +88,16 @@ public class Perfil extends AppCompatActivity {
         String descripcion = preferences.getString("descripcion","");
         String provincia = preferences.getString("provincia","");
         String profesion = preferences.getString("profesion","");
+        String foto = preferences.getString("foto","");
         int id = preferences.getInt("id",0);
 
 
+        if (!foto.isEmpty()) {
+            Uri uriImagen = Uri.parse(foto);
+            // Usa una biblioteca como Picasso o Glide para cargar y mostrar la imagen
+            Picasso.get().load(uriImagen).into(imagen);
+        }
         // Seteo los valores al perfil
-
         tv_nombre.setText(nombre);
         tv_apellido.setText(apellido);
         tv_telefono.setText(telefono);
@@ -94,6 +106,8 @@ public class Perfil extends AppCompatActivity {
         tv_descripcion.setText(descripcion);
         tv_provincia.setText(provincia);
         tv_profesion.setText(profesion);
+
+
 
 
 
@@ -142,6 +156,9 @@ public class Perfil extends AppCompatActivity {
             usuario.setProvincia(tv_provincia.getText().toString());
             usuario.setProfesion(tv_profesion.getText().toString());
             usuario.setDescripcion(tv_descripcion.getText().toString());
+            usuario.setFoto(rutaImagen);
+
+
             updateUsuario(usuario,Integer.valueOf(id));
             Intent intent =new Intent(Perfil.this, PerfilTerminosActivity.class);
             startActivity(intent);
@@ -149,6 +166,15 @@ public class Perfil extends AppCompatActivity {
         }
     });
     }
+
+    private String convertirImgString(Bitmap bitmap) {
+        ByteArrayOutputStream array = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG,100,array);
+        byte [] imagenByte = array.toByteArray();
+        String imagenString = Base64.encodeToString(imagenByte,Base64.DEFAULT);
+        return imagenString;
+    }
+
     public void updateUsuario(Usuario usuario,int id){
         usuarioService= Apis.getUsuarioService();
         Call<Usuario>call=usuarioService.actPerfil(usuario,id);
@@ -203,7 +229,7 @@ public class Perfil extends AppCompatActivity {
                     tomarFotografia();}*/
                 /*if{*/
                     if ( opciones[i].equals("Cargar Imagen")){
-                        Intent intent = new Intent(Intent.ACTION_GET_CONTENT, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                         intent.setType("image/");
                         startActivityForResult(intent.createChooser(intent,"Seleccionar aplicación: "),COD_SELECCIONA);
                     }else {
@@ -241,7 +267,16 @@ public class Perfil extends AppCompatActivity {
             switch (requestCode){
                 case COD_SELECCIONA:
                     Uri miPath = data.getData();
-                    imagen.setImageURI(miPath);
+                    // Guarda la URI de la imagen para su posterior uso
+                    rutaImagen = miPath.toString();
+                    // Guarda "rutaImagen" en la base de datos o en SharedPreferences
+                    //imagen.setImageURI(miPath);
+                    try {
+                        bitmap=MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(),miPath);
+                        imagen.setImageBitmap(bitmap);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                     break;
                 case COD_FOTO:
                     MediaScannerConnection.scanFile(this, new String[]{path}, null, new MediaScannerConnection.OnScanCompletedListener() {
@@ -250,7 +285,7 @@ public class Perfil extends AppCompatActivity {
                             Log.i("Ruta de almacenamiento","Path: "+path);
                         }
                     });
-                    Bitmap bitmap = BitmapFactory.decodeFile(path);
+                    bitmap = BitmapFactory.decodeFile(path);
                     imagen.setImageBitmap(bitmap);
             }
 
