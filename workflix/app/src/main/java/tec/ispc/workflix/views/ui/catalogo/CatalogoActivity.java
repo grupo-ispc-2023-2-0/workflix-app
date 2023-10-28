@@ -1,18 +1,13 @@
 package tec.ispc.workflix.views.ui.catalogo;
 
-import static tec.ispc.workflix.R.layout.activity_catalogo;
-
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -20,28 +15,21 @@ import tec.ispc.workflix.R;
 import tec.ispc.workflix.models.Usuario;
 import tec.ispc.workflix.utils.Apis;
 import tec.ispc.workflix.utils.UsuarioService;
-import tec.ispc.workflix.views.ui.back.UsuarioAdapter;
 
 public class CatalogoActivity extends AppCompatActivity {
-    private ListView listViewUsuarios;
-    private UsuarioAdapter usuarioAdapter;
-    private List<Usuario> listaDeUsuarios = new ArrayList<>(); // Inicializa la lista
+    private RecyclerView recyclerViewUsuarios;
+    private CatalogoAdapter catalogoAdapter;
+    private List<Usuario> listaDeUsuarios = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(activity_catalogo);
+        setContentView(R.layout.activity_catalogo);
 
-        listViewUsuarios = findViewById(R.id.listViewUsuarios);
-        usuarioAdapter = new UsuarioAdapter(this, activity_catalogo, listaDeUsuarios);
-        listViewUsuarios.setAdapter(usuarioAdapter);
-
-        listViewUsuarios.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Usuario usuarioSeleccionado = listaDeUsuarios.get(position);
-            }
-        });
+        recyclerViewUsuarios = findViewById(R.id.recyclerViewUsuarios);
+        catalogoAdapter = new CatalogoAdapter(listaDeUsuarios);
+        recyclerViewUsuarios.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewUsuarios.setAdapter(catalogoAdapter);
 
         obtenerListaDeUsuarios();
     }
@@ -55,10 +43,10 @@ public class CatalogoActivity extends AppCompatActivity {
             public void onResponse(Call<List<Usuario>> call, Response<List<Usuario>> response) {
                 if (response.isSuccessful()) {
                     listaDeUsuarios = response.body();
-                    // Filtrar la lista para mostrar solo usuarios que no son administradores
                     listaDeUsuarios = filtrarUsuariosNoAdmin(listaDeUsuarios);
-                    usuarioAdapter.clear();
-                    usuarioAdapter.addAll(listaDeUsuarios);
+                    catalogoAdapter.setUsuarios(listaDeUsuarios);
+                } else {
+                    Toast.makeText(CatalogoActivity.this, "Error al obtener usuarios", Toast.LENGTH_SHORT).show();
                 }
             }
 
