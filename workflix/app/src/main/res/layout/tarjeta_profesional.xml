@@ -11,7 +11,7 @@
 
 
     <Button
-        android:id="@+id/professionalProfession"
+        android:id="@+id/perfilServicio"
         android:layout_width="264dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/azul"
@@ -42,7 +42,7 @@
             android:orientation="horizontal">
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/professionalImage"
+                android:id="@+id/imagenFoto"
                 android:layout_width="94dp"
                 android:layout_height="94dp"
                 android:scaleType="centerCrop"
@@ -58,12 +58,12 @@
 
 
                 <TextView
-                    android:id="@+id/professionalName"
+                    android:id="@+id/perfilNombre"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#000"
-                    android:textSize="18sp" />
-
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:text="@{nombreCompleto}" />
 
                 <View
                     android:layout_width="220dp"
@@ -72,21 +72,11 @@
                     android:layout_marginBottom="8dp"
                     android:background="#888" />
 
-                <RatingBar
-                    android:id="@+id/professionalRating"
-                    style="@style/Widget.AppCompat.RatingBar.Small"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:isIndicator="true"
-                    android:numStars="5"
-                    android:progressTint="@color/black"
-                    android:rating="4.5"
-                    android:stepSize="0.5" />
             </LinearLayout>
         </LinearLayout>
 
         <TextView
-            android:id="@+id/professionalDescription"
+            android:id="@+id/perfilDescripcion"
             android:layout_width="match_parent"
             android:layout_height="67dp"
             android:layout_marginStart="8dp"
@@ -100,7 +90,7 @@
             style="@style/RoundedCorners8dp"/>
 
         <Button
-            android:id="@+id/hireButton"
+            android:id="@+id/BotonConsultar"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:backgroundTint="@color/verde1"
