@@ -58,45 +58,44 @@
                 android:src="@drawable/flecha_izquierda_filter" />
 
             <Button
-                android:id="@+id/btnFilterElectricista"
+                android:id="@+id/perfilServicio"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:backgroundTint="@color/verde1"
-                android:text=""
                 android:textColor="@color/black"
                 android:textSize="10sp"
                 app:cornerRadius="32dp" />
 
             <Button
-                android:id="@+id/btnFilterAlbañil"
+                android:id="@+id/botonPiletero"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:backgroundTint="@color/verde1"
-                android:text="@string/Servicio"
+                android:text="Piletero"
                 android:textColor="@color/black"
                 android:textSize="10sp"
                 app:cornerRadius="32dp" />
 
             <Button
-                android:id="@+id/btnFilterPlomero"
+                android:id="@+id/botonCarpintero"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:backgroundTint="@color/verde1"
-                android:text="@string/Servicio"
+                android:text="Carpintero"
                 android:textColor="@color/black"
                 android:textSize="10sp"
                 app:cornerRadius="32dp" />
 
             <Button
-                android:id="@+id/btnFilterPintor"
+                android:id="@+id/botonChapista"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:backgroundTint="@color/verde1"
-                android:text="@string/Servicio"
+                android:text="Chapista"
                 android:textColor="@color/black"
                 android:textSize="10sp"
                 app:cornerRadius="32dp" />
@@ -112,8 +111,8 @@
         </LinearLayout>
     </HorizontalScrollView>
 
-    <ListView
-        android:id="@+id/listViewUsuarios"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewUsuarios"
         android:layout_width="375dp"
         android:layout_height="390dp"
         app:layout_constraintBottom_toBottomOf="parent"
