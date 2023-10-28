@@ -36,8 +36,9 @@ public class CatalogoAdapter extends RecyclerView.Adapter<CatalogoAdapter.Catalo
     public void onBindViewHolder(CatalogoViewHolder holder, int position) {
         Usuario usuario = listaDeUsuarios.get(position);
 
+        String nombreCompleto = usuario.getNombre() + " " + usuario.getApellido();
         holder.perfilServicio.setText(usuario.getProfesion());
-        holder.perfilNombre.setText(usuario.getNombre());
+        holder.perfilNombre.setText(nombreCompleto);
         holder.perfilDescripcion.setText(usuario.getDescripcion());
         Picasso.get().load(usuario.getFoto()).into(holder.imagenFoto);
     }
