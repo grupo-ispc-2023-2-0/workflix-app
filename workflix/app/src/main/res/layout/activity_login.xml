@@ -33,6 +33,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_marginTop="16dp"
+                    android:contentDescription="@string/logo_app"
                     app:srcCompat="@drawable/logo_workflix_1" />
             </LinearLayout>
 
@@ -90,7 +91,7 @@
                     android:layout_height="48dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginStart="50dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="50dp"
                     android:layout_marginBottom="16dp"
                     android:ems="10"
@@ -98,6 +99,7 @@
                     android:text="¿Olvidó su clave? Click Aquí"
                     android:textAlignment="center"
                     android:textColor="@color/azul"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -145,6 +147,7 @@
                         android:text="Ingresar como invitado"
                         android:textAlignment="center"
                         android:textColor="@color/azul"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
