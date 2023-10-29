@@ -1,4 +1,4 @@
-package tec.ispc.workflix.views.ui.back;
+package tec.ispc.workflix.views.ui.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,7 +14,6 @@ import java.util.List;
 
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.models.Usuario;
-import tec.ispc.workflix.views.ui.dashboard_admin.DashboardActivity;
 
 public class UsuarioAdapter extends ArrayAdapter<Usuario>{
     private Context context;

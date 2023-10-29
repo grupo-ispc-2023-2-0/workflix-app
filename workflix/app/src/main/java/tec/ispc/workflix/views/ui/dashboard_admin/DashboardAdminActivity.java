@@ -10,8 +10,6 @@ import android.view.View;
 
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.views.MainActivity;
-import tec.ispc.workflix.views.ui.back.ServicioActivity;
-import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
 
 public class DashboardAdminActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package tec.ispc.workflix.views.ui.back;
+package tec.ispc.workflix.views.ui.adapters;
 
 import android.content.Context;
 
@@ -16,7 +16,6 @@ import java.util.List;
 
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.models.Servicio;
-import tec.ispc.workflix.models.Usuario;
 
 public class ServicioAdapter extends ArrayAdapter<Servicio> {
     private Context context;

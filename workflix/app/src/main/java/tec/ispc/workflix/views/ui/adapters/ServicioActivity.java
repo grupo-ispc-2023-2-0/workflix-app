@@ -1,4 +1,4 @@
-package tec.ispc.workflix.views.ui.back;
+package tec.ispc.workflix.views.ui.adapters;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,11 +16,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.models.Servicio;
-import tec.ispc.workflix.models.Usuario;
 import tec.ispc.workflix.utils.Apis;
 import tec.ispc.workflix.utils.ServicioService;
 import tec.ispc.workflix.views.ui.dashboard_admin.DashboardServiciosActivity;
-import tec.ispc.workflix.views.ui.dashboard_admin.DashboardUsuariosActivity;
 
 public class ServicioActivity extends AppCompatActivity {
 

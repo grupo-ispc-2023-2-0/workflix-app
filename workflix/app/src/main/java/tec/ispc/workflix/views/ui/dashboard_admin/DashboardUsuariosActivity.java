@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
@@ -22,8 +20,8 @@ import tec.ispc.workflix.R;
 import tec.ispc.workflix.models.Usuario;
 import tec.ispc.workflix.utils.Apis;
 import tec.ispc.workflix.utils.UsuarioService;
-import tec.ispc.workflix.views.ui.back.UsuarioActivity;
-import tec.ispc.workflix.views.ui.back.UsuarioAdapter;
+import tec.ispc.workflix.views.ui.adapters.UsuarioActivity;
+import tec.ispc.workflix.views.ui.adapters.UsuarioAdapter;
 
 public class DashboardUsuariosActivity extends AppCompatActivity {
 

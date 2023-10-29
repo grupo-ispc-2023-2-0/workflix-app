@@ -10,8 +10,6 @@ import android.widget.ListView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import org.checkerframework.common.returnsreceiver.qual.This;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,9 +20,8 @@ import tec.ispc.workflix.R;
 import tec.ispc.workflix.models.Servicio;
 import tec.ispc.workflix.utils.Apis;
 import tec.ispc.workflix.utils.ServicioService;
-import tec.ispc.workflix.views.ui.back.ServicioActivity;
-import tec.ispc.workflix.views.ui.back.ServicioAdapter;
-import tec.ispc.workflix.views.ui.back.UsuarioActivity;
+import tec.ispc.workflix.views.ui.adapters.ServicioActivity;
+import tec.ispc.workflix.views.ui.adapters.ServicioAdapter;
 
 public class DashboardServiciosActivity extends AppCompatActivity {
     ServicioService servicioService;

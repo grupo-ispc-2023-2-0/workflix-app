@@ -1,4 +1,4 @@
-package tec.ispc.workflix.views.ui.back;
+package tec.ispc.workflix.views.ui.adapters;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,7 +18,6 @@ import tec.ispc.workflix.R;
 import tec.ispc.workflix.models.Usuario;
 import tec.ispc.workflix.utils.Apis;
 import tec.ispc.workflix.utils.UsuarioService;
-import tec.ispc.workflix.views.ui.dashboard_admin.DashboardActivity;
 import tec.ispc.workflix.views.ui.dashboard_admin.DashboardUsuariosActivity;
 
 public class UsuarioActivity extends AppCompatActivity {

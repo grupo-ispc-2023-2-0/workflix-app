@@ -2,8 +2,6 @@ package tec.ispc.workflix.views.ui.dashboard_admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
@@ -17,7 +15,7 @@ import tec.ispc.workflix.R;
 import tec.ispc.workflix.models.Usuario;
 import tec.ispc.workflix.utils.Apis;
 import tec.ispc.workflix.utils.UsuarioService;
-import tec.ispc.workflix.views.ui.back.UsuarioAdapter;
+import tec.ispc.workflix.views.ui.adapters.UsuarioAdapter;
 
 public class DashboardAdminVistaActivity extends AppCompatActivity {
     UsuarioService usuarioService;

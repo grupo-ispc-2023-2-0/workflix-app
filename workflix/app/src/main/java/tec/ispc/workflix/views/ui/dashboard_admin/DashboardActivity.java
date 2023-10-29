@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -23,8 +22,8 @@ import tec.ispc.workflix.R;
 import tec.ispc.workflix.models.Usuario;
 import tec.ispc.workflix.utils.Apis;
 import tec.ispc.workflix.utils.UsuarioService;
-import tec.ispc.workflix.views.ui.back.UsuarioActivity;
-import tec.ispc.workflix.views.ui.back.UsuarioAdapter;
+import tec.ispc.workflix.views.ui.adapters.UsuarioActivity;
+import tec.ispc.workflix.views.ui.adapters.UsuarioAdapter;
 
 public class DashboardActivity extends AppCompatActivity {
     UsuarioService usuarioService;

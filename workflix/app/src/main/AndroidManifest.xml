@@ -45,7 +45,7 @@
                 android:value=".views.ui.dashboard_admin.DashboardAdminActivity" />
         </activity>
         <activity
-            android:name=".views.ui.back.ServicioActivity"
+            android:name=".views.ui.adapters.ServicioActivity"
             android:exported="false"
             android:label="Editar Servicios"
             android:parentActivityName=".views.ui.dashboard_admin.DashboardServiciosActivity"
@@ -67,7 +67,7 @@
                 android:value=".views.ui.dashboard_admin.DashboardAdminActivity" />
         </activity>
         <activity
-            android:name=".views.ui.back.UsuarioActivity"
+            android:name=".views.ui.adapters.UsuarioActivity"
             android:exported="false"
             android:label="Editar Usuarios"
             android:parentActivityName=".views.ui.dashboard_admin.DashboardUsuariosActivity"

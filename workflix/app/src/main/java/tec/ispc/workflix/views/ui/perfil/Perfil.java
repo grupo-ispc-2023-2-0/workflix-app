@@ -1,7 +1,5 @@
 package tec.ispc.workflix.views.ui.perfil;
 
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,8 +37,6 @@ import tec.ispc.workflix.models.Usuario;
 import tec.ispc.workflix.utils.Apis;
 import tec.ispc.workflix.utils.UsuarioService;
 import tec.ispc.workflix.views.MainActivity;
-import tec.ispc.workflix.views.ui.back.UsuarioActivity;
-import tec.ispc.workflix.views.ui.dashboard_admin.DashboardUsuariosActivity;
 import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
 
 public class Perfil extends AppCompatActivity {
