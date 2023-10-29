@@ -1,11 +1,20 @@
 package tec.ispc.workflix.views.ui.catalogo;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.squareup.picasso.Picasso;
+
 import tec.ispc.workflix.R;
+
+
 
 public class TarjetaAmpliadaActivity extends AppCompatActivity {
 
@@ -14,61 +23,61 @@ public class TarjetaAmpliadaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tarjeta_ampliada);
 
-        // Obtén los datos pasados desde CatalogoAdapter
+        // Recepcion de los datos que vienen del CataloAdapter
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             String nombreCompleto = extras.getString("nombreCompleto");
-            String apellido = extras.getString("apellido");
             String imagenURL = extras.getString("imagenURL");
-            String servicio = extras.getString("servicio");
             String descripcion = extras.getString("descripcion");
             String correo = extras.getString("correo");
-            String telefono = extras.getString("telefono");
             String ciudad = extras.getString("ciudad");
             String provincia = extras.getString("provincia");
+            String telefono = extras.getString("telefono");
+            String servicio = extras.getString("servicio");
 
-            // Ahora puedes mostrar estos datos en tus TextViews
+            // Se asignan los datos del profesional TextViews e ImageView
             TextView perfilNombreTextView = findViewById(R.id.perfilNombre);
-            TextView perfilApellidoTextView = findViewById(R.id.perfilApellido);
             ImageView imagenFotoImageView = findViewById(R.id.imagenFoto);
-            TextView perfilServicioTextView = findViewById(R.id.perfilServicio);
             TextView perfilDescripcionTextView = findViewById(R.id.perfilDescripcion);
             TextView perfilCorreoTextView = findViewById(R.id.perfilCorreo);
-            TextView perfilTelefonoTextView = findViewById(R.id.perfilTelefono);
             TextView perfilCiudadTextView = findViewById(R.id.perfilCiudad);
             TextView perfilProvinciaTextView = findViewById(R.id.perfilProvincia);
+            TextView perfilTelefonoTextView = findViewById(R.id.perfilTelefono);
+            TextView perfilServicioTextView = findViewById(R.id.perfilServicio);
+
+            // Envio de datos a la interfaz
+            perfilNombreTextView.setText(nombreCompleto);
+            Picasso.get().load(imagenURL).into(imagenFotoImageView);
+            perfilDescripcionTextView.setText(descripcion);
+            perfilCorreoTextView.setText(correo);
+            perfilCiudadTextView.setText(ciudad);
+            perfilProvinciaTextView.setText(provincia);
+            perfilTelefonoTextView.setText(telefono);
+            perfilServicioTextView.setText(servicio);
+
+            // Obtén el botón "Contactar" por su ID
+            Button contactarButton = findViewById(R.id.contactarButton);
+            contactarButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // Crea una Intent para realizar una llamada
+                    Intent intent = new Intent(Intent.ACTION_DIAL);
+                    intent.setData(Uri.parse("tel:" + telefono));
+
+                    // Comprueba si hay una aplicación que puede manejar la acción
+                    if (intent.resolveActivity(getPackageManager()) != null) {
+                        startActivity(intent);
+                    }
+                }
+            });
 
 
-            if (nombreCompleto != null) {
-                perfilNombreTextView.setText(nombreCompleto);
-            }
-            if (apellido != null) {
-                perfilApellidoTextView.setText(apellido);
-            }
 
-            if (imagenURL != null) {
 
-                Picasso.get().load(imagenURL).into(imagenFotoImageView);
-            }
 
-            if (servicio != null) {
-                perfilServicioTextView.setText(servicio);
-            }
-            if (descripcion != null) {
-                perfilDescripcionTextView.setText(descripcion);
-            }
-            if (correo != null) {
-                perfilCorreoTextView.setText(correo);
-            }
-            if (telefono != null) {
-                perfilTelefonoTextView.setText(telefono);
-            }
-            if (ciudad != null) {
-                perfilCiudadTextView.setText(ciudad);
-            }
-            if (provincia != null) {
-                perfilProvinciaTextView.setText(provincia);
-            }
+
+
         }
+
     }
 }

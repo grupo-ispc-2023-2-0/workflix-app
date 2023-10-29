@@ -37,9 +37,9 @@ public class CatalogoAdapter extends RecyclerView.Adapter<CatalogoAdapter.Catalo
     }
 
     @Override
-    public void onBindViewHolder(CatalogoViewHolder holder, final int position) {
-        Usuario usuario = listaDeUsuarios.get(position);
-
+    public void onBindViewHolder(CatalogoViewHolder holder, int position) {
+        Usuario usuario = listaDeUsuarios.get(position); // Obtener el usuario desde la lista
+        int referencia = usuario.getId();
 
         String nombreCompleto = usuario.getNombre() + " " + usuario.getApellido();
         holder.perfilServicio.setText(usuario.getProfesion());
@@ -89,6 +89,7 @@ public class CatalogoAdapter extends RecyclerView.Adapter<CatalogoAdapter.Catalo
         intent.putExtra("telefono", usuario.getTelefono());
         intent.putExtra("ciudad", usuario.getCiudad());
         intent.putExtra("provincia", usuario.getProvincia());
+        intent.putExtra("servicio", usuario.getProfesion());
         // Agrega más extras según sea necesario
 
         context.startActivity(intent);
