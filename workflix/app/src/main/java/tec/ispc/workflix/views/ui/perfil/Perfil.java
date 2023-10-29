@@ -44,7 +44,7 @@ import tec.ispc.workflix.views.ui.dashboard_admin.DashboardUsuariosActivity;
 import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
 
 public class Perfil extends AppCompatActivity {
-    ImageView imagen;
+    ImageView imagenFoto;
     private UsuarioService usuarioService;
     private TextView tv_nombre, tv_apellido, tv_correo, tv_telefono, tv_ciudad, tv_profesion, tv_provincia, tv_descripcion, tv_foto;
     private Button sign_out_btn;
@@ -77,7 +77,7 @@ public class Perfil extends AppCompatActivity {
         btnActualizarPerfil = findViewById(R.id.btnActualizarPerfil);
         btnEliminarPerfil = findViewById(R.id.btnEliminarPerfil);
 
-        imagen = (ImageView) findViewById(R.id.imagenFoto);
+        imagenFoto = (ImageView) findViewById(R.id.imagenFoto);
 
         SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
         String nombre = preferences.getString("nombre", ""); // El segundo parámetro es un valor por defecto si la clave no se encuentra
@@ -95,7 +95,7 @@ public class Perfil extends AppCompatActivity {
         if (!foto.isEmpty()) {
             Uri uriImagen = Uri.parse(foto);
             // Usa una biblioteca como Picasso o Glide para cargar y mostrar la imagen
-            Picasso.get().load(uriImagen).into(imagen);
+            Picasso.get().load(uriImagen).into(imagenFoto);
         }
         // Seteo los valores al perfil
         tv_nombre.setText(nombre);
@@ -274,7 +274,7 @@ public class Perfil extends AppCompatActivity {
                     //imagen.setImageURI(miPath);
                     try {
                         bitmap=MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(),miPath);
-                        imagen.setImageBitmap(bitmap);
+                        imagenFoto.setImageBitmap(bitmap);
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
@@ -287,7 +287,7 @@ public class Perfil extends AppCompatActivity {
                         }
                     });
                     bitmap = BitmapFactory.decodeFile(path);
-                    imagen.setImageBitmap(bitmap);
+                    imagenFoto.setImageBitmap(bitmap);
             }
 
         }
