@@ -90,13 +90,11 @@
             style="@style/RoundedCorners8dp"/>
 
         <Button
-            android:id="@+id/BotonConsultar"
+            android:id="@+id/botonConsultar"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:backgroundTint="@color/verde1"
-            android:fontFamily="@font/inter"
             android:text="Consultar"
-            android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="14sp"
             style="@style/RoundedBottomCorners"

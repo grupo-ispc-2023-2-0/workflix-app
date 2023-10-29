@@ -27,7 +27,7 @@ public class CatalogoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_catalogo);
 
         recyclerViewUsuarios = findViewById(R.id.recyclerViewUsuarios);
-        catalogoAdapter = new CatalogoAdapter(listaDeUsuarios);
+        catalogoAdapter = new CatalogoAdapter(listaDeUsuarios, this);
         recyclerViewUsuarios.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewUsuarios.setAdapter(catalogoAdapter);
 
