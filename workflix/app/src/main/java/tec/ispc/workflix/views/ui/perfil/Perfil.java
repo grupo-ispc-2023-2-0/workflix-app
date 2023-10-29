@@ -135,6 +135,7 @@ public class Perfil extends AppCompatActivity {
                 editor.putString("descripcion", null);
                 editor.putString("provincia", null);
                 editor.putString("profesion", null);
+                editor.putString("foto", null);
                 editor.remove("is_admin");
                 editor.apply();
                 Intent intent =new Intent(Perfil.this, MainActivity.class);
