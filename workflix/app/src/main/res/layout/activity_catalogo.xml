@@ -20,28 +20,15 @@
         app:layout_constraintVertical_bias="0.003"
         app:srcCompat="@drawable/logo_workflix_1" />
 
-    <android.widget.SearchView
-        android:id="@+id/searchView"
-        android:layout_width="379dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/searchview_border"
-        android:iconifiedByDefault="false"
-        android:queryHint="Buscar profesional"
-        android:theme="@style/SearchViewStyle"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.118" />
-
     <!-- ListView -->
+
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.225"
+        app:layout_constraintVertical_bias="0.124"
         tools:layout_editor_absoluteX="0dp">
 
         <LinearLayout
@@ -114,12 +101,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewUsuarios"
-        android:layout_width="375dp"
-        android:layout_height="390dp"
+        android:layout_width="361dp"
+        android:layout_height="449dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.854" />
+        app:layout_constraintVertical_bias="0.831" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
