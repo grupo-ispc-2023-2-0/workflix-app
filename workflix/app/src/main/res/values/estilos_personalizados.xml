@@ -9,6 +9,13 @@
         <item name="android:bottomRightRadius">26dp</item>
     </style>
 
+    <style name="RoundedTopCorners">
+        <item name="android:topLeftRadius">26dp</item>
+        <item name="android:topRightRadius">26dp</item>
+        <item name="android:bottomLeftRadius">0dp</item>
+        <item name="android:bottomRightRadius">0dp</item>
+    </style>
+
     <!-- Estilo para esquinas redondeadas con radio de 8dp -->
     <style name="RoundedCorners8dp">
         <item name="cornerSize">8dp</item>

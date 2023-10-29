@@ -79,8 +79,8 @@ public class LoginActivity extends AppCompatActivity {
         } else {
         // Fin check por errores
         RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
-        // The Url Posting to
 
+        // Colocar la IP Local de su servidor
         String url = "http://192.168.0.125:8080/api/v1/user/login";
 
         // Set paramaters

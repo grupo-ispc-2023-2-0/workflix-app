@@ -1,32 +1,27 @@
 package tec.ispc.workflix.views.ui.register;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
 
 import java.util.HashMap;
 import java.util.Map;
 
-
 import tec.ispc.workflix.R;
-
 import tec.ispc.workflix.views.ui.login.LoginActivity;
 
 
@@ -68,7 +63,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
 
-
+        // Colocar la IP Local de su servidor
         String url = "http://192.168.0.125:8080/api/v1/user/register";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
