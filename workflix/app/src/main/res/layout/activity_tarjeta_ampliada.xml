@@ -10,7 +10,7 @@
 
 
     <ImageView
-        android:id="@+id/professionalImage"
+        android:id="@+id/imagenFoto"
         android:layout_width="236dp"
         android:layout_height="231dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,11 +21,10 @@
         app:srcCompat="@drawable/profesional_1" />
 
     <Button
-        android:id="@+id/professionalProfession"
+        android:id="@+id/perfilServicio"
         android:layout_width="231dp"
         android:layout_height="48dp"
         android:backgroundTint="@color/azul"
-        android:contentDescription="@string/Servicio"
         android:textColor="@color/white"
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -35,7 +34,7 @@
         app:layout_constraintVertical_bias="0.049" />
 
     <TextView
-        android:id="@+id/professionalName"
+        android:id="@+id/perfilNombre"
         android:layout_width="346dp"
         android:layout_height="50dp"
         android:textColor="@color/black"
@@ -44,17 +43,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <RatingBar
-        android:id="@+id/professionalRating"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.78" />
 
     <TextView
         android:id="@+id/textView"
@@ -66,10 +54,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hireButton" />
+        app:layout_constraintTop_toBottomOf="contactarBoton" />
 
     <Button
-        android:id="@+id/hireButton"
+        android:id="@+id/contactarBoton"
         android:layout_width="347dp"
         android:layout_height="58dp"
         android:backgroundTint="@color/verde1"
