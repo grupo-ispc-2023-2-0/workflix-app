@@ -1,79 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
+
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:gravity="center"
+
     android:background="@android:color/background_light"
     tools:context=".views.ui.menu.ContactMail">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/contact"
-            android:textSize="30sp"
-            android:padding="16dp"
-            android:layout_gravity="center"
-            android:layout_centerInParent="true"
-            android:textColor="@color/black"/>
 
-        <EditText
-            android:id="@+id/editTextFirstName"
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="-17dp">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nombre"
-            android:inputType="textPersonName"
-            android:textColorHint="@color/grey2"
-            android:textColor="@color/black"
-            />
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/editTextLastName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Apellido"
-            android:inputType="textPersonName"
-            android:textColor="@color/black"
-            android:textColorHint="@color/grey2"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/editTextEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Correo Electrónico"
-            android:inputType="textEmailAddress"
-            android:textColorHint="@color/grey2"
-            android:textColor="@color/black"
-            />
+                <TextView
+                    android:id="@+id/etFormulario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Formulario de Contacto"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
-        <EditText
-            android:id="@+id/editTextDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="¿En que te podemos ayudar?"
-            android:inputType="textMultiLine"
-            android:minLines="3"
-            android:maxLines="5"
-            android:textColorHint="@color/grey2"
-            android:textColor="@color/black"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btn_enviar"
-            style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="183dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginBottom="192dp"
-            android:backgroundTint="@color/verde1"
-            android:text="@string/enviar"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/etNombreyApellido"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="20dp"
+                    android:text="Nombres y Apellidos"
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/etNombreApellido"
+                    android:layout_width="300dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="0dp"
+                    android:ems="10"
+                    android:hint="Ingrese datos"
+                    android:inputType="text"
+                    android:textColorHint="@color/grey3"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/etCorreoElectronico"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="24dp"
+                    android:text="Correo electronico"
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/etCorreo"
+                    android:layout_width="300dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="0dp"
+                    android:ems="10"
+                    android:hint="Ingrese datos"
+                    android:inputType="text"
+                    android:textColorHint="@color/grey3"
+                    android:textColor="@color/black" />
+
+                <Spinner
+                    android:id="@+id/spTipoUsuario"
+                    android:layout_width="320dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="10dp"
+                    android:textColorHint="@color/grey3"
+                    android:entries="@array/datos_spinner" />
+
+                <EditText
+                    android:id="@+id/etConsulta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:gravity="start|top"
+                    android:hint="Ingrese consulta"
+                    android:inputType="textMultiLine"
+                    android:lines="5"
+                    android:textColorHint="@color/grey3"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+                <Button
+                    android:id="@+id/btEnviar"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="279dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginEnd="50dp"
+                    android:backgroundTint="@color/verde1"
+                    android:text="@string/enviar"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
 
