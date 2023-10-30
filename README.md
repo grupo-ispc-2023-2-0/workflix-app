@@ -31,7 +31,7 @@ Es una aplicación nativa de Android realizada de manera grupal durante el 2do. 
 * [Testing](https://github.com/grupo-ispc-2023-2-0/workflix-app/wiki/Testing)
 * [Notas aclaratorias](https://github.com/grupo-ispc-2023-2-0/workflix-app/wiki/Notas-aclaratorias)
 * [Demo Sprint 1](https://github.com/grupo-ispc-2023-2-0/workflix-app/wiki/Video-Demo-Sprint-1)
-* [Demo Sprint 1](https://github.com/grupo-ispc-2023-2-0/workflix-app/wiki/Video-Demo-Sprint-2)
+* [Demo Sprint 2](https://github.com/grupo-ispc-2023-2-0/workflix-app/wiki/Video-Demo-Sprint-2)
 
 ### </div><br /><br /></b>
 ## [Repositorio 1er. Cuatrimestre 2023](https://github.com/grupo-ispc-2023/workflix)
