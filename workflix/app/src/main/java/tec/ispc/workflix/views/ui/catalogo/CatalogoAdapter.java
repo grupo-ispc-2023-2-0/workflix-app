@@ -67,6 +67,7 @@ public class CatalogoAdapter extends RecyclerView.Adapter<CatalogoAdapter.Catalo
         public ImageView imagenFoto;
         public Button botonConsultar;
 
+
         public CatalogoViewHolder(View itemView) {
             super(itemView);
             perfilServicio = itemView.findViewById(R.id.perfilServicio);
@@ -75,7 +76,9 @@ public class CatalogoAdapter extends RecyclerView.Adapter<CatalogoAdapter.Catalo
             imagenFoto = itemView.findViewById(R.id.imagenFoto);
             botonConsultar = itemView.findViewById(R.id.botonConsultar);
         }
+
     }
+
 
     private void abrirTarjetaAmpliadaActivity(int position) {
         Usuario usuario = listaDeUsuarios.get(position);

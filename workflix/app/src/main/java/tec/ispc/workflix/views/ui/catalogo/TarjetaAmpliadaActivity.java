@@ -13,7 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.squareup.picasso.Picasso;
 
 import tec.ispc.workflix.R;
-
+import tec.ispc.workflix.views.ui.perfil.Perfil;
+import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
 
 
 public class TarjetaAmpliadaActivity extends AppCompatActivity {
@@ -79,5 +80,9 @@ public class TarjetaAmpliadaActivity extends AppCompatActivity {
 
         }
 
+    }
+    public void volverCatalogo(View view) {
+        Intent intent =new Intent(TarjetaAmpliadaActivity.this, CatalogoActivity.class);
+        startActivity(intent);
     }
 }
