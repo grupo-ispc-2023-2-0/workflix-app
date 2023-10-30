@@ -2,6 +2,13 @@
 Es una aplicación nativa de Android realizada de manera grupal durante el 2do. Cuatrimestre, del 2do. año, para la Tecnicatura en Desarrollo Web y Aplicaciones Móviles del ISPC.
 
 
+# Presentación Grupal Cierre Sprint 2: 
+
+## https://youtu.be/gzRE61qzoVY
+
+# Demo Funcional Sprint 2:
+
+## https://youtu.be/_YPBTWhqj3Q
 
 ### </div><br /><br /></b>
 
