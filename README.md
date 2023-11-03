@@ -6,6 +6,11 @@ Es una aplicación nativa de Android realizada de manera grupal durante el 2do. 
 
 ## https://youtu.be/gzRE61qzoVY
 
+## APK-DEBUG en Repositorio y en GoogleDrive:
+
+## https://github.com/grupo-ispc-2023-2-0/workflix-app/blob/main/app-debug.apk
+## https://drive.google.com/drive/folders/1g4TEPc2jcmFtcYdLJoA7qdPNIoLn_YRR?usp=sharing 
+
 # Demo Funcional Sprint 2:
 
 ## https://youtu.be/_YPBTWhqj3Q
