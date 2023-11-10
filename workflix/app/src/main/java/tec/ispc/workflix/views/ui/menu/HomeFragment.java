@@ -20,7 +20,7 @@ import tec.ispc.workflix.views.ui.login.LoginActivity;
 
 
 public class HomeFragment extends Fragment {
-    private Button btn_home;
+    private Button btn_home_servicio;
 
     private Button btn_home2;
     @Override
@@ -39,10 +39,10 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        btn_home = view.findViewById(R.id.btn_home);
+        btn_home_servicio = view.findViewById(R.id.btn_home);
         mostrarElementosHome();
 
-        btn_home.setOnClickListener(new View.OnClickListener() {
+        btn_home_servicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -57,7 +57,7 @@ public class HomeFragment extends Fragment {
         SharedPreferences preferences = getActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE);
         boolean isAdmin = preferences.getBoolean("is_admin", /*Valor por defecto nulo:*/ false);
         if (preferences.contains("nombre") && isAdmin) {
-            btn_home.setVisibility(View.GONE);
+            btn_home_servicio.setVisibility(View.GONE);
         }
     }
 }
