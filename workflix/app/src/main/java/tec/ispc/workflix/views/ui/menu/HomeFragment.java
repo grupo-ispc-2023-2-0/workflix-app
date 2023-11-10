@@ -45,9 +45,15 @@ public class HomeFragment extends Fragment {
         btn_home_servicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent = new Intent(getActivity(), LoginActivity.class);
-                startActivity(intent);
+                SharedPreferences preferences = getActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE);
+                boolean isAdmin = preferences.getBoolean("is_admin", /*Valor por defecto nulo:*/ false);
+                if (preferences.contains("nombre") && !isAdmin) {
+                    Intent intent = new Intent(getActivity(), CatalogoActivity.class);
+                    startActivity(intent);
+                }else {
+                    Intent intent = new Intent(getActivity(), LoginActivity.class);
+                    startActivity(intent);
+                }
             }
         });
         return view;
