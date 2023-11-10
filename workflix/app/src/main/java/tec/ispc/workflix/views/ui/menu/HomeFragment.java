@@ -22,15 +22,15 @@ import tec.ispc.workflix.views.ui.login.LoginActivity;
 public class HomeFragment extends Fragment {
     private Button btn_home_servicio;
 
-    private Button btn_home2;
+    private Button btn_home_profesional;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        btn_home2 = view.findViewById(R.id.btn_home2);
-        btn_home2.setOnClickListener(new View.OnClickListener() {
+        btn_home_profesional = view.findViewById(R.id.btn_home2);
+        btn_home_profesional.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
