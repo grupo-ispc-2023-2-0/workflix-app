@@ -55,7 +55,8 @@ public class HomeFragment extends Fragment {
     }
     public void mostrarElementosHome() {
         SharedPreferences preferences = getActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE);
-        if (preferences.contains("nombre")) {
+        boolean isAdmin = preferences.getBoolean("is_admin", /*Valor por defecto nulo:*/ false);
+        if (preferences.contains("nombre") && isAdmin) {
             btn_home.setVisibility(View.GONE);
         }
     }
