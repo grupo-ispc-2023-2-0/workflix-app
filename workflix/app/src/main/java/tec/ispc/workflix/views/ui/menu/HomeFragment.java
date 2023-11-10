@@ -25,7 +25,6 @@ public class HomeFragment extends Fragment {
     private Button btn_home2;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-/*        mostrarElementosHome();*/
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
@@ -41,6 +40,8 @@ public class HomeFragment extends Fragment {
         });
 
         btn_home = view.findViewById(R.id.btn_home);
+        mostrarElementosHome();
+
         btn_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,10 +56,7 @@ public class HomeFragment extends Fragment {
     public void mostrarElementosHome() {
         SharedPreferences preferences = getActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE);
         if (preferences.contains("nombre")) {
-            btn_home.setVisibility(View.VISIBLE);
-        } else {
             btn_home.setVisibility(View.GONE);
-
         }
     }
 }
