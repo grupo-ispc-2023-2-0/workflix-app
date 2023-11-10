@@ -89,13 +89,7 @@
                     android:textColorHint="@color/grey3"
                     android:textColor="@color/black" />
 
-                <Spinner
-                    android:id="@+id/spTipoUsuario"
-                    android:layout_width="320dp"
-                    android:layout_height="48dp"
-                    android:layout_marginTop="10dp"
-                    android:textColorHint="@color/grey3"
-                    android:entries="@array/datos_spinner" />
+
 
                 <EditText
                     android:id="@+id/etConsulta"
