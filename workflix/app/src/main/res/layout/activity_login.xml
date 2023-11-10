@@ -73,7 +73,6 @@
 
                 <Button
                     android:id="@+id/sign_in_btn"
-                    style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_gravity="center_horizontal"
@@ -117,7 +116,7 @@
                     android:background="@color/black" />
 
                 <LinearLayout
-                    android:layout_width="313dp"
+                    android:layout_width="341dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="16dp"
@@ -170,7 +169,6 @@
 
                     <Button
                         android:id="@+id/irRegistro"
-                        style="@style/Widget.MaterialComponents.Button"
                         android:layout_width="wrap_content"
                         android:layout_height="48dp"
                         android:layout_gravity="center_horizontal"
